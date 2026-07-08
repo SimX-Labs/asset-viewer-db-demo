@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.top-bar {
+  background: var(--bg-header);
+  border-bottom: 2px solid var(--accent);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.app-title {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: var(--text-headline);
+  line-height: var(--leading-headline);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-main);
+}
+
+.status {
+  font-size: var(--text-caption);
+  color: var(--success);
+  &.error {
+    color: var(--error);
+  }
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-bar-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: var(--text-copy);
+  &:hover {
+    background: var(--bg-hover);
+  }
+}
+
+.settings-container {
+  position: relative;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  min-width: 220px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-title {
+  font-family: var(--font-headline-copy);
+  font-weight: 700;
+  font-size: var(--text-headline-copy);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.dropdown-item {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-copy);
+  &.muted {
+    color: var(--text-muted);
+  }
+}
+
+.dropdown-action {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 6px 0;
+  font-family: var(--font-body);
+  font-size: var(--text-copy);
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.dropdown-hint {
+  margin: 4px 0 0;
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 10px 0;
+}
+
+.setting-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: var(--text-copy);
+  input {
+    accent-color: var(--accent);
+  }
+}

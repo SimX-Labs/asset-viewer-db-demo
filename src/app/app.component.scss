@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+  pointer-events: none;
+
+  &.loaded {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

@@ -1,0 +1,178 @@
+<div class="header-row">
+  <div class="tag">{{ asset.AssetType || 'Unknown Type' }}</div>
+  <button class="pin-btn" [class.pinned]="isPinned()" (click)="togglePin()">
+    {{ isPinned() ? '★ Unpin' : '☆ Pin' }}
+  </button>
+</div>
+
+<h2 class="asset-title">{{ asset.AssetName }}</h2>
+
+<div class="id-row">
+  ID: {{ asset.AssetId }}
+  <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">⎘</button>
+  <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">🔗</button>
+  @if (missingAddress()) {
+    <span class="warning-badge" title="Missing Addressable ID">⚠ Missing Address</span>
+  }
+</div>
+
+@if (asset.Data?.['HasWebGLView'] === true) {
+  <button class="btn-webgl" (click)="openWebGL()">▶ View Asset</button>
+}
+
+<hr class="divider" />
+
+@if (asset.AssetType === 'Procedure' && asset.Data?.['StateMap']) {
+  <div class="special-section">
+    <div class="section-header">State Machine Visualization</div>
+    <app-procedure-graph [asset]="asset" />
+    @for (trans of globalTransitions(); track trans.ResultingStateId) {
+      <div class="global-trans-item">
+        To: {{ trans.ResultingStateId }}
+        (Triggers: {{ trans.ValidMessageTriggers?.join(', ') || 'None' }})
+      </div>
+    }
+  </div>
+}
+
+@if (asset.AssetType === 'EnvironmentScene' && asset.ToolHierarchyData) {
+  <div class="special-section">
+    <div class="section-header">Tool Visualization</div>
+    <app-tool-visualization [asset]="asset" />
+  </div>
+}
+
+@if (asset.AssetType === 'CharacterBase' && characterVariants().length) {
+  <div class="ref-section">
+    <div class="ref-title">Character Variants:</div>
+    <app-value-renderer [value]="characterVariants()" />
+  </div>
+}
+
+@if (asset.AssetType === 'InteractionType') {
+  @if (interactionSenders().length) {
+    <div class="ref-section">
+      <div class="ref-title">Used By (Tools):</div>
+      <app-value-renderer [value]="interactionSenders()" />
+    </div>
+  }
+  @if (interactionReceivers().length) {
+    <div class="ref-section">
+      <div class="ref-title">Received By (Procedures/Equipment):</div>
+      <app-value-renderer [value]="interactionReceivers()" />
+    </div>
+  }
+}
+
+<table class="prop-table">
+  @for (key of dataKeys(); track key) {
+    @if (isMediaKey(key) && mediaUrl(key)) {
+      <tr>
+        <td colspan="2">
+          <div class="media-preview">
+            @if (key === 'AudioAddress' || (key === 'Address' && (asset.AssetType === 'SoundEffect' || asset.AssetType === 'BackgroundAudio'))) {
+              <audio controls [src]="mediaUrl(key)!"></audio>
+            } @else {
+              <img [src]="mediaUrl(key)!" alt="" (error)="$any($event.target).style.display='none'" />
+            }
+          </div>
+        </td>
+      </tr>
+    }
+    @if (isDocumentation(key, asset.Data![key])) {
+      <tr>
+        <td colspan="2">
+          <div class="doc-section">
+            <div class="doc-title">Documentation</div>
+            @for (link of docLinks(asset.Data![key]); track link.url) {
+              <a [href]="link.url" target="_blank" class="doc-link">{{ link.label }}</a>
+            }
+          </div>
+        </td>
+      </tr>
+    } @else if (!isMediaKey(key)) {
+      <tr>
+        <td
+          class="prop-key"
+          [class.copyable]="isPrimitive(asset.Data![key])"
+          [title]="isPrimitive(asset.Data![key]) ? 'Click to copy value' : ''"
+          (click)="isPrimitive(asset.Data![key]) && copyPropertyValue(asset.Data![key])"
+        >
+          {{ key }}
+        </td>
+        <td class="prop-val">
+          <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
+        </td>
+      </tr>
+    }
+  }
+</table>
+
+@if (metadataObjects().length) {
+  <div class="meta-accordion">
+    <button class="accordion-header" (click)="toggleMetaAccordion('main')">
+      <span>Metadata Objects ({{ metadataObjects().length }})</span>
+      <span class="accordion-arrow" [class.collapsed]="!expandedMeta()['main']">▼</span>
+    </button>
+    @if (expandedMeta()['main'] !== false) {
+      <div class="accordion-content show">
+        <input
+          type="text"
+          class="meta-search"
+          placeholder="Search keys..."
+          [ngModel]="metaSearch()"
+          (ngModelChange)="metaSearch.set($event)"
+        />
+        @for (item of filteredMetadata(); track $index; let i = $index) {
+          <div class="meta-item">
+            <button class="meta-item-header" (click)="toggleMetaItem('item-' + i)">
+              <div class="meta-title-row">
+                <span class="meta-tag" [class.trigger]="isTrigger(item)" [class.value]="!isTrigger(item)">
+                  {{ isTrigger(item) ? 'Trigger' : 'Value' }}
+                </span>
+                <span class="meta-key">{{ item.Key || 'Unnamed' }}</span>
+              </div>
+              <span class="accordion-arrow" [class.collapsed]="!expandedMetaItems()['item-' + i]">▼</span>
+            </button>
+            @if (expandedMetaItems()['item-' + i] !== false) {
+              <div class="meta-item-content">
+                @if (!isTrigger(item)) {
+                  <div class="meta-default">
+                    <span class="label">Default Value:</span>
+                    <span class="meta-input-display">{{ item.Value }}</span>
+                  </div>
+                  @if (item.Options?.length) {
+                    <button class="meta-options-header" (click)="toggleOptions('opt-' + i)">
+                      Options ({{ item.Options!.length }}) ▼
+                    </button>
+                    @if (expandedOptions()['opt-' + i]) {
+                      <div class="meta-options-list">
+                        @for (opt of item.Options!; track opt) {
+                          <div class="meta-option-item" [class.active-option]="opt === item.Value">{{ opt }}</div>
+                        }
+                      </div>
+                    }
+                  }
+                }
+                @if (item.InteractionSnippet) {
+                  <div class="snippet-box">
+                    <span class="snippet-label">Interaction Snippet</span>
+                    <button class="snippet-copy" (click)="copy(item.InteractionSnippet!)">Copy</button>
+                    <pre class="snippet-code">{{ item.InteractionSnippet }}</pre>
+                  </div>
+                }
+                @if (item.SetMetadataSnippet) {
+                  <div class="snippet-box">
+                    <span class="snippet-label">Set Metadata Snippet</span>
+                    <button class="snippet-copy" (click)="copy(item.SetMetadataSnippet!)">Copy</button>
+                    <pre class="snippet-code">{{ item.SetMetadataSnippet }}</pre>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+}

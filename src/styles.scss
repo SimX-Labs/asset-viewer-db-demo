@@ -1,0 +1,219 @@
+/* SimX brand typography — pt converted to px (×1.333) */
+:root {
+  --font-body: 'Lato', sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+  --font-big-headline: 'Lato', sans-serif;
+  --font-headline: 'Lato', sans-serif;
+  --font-headline-copy: 'Lato', sans-serif;
+
+  --text-big-headline: 40px;
+  --leading-big-headline: 45px;
+  --text-headline: 27px;
+  --leading-headline: 27px;
+  --text-headline-copy: 19px;
+  --leading-headline-copy: 21px;
+  --text-copy: 16px;
+  --leading-copy: 19px;
+  --text-caption: 12px;
+  --leading-caption: 15px;
+
+  /* Brand palette */
+  --midnight-scrub: #091d3c;
+  --vital-red: #e31f2f;
+  --clinical-indigo: #0f2d5b;
+  --procedure-blue: #007cc0;
+  --simx-purple: #463858;
+  --sterile-white: #ffffff;
+  --instrument-grey: #f0f2f4;
+  --black-dusk: #18171d;
+}
+
+/* Light theme (default resolved) */
+:root,
+:root[data-theme='light'] {
+  --bg-main: var(--sterile-white);
+  --bg-panel: var(--instrument-grey);
+  --bg-pinned: #e8eaed;
+  --bg-header: var(--sterile-white);
+  --bg-input: var(--sterile-white);
+  --bg-hover: #e2e6ea;
+  --bg-graph: #f8f9fa;
+
+  --text-main: var(--midnight-scrub);
+  --text-muted: #5a6472;
+
+  --border: #d5dae0;
+  --accent: var(--procedure-blue);
+  --accent-hover: #006aa3;
+  --accent-secondary: var(--clinical-indigo);
+  --accent-warm: var(--vital-red);
+  --link: var(--procedure-blue);
+  --link-invalid: #b45309;
+  --success: #15803d;
+  --error: var(--vital-red);
+
+  --tab-inactive-bg: #e8eaed;
+  --tab-active-bg: var(--sterile-white);
+}
+
+/* Dark theme */
+:root[data-theme='dark'] {
+  --bg-main: var(--black-dusk);
+  --bg-panel: var(--midnight-scrub);
+  --bg-pinned: #0d1628;
+  --bg-header: var(--clinical-indigo);
+  --bg-input: #0f1f3d;
+  --bg-hover: #152a4f;
+  --bg-graph: #0a1428;
+
+  --text-main: var(--sterile-white);
+  --text-muted: #9aa8bc;
+
+  --border: #1e3a5f;
+  --accent: var(--procedure-blue);
+  --accent-hover: #0096e0;
+  --accent-secondary: var(--simx-purple);
+  --accent-warm: var(--vital-red);
+  --link: #5cb8f0;
+  --link-invalid: #f59e0b;
+  --success: #4ade80;
+  --error: #f87171;
+
+  --tab-inactive-bg: #0f2344;
+  --tab-active-bg: var(--black-dusk);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font-body);
+  font-size: var(--text-copy);
+  line-height: var(--leading-copy);
+  background: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shared link/value renderer styles */
+.link-group-wrapper {
+  margin: 4px 0;
+}
+
+.link-group-search {
+  width: 100%;
+  padding: 4px 8px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  font-size: var(--text-caption);
+}
+
+.link-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.link-group-item {
+  padding: 6px 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.link-name {
+  color: var(--link);
+  font-size: var(--text-copy);
+  &.link-invalid {
+    color: var(--link-invalid);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+}
+
+.link-meta,
+.assoc-meta {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.assoc-link {
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.clean-empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.clean-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.clean-item {
+  padding: 4px 8px;
+  background: var(--bg-panel);
+  border-radius: 3px;
+  font-size: var(--text-caption);
+}
+
+.clean-object .clean-row {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+  font-size: var(--text-caption);
+}
+
+.clean-key {
+  color: var(--accent);
+  min-width: 80px;
+}
+
+.customization-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.customization-cell {
+  padding: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: var(--text-caption);
+}
+
+.custom-key {
+  color: var(--text-muted);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}

@@ -1,0 +1,57 @@
+:host {
+  display: flex;
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.pinned-panel {
+  width: 220px;
+  background: var(--bg-pinned);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.pinned-header {
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  background: var(--bg-pinned);
+}
+
+.pinned-header {
+  padding: 10px 14px;
+  font-family: var(--font-headline-copy);
+  font-weight: 700;
+  font-size: var(--text-headline-copy);
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.pinned-item {
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: var(--text-copy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  &:hover {
+    background: var(--bg-hover);
+  }
+}
+
+.unpin-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 4px;
+  &:hover {
+    color: var(--error);
+  }
+}
