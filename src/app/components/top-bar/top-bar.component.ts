@@ -9,22 +9,26 @@ import { ThemeService } from '../../services/theme.service';
   imports: [CommonModule],
   template: `
     <header class="top-bar">
-      <div class="top-bar-left">
-        <h1 class="app-title">SimX DBO Explorer</h1>
+      <div class="top-bar-brand">
+        <div class="brand-logo">
+          <span class="brand-sim">SIM</span><span class="brand-x">X</span>
+        </div>
+        <div class="brand-divider"></div>
+        <h1 class="app-title">DBO Explorer</h1>
         <span class="status" [class.error]="state.statusError()">{{ state.statusMessage() }}</span>
       </div>
-      <div class="top-bar-right">
-        <button class="top-bar-btn theme-btn" (click)="theme.toggle()" [title]="theme.themeLabel()">
+      <div class="top-bar-actions">
+        <button class="header-btn" (click)="theme.toggle()" [title]="theme.themeLabel()">
           @if (theme.resolvedTheme() === 'dark') {
-            <span>☀ Light</span>
+            <span class="btn-icon">☀</span><span class="btn-label">Light</span>
           } @else {
-            <span>☾ Dark</span>
+            <span class="btn-icon">☾</span><span class="btn-label">Dark</span>
           }
         </button>
-        <div class="settings-container">
-          <button class="top-bar-btn" (click)="showFiles.set(!showFiles())">ℹ</button>
+        <div class="dropdown-wrap">
+          <button class="header-btn icon-only" (click)="showFiles.set(!showFiles())" title="Loaded files">ℹ</button>
           @if (showFiles()) {
-            <div class="settings-dropdown show">
+            <div class="dropdown-panel">
               <div class="dropdown-title">Loaded Files</div>
               @for (name of state.loadedFileNames(); track name) {
                 <div class="dropdown-item">{{ name }}</div>
@@ -34,12 +38,14 @@ import { ThemeService } from '../../services/theme.service';
             </div>
           }
         </div>
-        <div class="settings-container">
-          <button class="top-bar-btn" (click)="showSettings.set(!showSettings())">⚙ Settings</button>
+        <div class="dropdown-wrap">
+          <button class="header-btn" (click)="showSettings.set(!showSettings())">
+            <span class="btn-icon">⚙</span><span class="btn-label">Settings</span>
+          </button>
           @if (showSettings()) {
-            <div class="settings-dropdown show">
+            <div class="dropdown-panel dropdown-panel--wide">
               <div class="dropdown-title">File</div>
-              <button class="dropdown-action" (click)="fileInput.click()">📂 Load DBO File(s)...</button>
+              <button class="dropdown-action" (click)="fileInput.click()">Load DBO File(s)...</button>
               <p class="dropdown-hint">Hold Shift to add files without clearing existing data.</p>
               <hr />
               <div class="dropdown-title">Theme</div>

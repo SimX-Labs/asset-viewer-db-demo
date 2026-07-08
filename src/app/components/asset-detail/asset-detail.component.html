@@ -16,13 +16,13 @@
   }
 </div>
 
-@if (asset.Data?.['HasWebGLView'] === true) {
+@if (asset.Data['HasWebGLView'] === true) {
   <button class="btn-webgl" (click)="openWebGL()">▶ View Asset</button>
 }
 
 <hr class="divider" />
 
-@if (asset.AssetType === 'Procedure' && asset.Data?.['StateMap']) {
+@if (asset.AssetType === 'Procedure' && asset.Data['StateMap']) {
   <div class="special-section">
     <div class="section-header">State Machine Visualization</div>
     <app-procedure-graph [asset]="asset" />

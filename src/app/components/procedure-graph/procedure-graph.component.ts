@@ -13,7 +13,8 @@ import { wrapText } from '../../utils/property.util';
         width: 100%;
         height: 500px;
         background: var(--bg-graph);
-        border-radius: 4px;
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
       }
     `,
   ],
@@ -52,10 +53,10 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
     const nodes = new DataSet<any>();
     const edges = new DataSet<any>();
 
-    const colorStandard = { background: '#e4e4e7', border: '#a1a1aa' };
-    const colorFailure = { background: '#fca5a5', border: '#ef4444' };
-    const colorSuccess = { background: '#86efac', border: '#22c55e' };
-    const colorStart = { background: '#60a5fa', border: '#3b82f6' };
+    const colorStandard = { background: '#dce0e5', border: '#9aa8bc' };
+    const colorFailure = { background: '#fca5a5', border: '#e31f2f' };
+    const colorSuccess = { background: '#86efac', border: '#15803d' };
+    const colorStart = { background: '#007cc0', border: '#0f2d5b' };
 
     stateMap.States.forEach((state, index) => {
       let color = colorStandard;
@@ -68,7 +69,7 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
         label: state.Id.replace('state_', ''),
         color,
         shape: 'box',
-        font: { color: '#18181b', size: 14, face: 'Lato', strokeWidth: 0 },
+        font: { color: index === 0 ? '#ffffff' : '#091d3c', size: 14, face: 'Lato', strokeWidth: 0 },
         margin: 10,
         shadow: { enabled: true, color: 'rgba(0,0,0,0.2)', size: 5, x: 2, y: 2 },
       });
