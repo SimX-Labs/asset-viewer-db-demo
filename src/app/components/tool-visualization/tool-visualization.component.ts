@@ -21,6 +21,23 @@ interface VisibleToolNode {
   level: number;
 }
 
+/** vis-network dot radius for individual tool circles. */
+const TOOL_NODE_SIZE = 7;
+/** Default tool node colors. */
+const TOOL_COLOR = { background: '#007cc0', border: '#0f2d5b' };
+const TOOL_CHILD_COLOR = { background: '#4daafc', border: '#007cc0' };
+const TOOL_HOVER_COLOR = { background: '#4daafc', border: '#ffffff' };
+const TOOL_SELECTED_COLOR = { background: '#86efac', border: '#15803d' };
+const CLUSTER_COLOR = { background: '#005a8c', border: '#0f2d5b' };
+/** vis-network dot radius for spatial cluster circles. */
+const CLUSTER_NODE_SIZE = 14;
+
+interface NodeBaseStyle {
+  background: string;
+  border: string;
+  size: number;
+}
+
 @Component({
   selector: 'app-tool-visualization',
   standalone: true,
@@ -41,8 +58,11 @@ interface VisibleToolNode {
               <div
                 class="tool-node-item"
                 [class.active]="selectedToolId() === node.tool.ToolId"
+                [class.list-hovered]="listHoveredToolId() === node.tool.ToolId"
                 [style.padding-left.px]="node.level * 16 + 8"
                 (click)="onListItemClick($event, node.tool)"
+                (mouseenter)="onListItemHover(node.tool.ToolId)"
+                (mouseleave)="onListItemLeave()"
               >
                 @if (node.tool.Children?.length) {
                   <button
@@ -69,7 +89,20 @@ interface VisibleToolNode {
         @if (drillRootId()) {
           <button class="tool-back-button" (click)="backToRoot()">← Back to Root Tools</button>
         }
-        <div #graphContainer class="tool-graph"></div>
+        <div class="tool-graph-wrapper">
+          <div class="tool-hover-panel">
+            @if (hoveredToolIds().length) {
+              <ul class="tool-hover-list">
+                @for (toolId of hoveredToolIds(); track toolId) {
+                  <li>{{ toolId }}</li>
+                }
+              </ul>
+            } @else {
+              <span class="tool-hover-hint">Hover a tool</span>
+            }
+          </div>
+          <div #graphContainer class="tool-graph"></div>
+        </div>
       </div>
     </div>
   `,
@@ -125,7 +158,8 @@ interface VisibleToolNode {
         border-left: 3px solid transparent;
         transition: background 0.15s, border-color 0.15s;
       }
-      .tool-node-item:hover {
+      .tool-node-item:hover,
+      .tool-node-item.list-hovered {
         background: var(--bg-hover);
       }
       .tool-node-item.active {
@@ -186,6 +220,46 @@ interface VisibleToolNode {
         text-transform: uppercase;
         letter-spacing: 0.03em;
       }
+      .tool-graph-wrapper {
+        position: relative;
+        flex: 1;
+        min-height: 360px;
+      }
+      .tool-hover-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 180px;
+        max-height: 100%;
+        padding: var(--space-2);
+        box-sizing: border-box;
+        background: rgba(9, 29, 60, 0.92);
+        border-right: 1px solid var(--border-light);
+        border-radius: var(--radius-md) 0 0 var(--radius-md);
+        overflow-y: auto;
+        pointer-events: none;
+      }
+      .tool-hover-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .tool-hover-list li {
+        font-family: var(--font-mono);
+        font-size: var(--text-caption);
+        color: var(--sterile-white);
+        word-break: break-all;
+        line-height: 1.35;
+      }
+      .tool-hover-hint {
+        font-size: var(--text-caption);
+        color: var(--text-muted);
+        font-style: italic;
+      }
       .tool-graph {
         width: 100%;
         height: 360px;
@@ -202,19 +276,30 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
 
   private readonly state = inject(AppStateService);
   private network: Network | null = null;
+  private nodesDataSet: DataSet<any> | null = null;
   private zoomDebounceTimer: ReturnType<typeof setTimeout> | null = null;
   private currentLevelNodeIds: string[] = [];
   private spatialClusterIds: string[] = [];
+  private basePositions = new Map<string, { x: number; y: number }>();
+  private nodeBaseStyles = new Map<string, NodeBaseStyle>();
+  private hoveredNodeId: string | null = null;
+  private graphHoveredNodeId: string | null = null;
   private graphReady = false;
 
-  private readonly clusterRadiusPx = 70;
-  private readonly clusterOpenScale = 1.2;
+  /** Minimum screen-space gap before tool circles merge into a cluster. */
+  private readonly clusterGapPx = 4;
+  /** Zoom scale at/above which clusters split into individual tool circles. */
+  private readonly clusterSplitScale = 0.85;
+  /** Model-space tolerance for tools sharing the same scene position. */
+  private readonly samePositionEpsilon = 0.5;
 
   searchText = '';
   readonly selectedToolId = signal<string | null>(null);
   readonly drillRootId = signal<string | null>(null);
   readonly collapsedIds = signal(new Set<string>());
   readonly visibleNodes = signal<VisibleToolNode[]>([]);
+  readonly hoveredToolIds = signal<string[]>([]);
+  readonly listHoveredToolId = signal<string | null>(null);
 
   ngAfterViewInit(): void {
     this.initializeCollapsedState();
@@ -258,6 +343,16 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     this.highlightTool(tool.ToolId);
   }
 
+  onListItemHover(toolId: string): void {
+    this.listHoveredToolId.set(toolId);
+    this.syncNodeHighlights();
+  }
+
+  onListItemLeave(): void {
+    this.listHoveredToolId.set(null);
+    this.syncNodeHighlights();
+  }
+
   toggleNode(event: Event, toolId: string): void {
     event.stopPropagation();
     const set = new Set(this.collapsedIds());
@@ -289,6 +384,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
       animation: { duration: 500, easingFunction: 'easeInOutQuad' },
     });
     this.network.selectNodes([focusId]);
+    this.syncNodeHighlights();
   }
 
   backToRoot(): void {
@@ -359,11 +455,17 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
 
     this.network?.destroy();
     this.network = null;
+    this.nodesDataSet = null;
     this.graphReady = false;
     this.spatialClusterIds = [];
+    this.basePositions.clear();
+    this.nodeBaseStyles.clear();
+    this.hoveredNodeId = null;
+    this.graphHoveredNodeId = null;
+    this.hoveredToolIds.set([]);
+    this.listHoveredToolId.set(null);
 
     const nodes = new DataSet<any>();
-    const edges = new DataSet<any>();
     const positionScale = 50;
     const drillId = this.drillRootId();
     let levelTools: ToolNode[] = hierarchy.Roots;
@@ -385,22 +487,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
       if (parent) {
         const parentX = parent.Position ? parent.Position.x * positionScale : 0;
         const parentY = parent.Position ? parent.Position.z * positionScale : 0;
-        nodes.add({
-          id: parent.ToolId,
-          label: this.formatNodeLabel(parent),
-          title: `ID: ${parent.ToolId}`,
-          shape: 'dot',
-          size: 26,
-          x: parentX,
-          y: parentY,
-          color: {
-            background: '#007cc0',
-            border: '#0f2d5b',
-            highlight: { background: '#e31f2f', border: '#c41a28' },
-          },
-          font: { color: '#ffffff', size: 12, strokeWidth: 0 },
-          shadow: true,
-        });
+        nodes.add(this.createToolNodeOptions(parent, false, parentX, parentY, true));
       }
     }
 
@@ -409,63 +496,61 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     for (const tool of levelTools) {
       const x = tool.Position ? tool.Position.x * positionScale : undefined;
       const y = tool.Position ? tool.Position.z * positionScale : undefined;
-      const childCount = tool.Children?.length ?? 0;
 
-      nodes.add({
-        id: tool.ToolId,
-        label: this.formatNodeLabel(tool),
-        title: `ID: ${tool.ToolId}${childCount ? `\nChildren: ${childCount}` : ''}`,
-        shape: 'dot',
-        size: childCount > 0 ? 22 : 16,
-        x,
-        y,
-        color: {
-          background: parentId ? '#4daafc' : '#007cc0',
-          border: parentId ? '#007cc0' : '#0f2d5b',
-          highlight: { background: '#e31f2f', border: '#c41a28' },
-        },
-        font: { color: '#ffffff', size: 12, strokeWidth: 0 },
-        shadow: true,
-      });
-
-      if (parentId) {
-        edges.add({
-          from: parentId,
-          to: tool.ToolId,
-          arrows: 'to',
-          color: { color: '#858585', highlight: '#ffffff' },
-          width: 1,
-          smooth: { type: 'continuous' },
-        });
+      if (x !== undefined && y !== undefined) {
+        this.basePositions.set(tool.ToolId, { x, y });
       }
+
+      nodes.add(this.createToolNodeOptions(tool, !!parentId, x, y));
     }
+
+    this.nodesDataSet = nodes;
 
     this.network = new Network(
       this.graphContainer.nativeElement,
-      { nodes, edges },
+      { nodes },
       {
         physics: { enabled: false },
         interaction: {
           hover: true,
           selectNodes: true,
-          dragNodes: true,
+          dragNodes: false,
           zoomView: true,
           dragView: true,
         },
         nodes: {
           borderWidth: 2,
+          shape: 'dot',
+          size: TOOL_NODE_SIZE,
+          font: { size: 0, color: 'transparent' },
           scaling: {
-            min: 12,
-            max: 36,
-            label: { enabled: true, min: 10, max: 18 },
+            min: TOOL_NODE_SIZE,
+            max: TOOL_NODE_SIZE,
+            label: { enabled: false },
           },
         },
       }
     );
 
+    this.network.on('hoverNode', (params) => {
+      const nodeId = String(params.node);
+      this.graphHoveredNodeId = nodeId;
+      this.bringNodeToFront(nodeId);
+      this.updateHoveredTools(nodeId);
+      this.syncNodeHighlights();
+    });
+
+    this.network.on('blurNode', () => {
+      this.hoveredNodeId = null;
+      this.graphHoveredNodeId = null;
+      this.hoveredToolIds.set([]);
+      this.syncNodeHighlights();
+    });
+
     this.network.once('afterDrawing', () => {
       this.graphReady = true;
       this.applySpatialClustering();
+      this.syncNodeHighlights();
       this.network?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
     });
 
@@ -482,6 +567,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
       }
 
       this.selectedToolId.set(clickedId);
+      this.syncNodeHighlights();
       if (clickedId === drillId) return;
 
       const tool = this.state.allToolsMap()[clickedId] ?? this.findTool(clickedId, hierarchy.Roots);
@@ -491,10 +577,117 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     });
   }
 
-  private formatNodeLabel(tool: ToolNode): string {
-    const shortName = tool.ToolId.split('.').pop() ?? tool.ToolId;
+  private createToolNodeOptions(
+    tool: ToolNode,
+    isDrillChild: boolean,
+    x?: number,
+    y?: number,
+    isParentHub = false
+  ): Record<string, unknown> {
     const childCount = tool.Children?.length ?? 0;
-    return childCount > 0 ? `${shortName}\n(${childCount})` : shortName;
+    const baseColor = isParentHub ? TOOL_COLOR : isDrillChild ? TOOL_CHILD_COLOR : TOOL_COLOR;
+    const size = isParentHub ? TOOL_NODE_SIZE + 2 : TOOL_NODE_SIZE;
+
+    this.nodeBaseStyles.set(tool.ToolId, {
+      background: baseColor.background,
+      border: baseColor.border,
+      size,
+    });
+
+    return {
+      id: tool.ToolId,
+      label: '',
+      title: `ID: ${tool.ToolId}${childCount ? `\nChildren: ${childCount}` : ''}`,
+      shape: 'dot',
+      x,
+      y,
+      fixed: { x: true, y: true },
+      size,
+      borderWidth: 2,
+      color: this.buildNodeColor(baseColor.background, baseColor.border),
+      font: { size: 0, color: 'transparent' },
+      shadow: { enabled: true, color: 'rgba(0,0,0,0.25)', size: 3, x: 1, y: 1 },
+    };
+  }
+
+  private buildNodeColor(background: string, border: string) {
+    return {
+      background,
+      border,
+      highlight: { background: TOOL_HOVER_COLOR.background, border: TOOL_HOVER_COLOR.border },
+      hover: { background: TOOL_HOVER_COLOR.background, border: TOOL_HOVER_COLOR.border },
+    };
+  }
+
+  private syncNodeHighlights(): void {
+    if (!this.nodesDataSet || !this.network) return;
+
+    const selectedId = this.selectedToolId();
+    const listHoveredId = this.listHoveredToolId();
+    const graphHoveredId = this.graphHoveredNodeId;
+
+    for (const id of this.nodesDataSet.getIds().map(String)) {
+      const base = this.nodeBaseStyles.get(id) ?? {
+        background: CLUSTER_COLOR.background,
+        border: CLUSTER_COLOR.border,
+        size: CLUSTER_NODE_SIZE,
+      };
+      const containedIds = this.network.isCluster(id)
+        ? this.network.getNodesInCluster(id).map(String)
+        : [id];
+
+      const isSelected = !!selectedId && containedIds.includes(selectedId);
+      const isListHovered = !!listHoveredId && containedIds.includes(listHoveredId);
+      const isGraphHovered = graphHoveredId === id;
+      const isHovered = !isSelected && (isListHovered || isGraphHovered);
+
+      let background = base.background;
+      let border = base.border;
+      let size = base.size;
+      let borderWidth = 2;
+
+      if (isSelected) {
+        background = TOOL_SELECTED_COLOR.background;
+        border = TOOL_SELECTED_COLOR.border;
+        size = base.size + 2;
+        borderWidth = 3;
+      } else if (isHovered) {
+        background = TOOL_HOVER_COLOR.background;
+        border = TOOL_HOVER_COLOR.border;
+        size = base.size + 1;
+        borderWidth = 3;
+      }
+
+      this.nodesDataSet.update({
+        id,
+        size,
+        borderWidth,
+        color: this.buildNodeColor(background, border),
+      });
+    }
+  }
+
+  private updateHoveredTools(nodeId: string): void {
+    if (!this.network) return;
+
+    if (this.network.isCluster(nodeId)) {
+      this.hoveredToolIds.set(this.network.getNodesInCluster(nodeId).map(String).sort());
+      return;
+    }
+
+    const base = this.basePositions.get(nodeId);
+    if (!base) {
+      this.hoveredToolIds.set([nodeId]);
+      return;
+    }
+
+    const overlapping = this.currentLevelNodeIds.filter((id) => {
+      const pos = this.basePositions.get(id);
+      if (!pos) return id === nodeId;
+      return Math.hypot(pos.x - base.x, pos.y - base.y) <= this.samePositionEpsilon;
+    });
+
+    this.hoveredToolIds.set(overlapping.sort());
   }
 
   private findTool(toolId: string, tools: ToolNode[]): ToolNode | null {
@@ -535,6 +728,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
         animation: { duration: 500, easingFunction: 'easeInOutQuad' },
       });
       this.network.selectNodes([toolId]);
+      this.syncNodeHighlights();
     }, 550);
   }
 
@@ -595,34 +789,13 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     if (!this.network || !this.graphReady || this.currentLevelNodeIds.length < 2) return;
 
     this.releaseSpatialClusters();
+    this.resetNodePositions();
 
     const scale = this.network.getScale();
-    const threshold = this.clusterRadiusPx / scale;
-    const positions = this.network.getPositions(this.currentLevelNodeIds);
-    const ids = this.currentLevelNodeIds.filter((id) => positions[id]);
-    const visited = new Set<string>();
-    const groups: string[][] = [];
+    if (scale >= this.clusterSplitScale) return;
 
-    for (const id of ids) {
-      if (visited.has(id)) continue;
-      const group = [id];
-      visited.add(id);
-      const posA = positions[id];
-
-      for (const otherId of ids) {
-        if (visited.has(otherId)) continue;
-        const posB = positions[otherId];
-        const distance = Math.hypot(posA.x - posB.x, posA.y - posB.y);
-        if (distance <= threshold) {
-          group.push(otherId);
-          visited.add(otherId);
-        }
-      }
-
-      if (group.length > 1) {
-        groups.push(group);
-      }
-    }
+    const positions = this.getBasePositionsForNodes(this.currentLevelNodeIds);
+    const groups = this.groupNodesByScreenOverlap(positions, scale, this.clusterGapPx);
 
     for (const group of groups) {
       this.network.cluster({
@@ -630,14 +803,15 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
         clusterNodeProperties: {
           label: String(group.length),
           shape: 'dot',
-          size: 28,
-          font: { color: '#ffffff', size: 18, strokeWidth: 0 },
+          size: CLUSTER_NODE_SIZE,
+          font: { color: '#ffffff', size: 12, align: 'center', strokeWidth: 0 },
           color: {
             background: '#005a8c',
             border: '#0f2d5b',
-            highlight: { background: '#e31f2f', border: '#c41a28' },
+            highlight: { background: '#007cc0', border: '#ffffff' },
+            hover: { background: '#007cc0', border: '#ffffff' },
           },
-          shadow: true,
+          shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 5, x: 1, y: 2 },
         },
         processProperties: (clusterOptions, childNodes) => {
           clusterOptions.label = String(childNodes.length);
@@ -646,15 +820,118 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
       });
 
       const clusterId = this.network.findNode(group[0]).find((id) => this.network!.isCluster(id));
-      if (clusterId !== undefined) this.spatialClusterIds.push(String(clusterId));
+      if (clusterId !== undefined) {
+        const clusterKey = String(clusterId);
+        this.spatialClusterIds.push(clusterKey);
+        this.nodeBaseStyles.set(clusterKey, {
+          background: CLUSTER_COLOR.background,
+          border: CLUSTER_COLOR.border,
+          size: CLUSTER_NODE_SIZE,
+        });
+      }
     }
+
+    this.syncNodeHighlights();
+  }
+
+  private getBasePositionsForNodes(nodeIds: string[]): Record<string, { x: number; y: number }> {
+    const positions: Record<string, { x: number; y: number }> = {};
+    for (const id of nodeIds) {
+      const base = this.basePositions.get(id);
+      if (base) positions[id] = base;
+    }
+    return positions;
+  }
+
+  private groupNodesByScreenOverlap(
+    positions: Record<string, { x: number; y: number }>,
+    scale: number,
+    gapPx: number = this.clusterGapPx
+  ): string[][] {
+    const ids = Object.keys(positions);
+    const neighbors = new Map<string, string[]>();
+    const remaining = new Set(ids);
+
+    for (let i = 0; i < ids.length; i++) {
+      const posA = positions[ids[i]];
+      for (let j = i + 1; j < ids.length; j++) {
+        const posB = positions[ids[j]];
+        if (this.nodesOverlapOnScreen(ids[i], posA, ids[j], posB, scale, gapPx)) {
+          if (!neighbors.has(ids[i])) neighbors.set(ids[i], []);
+          if (!neighbors.has(ids[j])) neighbors.set(ids[j], []);
+          neighbors.get(ids[i])!.push(ids[j]);
+          neighbors.get(ids[j])!.push(ids[i]);
+        }
+      }
+    }
+
+    const groups: string[][] = [];
+    while (remaining.size > 0) {
+      let seed: string | null = null;
+      let bestCount = -1;
+
+      for (const id of remaining) {
+        const count = (neighbors.get(id) ?? []).filter((otherId) => remaining.has(otherId)).length;
+        if (count > bestCount) {
+          seed = id;
+          bestCount = count;
+        }
+      }
+
+      if (!seed || bestCount <= 0) break;
+
+      const group = [
+        seed,
+        ...(neighbors.get(seed) ?? []).filter((otherId) => remaining.has(otherId)),
+      ];
+      group.forEach((id) => remaining.delete(id));
+      groups.push(group);
+    }
+
+    return groups;
+  }
+
+  private nodesOverlapOnScreen(
+    idA: string,
+    posA: { x: number; y: number },
+    idB: string,
+    posB: { x: number; y: number },
+    scale: number,
+    gapPx: number
+  ): boolean {
+    const radiusA = TOOL_NODE_SIZE;
+    const radiusB = TOOL_NODE_SIZE;
+    const screenDist = Math.hypot(posA.x - posB.x, posA.y - posB.y) * scale;
+    const minDist = radiusA + radiusB + gapPx;
+    return screenDist < minDist;
+  }
+
+  private resetNodePositions(): void {
+    if (!this.nodesDataSet) return;
+    for (const id of this.currentLevelNodeIds) {
+      const base = this.basePositions.get(id);
+      if (base) {
+        this.nodesDataSet.update({ id, x: base.x, y: base.y });
+      }
+    }
+  }
+
+  private bringNodeToFront(nodeId: string): void {
+    if (!this.nodesDataSet || !this.network || this.hoveredNodeId === nodeId) return;
+
+    const node = this.nodesDataSet.get(nodeId);
+    if (!node) return;
+
+    this.hoveredNodeId = nodeId;
+    this.nodesDataSet.remove(nodeId);
+    this.nodesDataSet.add(node);
+    this.network.redraw();
   }
 
   private onClusterClick(clusterId: string): void {
     if (!this.network) return;
 
-    const currentScale = this.network.getScale();
-    const targetScale = Math.min(Math.max(currentScale * 1.8, this.clusterOpenScale), 4);
+    const targetScale = Math.min(Math.max(this.network.getScale() * 1.6, this.clusterSplitScale), 5);
 
     this.network.focus(clusterId, {
       scale: targetScale,
@@ -663,42 +940,11 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
 
     setTimeout(() => {
       if (!this.network?.isCluster(clusterId)) return;
-
-      const scale = this.network.getScale();
-      const positions = this.network.getPositions([clusterId]);
-      const clusterPos = positions[clusterId];
-      if (!clusterPos) return;
-
-      const contained = this.network.getNodesInCluster(clusterId);
-      const childPositions = this.network.getPositions(contained);
-      let maxDistance = 0;
-      for (const childId of contained) {
-        const childPos = childPositions[childId];
-        if (!childPos) continue;
-        maxDistance = Math.max(
-          maxDistance,
-          Math.hypot(clusterPos.x - childPos.x, clusterPos.y - childPos.y)
-        );
-      }
-
-      const spreadPx = maxDistance * scale;
-      if (scale >= this.clusterOpenScale && spreadPx >= this.clusterRadiusPx * 0.75) {
-        this.network.openCluster(clusterId);
-        this.spatialClusterIds = this.spatialClusterIds.filter((id) => id !== clusterId);
-        this.scheduleSpatialClustering();
-        return;
-      }
-
-      this.focusCluster(clusterId);
+      this.network.openCluster(clusterId);
+      this.spatialClusterIds = this.spatialClusterIds.filter((id) => id !== clusterId);
+      this.applySpatialClustering();
+      this.syncNodeHighlights();
     }, 420);
-  }
-
-  private focusCluster(clusterId: string): void {
-    if (!this.network) return;
-    this.network.focus(clusterId, {
-      scale: Math.min(this.network.getScale() * 1.8, 4),
-      animation: { duration: 400, easingFunction: 'easeInOutQuad' },
-    });
   }
 
   private findVisibleNodeId(toolId: string): string {
