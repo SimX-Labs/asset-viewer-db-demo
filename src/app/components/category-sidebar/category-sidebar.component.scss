@@ -17,7 +17,8 @@
 
 .panel-header {
   padding: var(--space-4) var(--space-4) var(--space-3);
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -40,7 +41,8 @@
   border-bottom: 1px solid var(--border-light);
   color: var(--text-main);
   cursor: pointer;
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -78,8 +80,7 @@
 
   &.active {
     background: var(--bg-selected);
-    color: var(--sterile-white);
-    border-left: 4px solid var(--procedure-blue);
+    color: var(--text-on-dark);
 
     .cat-count {
       color: rgba(255, 255, 255, 0.75);

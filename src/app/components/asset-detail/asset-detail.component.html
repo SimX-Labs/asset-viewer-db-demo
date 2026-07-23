@@ -5,20 +5,39 @@
   </button>
 </div>
 
-<h2 class="asset-title">{{ asset.AssetName }}</h2>
-
-<div class="id-row">
-  ID: {{ asset.AssetId }}
-  <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">⎘</button>
-  <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">🔗</button>
-  @if (missingAddress()) {
-    <span class="warning-badge" title="Missing Addressable ID">⚠ Missing Address</span>
+<div class="asset-summary" [class.has-inline-model]="showInlineModel()">
+  @if (showInlineModel()) {
+    <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
   }
-</div>
 
-@if (asset.Data['HasWebGLView'] === true) {
-  <button class="btn-webgl" (click)="openWebGL()">▶ View Asset</button>
-}
+  <div class="asset-summary-copy">
+    <h2 class="asset-title">{{ asset.AssetName }}</h2>
+
+    <div class="id-row">
+      ID: {{ asset.AssetId }}
+      <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">⎘</button>
+      <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">🔗</button>
+      @if (missingAddress()) {
+        <span class="warning-badge" title="Missing Addressable ID">⚠ Missing Address</span>
+      }
+    </div>
+
+    @if (asset.Data['HasWebGLView'] === true) {
+      <button class="btn-webgl" (click)="openWebGL()">▶ View Asset</button>
+    }
+
+    @if (canViewOrbit() && !showInlineModel()) {
+      <button
+        class="btn-orbit"
+        [disabled]="orbitViewer.busy()"
+        (click)="openOrbit()"
+        [title]="orbitViewer.hasRoot ? 'Look up ' + orbitAddressable() + ' in the models folder' : 'Set a models folder first (top bar → Orbit)'"
+      >
+        ◎ View 3D / Orbit
+      </button>
+    }
+  </div>
+</div>
 
 <hr class="divider" />
 
@@ -64,6 +83,59 @@
   }
 }
 
+@if (isEquipment()) {
+  <div class="equipment-refs">
+    <div class="ref-section">
+      <div class="ref-title">Compatible Characters</div>
+      @if (compatibleCharacters().length) {
+        <app-value-renderer [value]="compatibleCharacters()" />
+      } @else {
+        <div class="empty-note">No characters have access to this equipment.</div>
+      }
+    </div>
+
+    <div class="ref-section">
+      <div class="ref-title">Compatible Tools</div>
+      @if (equipmentInteractions().length) {
+        <div class="interaction-scroll">
+          @for (interaction of equipmentInteractions(); track $index) {
+            <div class="interaction-group">
+              <div class="interaction-head">
+                <span class="interaction-loc">{{ interaction.Location || 'Unnamed interaction' }}</span>
+                @if (interaction.AvailableIn?.length) {
+                  <span class="interaction-states">
+                    @for (s of interaction.AvailableIn; track s) {
+                      <span class="state-chip">{{ s }}</span>
+                    }
+                  </span>
+                }
+              </div>
+              @if (interaction.Assets?.length) {
+                <app-value-renderer [value]="interaction.Assets" />
+              } @else {
+                <div class="empty-note">No tools provide this interaction.</div>
+              }
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="empty-note">This equipment receives no interactions.</div>
+      }
+    </div>
+  </div>
+}
+
+@if (isToolLike()) {
+  <div class="ref-section">
+    <div class="ref-title">Compatible Equipment</div>
+    @if (compatibleEquipment().length) {
+      <app-value-renderer [value]="compatibleEquipment()" />
+    } @else {
+      <div class="empty-note">No equipment lists this tool as a compatible interaction provider.</div>
+    }
+  </div>
+}
+
 <table class="prop-table">
   @for (key of dataKeys(); track key) {
     @if (isMediaKey(key) && mediaUrl(key)) {
@@ -91,17 +163,29 @@
         </td>
       </tr>
     } @else if (!isMediaKey(key)) {
-      <tr>
+      <tr [class.row-collapsed]="state.isPropCollapsed(key)">
         <td
           class="prop-key"
-          [class.copyable]="isPrimitive(asset.Data![key])"
-          [title]="isPrimitive(asset.Data![key]) ? 'Click to copy value' : ''"
-          (click)="isPrimitive(asset.Data![key]) && copyPropertyValue(asset.Data![key])"
+          [class.collapsed]="state.isPropCollapsed(key)"
+          title="Click to collapse / expand"
+          (click)="state.togglePropKey(key)"
         >
-          {{ key }}
+          <span class="prop-caret">{{ state.isPropCollapsed(key) ? '▸' : '▾' }}</span>
+          <span class="prop-key-label">{{ key }}</span>
+          @if (isPrimitive(asset.Data![key])) {
+            <button
+              class="prop-copy"
+              title="Copy value"
+              (click)="$event.stopPropagation(); copyPropertyValue(asset.Data![key])"
+            >⎘</button>
+          }
         </td>
         <td class="prop-val">
-          <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
+          @if (state.isPropCollapsed(key)) {
+            <span class="prop-collapsed-hint" (click)="state.togglePropKey(key)">…</span>
+          } @else {
+            <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
+          }
         </td>
       </tr>
     }

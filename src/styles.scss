@@ -1,30 +1,57 @@
-/* ── SimX Design System ─────────────────────────────────────────────── */
+/* ── SimX Design System (aligned with Scenario Creator) ─────────────── */
 
 :root {
-  /* Brand palette */
-  --midnight-scrub: #091d3c;
-  --vital-red: #e31f2f;
-  --clinical-indigo: #0f2d5b;
-  --procedure-blue: #007cc0;
-  --simx-purple: #463858;
-  --sterile-white: #ffffff;
-  --instrument-grey: #f0f2f4;
-  --black-dusk: #18171d;
+  /* ── Brand palette (SimX Angular Style Guide) ───────────────────────── */
+  /* Primary */
+  --simx-midnight-scrub: rgb(9, 29, 60); /* #091d3c — app chrome, deep surfaces */
+  --simx-red: rgb(227, 31, 47); /* #e31f2f — Vital Red: errors, attention */
+  --simx-red-dark: rgb(190, 24, 38);
+  /* Secondary */
+  --simx-clinical-indigo: rgb(15, 45, 91); /* #0f2d5b — card headers, secondary chrome */
+  --simx-procedure-blue: rgb(0, 124, 192); /* #007cc0 — primary content accent */
+  --simx-procedure-blue-dark: rgb(0, 102, 158);
+  --simx-procedure-blue-light: rgb(77, 171, 227); /* accessible accent on dark surfaces */
+  --simx-purple: rgb(70, 56, 88); /* #463858 — occasional accent */
+  /* Accent / neutrals */
+  --simx-white: rgb(255, 255, 255); /* Sterile White */
+  --simx-instrument-grey: rgb(241, 242, 244); /* #f0f2f4 — app bg, light surfaces */
+  --simx-black-dusk: rgb(24, 23, 29); /* #18171d — default text */
+  --simx-warning: rgb(255, 177, 0);
 
-  /* Typography — Lato (pt × 1.333 → px) */
-  --font-body: 'Lato', sans-serif;
-  --font-mono: 'Consolas', 'Courier New', monospace;
+  /* Navy accent ramp anchored on Midnight Scrub — chrome surfaces/borders */
+  --simx-slate: rgb(14, 31, 58);
+  --simx-content: rgb(34, 64, 110);
+  --simx-content-lightest: rgb(224, 228, 238);
+  --simx-content-lighter: rgb(178, 191, 217);
+  --simx-content-light: rgb(116, 140, 184);
+  --simx-content-medium: rgb(64, 94, 146);
+  --simx-content-heavy: rgb(17, 40, 76);
+  --simx-content-heaviest: rgb(9, 29, 60);
+  --simx-text-default: var(--simx-black-dusk);
 
-  --text-big-headline: 40px;
-  --leading-big-headline: 45px;
-  --text-headline: 27px;
-  --leading-headline: 27px;
-  --text-headline-copy: 19px;
-  --leading-headline-copy: 21px;
+  /* Legacy aliases for component compatibility */
+  --midnight-scrub: var(--simx-midnight-scrub);
+  --vital-red: var(--simx-red);
+  --clinical-indigo: var(--simx-clinical-indigo);
+  --procedure-blue: var(--simx-procedure-blue);
+  --sterile-white: var(--simx-white);
+  --black-dusk: var(--simx-black-dusk);
+
+  /* Typography */
+  --font-body: 'Open Sans', sans-serif;
+  --font-graphic: 'Quicksand', sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
+
+  --text-big-headline: 32px;
+  --leading-big-headline: 38px;
+  --text-headline: 22px;
+  --leading-headline: 28px;
+  --text-headline-copy: 18px;
+  --leading-headline-copy: 24px;
   --text-copy: 16px;
-  --leading-copy: 19px;
+  --leading-copy: 22px;
   --text-caption: 12px;
-  --leading-caption: 15px;
+  --leading-caption: 16px;
 
   /* Spacing */
   --space-1: 4px;
@@ -33,94 +60,99 @@
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
-  --space-7: 32px;
+  --space-7: 30px;
 
-  /* Radii */
+  /* Radii — default 4px, heavy 8px (2×) for cards */
   --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-md: 4px;
   --radius-lg: 8px;
+  --radius-default: 4px;
+  --radius-heavy: 8px;
 
   /* Layout */
-  --header-height: 48px;
+  --header-height: 50px;
   --sidebar-width: 240px;
   --list-width: 320px;
   --pinned-width: 220px;
 }
 
-/* Light theme — Asset Manager / Scenario Workspace */
+/* Light theme */
 :root,
 :root[data-theme='light'] {
-  --bg-app: var(--instrument-grey);
-  --bg-main: var(--sterile-white);
-  --bg-panel: var(--instrument-grey);
-  --bg-pinned: #e4e7eb;
-  --bg-header: var(--midnight-scrub);
-  --bg-nav: var(--clinical-indigo);
-  --bg-input: var(--sterile-white);
-  --bg-hover: #e2e6ea;
-  --bg-selected: var(--clinical-indigo);
-  --bg-graph: #f8f9fa;
-  --bg-card: var(--sterile-white);
+  --bg-app: var(--simx-instrument-grey);
+  --bg-main: var(--simx-white);
+  --bg-panel: var(--simx-instrument-grey);
+  --bg-pinned: rgb(233, 236, 240);
+  --bg-header: var(--simx-midnight-scrub);
+  --bg-nav: var(--simx-clinical-indigo);
+  --bg-input: var(--simx-white);
+  --bg-hover: rgba(0, 124, 192, 0.08);
+  --bg-selected: var(--simx-procedure-blue);
+  --bg-graph: var(--bg-app);
+  --bg-card: var(--simx-white);
+  --bg-card-header: var(--simx-clinical-indigo);
 
-  --text-main: var(--midnight-scrub);
-  --text-on-dark: var(--sterile-white);
-  --text-muted: #5a6472;
-  --text-label: #6b7585;
+  --text-main: var(--simx-text-default);
+  --text-on-dark: rgba(255, 255, 255, 0.95);
+  --text-muted: rgb(94, 104, 120);
+  --text-label: var(--simx-procedure-blue);
 
-  --border: #d5dae0;
-  --border-light: #e8ebef;
+  --border: var(--simx-content-lighter);
+  --border-light: var(--simx-content-lightest);
 
-  --accent: var(--procedure-blue);
-  --accent-hover: #006aa3;
-  --accent-secondary: var(--clinical-indigo);
-  --accent-warm: var(--vital-red);
-  --link: var(--procedure-blue);
-  --link-invalid: #b45309;
-  --success: #15803d;
-  --error: var(--vital-red);
+  --accent: var(--simx-procedure-blue);
+  --accent-hover: var(--simx-procedure-blue-dark);
+  --accent-secondary: var(--simx-clinical-indigo);
+  --accent-warm: var(--simx-red);
+  --link: var(--simx-procedure-blue);
+  --link-invalid: var(--simx-warning);
+  --success: var(--simx-procedure-blue);
+  --error: var(--simx-red);
 
-  --tab-inactive-bg: #dce0e5;
-  --tab-active-bg: var(--sterile-white);
-  --header-text: var(--sterile-white);
+  --tab-inactive-bg: var(--simx-content-medium);
+  --tab-active-bg: var(--simx-white);
+  --header-text: var(--text-on-dark);
   --header-btn-border: rgba(255, 255, 255, 0.25);
   --header-btn-hover: rgba(255, 255, 255, 0.1);
   --shadow-dropdown: 0 8px 24px rgba(9, 29, 60, 0.18);
 }
 
-/* Dark theme — Environment Authoring Tool */
-:root[data-theme='dark'] {
-  --bg-app: var(--black-dusk);
-  --bg-main: #111827;
-  --bg-panel: var(--midnight-scrub);
-  --bg-pinned: #0d1628;
-  --bg-header: var(--black-dusk);
-  --bg-nav: var(--clinical-indigo);
-  --bg-input: #0f1f3d;
-  --bg-hover: #152a4f;
-  --bg-selected: var(--procedure-blue);
-  --bg-graph: #0a1428;
-  --bg-card: #152238;
+/* Dark theme — navy palette (class toggle per style guide) */
+:root[data-theme='dark'],
+html.simx-dark {
+  --bg-app: rgb(9, 18, 36);
+  --bg-main: rgb(12, 26, 52);
+  --bg-panel: rgb(15, 34, 66);
+  --bg-pinned: rgb(12, 26, 52);
+  --bg-header: var(--simx-midnight-scrub);
+  --bg-nav: var(--simx-clinical-indigo);
+  --bg-input: rgb(17, 40, 76);
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-selected: var(--simx-procedure-blue);
+  --bg-graph: rgb(9, 18, 36);
+  --bg-card: rgb(15, 34, 66);
+  --bg-card-header: var(--simx-clinical-indigo);
 
-  --text-main: var(--sterile-white);
-  --text-on-dark: var(--sterile-white);
-  --text-muted: #9aa8bc;
-  --text-label: #8a9ab0;
+  --text-main: rgba(255, 255, 255, 0.95);
+  --text-on-dark: rgba(255, 255, 255, 0.95);
+  --text-muted: var(--simx-content-lighter);
+  --text-label: var(--simx-procedure-blue-light);
 
-  --border: #1e3a5f;
-  --border-light: #253d5c;
+  --border: rgb(34, 64, 110);
+  --border-light: rgb(17, 40, 76);
 
-  --accent: var(--procedure-blue);
-  --accent-hover: #0096e0;
-  --accent-secondary: var(--simx-purple);
-  --accent-warm: var(--vital-red);
-  --link: #5cb8f0;
-  --link-invalid: #f59e0b;
-  --success: #4ade80;
-  --error: #f87171;
+  --accent: var(--simx-procedure-blue-light);
+  --accent-hover: rgb(120, 195, 240);
+  --accent-secondary: var(--simx-content-light);
+  --accent-warm: var(--simx-red);
+  --link: var(--simx-procedure-blue-light);
+  --link-invalid: var(--simx-warning);
+  --success: var(--simx-procedure-blue-light);
+  --error: rgb(255, 100, 120);
 
-  --tab-inactive-bg: #0f2344;
-  --tab-active-bg: var(--black-dusk);
-  --header-text: var(--sterile-white);
+  --tab-inactive-bg: var(--simx-content-heavy);
+  --tab-active-bg: var(--bg-main);
+  --header-text: var(--text-on-dark);
   --header-btn-border: rgba(255, 255, 255, 0.2);
   --header-btn-hover: rgba(255, 255, 255, 0.08);
   --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.45);
@@ -140,17 +172,22 @@ body {
   height: 100%;
   font-family: var(--font-body);
   font-size: var(--text-copy);
-  font-weight: 400;
+  font-weight: 300;
   line-height: var(--leading-copy);
   background: var(--bg-app);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
 }
 
+strong {
+  font-weight: 600;
+}
+
 /* ── Shared UI Patterns ───────────────────────────────────────────────── */
 
 .simx-label {
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -158,7 +195,8 @@ body {
 }
 
 .simx-headline {
-  font-weight: 900;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
@@ -170,15 +208,15 @@ body {
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-sm);
-  font-family: var(--font-body);
+  font-family: var(--font-graphic);
   font-size: var(--text-copy);
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 
   &--primary {
     background: var(--accent);
-    color: var(--sterile-white);
+    color: var(--simx-white);
     border: 1px solid var(--accent);
     &:hover {
       background: var(--accent-hover);
@@ -197,11 +235,104 @@ body {
 
   &--danger {
     background: var(--accent-warm);
-    color: var(--sterile-white);
+    color: var(--simx-white);
     border: 1px solid var(--accent-warm);
     &:hover {
-      background: #c91a28;
+      background: var(--accent-hover);
     }
+  }
+}
+
+/* ── simx-* component patterns (SimX Angular Style Guide §6) ─────────── */
+
+.simx-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-heavy);
+  overflow: hidden;
+}
+
+.simx-card-header {
+  background: var(--bg-card-header);
+  padding: var(--space-3) var(--space-4);
+}
+
+.simx-card-heading {
+  font-family: var(--font-graphic);
+  font-weight: 600;
+  font-size: var(--text-headline-copy);
+  color: var(--text-on-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.simx-card-body {
+  padding: var(--space-4);
+}
+
+.simx-card-footer {
+  background: var(--simx-content-lightest);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* Section heading: uppercase Quicksand, Procedure Blue, rounded rule above */
+.simx-section-heading {
+  font-family: var(--font-graphic);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-label);
+  margin: var(--space-5) 0 var(--space-3);
+
+  &::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+}
+
+.simx-section-divider {
+  height: 1px;
+  border: 0;
+  background: var(--border-light);
+  margin: var(--space-4) 0;
+}
+
+.simx-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  background: var(--simx-content-lightest);
+  border: 1px solid var(--simx-content-lighter);
+  border-radius: var(--radius-default);
+  font-family: var(--font-graphic);
+  font-weight: 600;
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-secondary);
+}
+
+.simx-ui-text {
+  font-family: var(--font-graphic);
+  font-weight: 500;
+
+  &.simx-style--heavy {
+    font-weight: 700;
+  }
+  &.simx-style--error {
+    color: var(--error);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 }
 
@@ -216,14 +347,14 @@ body {
   padding: var(--space-2) var(--space-3);
   margin-bottom: var(--space-2);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-heavy);
   background: var(--bg-input);
   color: var(--text-main);
   font-size: var(--text-caption);
   font-family: var(--font-body);
   &:focus {
     outline: none;
-    border-color: var(--accent);
+    border-color: var(--simx-content-light);
   }
 }
 
@@ -233,15 +364,24 @@ body {
   gap: var(--space-1);
 }
 
+// On the equipment / tool detail reference sections, keep long lists in a
+// scrollable interior window instead of one giant list.
+.equipment-refs .link-group-list,
+.ref-section .link-group-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
 .link-group-item {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-1) var(--space-2);
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-heavy);
   cursor: pointer;
   transition: border-color 0.15s;
   &:hover {
-    border-color: var(--accent);
+    border-color: var(--simx-content-light);
   }
 }
 
@@ -285,7 +425,8 @@ body {
 .clean-item {
   padding: var(--space-1) var(--space-2);
   background: var(--bg-panel);
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-heavy);
   font-size: var(--text-caption);
 }
 
@@ -297,7 +438,7 @@ body {
 }
 
 .clean-key {
-  color: var(--accent);
+  color: var(--text-label);
   min-width: 80px;
 }
 
@@ -311,7 +452,7 @@ body {
   padding: var(--space-2);
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-heavy);
   font-size: var(--text-caption);
 }
 

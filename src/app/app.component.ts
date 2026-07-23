@@ -4,6 +4,7 @@ import { CategorySidebarComponent } from './components/category-sidebar/category
 import { PinnedPanelComponent } from './components/pinned-panel/pinned-panel.component';
 import { AssetListComponent } from './components/asset-list/asset-list.component';
 import { DetailPanelComponent } from './components/detail-panel/detail-panel.component';
+import { OrbitViewerHostComponent } from './orbit-capture/components/orbit-viewer-host/orbit-viewer-host.component';
 import { AppStateService } from './services/app-state.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { AppStateService } from './services/app-state.service';
     PinnedPanelComponent,
     AssetListComponent,
     DetailPanelComponent,
+    OrbitViewerHostComponent,
   ],
   template: `
     <app-top-bar />
@@ -24,6 +26,7 @@ import { AppStateService } from './services/app-state.service';
       <app-asset-list />
       <app-detail-panel />
     </main>
+    <app-orbit-viewer-host />
   `,
   styleUrl: './app.component.scss',
 })

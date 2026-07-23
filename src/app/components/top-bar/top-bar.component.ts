@@ -2,22 +2,27 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { ThemeService } from '../../services/theme.service';
+import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-open-button/orbit-open-button.component';
 
 @Component({
   selector: 'app-top-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, OrbitOpenButtonComponent],
   template: `
     <header class="top-bar">
       <div class="top-bar-brand">
-        <div class="brand-logo">
-          <span class="brand-sim">SIM</span><span class="brand-x">X</span>
-        </div>
+        <img
+          src="/assets/images/simx-logo-red.png"
+          class="brand-logo"
+          alt="SimX Logo"
+          draggable="false"
+        />
         <div class="brand-divider"></div>
-        <h1 class="app-title">DBO Explorer</h1>
+        <h1 class="app-title">{{ state.dataMode() === 'unity' ? 'Unity Asset Explorer' : 'DBO Explorer' }}</h1>
         <span class="status" [class.error]="state.statusError()">{{ state.statusMessage() }}</span>
       </div>
       <div class="top-bar-actions">
+        <app-orbit-open-button />
         <button class="header-btn" (click)="theme.toggle()" [title]="theme.themeLabel()">
           @if (theme.resolvedTheme() === 'dark') {
             <span class="btn-icon">☀</span><span class="btn-label">Light</span>
@@ -44,9 +49,38 @@ import { ThemeService } from '../../services/theme.service';
           </button>
           @if (showSettings()) {
             <div class="dropdown-panel dropdown-panel--wide">
+              <div class="dropdown-title">Data Source</div>
+              <label class="setting-option">
+                <input
+                  type="radio"
+                  name="dataMode"
+                  [checked]="state.dataMode() === 'dbo'"
+                  (change)="state.setDataMode('dbo')"
+                />
+                DBO (Classic)
+              </label>
+              <label class="setting-option">
+                <input
+                  type="radio"
+                  name="dataMode"
+                  [checked]="state.dataMode() === 'unity'"
+                  (change)="state.setDataMode('unity')"
+                />
+                Unity Asset DB
+              </label>
+              <p class="dropdown-hint">
+                Switches how JSON is parsed. Unity Asset DB reads the FK-linked graph
+                (characters, equipment, tools, clothing).
+              </p>
+              <hr />
               <div class="dropdown-title">File</div>
-              <button class="dropdown-action" (click)="fileInput.click()">Load DBO File(s)...</button>
-              <p class="dropdown-hint">Hold Shift to add files without clearing existing data.</p>
+              @if (state.dataMode() === 'unity') {
+                <button class="dropdown-action" (click)="fileInput.click()">Load Unity DB bundle...</button>
+                <p class="dropdown-hint">Select a consolidated <code>unity-asset-db.json</code> bundle.</p>
+              } @else {
+                <button class="dropdown-action" (click)="fileInput.click()">Load DBO File(s)...</button>
+                <p class="dropdown-hint">Hold Shift to add files without clearing existing data.</p>
+              }
               <hr />
               <div class="dropdown-title">Theme</div>
               <label class="setting-option">

@@ -33,7 +33,7 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
           @if (state.activeTabId() === tabId) {
             <div class="tab-pane active">
               <nav class="breadcrumb-bar">
-                @for (histId of state.tabHistory()[tabId]; track histId; let i = $index; let last = $last) {
+                @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
                   @if (i > 0) {
                     <span class="crumb-separator">></span>
                   }
@@ -48,7 +48,12 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
               </nav>
               <div class="tab-scroll-area">
                 @if (state.getTabAsset(tabId); as asset) {
-                  <app-asset-detail [asset]="asset" />
+                  <!-- Recreate the detail view per asset so accordion/search
+                       local state and reused child renderers cannot go stale
+                       when navigating within a tab's breadcrumb history. -->
+                  @for (_ of [asset.AssetId]; track _) {
+                    <app-asset-detail [asset]="asset" />
+                  }
                 }
               </div>
             </div>

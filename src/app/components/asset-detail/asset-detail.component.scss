@@ -6,15 +6,18 @@
 }
 
 .tag {
-  display: inline-block;
-  padding: var(--space-1) var(--space-3);
-  background: var(--accent-secondary);
-  color: var(--sterile-white);
-  border-radius: var(--radius-sm);
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  background: var(--simx-content-lightest);
+  color: var(--accent-secondary);
+  border: 1px solid var(--simx-content-lighter);
+  border-radius: var(--radius-default);
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .pin-btn {
@@ -39,9 +42,30 @@
   }
 }
 
+.asset-summary {
+  display: block;
+
+  &.has-inline-model {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-4);
+  }
+
+  app-orbit-inline-viewer {
+    display: block;
+    min-width: 0;
+  }
+}
+
+.asset-summary-copy {
+  min-width: 0;
+}
+
 .asset-title {
   margin: 0 0 var(--space-4);
-  font-weight: 900;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-big-headline);
   line-height: var(--leading-big-headline);
   text-transform: uppercase;
@@ -80,22 +104,34 @@
   font-weight: 700;
 }
 
-.btn-webgl {
+.btn-webgl,
+.btn-orbit {
   background: var(--accent);
-  color: var(--sterile-white);
+  color: var(--simx-white);
   border: none;
   padding: var(--space-2) var(--space-5);
   border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 500;
   font-size: var(--text-headline-copy);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: var(--space-5);
-  transition: background 0.15s;
+  transition: background 0.2s;
 
   &:hover {
     background: var(--accent-hover);
+  }
+}
+
+.btn-orbit {
+  background: var(--simx-procedure-blue, #007cc0);
+  margin-left: var(--space-2);
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }
 
@@ -103,6 +139,12 @@
   border: none;
   border-top: 1px solid var(--border);
   margin: var(--space-5) 0;
+}
+
+@media (max-width: 720px) {
+  .asset-summary.has-inline-model {
+    grid-template-columns: 1fr;
+  }
 }
 
 .special-section,
@@ -116,18 +158,97 @@
 
 .section-header,
 .ref-title {
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-headline-copy);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-label);
   margin-bottom: var(--space-3);
+  padding-top: 0.75em;
+  position: relative;
+
+  &::before {
+    content: '';
+    background: var(--accent);
+    border-radius: 999px;
+    width: 40px;
+    height: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .global-trans-item {
   font-size: var(--text-caption);
   color: var(--text-muted);
   padding: var(--space-1) 0;
+}
+
+.equipment-refs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-4);
+
+  > .ref-section {
+    flex: 1 1 320px;
+    min-width: 0;
+  }
+}
+
+// Caps the per-interaction tool groups so a long interaction list scrolls
+// inside the column instead of stretching the whole page.
+.interaction-scroll {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
+.interaction-group {
+  margin-bottom: var(--space-4);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.interaction-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.interaction-loc {
+  font-family: var(--font-mono);
+  font-size: var(--text-copy);
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.interaction-states {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.state-chip {
+  padding: 1px var(--space-2);
+  background: var(--simx-content-lightest);
+  color: var(--accent-secondary);
+  border: 1px solid var(--simx-content-lighter);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption);
+  font-family: var(--font-mono);
+}
+
+.empty-note {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .prop-table {
@@ -139,10 +260,18 @@
     padding: var(--space-3) var(--space-4);
     border-bottom: 1px solid var(--border-light);
     vertical-align: top;
+    transition: padding 0.12s ease;
   }
 
   tr:last-child td {
     border-bottom: none;
+  }
+
+  /* Collapsed rows shrink to a compact single line */
+  tr.row-collapsed td {
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1);
+    vertical-align: middle;
   }
 }
 
@@ -151,16 +280,66 @@
   white-space: nowrap;
   padding-right: var(--space-6);
   color: var(--text-label);
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
 
-  &.copyable {
+  &:hover {
+    color: var(--accent);
+  }
+
+  .prop-caret {
+    display: inline-block;
+    width: 1.1em;
+    margin-right: var(--space-2);
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+    color: var(--accent);
+    transition: color 0.15s;
+  }
+
+  .prop-key-label {
+    vertical-align: middle;
+  }
+
+  &:hover .prop-caret {
+    color: var(--accent);
+  }
+
+  .prop-copy {
+    background: none;
+    border: none;
+    color: var(--text-muted);
     cursor: pointer;
+    padding: 0 2px;
+    margin-left: var(--space-2);
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+
     &:hover {
       color: var(--accent);
     }
+  }
+
+  &:hover .prop-copy {
+    opacity: 1;
+  }
+}
+
+.prop-collapsed-hint {
+  color: var(--text-muted);
+  cursor: pointer;
+  letter-spacing: 0.1em;
+
+  &:hover {
+    color: var(--accent);
   }
 }
 
@@ -189,7 +368,8 @@
 }
 
 .doc-title {
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   margin-bottom: var(--space-2);
   color: var(--text-label);
   font-size: var(--text-caption);
@@ -222,7 +402,7 @@
   cursor: pointer;
   font-family: var(--font-body);
   font-size: var(--text-copy);
-  font-weight: 700;
+  font-weight: 600;
   border-radius: var(--radius-sm);
   transition: background 0.15s;
 

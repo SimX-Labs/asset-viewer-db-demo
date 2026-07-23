@@ -53,10 +53,10 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
     const nodes = new DataSet<any>();
     const edges = new DataSet<any>();
 
-    const colorStandard = { background: '#dce0e5', border: '#9aa8bc' };
-    const colorFailure = { background: '#fca5a5', border: '#e31f2f' };
-    const colorSuccess = { background: '#86efac', border: '#15803d' };
-    const colorStart = { background: '#007cc0', border: '#0f2d5b' };
+    const colorStandard = { background: '#E0E4EE', border: '#B2BFD9' };
+    const colorFailure = { background: '#ffb3c0', border: '#E5002C' };
+    const colorSuccess = { background: '#091D3C', border: '#22406E' };
+    const colorStart = { background: '#22406E', border: '#11284C' };
 
     stateMap.States.forEach((state, index) => {
       let color = colorStandard;
@@ -69,7 +69,7 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
         label: state.Id.replace('state_', ''),
         color,
         shape: 'box',
-        font: { color: index === 0 ? '#ffffff' : '#091d3c', size: 14, face: 'Lato', strokeWidth: 0 },
+        font: { color: index === 0 || state.StateType === 2 ? '#ffffff' : '#151319', size: 14, face: 'Open Sans', strokeWidth: 0 },
         margin: 10,
         shadow: { enabled: true, color: 'rgba(0,0,0,0.2)', size: 5, x: 2, y: 2 },
       });
@@ -100,7 +100,7 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
             background: '#121212',
             strokeWidth: 0,
           },
-          color: { color: '#71717a', highlight: '#007cc0' },
+          color: { color: '#405E92', highlight: '#22406E' },
           smooth: { type: 'curvedCW', roundness: 0.2 },
         });
       });

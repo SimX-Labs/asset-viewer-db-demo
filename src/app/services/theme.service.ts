@@ -27,7 +27,10 @@ export class ThemeService {
       this.mediaQuery.addEventListener('change', (e) => this.systemDark.set(e.matches));
 
       effect(() => {
-        document.documentElement.setAttribute('data-theme', this.resolvedTheme());
+        const theme = this.resolvedTheme();
+        document.documentElement.setAttribute('data-theme', theme);
+        // Style-guide convention: dark mode is a class toggle on <html>.
+        document.documentElement.classList.toggle('simx-dark', theme === 'dark');
       });
     }
   }

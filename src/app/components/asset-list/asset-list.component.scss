@@ -48,7 +48,7 @@
 
     &:focus {
       outline: none;
-      border-color: var(--accent);
+      border-color: var(--simx-content-light);
     }
   }
 }
@@ -78,16 +78,18 @@
   cursor: pointer;
   font-family: var(--font-body);
   font-size: var(--text-caption);
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
+  font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   white-space: nowrap;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 
   &:hover {
     background: var(--bg-hover);
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--simx-content-light);
+    color: var(--simx-content);
   }
 }
 
@@ -126,7 +128,8 @@
   grid-template-columns: 1fr auto;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -165,11 +168,10 @@
 
   &.active {
     background: var(--bg-selected);
-    border-left-color: var(--procedure-blue);
-    color: var(--sterile-white);
+    color: var(--text-on-dark);
 
     .asset-name {
-      color: var(--sterile-white);
+      color: var(--text-on-dark);
     }
 
     .asset-type,
@@ -199,7 +201,8 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
 }
 
 .asset-id {
