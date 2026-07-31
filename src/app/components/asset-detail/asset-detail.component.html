@@ -1,7 +1,13 @@
 <div class="header-row">
-  <div class="tag">{{ asset.AssetType || 'Unknown Type' }}</div>
-  <button class="pin-btn" [class.pinned]="isPinned()" (click)="togglePin()">
-    {{ isPinned() ? '★ Unpin' : '☆ Pin' }}
+  <div class="simx-tag">{{ asset.AssetType || 'Unknown Type' }}</div>
+  <button
+    class="pin-btn simx-btn simx-btn--small"
+    [class.simx-btn--danger]="isPinned()"
+    [class.pinned]="isPinned()"
+    (click)="togglePin()"
+  >
+    <i class="pi" [class.pi-star-fill]="isPinned()" [class.pi-star]="!isPinned()" aria-hidden="true"></i>
+    {{ isPinned() ? 'Unpin' : 'Pin' }}
   </button>
 </div>
 
@@ -15,35 +21,43 @@
 
     <div class="id-row">
       ID: {{ asset.AssetId }}
-      <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">⎘</button>
-      <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">🔗</button>
+      <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">
+        <i class="pi pi-copy" aria-hidden="true"></i>
+      </button>
+      <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">
+        <i class="pi pi-link" aria-hidden="true"></i>
+      </button>
       @if (missingAddress()) {
-        <span class="warning-badge" title="Missing Addressable ID">⚠ Missing Address</span>
+        <span class="warning-badge" title="Missing Addressable ID">
+          <i class="pi pi-exclamation-triangle" aria-hidden="true"></i> Missing Address
+        </span>
       }
     </div>
 
     @if (asset.Data['HasWebGLView'] === true) {
-      <button class="btn-webgl" (click)="openWebGL()">▶ View Asset</button>
+      <button class="btn-webgl simx-btn simx-btn--primary" (click)="openWebGL()">
+        <i class="pi pi-play" aria-hidden="true"></i> View Asset
+      </button>
     }
 
     @if (canViewOrbit() && !showInlineModel()) {
       <button
-        class="btn-orbit"
+        class="btn-orbit simx-btn simx-btn--primary"
         [disabled]="orbitViewer.busy()"
         (click)="openOrbit()"
         [title]="orbitViewer.hasRoot ? 'Look up ' + orbitAddressable() + ' in the models folder' : 'Set a models folder first (top bar → Orbit)'"
       >
-        ◎ View 3D / Orbit
+        <i class="pi pi-box" aria-hidden="true"></i> View 3D / Orbit
       </button>
     }
   </div>
 </div>
 
-<hr class="divider" />
+<div class="simx-section-divider" role="separator"></div>
 
 @if (asset.AssetType === 'Procedure' && asset.Data['StateMap']) {
   <div class="special-section">
-    <div class="section-header">State Machine Visualization</div>
+    <div class="simx-section-heading">State Machine Visualization</div>
     <app-procedure-graph [asset]="asset" />
     @for (trans of globalTransitions(); track trans.ResultingStateId) {
       <div class="global-trans-item">
@@ -56,14 +70,14 @@
 
 @if (asset.AssetType === 'EnvironmentScene' && asset.ToolHierarchyData) {
   <div class="special-section">
-    <div class="section-header">Tool Visualization</div>
+    <div class="simx-section-heading">Tool Visualization</div>
     <app-tool-visualization [asset]="asset" />
   </div>
 }
 
 @if (asset.AssetType === 'CharacterBase' && characterVariants().length) {
   <div class="ref-section">
-    <div class="ref-title">Character Variants:</div>
+      <div class="simx-section-heading">Character Variants</div>
     <app-value-renderer [value]="characterVariants()" />
   </div>
 }
@@ -71,13 +85,13 @@
 @if (asset.AssetType === 'InteractionType') {
   @if (interactionSenders().length) {
     <div class="ref-section">
-      <div class="ref-title">Used By (Tools):</div>
+      <div class="simx-section-heading">Used By (Tools)</div>
       <app-value-renderer [value]="interactionSenders()" />
     </div>
   }
   @if (interactionReceivers().length) {
     <div class="ref-section">
-      <div class="ref-title">Received By (Procedures/Equipment):</div>
+      <div class="simx-section-heading">Received By (Procedures/Equipment)</div>
       <app-value-renderer [value]="interactionReceivers()" />
     </div>
   }
@@ -86,7 +100,7 @@
 @if (isEquipment()) {
   <div class="equipment-refs">
     <div class="ref-section">
-      <div class="ref-title">Compatible Characters</div>
+      <div class="simx-section-heading">Compatible Characters</div>
       @if (compatibleCharacters().length) {
         <app-value-renderer [value]="compatibleCharacters()" />
       } @else {
@@ -95,7 +109,7 @@
     </div>
 
     <div class="ref-section">
-      <div class="ref-title">Compatible Tools</div>
+      <div class="simx-section-heading">Compatible Tools</div>
       @if (equipmentInteractions().length) {
         <div class="interaction-scroll">
           @for (interaction of equipmentInteractions(); track $index) {
@@ -105,7 +119,7 @@
                 @if (interaction.AvailableIn?.length) {
                   <span class="interaction-states">
                     @for (s of interaction.AvailableIn; track s) {
-                      <span class="state-chip">{{ s }}</span>
+                      <span class="simx-tag state-chip">{{ s }}</span>
                     }
                   </span>
                 }
@@ -127,7 +141,7 @@
 
 @if (isToolLike()) {
   <div class="ref-section">
-    <div class="ref-title">Compatible Equipment</div>
+    <div class="simx-section-heading">Compatible Equipment</div>
     @if (compatibleEquipment().length) {
       <app-value-renderer [value]="compatibleEquipment()" />
     } @else {
@@ -170,14 +184,19 @@
           title="Click to collapse / expand"
           (click)="state.togglePropKey(key)"
         >
-          <span class="prop-caret">{{ state.isPropCollapsed(key) ? '▸' : '▾' }}</span>
+          <i
+            class="pi prop-caret"
+            [class.pi-chevron-right]="state.isPropCollapsed(key)"
+            [class.pi-chevron-down]="!state.isPropCollapsed(key)"
+            aria-hidden="true"
+          ></i>
           <span class="prop-key-label">{{ key }}</span>
           @if (isPrimitive(asset.Data![key])) {
             <button
               class="prop-copy"
               title="Copy value"
               (click)="$event.stopPropagation(); copyPropertyValue(asset.Data![key])"
-            >⎘</button>
+            ><i class="pi pi-copy" aria-hidden="true"></i></button>
           }
         </td>
         <td class="prop-val">
@@ -196,7 +215,12 @@
   <div class="meta-accordion">
     <button class="accordion-header" (click)="toggleMetaAccordion('main')">
       <span>Metadata Objects ({{ metadataObjects().length }})</span>
-      <span class="accordion-arrow" [class.collapsed]="!expandedMeta()['main']">▼</span>
+      <i
+        class="pi accordion-arrow"
+        [class.pi-chevron-down]="expandedMeta()['main'] !== false"
+        [class.pi-chevron-right]="expandedMeta()['main'] === false"
+        aria-hidden="true"
+      ></i>
     </button>
     @if (expandedMeta()['main'] !== false) {
       <div class="accordion-content show">
@@ -216,7 +240,12 @@
                 </span>
                 <span class="meta-key">{{ item.Key || 'Unnamed' }}</span>
               </div>
-              <span class="accordion-arrow" [class.collapsed]="!expandedMetaItems()['item-' + i]">▼</span>
+              <i
+                class="pi accordion-arrow"
+                [class.pi-chevron-down]="expandedMetaItems()['item-' + i] !== false"
+                [class.pi-chevron-right]="expandedMetaItems()['item-' + i] === false"
+                aria-hidden="true"
+              ></i>
             </button>
             @if (expandedMetaItems()['item-' + i] !== false) {
               <div class="meta-item-content">
@@ -227,7 +256,8 @@
                   </div>
                   @if (item.Options?.length) {
                     <button class="meta-options-header" (click)="toggleOptions('opt-' + i)">
-                      Options ({{ item.Options!.length }}) ▼
+                      Options ({{ item.Options!.length }})
+                      <i class="pi pi-chevron-down" aria-hidden="true"></i>
                     </button>
                     @if (expandedOptions()['opt-' + i]) {
                       <div class="meta-options-list">

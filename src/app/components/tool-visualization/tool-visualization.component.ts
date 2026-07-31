@@ -24,11 +24,11 @@ interface VisibleToolNode {
 /** vis-network dot radius for individual tool circles. */
 const TOOL_NODE_SIZE = 7;
 /** Default tool node colors. */
-const TOOL_COLOR = { background: '#22406E', border: '#11284C' };
+const TOOL_COLOR = { background: '#007CC0', border: '#00669E' };
 const TOOL_CHILD_COLOR = { background: '#405E92', border: '#22406E' };
-const TOOL_HOVER_COLOR = { background: '#405E92', border: '#B2BFD9' };
-const TOOL_SELECTED_COLOR = { background: '#091D3C', border: '#B2BFD9' };
-const CLUSTER_COLOR = { background: '#22406E', border: '#11284C' };
+const TOOL_HOVER_COLOR = { background: '#4DABE3', border: '#B2BFD9' };
+const TOOL_SELECTED_COLOR = { background: '#091D3C', border: '#4DABE3' };
+const CLUSTER_COLOR = { background: '#007CC0', border: '#00669E' };
 /** Minimum vis-network circle radius for a cluster badge. */
 const CLUSTER_SIZE_MIN = 22;
 /** Maximum vis-network circle radius for a cluster badge. */
@@ -55,6 +55,7 @@ interface NodeBaseStyle {
     <div #rootContainer class="tool-visualization-root" [class.fullscreen]="isFullscreen()">
       <div class="tool-visualization-toolbar">
         <button type="button" class="tool-fullscreen-button" (click)="toggleFullscreen()">
+          <i class="pi" [class.pi-times]="isFullscreen()" [class.pi-expand]="!isFullscreen()" aria-hidden="true"></i>
           {{ isFullscreen() ? 'Exit Fullscreen' : 'Fullscreen' }}
         </button>
       </div>
@@ -103,7 +104,9 @@ interface NodeBaseStyle {
       </div>
       <div class="tool-visualization-right">
         @if (drillRootId()) {
-          <button class="tool-back-button" (click)="backToRoot()">← Back to Root Tools</button>
+          <button class="tool-back-button" (click)="backToRoot()">
+            <i class="pi pi-arrow-left" aria-hidden="true"></i> Back to Root Tools
+          </button>
         }
         <div class="tool-graph-wrapper">
           <div class="tool-hover-panel">
@@ -157,19 +160,24 @@ interface NodeBaseStyle {
         margin-bottom: var(--space-2);
       }
       .tool-fullscreen-button {
-        padding: var(--space-1) var(--space-3);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
         background: transparent;
-        color: var(--text-main);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-sm);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius-default);
         cursor: pointer;
         font-family: var(--font-graphic);
         font-size: var(--text-caption);
         font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        transition: background 0.2s;
       }
       .tool-fullscreen-button:hover {
-        border-color: var(--simx-content-light);
-        color: var(--simx-content);
+        background: var(--bg-hover);
       }
       .tool-visualization-root.fullscreen .tool-visualization-container {
         flex: 1;
@@ -214,17 +222,18 @@ interface NodeBaseStyle {
       .tool-search-input {
         width: 100%;
         box-sizing: border-box;
-        padding: var(--space-2) var(--space-3);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-        background: var(--bg-input);
-        color: var(--text-main);
+        padding: 6px 8px;
+        border: 1px solid var(--control-border);
+        border-radius: var(--radius-default);
+        background: var(--control-bg);
+        color: var(--control-value);
         font-family: var(--font-body);
-        font-size: var(--text-copy);
+        font-size: 0.9375em;
       }
       .tool-search-input:focus {
         outline: none;
-        border-color: var(--simx-content-light);
+        border-color: var(--control-active-border);
+        box-shadow: var(--control-focus-ring);
       }
       .tool-hierarchy-list {
         list-style: none;
@@ -254,6 +263,7 @@ interface NodeBaseStyle {
       .tool-node-item.active {
         background: var(--bg-selected);
         color: var(--text-on-dark);
+        border-left-color: var(--active-bar);
       }
       .tool-node-label {
         flex: 1;
@@ -295,18 +305,25 @@ interface NodeBaseStyle {
         flex-shrink: 0;
       }
       .tool-back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         margin-bottom: var(--space-2);
-        padding: var(--space-2) var(--space-3);
+        padding: 8px 12px;
         background: var(--accent);
-        color: var(--simx-white);
+        color: var(--text-on-dark);
         border: none;
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius-default);
         cursor: pointer;
         font-family: var(--font-graphic);
         font-size: var(--text-caption);
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.03em;
+        transition: background 0.2s;
+      }
+      .tool-back-button:hover {
+        background: var(--accent-hover);
       }
       .tool-graph-wrapper {
         position: relative;
@@ -1208,7 +1225,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
             background: CLUSTER_COLOR.background,
             border: CLUSTER_COLOR.border,
             highlight: { background: '#405E92', border: '#B2BFD9' },
-            hover: { background: '#405E92', border: '#B2BFD9' },
+            hover: { background: '#4DABE3', border: '#B2BFD9' },
           },
           shadow: false,
         },

@@ -3,12 +3,15 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   HostListener,
   Input,
   OnChanges,
   OnDestroy,
+  Output,
   SimpleChanges,
   ViewChild,
+  inject,
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +19,11 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { OrbitCaptureBundle } from '../../models/orbit-manifest';
+import {
+  ORBIT_BASE_PHI,
+  ORBIT_BASE_THETA,
+  OrbitSessionState,
+} from '../../services/orbit-session-state';
 
 type ViewMode = 'orbit' | 'model';
 
@@ -41,7 +49,43 @@ type ViewMode = 'orbit' | 'model';
       <span class="status">{{ status() }}</span>
     </div>
     }
-    <div #host class="viewport" tabindex="0" [class.grab]="mode() !== 'model'"></div>
+    <div class="viewport-shell">
+      @if (mode() === 'model' || showExpandButton) {
+        <div class="viewer-controls" (pointerdown)="$event.stopPropagation()">
+          @if (mode() === 'model') {
+            <input
+              type="range"
+              class="spin-slider"
+              min="1"
+              max="8"
+              step="0.1"
+              [value]="autoSpinSpeed()"
+              [disabled]="!autoSpin()"
+              title="Auto-spin speed"
+              aria-label="Auto-spin speed"
+              (input)="onSpinSpeedInput($event)"
+            />
+            <button
+              type="button"
+              class="viewer-btn"
+              [class.active]="autoSpin()"
+              [title]="autoSpin() ? 'Pause auto-spin' : 'Resume auto-spin'"
+              [attr.aria-pressed]="autoSpin()"
+              (click)="toggleAutoSpin()"
+            ><i class="pi" [class.pi-pause]="autoSpin()" [class.pi-play]="!autoSpin()" aria-hidden="true"></i></button>
+          }
+          @if (showExpandButton) {
+            <button
+              type="button"
+              class="viewer-btn"
+              [title]="expanded ? 'Exit expanded view' : 'Expand in detail panel'"
+              (click)="expand.emit()"
+            ><i class="pi" [class.pi-times]="expanded" [class.pi-expand]="!expanded" aria-hidden="true"></i></button>
+          }
+        </div>
+      }
+      <div #host class="viewport" tabindex="0" [class.grab]="mode() !== 'model'"></div>
+    </div>
   `,
   styles: [
     `
@@ -83,9 +127,9 @@ type ViewMode = 'orbit' | 'model';
         background: var(--bg-hover, rgba(0, 124, 192, 0.08));
       }
       .toolbar button.active {
-        background: var(--simx-procedure-blue, #007cc0);
-        border-color: var(--simx-procedure-blue, #007cc0);
-        color: #fff;
+        background: var(--accent, #007cc0);
+        border-color: var(--accent, #007cc0);
+        color: rgba(255, 255, 255, 0.95);
       }
       .toolbar button:disabled {
         opacity: 0.45;
@@ -96,6 +140,13 @@ type ViewMode = 'orbit' | 'model';
         font-size: var(--text-caption, 12px);
         color: var(--text-muted, #6b7280);
         font-family: var(--font-mono, monospace);
+      }
+      .viewport-shell {
+        position: relative;
+        flex: 1;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
       }
       .viewport {
         flex: 1;
@@ -111,6 +162,66 @@ type ViewMode = 'orbit' | 'model';
       .viewport.grab:active {
         cursor: grabbing;
       }
+      .viewer-controls {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 4px;
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.22);
+        opacity: 0.72;
+        transition: opacity 0.15s ease, background 0.15s ease;
+      }
+      .viewer-controls:hover,
+      .viewer-controls:focus-within {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.38);
+      }
+      .viewer-btn {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 4px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.88);
+        cursor: pointer;
+        flex-shrink: 0;
+        padding: 0;
+      }
+      .viewer-btn .pi {
+        font-size: 11px;
+        line-height: 1;
+        color: inherit;
+      }
+      .viewer-btn:hover,
+      .viewer-btn.active {
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+      .spin-slider {
+        width: 56px;
+        height: 22px;
+        margin: 0;
+        padding: 0 2px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        accent-color: rgba(255, 255, 255, 0.85);
+        cursor: pointer;
+        box-sizing: border-box;
+        opacity: 0.9;
+      }
+      .spin-slider:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
     `,
   ],
 })
@@ -121,9 +232,20 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   @Input() preferModel = false;
   /** Hide the mode toolbar (compact embeds). */
   @Input() showToolbar = true;
+  /** Show a fullscreen/expand control in the overlay (inline embeds). */
+  @Input() showExpandButton = false;
+  /** Whether the inline viewer is currently expanded within the detail panel. */
+  @Input() expanded = false;
+  @Output() expand = new EventEmitter<void>();
+
+  private readonly session = inject(OrbitSessionState);
 
   readonly status = signal('');
   readonly mode = signal<ViewMode>('orbit');
+  /** Whether the model auto-rotates around the target (model mode only). */
+  readonly autoSpin = signal(this.session.autoSpin);
+  /** OrbitControls autoRotateSpeed (≈2 ≈ 30°/s at 60fps). */
+  readonly autoSpinSpeed = signal(this.session.autoSpinSpeed);
 
   /** Whether this capture has yaw carousel frames (optional now). */
   get hasCarousel(): boolean {
@@ -144,6 +266,8 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   private lastX = 0;
   private dragging = false;
   private ro?: ResizeObserver;
+  private readonly spherical = new THREE.Spherical();
+  private readonly offset = new THREE.Vector3();
 
   // --- 3D model ---
   private controls?: OrbitControls;
@@ -152,6 +276,37 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   private modelLoading = false;
   private modelFitDistance = 3;
   private lights?: THREE.Group;
+  private onControlsStart = (): void => {
+    // Manual orbit/zoom/pan: stop spinning and mark session dirty so the next
+    // asset resets to baseline framing (even if auto-spin is turned back on).
+    this.session.userOrbitDirty = true;
+    if (this.autoSpin()) this.setAutoSpin(false);
+  };
+
+  toggleAutoSpin(): void {
+    this.setAutoSpin(!this.autoSpin());
+  }
+
+  onSpinSpeedInput(event: Event): void {
+    const value = Number((event.target as HTMLInputElement).value);
+    if (!Number.isFinite(value)) return;
+    this.setAutoSpinSpeed(value);
+  }
+
+  /** Toggle continuous yaw spin in model mode. */
+  setAutoSpin(on: boolean): void {
+    this.autoSpin.set(on);
+    this.session.autoSpin = on;
+    if (this.controls) this.controls.autoRotate = on;
+  }
+
+  /** Set spin rate (OrbitControls units; typical range 1–8). */
+  setAutoSpinSpeed(speed: number): void {
+    const clamped = Math.max(0.1, Math.min(8, speed));
+    this.autoSpinSpeed.set(clamped);
+    this.session.autoSpinSpeed = clamped;
+    if (this.controls) this.controls.autoRotateSpeed = clamped;
+  }
 
   ngAfterViewInit(): void {
     const el = this.host.nativeElement;
@@ -188,10 +343,13 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     this.lights.visible = false;
     this.scene.add(this.lights);
 
-    // OrbitControls, only active in model mode.
+    // OrbitControls, only active in model mode. Auto-spin starts on by default.
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.enabled = false;
+    this.controls.autoRotate = this.autoSpin();
+    this.controls.autoRotateSpeed = this.autoSpinSpeed();
+    this.controls.addEventListener('start', this.onControlsStart);
 
     this.ro = new ResizeObserver(() => this.resize());
     this.ro.observe(el);
@@ -217,6 +375,7 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
 
   /** Tear down per-capture GPU state and re-render for the new bundle. */
   private resetForNewBundle(): void {
+    this.captureAzimuth();
     this.disposeModel();
     this.modelLoaded = false;
     this.modelLoading = false;
@@ -243,8 +402,10 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   }
 
   ngOnDestroy(): void {
+    this.captureAzimuth();
     cancelAnimationFrame(this.raf);
     this.ro?.disconnect();
+    this.controls?.removeEventListener('start', this.onControlsStart);
     this.controls?.dispose();
     this.cache.forEach((t) => t.dispose());
     this.material?.dispose();
@@ -401,14 +562,34 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
 
     this.camera.near = Math.max(distance / 1000, 0.001);
     this.camera.far = distance * 1000;
-    this.camera.position.set(0, radius * 0.4, distance);
+
+    // Keep spinning azimuth when browsing assets; after a manual orbit, the next
+    // model snaps back to baseline (then browsing can stay in sync again).
+    let theta = this.session.azimuth ?? ORBIT_BASE_THETA;
+    if (this.session.userOrbitDirty) {
+      theta = ORBIT_BASE_THETA;
+      this.session.userOrbitDirty = false;
+    }
+    this.camera.position.setFromSphericalCoords(distance, ORBIT_BASE_PHI, theta);
     this.camera.lookAt(0, 0, 0);
     this.camera.updateProjectionMatrix();
+    this.session.azimuth = theta;
 
     this.controls.target.set(0, 0, 0);
     this.controls.minDistance = distance * 0.2;
     this.controls.maxDistance = distance * 5;
+    this.controls.autoRotate = this.autoSpin();
+    this.controls.autoRotateSpeed = this.autoSpinSpeed();
     this.controls.update();
+  }
+
+  /** Persist current yaw so the next asset can continue from the same angle. */
+  private captureAzimuth(): void {
+    if (!this.camera || !this.controls || this.mode() !== 'model') return;
+    this.offset.subVectors(this.camera.position, this.controls.target);
+    if (this.offset.lengthSq() < 1e-10) return;
+    this.spherical.setFromVector3(this.offset);
+    this.session.azimuth = this.spherical.theta;
   }
 
   private disposeModel(): void {

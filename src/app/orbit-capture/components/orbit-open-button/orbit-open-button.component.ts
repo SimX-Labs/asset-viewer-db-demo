@@ -14,14 +14,14 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
   template: `
     <div class="dropdown-wrap">
       <button class="orbit-open-btn" (click)="open.set(!open())" title="Orbit captures">
-        <span class="btn-icon">◎</span><span class="btn-label">Orbit</span>
+        <i class="pi pi-box btn-icon" aria-hidden="true"></i><span class="btn-label">Orbit</span>
       </button>
       @if (open()) {
         <div class="dropdown-panel">
           <div class="dropdown-title">Models Folder</div>
           @if (viewer.rootName(); as name) {
             <div class="folder-row">
-              <span class="folder-name" [title]="name">📁 {{ name }}</span>
+              <span class="folder-name" [title]="name"><i class="pi pi-folder" aria-hidden="true"></i> {{ name }}</span>
               <button class="link-btn" (click)="viewer.clearRootFolder()">Clear</button>
             </div>
           } @else {
@@ -65,29 +65,27 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
       .dropdown-wrap {
         position: relative;
       }
-      /* Match the sibling .header-btn look so it reads on the dark header. */
+      /* Match Scenario Creator's glass icon-button treatment on app chrome. */
       .orbit-open-btn {
         display: inline-flex;
         align-items: center;
         gap: var(--space-2, 6px);
         background: transparent;
-        border: 1px solid var(--header-btn-border, rgba(255, 255, 255, 0.25));
+        border: none;
         color: var(--header-text, #fff);
-        padding: var(--space-1, 4px) var(--space-3, 12px);
+        padding: 8px 12px;
         cursor: pointer;
         border-radius: var(--radius-sm, 4px);
         font-family: var(--font-graphic, sans-serif);
-        font-size: var(--text-caption, 12px);
+        font-size: var(--text-copy, 16px);
         font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
         transition: background 0.2s;
       }
       .orbit-open-btn:hover {
         background: var(--header-btn-hover, rgba(255, 255, 255, 0.12));
       }
       .orbit-open-btn .btn-icon {
-        font-size: 14px;
+        font-size: 17px;
         line-height: 1;
       }
       .folder-row {
@@ -103,11 +101,14 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
         white-space: nowrap;
         font-family: var(--font-mono, monospace);
         font-size: var(--text-caption, 12px);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
       }
       .link-btn {
         border: none;
         background: transparent;
-        color: var(--simx-procedure-blue, #007cc0);
+        color: var(--link, #007cc0);
         cursor: pointer;
         font: inherit;
         padding: 0;
@@ -119,12 +120,12 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
         right: 0;
         background: var(--bg-main, #fff);
         color: var(--text-main, #18171d);
-        border: 1px solid var(--border, #d5d9e2);
-        border-radius: var(--radius-lg, 8px);
+        border: 1px solid var(--border, #b2bfd9);
+        border-radius: var(--radius-heavy, 8px);
         padding: var(--space-4, 16px);
         min-width: 260px;
         z-index: 200;
-        box-shadow: var(--shadow-dropdown, 0 8px 24px rgba(0, 0, 0, 0.2));
+        box-shadow: var(--shadow-dropdown);
       }
       .dropdown-title {
         font-family: var(--font-graphic, sans-serif);
@@ -133,28 +134,28 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-bottom: var(--space-3, 12px);
-        color: var(--text-label, #405e92);
+        color: var(--text-label, #007cc0);
       }
       .dropdown-action {
         width: 100%;
         text-align: left;
         background: var(--accent, #007cc0);
-        color: #fff;
+        color: rgba(255, 255, 255, 0.95);
         border: none;
         cursor: pointer;
-        padding: var(--space-2, 8px) var(--space-3, 12px);
+        padding: 8px 12px;
         font-family: var(--font-graphic, sans-serif);
         font-size: var(--text-copy, 16px);
         font-weight: 500;
-        border-radius: var(--radius-sm, 4px);
+        border-radius: var(--radius-default, 4px);
         transition: background 0.2s;
       }
       .dropdown-action:hover {
-        background: var(--accent-hover, #0066a0);
+        background: var(--accent-hover, #00669e);
       }
       .dropdown-action.secondary {
         margin-top: var(--space-2, 8px);
-        background: var(--simx-procedure-blue, #007cc0);
+        background: var(--simx-clinical-indigo, #0f2d5b);
       }
       .dropdown-hint {
         margin: var(--space-2, 8px) 0 0;

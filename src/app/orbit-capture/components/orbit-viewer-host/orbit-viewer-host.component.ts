@@ -21,7 +21,9 @@ import { OrbitBrowserModalComponent } from '../orbit-browser-modal/orbit-browser
     @if (viewer.error(); as err) {
       <div class="orbit-toast orbit-toast--error" role="alert">
         {{ err }}
-        <button type="button" class="orbit-toast-dismiss" (click)="viewer.error.set(null)">×</button>
+        <button type="button" class="orbit-toast-dismiss" (click)="viewer.error.set(null)">
+          <i class="pi pi-times" aria-hidden="true"></i>
+        </button>
       </div>
     }
 
@@ -57,10 +59,12 @@ import { OrbitBrowserModalComponent } from '../orbit-browser-modal/orbit-browser
         background: var(--simx-clinical-indigo, #0f2d5b);
       }
       .orbit-toast-dismiss {
+        display: inline-flex;
+        align-items: center;
         border: none;
         background: transparent;
         color: #fff;
-        font-size: 18px;
+        font-size: 14px;
         line-height: 1;
         cursor: pointer;
       }

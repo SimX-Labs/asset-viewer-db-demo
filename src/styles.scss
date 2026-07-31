@@ -1,35 +1,55 @@
-/* ── SimX Design System (aligned with Scenario Creator) ─────────────── */
+@import 'primeicons/primeicons.css';
+
+/* ── SimX Design System (Scenario Creator brand look) ───────────────── */
+/* Midnight Scrub navy + Procedure Blue accents — matches current SC UI. */
 
 :root {
-  /* ── Brand palette (SimX Angular Style Guide) ───────────────────────── */
-  /* Primary */
-  --simx-midnight-scrub: rgb(9, 29, 60); /* #091d3c — app chrome, deep surfaces */
-  --simx-red: rgb(227, 31, 47); /* #e31f2f — Vital Red: errors, attention */
-  --simx-red-dark: rgb(190, 24, 38);
-  /* Secondary */
-  --simx-clinical-indigo: rgb(15, 45, 91); /* #0f2d5b — card headers, secondary chrome */
-  --simx-procedure-blue: rgb(0, 124, 192); /* #007cc0 — primary content accent */
+  /* Brand palette (SimX Angular Style Guide / live Scenario Creator) */
+  --simx-midnight-scrub: rgb(9, 29, 60); /* #091d3c — app chrome */
+  --simx-midnight-scrub-rgb: 9, 29, 60;
+  --simx-red: rgb(227, 31, 47); /* #e31f2f — Vital Red */
+  --simx-red-rgb: 227, 31, 47;
+  --simx-red-dark: rgb(202, 25, 40);
+  --simx-clinical-indigo: rgb(15, 45, 91); /* #0f2d5b — card headers / secondary chrome */
+  --simx-clinical-indigo-rgb: 15, 45, 91;
+  --simx-procedure-blue: rgb(0, 124, 192); /* #007cc0 — primary accent */
+  --simx-procedure-blue-rgb: 0, 124, 192;
   --simx-procedure-blue-dark: rgb(0, 102, 158);
-  --simx-procedure-blue-light: rgb(77, 171, 227); /* accessible accent on dark surfaces */
-  --simx-purple: rgb(70, 56, 88); /* #463858 — occasional accent */
-  /* Accent / neutrals */
-  --simx-white: rgb(255, 255, 255); /* Sterile White */
-  --simx-instrument-grey: rgb(241, 242, 244); /* #f0f2f4 — app bg, light surfaces */
+  --simx-procedure-blue-light: rgb(77, 171, 227); /* accents on dark surfaces */
+  --simx-purple: rgb(70, 56, 88);
+  --simx-white: rgb(255, 255, 255);
+  --simx-white-rgb: 255, 255, 255;
+  --simx-instrument-grey: rgb(240, 242, 244); /* #f0f2f4 — neutral selected surface */
+  --simx-instrument-grey-rgb: 240, 242, 244;
   --simx-black-dusk: rgb(24, 23, 29); /* #18171d — default text */
   --simx-warning: rgb(255, 177, 0);
+  --simx-success: rgb(0, 201, 133);
 
-  /* Navy accent ramp anchored on Midnight Scrub — chrome surfaces/borders */
-  --simx-slate: rgb(14, 31, 58);
-  --simx-content: rgb(34, 64, 110);
-  --simx-content-lightest: rgb(224, 228, 238);
-  --simx-content-lighter: rgb(178, 191, 217);
-  --simx-content-light: rgb(116, 140, 184);
-  --simx-content-medium: rgb(64, 94, 146);
-  --simx-content-heavy: rgb(17, 40, 76);
+  /* Scenario Creator's current content-accent ramp */
+  --simx-slate: var(--simx-midnight-scrub);
+  --simx-content: var(--simx-procedure-blue);
+  --simx-content-lightest: rgb(240, 242, 244);
+  --simx-content-lighter: rgb(216, 222, 227);
+  --simx-content-light: rgb(187, 196, 205);
+  --simx-content-medium: rgb(0, 164, 253);
+  --simx-content-heavy: rgb(0, 98, 151);
   --simx-content-heaviest: rgb(9, 29, 60);
   --simx-text-default: var(--simx-black-dusk);
+  --simx-app-view-background: rgb(246, 247, 248);
 
-  /* Legacy aliases for component compatibility */
+  /* Scenario Creator-compatible token names */
+  --simx-color-bright-accent: var(--simx-red);
+  --simx-color-content-accent: var(--simx-content);
+  --simx-color-content-accent-lightest: var(--simx-content-lightest);
+  --simx-color-content-accent-lighter: var(--simx-content-lighter);
+  --simx-color-content-accent-light: var(--simx-content-light);
+  --simx-color-content-accent-medium: var(--simx-content-medium);
+  --simx-color-content-accent-heavy: var(--simx-content-heavy);
+  --simx-color-content-accent-heaviest: var(--simx-content-heaviest);
+  --simx-color-app-view-background: var(--simx-app-view-background);
+  --simx-color-app-toolbar-background: var(--simx-midnight-scrub);
+
+  /* Legacy aliases */
   --midnight-scrub: var(--simx-midnight-scrub);
   --vital-red: var(--simx-red);
   --clinical-indigo: var(--simx-clinical-indigo);
@@ -71,34 +91,45 @@
 
   /* Layout */
   --header-height: 50px;
+  --toolbar-height: 60px;
+  --view-toolbar-height: 69px;
+  --content-gutter: 30px;
+  --toolbar-compact-breakpoint: 1200px;
   --sidebar-width: 240px;
   --list-width: 320px;
   --pinned-width: 220px;
+  --z-header: 1000;
+  --z-toolbar: 100;
+  --z-sidebar: 10;
+  --focus-outline: 2px solid var(--control-active-border);
 }
 
 /* Light theme */
 :root,
 :root[data-theme='light'] {
-  --bg-app: var(--simx-instrument-grey);
+  color-scheme: light;
+  --bg-app: var(--simx-app-view-background);
   --bg-main: var(--simx-white);
-  --bg-panel: var(--simx-instrument-grey);
-  --bg-pinned: rgb(233, 236, 240);
+  --bg-panel: var(--simx-app-view-background);
+  --bg-pinned: var(--simx-white);
   --bg-header: var(--simx-midnight-scrub);
-  --bg-nav: var(--simx-clinical-indigo);
+  --bg-nav: var(--simx-white);
   --bg-input: var(--simx-white);
-  --bg-hover: rgba(0, 124, 192, 0.08);
-  --bg-selected: var(--simx-procedure-blue);
+  --bg-hover: rgba(var(--simx-procedure-blue-rgb), 0.08);
+  --bg-selected: var(--simx-content-lightest);
   --bg-graph: var(--bg-app);
   --bg-card: var(--simx-white);
   --bg-card-header: var(--simx-clinical-indigo);
+  --bg-card-footer: var(--simx-content-lightest);
 
   --text-main: var(--simx-text-default);
-  --text-on-dark: rgba(255, 255, 255, 0.95);
-  --text-muted: rgb(94, 104, 120);
-  --text-label: var(--simx-procedure-blue);
+  --text-on-dark: rgba(var(--simx-white-rgb), 0.95);
+  --text-muted: rgb(95, 98, 104);
+  --text-label: var(--simx-content);
 
   --border: var(--simx-content-lighter);
   --border-light: var(--simx-content-lightest);
+  --border-active: var(--simx-content-light);
 
   --accent: var(--simx-procedure-blue);
   --accent-hover: var(--simx-procedure-blue-dark);
@@ -106,56 +137,96 @@
   --accent-warm: var(--simx-red);
   --link: var(--simx-procedure-blue);
   --link-invalid: var(--simx-warning);
-  --success: var(--simx-procedure-blue);
+  --success: var(--simx-success);
   --error: var(--simx-red);
+  --warning: var(--simx-warning);
 
-  --tab-inactive-bg: var(--simx-content-medium);
-  --tab-active-bg: var(--simx-white);
-  --header-text: var(--text-on-dark);
-  --header-btn-border: rgba(255, 255, 255, 0.25);
-  --header-btn-hover: rgba(255, 255, 255, 0.1);
-  --shadow-dropdown: 0 8px 24px rgba(9, 29, 60, 0.18);
-}
-
-/* Dark theme — navy palette (class toggle per style guide) */
-:root[data-theme='dark'],
-html.simx-dark {
-  --bg-app: rgb(9, 18, 36);
-  --bg-main: rgb(12, 26, 52);
-  --bg-panel: rgb(15, 34, 66);
-  --bg-pinned: rgb(12, 26, 52);
-  --bg-header: var(--simx-midnight-scrub);
-  --bg-nav: var(--simx-clinical-indigo);
-  --bg-input: rgb(17, 40, 76);
-  --bg-hover: rgba(255, 255, 255, 0.06);
-  --bg-selected: var(--simx-procedure-blue);
-  --bg-graph: rgb(9, 18, 36);
-  --bg-card: rgb(15, 34, 66);
-  --bg-card-header: var(--simx-clinical-indigo);
-
-  --text-main: rgba(255, 255, 255, 0.95);
-  --text-on-dark: rgba(255, 255, 255, 0.95);
-  --text-muted: var(--simx-content-lighter);
-  --text-label: var(--simx-procedure-blue-light);
-
-  --border: rgb(34, 64, 110);
-  --border-light: rgb(17, 40, 76);
-
-  --accent: var(--simx-procedure-blue-light);
-  --accent-hover: rgb(120, 195, 240);
-  --accent-secondary: var(--simx-content-light);
-  --accent-warm: var(--simx-red);
-  --link: var(--simx-procedure-blue-light);
-  --link-invalid: var(--simx-warning);
-  --success: var(--simx-procedure-blue-light);
-  --error: rgb(255, 100, 120);
+  --control-bg: var(--simx-white);
+  --control-border: var(--simx-content-lighter);
+  --control-value: var(--simx-text-default);
+  --control-active-border: var(--simx-content-light);
+  --control-focus-ring: 0 0 5px 0 rgba(187, 196, 205, 0.8);
+  --disabled-control-bg: var(--simx-app-view-background);
+  --disabled-control-border: rgb(228, 232, 235);
+  --disabled-control-value: rgb(150, 152, 158);
 
   --tab-inactive-bg: var(--simx-content-heavy);
+  --tab-active-bg: var(--simx-white);
+  --header-text: var(--text-on-dark);
+  --header-btn-border: rgba(var(--simx-white-rgb), 0.25);
+  --header-btn-hover: rgba(var(--simx-white-rgb), 0.1);
+  --shadow-dropdown: 0 8px 24px rgba(var(--simx-midnight-scrub-rgb), 0.22);
+  --shadow-dialog: 0 0 0 1px var(--simx-midnight-scrub), 0 0 50px 25px rgba(0, 0, 0, 0.25);
+  --overlay: rgba(0, 0, 0, 0.6);
+  --active-bar: var(--simx-content);
+}
+
+/* Dark theme — matches Scenario Creator dark mode (navy + cyan) */
+:root[data-theme='dark'],
+html.simx-dark {
+  color-scheme: dark;
+  --simx-red: rgb(255, 92, 120);
+  --simx-red-rgb: 255, 92, 120;
+  --simx-red-dark: rgb(214, 60, 90);
+  --simx-content-lightest: rgb(28, 32, 42);
+  --simx-content-lighter: rgb(72, 84, 104);
+  --simx-content-light: rgb(96, 116, 144);
+  --simx-content-medium: rgb(64, 160, 220);
+  --simx-content-heavy: rgb(140, 195, 235);
+  --simx-content-heaviest: rgb(9, 29, 60);
+  --simx-app-view-background: rgb(18, 20, 28);
+
+  --bg-app: var(--simx-app-view-background);
+  --bg-main: rgb(28, 32, 42);
+  --bg-panel: rgb(24, 27, 35);
+  --bg-pinned: rgb(28, 32, 42);
+  --bg-header: var(--simx-midnight-scrub);
+  --bg-nav: rgb(28, 32, 42);
+  --bg-input: rgb(28, 32, 42);
+  --bg-hover: rgba(var(--simx-instrument-grey-rgb), 0.08);
+  --bg-selected: var(--simx-content-lightest);
+  --bg-graph: var(--simx-app-view-background);
+  --bg-card: rgb(28, 32, 42);
+  --bg-card-header: var(--simx-clinical-indigo);
+  --bg-card-footer: rgb(24, 27, 35);
+
+  --text-main: rgb(226, 229, 234);
+  --text-on-dark: rgba(var(--simx-white-rgb), 0.95);
+  --text-muted: rgb(158, 170, 186);
+  --text-label: var(--simx-content-heavy);
+
+  --border: rgb(96, 112, 138);
+  --border-light: rgb(58, 68, 84);
+  --border-active: var(--simx-procedure-blue);
+
+  --accent: var(--simx-procedure-blue);
+  --accent-hover: rgb(0, 100, 160);
+  --accent-secondary: var(--simx-content-heavy);
+  --accent-warm: var(--simx-red);
+  --link: var(--simx-content-heavy);
+  --link-invalid: var(--simx-warning);
+  --success: var(--simx-success);
+  --error: rgb(255, 92, 120);
+  --warning: rgb(255, 190, 40);
+
+  --control-bg: rgb(28, 32, 42);
+  --control-border: rgb(96, 112, 138);
+  --control-value: rgb(226, 229, 234);
+  --control-active-border: var(--simx-procedure-blue);
+  --control-focus-ring: 0 0 5px 0 rgba(var(--simx-procedure-blue-rgb), 0.55);
+  --disabled-control-bg: rgb(24, 27, 35);
+  --disabled-control-border: rgb(58, 68, 84);
+  --disabled-control-value: rgb(120, 130, 148);
+
+  --tab-inactive-bg: rgb(0, 100, 160);
   --tab-active-bg: var(--bg-main);
   --header-text: var(--text-on-dark);
-  --header-btn-border: rgba(255, 255, 255, 0.2);
-  --header-btn-hover: rgba(255, 255, 255, 0.08);
+  --header-btn-border: rgba(var(--simx-white-rgb), 0.2);
+  --header-btn-hover: rgba(var(--simx-white-rgb), 0.08);
   --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-dialog: 0 0 0 1px var(--simx-midnight-scrub), 0 0 50px 25px rgba(0, 0, 0, 0.5);
+  --overlay: rgba(0, 0, 0, 0.65);
+  --active-bar: var(--simx-procedure-blue);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────────────── */
@@ -177,6 +248,7 @@ body {
   background: var(--bg-app);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 strong {
@@ -188,7 +260,7 @@ strong {
 .simx-label {
   font-family: var(--font-graphic);
   font-weight: 600;
-  font-size: var(--text-caption);
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-label);
@@ -201,60 +273,160 @@ strong {
   letter-spacing: 0.02em;
 }
 
+/* Buttons */
 .simx-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
+  padding: 8px 24px;
+  border-radius: var(--radius-default);
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
   font-family: var(--font-graphic);
   font-size: var(--text-copy);
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--bg-hover);
+  }
+
+  &:active {
+    background: rgba(var(--simx-procedure-blue-rgb), 0.2);
+  }
+
+  &:disabled,
+  &.simx-disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+
+  .pi {
+    font-size: 17px;
+    font-weight: 400;
+  }
 
   &--primary {
     background: var(--accent);
-    color: var(--simx-white);
-    border: 1px solid var(--accent);
-    &:hover {
+    color: var(--text-on-dark);
+    border-color: var(--accent);
+
+    &:hover,
+    &:focus {
       background: var(--accent-hover);
       border-color: var(--accent-hover);
     }
-  }
 
-  &--ghost {
-    background: transparent;
-    color: var(--header-text);
-    border: 1px solid var(--header-btn-border);
-    &:hover {
-      background: var(--header-btn-hover);
+    &:active {
+      background: var(--simx-procedure-blue-dark);
+      border-color: var(--simx-procedure-blue-dark);
     }
   }
 
+  &--content {
+    border-color: var(--simx-clinical-indigo);
+    color: var(--simx-clinical-indigo);
+
+    &:hover,
+    &:focus {
+      background: rgba(var(--simx-clinical-indigo-rgb), 0.1);
+    }
+  }
+
+  &--bright,
   &--danger {
+    border-color: var(--accent-warm);
+    color: var(--accent-warm);
+
+    &:hover,
+    &:focus {
+      background: rgba(var(--simx-red-rgb), 0.1);
+    }
+
+    &:active {
+      background: rgba(var(--simx-red-rgb), 0.2);
+    }
+  }
+
+  &--bright.simx-btn--primary,
+  &--danger.simx-btn--primary {
     background: var(--accent-warm);
-    color: var(--simx-white);
-    border: 1px solid var(--accent-warm);
-    &:hover {
-      background: var(--accent-hover);
+    color: var(--text-on-dark);
+    border-color: var(--accent-warm);
+
+    &:hover,
+    &:focus {
+      background: var(--simx-red-dark);
+      border-color: var(--simx-red-dark);
+    }
+  }
+
+  &--ghost,
+  &--inverse {
+    background: transparent;
+    color: var(--header-text);
+    border: none;
+
+    &:hover,
+    &:focus {
+      background: var(--header-btn-hover);
+    }
+
+    &:active {
+      background: rgba(var(--simx-white-rgb), 0.2);
+    }
+  }
+
+  &--glass {
+    border: none;
+    padding: 8px 12px;
+
+    &:hover,
+    &:focus {
+      background: var(--bg-hover);
+    }
+  }
+
+  &--small {
+    padding: 6px 12px;
+    font-size: 14px;
+
+    .pi {
+      font-size: 14px;
+    }
+
+    &.simx-btn--glass {
+      padding: 6px 9px;
     }
   }
 }
 
-/* ── simx-* component patterns (SimX Angular Style Guide §6) ─────────── */
+/* ── simx-* component patterns ───────────────────────────────────────── */
 
 .simx-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border);
   border-radius: var(--radius-heavy);
   overflow: hidden;
 }
 
 .simx-card-header {
   background: var(--bg-card-header);
-  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 15px;
 }
 
 .simx-card-heading {
@@ -271,68 +443,141 @@ strong {
 }
 
 .simx-card-footer {
-  background: var(--simx-content-lightest);
-  padding: var(--space-3) var(--space-4);
+  background: var(--bg-card-footer);
+  padding: 10px var(--space-4);
   display: flex;
   justify-content: center;
   gap: var(--space-2);
 }
 
-/* Section heading: uppercase Quicksand, Procedure Blue, rounded rule above */
 .simx-section-heading {
   font-family: var(--font-graphic);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
   color: var(--text-label);
-  margin: var(--space-5) 0 var(--space-3);
+  margin: 1.5em 0;
+  padding-top: 0.75em;
+  position: relative;
 
   &::before {
     content: '';
     display: block;
-    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 5px;
-    border-radius: 999px;
-    background: var(--accent);
-    margin-bottom: var(--space-2);
+    border-radius: var(--radius-default);
+    background: var(--simx-content-lighter);
   }
 }
 
 .simx-section-divider {
-  height: 1px;
+  height: 5px;
   border: 0;
-  background: var(--border-light);
-  margin: var(--space-4) 0;
+  border-radius: var(--radius-default);
+  background: var(--simx-content-lightest);
+  margin: 20px 0;
+  width: 100%;
 }
 
 .simx-tag {
   display: inline-flex;
   align-items: center;
-  padding: 2px var(--space-2);
+  padding: 4px 8px;
   background: var(--simx-content-lightest);
   border: 1px solid var(--simx-content-lighter);
   border-radius: var(--radius-default);
-  font-family: var(--font-graphic);
-  font-weight: 600;
-  font-size: var(--text-caption);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--accent-secondary);
+  font-weight: 400;
+  color: var(--simx-content-heavy);
 }
 
 .simx-ui-text {
   font-family: var(--font-graphic);
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.4;
+  transition: color 0.2s;
 
   &.simx-style--heavy {
     font-weight: 700;
   }
+
   &.simx-style--error {
     color: var(--error);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+  }
+
+  &.simx-disabled {
+    color: var(--disabled-control-value);
+  }
+}
+
+/* Form controls */
+.simx-control,
+input.simx-control,
+select.simx-control,
+textarea.simx-control {
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-default);
+  color: var(--control-value);
+  font-family: var(--font-body);
+  font-size: 0.9375em;
+  font-weight: 300;
+  padding: 6px 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--control-active-border);
+    box-shadow: var(--control-focus-ring);
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 0;
+  }
+
+  &:disabled {
+    background: var(--disabled-control-bg);
+    border-color: var(--disabled-control-border);
+    color: var(--disabled-control-value);
+  }
+
+  &.simx-invalid:focus {
+    border-color: var(--error);
+    box-shadow: 0 0 5px 0 var(--error);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+}
+
+/* Active left-bar indicator (nav / list / tabs) */
+.simx-active-bar {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--active-bar);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &.simx-active::before,
+  &.active::before,
+  &.selected::before {
+    opacity: 1;
   }
 }
 
@@ -344,17 +589,19 @@ strong {
 
 .link-group-search {
   width: 100%;
-  padding: var(--space-2) var(--space-3);
+  padding: 6px 8px;
   margin-bottom: var(--space-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-heavy);
-  background: var(--bg-input);
-  color: var(--text-main);
-  font-size: var(--text-caption);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-default);
+  background: var(--control-bg);
+  color: var(--control-value);
+  font-size: 0.9375em;
   font-family: var(--font-body);
+
   &:focus {
     outline: none;
-    border-color: var(--simx-content-light);
+    border-color: var(--control-active-border);
+    box-shadow: var(--control-focus-ring);
   }
 }
 
@@ -364,8 +611,6 @@ strong {
   gap: var(--space-1);
 }
 
-// On the equipment / tool detail reference sections, keep long lists in a
-// scrollable interior window instead of one giant list.
 .equipment-refs .link-group-list,
 .ref-section .link-group-list {
   max-height: 300px;
@@ -377,17 +622,20 @@ strong {
   padding: var(--space-1) var(--space-2);
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  border-radius: var(--radius-heavy);
+  border-radius: var(--radius-default);
   cursor: pointer;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, background 0.15s;
+
   &:hover {
-    border-color: var(--simx-content-light);
+    border-color: var(--border-active);
+    background: var(--bg-hover);
   }
 }
 
 .link-name {
   color: var(--link);
   font-size: var(--text-copy);
+
   &.link-invalid {
     color: var(--link-invalid);
     text-decoration: line-through;
@@ -406,6 +654,7 @@ strong {
   color: var(--link);
   cursor: pointer;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -426,7 +675,7 @@ strong {
   padding: var(--space-1) var(--space-2);
   background: var(--bg-panel);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-heavy);
+  border-radius: var(--radius-default);
   font-size: var(--text-caption);
 }
 
@@ -452,12 +701,27 @@ strong {
   padding: var(--space-2);
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  border-radius: var(--radius-heavy);
+  border-radius: var(--radius-default);
   font-size: var(--text-caption);
 }
 
 .custom-key {
   color: var(--text-muted);
+}
+
+/* PrimeIcons — reset inherited button typography that breaks the icon font */
+.pi {
+  font-family: 'primeicons' !important;
+  speak: none;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Scrollbars ───────────────────────────────────────────────────────── */
@@ -474,6 +738,7 @@ strong {
 ::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: var(--radius-sm);
+
   &:hover {
     background: var(--text-muted);
   }

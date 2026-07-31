@@ -22,7 +22,9 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
           <h2 class="orbit-dialog-title">
             Model Library <span class="root-name">· {{ viewer.rootName() }}</span>
           </h2>
-          <button type="button" class="orbit-close" title="Close (Esc)" (click)="viewer.closeBrowser()">×</button>
+          <button type="button" class="orbit-close" title="Close (Esc)" (click)="viewer.closeBrowser()">
+            <i class="pi pi-times" aria-hidden="true"></i>
+          </button>
         </header>
 
         <div class="orbit-dialog-body">
@@ -80,7 +82,7 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.55);
+        background: var(--overlay, rgba(0, 0, 0, 0.6));
         padding: 16px;
       }
       .orbit-dialog {
@@ -91,37 +93,47 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
         background: var(--bg-card, #fff);
         color: var(--text-main, #18171d);
         border-radius: var(--radius-heavy, 8px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        box-shadow: var(--shadow-dialog);
         overflow: hidden;
+        border: 4px solid var(--simx-clinical-indigo, #0f2d5b);
       }
       .orbit-dialog-head {
         display: flex;
         align-items: center;
         gap: 12px;
         padding: 12px 16px;
-        border-bottom: 1px solid var(--border, #e0e4ee);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
         background: var(--bg-header, #091d3c);
-        color: #fff;
+        color: rgba(255, 255, 255, 0.95);
       }
       .orbit-dialog-title {
         margin: 0;
-        font-size: var(--text-headline-copy, 18px);
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
         font-family: var(--font-graphic, sans-serif);
+        border-left: 5px solid var(--simx-red, #e31f2f);
+        padding-left: 12px;
       }
       .root-name {
         opacity: 0.7;
         font-family: var(--font-mono, monospace);
         font-size: var(--text-caption, 12px);
+        text-transform: none;
+        font-weight: 400;
       }
       .orbit-close {
         margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         border: none;
         background: transparent;
-        color: #fff;
-        font-size: 24px;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 16px;
         line-height: 1;
         cursor: pointer;
-        padding: 0 4px;
+        padding: 6px 8px;
         border-radius: var(--radius-default, 4px);
       }
       .orbit-close:hover {
@@ -145,12 +157,17 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
       .library-search {
         width: 100%;
         box-sizing: border-box;
-        padding: 6px 10px;
-        border: 1px solid var(--border, #ccc);
+        padding: 6px 8px;
+        border: 1px solid var(--control-border, #b2bfd9);
         border-radius: var(--radius-default, 4px);
-        background: var(--bg-input, #fff);
-        color: var(--text-main, #18171d);
+        background: var(--control-bg, #fff);
+        color: var(--control-value, #18171d);
         font: inherit;
+      }
+      .library-search:focus {
+        outline: none;
+        border-color: var(--control-active-border, #007cc0);
+        box-shadow: var(--control-focus-ring);
       }
       .library-count {
         font-size: var(--text-caption, 12px);
@@ -182,8 +199,8 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
         background: var(--bg-hover, rgba(0, 124, 192, 0.08));
       }
       .library-item.active {
-        background: var(--simx-procedure-blue, #007cc0);
-        color: #fff;
+        background: var(--bg-selected, #007cc0);
+        color: rgba(255, 255, 255, 0.95);
       }
       .library-empty {
         color: var(--text-muted, #6b7280);
@@ -210,7 +227,7 @@ import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.comp
         padding: 24px;
       }
       .viewer-note.error {
-        color: var(--simx-red, #e31f2f);
+        color: var(--error, #e31f2f);
       }
     `,
   ],

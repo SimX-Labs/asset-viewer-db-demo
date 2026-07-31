@@ -13,8 +13,8 @@ import { wrapText } from '../../utils/property.util';
         width: 100%;
         height: 500px;
         background: var(--bg-graph);
-        border: 1px solid var(--border-light);
-        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-heavy);
       }
     `,
   ],
@@ -54,9 +54,9 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
     const edges = new DataSet<any>();
 
     const colorStandard = { background: '#E0E4EE', border: '#B2BFD9' };
-    const colorFailure = { background: '#ffb3c0', border: '#E5002C' };
+    const colorFailure = { background: '#ffb3c0', border: '#E31F2F' };
     const colorSuccess = { background: '#091D3C', border: '#22406E' };
-    const colorStart = { background: '#22406E', border: '#11284C' };
+    const colorStart = { background: '#007CC0', border: '#00669E' };
 
     stateMap.States.forEach((state, index) => {
       let color = colorStandard;
@@ -69,7 +69,7 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
         label: state.Id.replace('state_', ''),
         color,
         shape: 'box',
-        font: { color: index === 0 || state.StateType === 2 ? '#ffffff' : '#151319', size: 14, face: 'Open Sans', strokeWidth: 0 },
+        font: { color: index === 0 || state.StateType === 2 ? '#ffffff' : '#18171d', size: 14, face: 'Open Sans', strokeWidth: 0 },
         margin: 10,
         shadow: { enabled: true, color: 'rgba(0,0,0,0.2)', size: 5, x: 2, y: 2 },
       });
@@ -100,7 +100,7 @@ export class ProcedureGraphComponent implements AfterViewInit, OnDestroy {
             background: '#121212',
             strokeWidth: 0,
           },
-          color: { color: '#405E92', highlight: '#22406E' },
+          color: { color: '#405E92', highlight: '#007CC0' },
           smooth: { type: 'curvedCW', roundness: 0.2 },
         });
       });

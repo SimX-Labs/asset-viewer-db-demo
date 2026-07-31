@@ -18,14 +18,15 @@ import { AppStateService } from '../../services/app-state.service';
             (ngModelChange)="state.searchQuery.set($event)"
           />
           @if (state.searchQuery()) {
-            <button class="search-clear" (click)="state.searchQuery.set('')" title="Clear search">×</button>
+            <button class="search-clear" (click)="state.searchQuery.set('')" title="Clear search">
+              <i class="pi pi-times" aria-hidden="true"></i>
+            </button>
           }
         </div>
-        <button class="export-btn" title="Export filtered list to CSV" (click)="state.exportCsv()">Export</button>
-      </div>
-      <div class="search-help">
-        <span class="help-icon">?</span>
-        Try: <code>ContainedTools.length &lt; 2</code> or <code>AssetAddress != null</code>
+        <button class="export-btn simx-btn simx-btn--small" title="Export filtered list to CSV" (click)="state.exportCsv()">
+          <i class="pi pi-download" aria-hidden="true"></i>
+          Export
+        </button>
       </div>
       <div class="list-columns">
         <span>Name</span>

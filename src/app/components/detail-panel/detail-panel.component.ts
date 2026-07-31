@@ -11,7 +11,9 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
   template: `
     <section class="detail-panel">
       <div class="tab-strip">
-        <button class="close-all-btn" (click)="state.closeAllTabs()">× Close All</button>
+        <button class="close-all-btn" (click)="state.closeAllTabs()">
+          <i class="pi pi-times" aria-hidden="true"></i> Close All
+        </button>
         <div class="tab-bar">
           @for (tabId of state.openTabIds(); track tabId) {
             <button
@@ -20,7 +22,9 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
               (click)="state.activateTab(tabId)"
             >
               <span class="tab-title" [title]="tabLabel(tabId)">{{ tabLabel(tabId) }}</span>
-              <span class="tab-close" (click)="closeTab($event, tabId)">×</span>
+              <span class="tab-close" (click)="closeTab($event, tabId)" title="Close tab">
+                <i class="pi pi-times" aria-hidden="true"></i>
+              </span>
             </button>
           }
         </div>
@@ -35,7 +39,7 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
               <nav class="breadcrumb-bar">
                 @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
                   @if (i > 0) {
-                    <span class="crumb-separator">></span>
+                    <i class="pi pi-angle-right crumb-separator" aria-hidden="true"></i>
                   }
                   @if (last) {
                     <span class="crumb current">{{ tabLabel(histId) }}</span>

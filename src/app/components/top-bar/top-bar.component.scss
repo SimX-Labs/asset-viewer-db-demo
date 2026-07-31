@@ -6,13 +6,15 @@
 .top-bar {
   background: var(--bg-header);
   height: var(--header-height);
-  padding: 0 var(--space-7);
+  padding: 0 var(--content-gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
   border-bottom: solid 1px rgba(0, 0, 0, 0.3);
   color: var(--header-text);
+  z-index: var(--z-header);
+  position: relative;
 }
 
 .top-bar-brand {
@@ -33,7 +35,7 @@
 .brand-divider {
   width: 1px;
   height: 27px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--simx-white-rgb), 0.05);
   flex-shrink: 0;
 }
 
@@ -76,31 +78,47 @@
   align-items: center;
   gap: var(--space-2);
   background: transparent;
-  border: 1px solid var(--header-btn-border);
+  border: none;
   color: var(--header-text);
-  padding: var(--space-1) var(--space-3);
+  padding: 8px 12px;
   cursor: pointer;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-default);
   font-family: var(--font-graphic);
-  font-size: var(--text-caption);
+  font-size: var(--text-copy);
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 
-  &:hover {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(var(--simx-white-rgb), 0.7);
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &:focus {
     background: var(--header-btn-hover);
   }
 
+  &:active {
+    background: rgba(var(--simx-white-rgb), 0.2);
+  }
+
   &.icon-only {
-    padding: var(--space-1) var(--space-2);
-    min-width: 32px;
+    padding: 8px 12px;
+    min-width: 41px;
     justify-content: center;
+  }
+
+  .pi {
+    font-size: 17px;
   }
 }
 
 .btn-icon {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1;
 }
 
@@ -114,11 +132,12 @@
   right: 0;
   background: var(--bg-main);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-heavy);
   padding: var(--space-4);
   min-width: 240px;
   z-index: 200;
   box-shadow: var(--shadow-dropdown);
+  color: var(--text-main);
 
   &--wide {
     min-width: 280px;
@@ -150,14 +169,14 @@
   width: 100%;
   text-align: left;
   background: var(--accent);
-  color: var(--simx-white);
+  color: var(--text-on-dark);
   border: none;
   cursor: pointer;
-  padding: var(--space-2) var(--space-3);
+  padding: 8px 12px;
   font-family: var(--font-graphic);
   font-size: var(--text-copy);
   font-weight: 500;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-default);
   transition: background 0.2s;
 
   &:hover {

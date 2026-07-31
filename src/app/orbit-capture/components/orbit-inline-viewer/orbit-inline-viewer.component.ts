@@ -1,6 +1,8 @@
 // orbit-inline-viewer.component.ts
 import {
   Component,
+  ElementRef,
+  HostListener,
   Input,
   OnChanges,
   OnDestroy,
@@ -11,6 +13,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { OrbitCaptureBundle } from '../../models/orbit-manifest';
 import { OrbitViewerService } from '../../services/orbit-viewer.service';
+import { OrbitSessionState } from '../../services/orbit-session-state';
 import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.component';
 
 type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
@@ -19,6 +22,8 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
  * Inline, page-embedded orbit/model viewer (Wikipedia-infobox style). Resolves a
  * capture by addressable from the configured models root and shows the GLB inline.
  * Renders nothing when no models folder is set or no matching capture/model exists.
+ *
+ * Expand fills the detail panel only so the asset list stays usable for browsing.
  */
 @Component({
   selector: 'app-orbit-inline-viewer',
@@ -26,15 +31,20 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
   imports: [CommonModule, OrbitTurntableComponent],
   template: `
     @if (status() !== 'none') {
-      <figure class="model-infobox">
+      <figure
+        class="model-infobox"
+        [class.expanded]="expanded()"
+        [ngStyle]="expandedStyle()"
+      >
         @if (status() === 'ready' && bundle()) {
-          <button
-            type="button"
-            class="fullscreen-btn"
-            title="Open full-screen"
-            (click)="openFullscreen()"
-          >⛶</button>
-          <app-orbit-turntable [bundle]="bundle()!" [preferModel]="true" [showToolbar]="false" />
+          <app-orbit-turntable
+            [bundle]="bundle()!"
+            [preferModel]="true"
+            [showToolbar]="false"
+            [showExpandButton]="true"
+            [expanded]="expanded()"
+            (expand)="toggleExpanded()"
+          />
         } @else if (status() === 'loading') {
           <div class="infobox-note">Loading 3D model…</div>
         } @else if (status() === 'blocked') {
@@ -48,20 +58,31 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
   `,
   styles: [
     `
+      :host {
+        display: block;
+        min-width: 0;
+      }
       .model-infobox {
         position: relative;
         width: 100%;
         aspect-ratio: 1 / 1;
         margin: 0;
         padding: 0;
-        border: 1px solid var(--border, #d5d9e2);
-        border-radius: var(--radius-lg, 8px);
+        border: 1px solid var(--border, #b2bfd9);
+        border-radius: var(--radius-heavy, 8px);
         background: var(--bg-panel, #f0f2f4);
         box-sizing: border-box;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         isolation: isolate;
+      }
+      .model-infobox.expanded {
+        aspect-ratio: auto;
+        border-radius: 0;
+        border: none;
+        background: var(--bg-main, #0b1220);
+        z-index: 40;
       }
       .model-infobox app-orbit-turntable {
         /* Must stay a flex column here: the turntable's inner .viewport relies on
@@ -73,27 +94,6 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
         inset: 0;
         min-height: 0;
       }
-      .fullscreen-btn {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        z-index: 2;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        border-radius: var(--radius-default, 4px);
-        background: rgba(0, 0, 0, 0.45);
-        color: #fff;
-        font-size: 16px;
-        line-height: 1;
-        cursor: pointer;
-      }
-      .fullscreen-btn:hover {
-        background: rgba(0, 0, 0, 0.7);
-      }
       .infobox-note {
         display: flex;
         flex-direction: column;
@@ -101,6 +101,7 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
         justify-content: center;
         gap: 8px;
         min-height: 120px;
+        height: 100%;
         text-align: center;
         color: var(--text-muted, #6b7280);
         font-size: var(--text-caption, 12px);
@@ -110,12 +111,14 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
         padding: 6px 12px;
         border: none;
         border-radius: var(--radius-default, 4px);
-        background: var(--simx-procedure-blue, #007cc0);
-        color: #fff;
+        background: var(--accent, #007cc0);
+        color: rgba(255, 255, 255, 0.95);
         cursor: pointer;
+        font-family: var(--font-graphic, sans-serif);
+        font-weight: 500;
       }
       @media (max-width: 720px) {
-        .model-infobox {
+        .model-infobox:not(.expanded) {
           width: 100%;
         }
       }
@@ -126,9 +129,15 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   @Input({ required: true }) addressable!: string;
 
   private readonly viewer = inject(OrbitViewerService);
+  private readonly session = inject(OrbitSessionState);
+  private readonly host = inject(ElementRef<HTMLElement>);
 
   readonly status = signal<InlineStatus>('idle');
   readonly bundle = signal<OrbitCaptureBundle | null>(null);
+  readonly expanded = this.session.panelExpanded;
+  readonly expandedStyle = signal<Record<string, string> | null>(null);
+
+  private panelRo?: ResizeObserver;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['addressable']) {
@@ -138,7 +147,18 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.teardownPanelObserver();
     this.reset();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    if (this.expanded()) this.syncExpandedBounds();
+  }
+
+  @HostListener('window:keydown.escape')
+  onEscape(): void {
+    if (this.expanded()) this.session.panelExpanded.set(false);
   }
 
   async grant(): Promise<void> {
@@ -147,14 +167,22 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
     }
   }
 
-  /** Open the same capture in the large, near-fullscreen modal. */
-  async openFullscreen(): Promise<void> {
-    await this.viewer.openByAddressable(this.addressable);
+  toggleExpanded(): void {
+    const next = !this.expanded();
+    this.session.panelExpanded.set(next);
+    if (next) {
+      this.syncExpandedBounds();
+      this.observeDetailPanel();
+    } else {
+      this.expandedStyle.set(null);
+      this.teardownPanelObserver();
+    }
   }
 
   private async resolve(): Promise<void> {
     if (!this.addressable || !this.viewer.supported || !this.viewer.hasRoot) {
       this.status.set('none');
+      this.exitExpandedIfNeeded();
       return;
     }
     if (await this.viewer.isRootReadable()) {
@@ -173,13 +201,22 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
       if (!bundle.modelUrl) {
         bundle.revoke();
         this.status.set('none');
+        this.exitExpandedIfNeeded();
         return;
       }
       this.bundle.set(bundle);
       this.status.set('ready');
+      if (this.expanded()) {
+        // Recreated after asset switch while still expanded — reattach bounds.
+        queueMicrotask(() => {
+          this.syncExpandedBounds();
+          this.observeDetailPanel();
+        });
+      }
     } catch {
       // No matching folder / manifest — just don't show an infobox.
       this.status.set('none');
+      this.exitExpandedIfNeeded();
     }
   }
 
@@ -187,5 +224,45 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
     this.bundle()?.revoke();
     this.bundle.set(null);
     this.status.set('idle');
+  }
+
+  private exitExpandedIfNeeded(): void {
+    if (!this.expanded()) return;
+    this.session.panelExpanded.set(false);
+    this.expandedStyle.set(null);
+    this.teardownPanelObserver();
+  }
+
+  private detailPanelEl(): HTMLElement | null {
+    return this.host.nativeElement.closest('.detail-panel');
+  }
+
+  private syncExpandedBounds(): void {
+    const panel = this.detailPanelEl();
+    if (!panel) {
+      this.expandedStyle.set(null);
+      return;
+    }
+    const r = panel.getBoundingClientRect();
+    this.expandedStyle.set({
+      position: 'fixed',
+      top: `${Math.round(r.top)}px`,
+      left: `${Math.round(r.left)}px`,
+      width: `${Math.round(r.width)}px`,
+      height: `${Math.round(r.height)}px`,
+    });
+  }
+
+  private observeDetailPanel(): void {
+    this.teardownPanelObserver();
+    const panel = this.detailPanelEl();
+    if (!panel) return;
+    this.panelRo = new ResizeObserver(() => this.syncExpandedBounds());
+    this.panelRo.observe(panel);
+  }
+
+  private teardownPanelObserver(): void {
+    this.panelRo?.disconnect();
+    this.panelRo = undefined;
   }
 }

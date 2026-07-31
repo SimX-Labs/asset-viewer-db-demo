@@ -13,7 +13,9 @@ import { AppStateService } from '../../services/app-state.service';
       <aside class="webgl-sidebar">
         <div class="webgl-header">
           <span class="webgl-title">Unity Player: {{ assetName(assetId) }}</span>
-          <button class="webgl-close" (click)="close()">✖</button>
+          <button class="webgl-close" (click)="close()" title="Close">
+            <i class="pi pi-times" aria-hidden="true"></i>
+          </button>
         </div>
         <div class="unity-container">
           <iframe #unityFrame class="unity-iframe" [src]="iframeSrc"></iframe>

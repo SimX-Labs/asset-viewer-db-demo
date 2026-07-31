@@ -18,20 +18,22 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
           draggable="false"
         />
         <div class="brand-divider"></div>
-        <h1 class="app-title">{{ state.dataMode() === 'unity' ? 'Unity Asset Explorer' : 'DBO Explorer' }}</h1>
+        <h1 class="app-title">SimX Asset Database</h1>
         <span class="status" [class.error]="state.statusError()">{{ state.statusMessage() }}</span>
       </div>
       <div class="top-bar-actions">
         <app-orbit-open-button />
         <button class="header-btn" (click)="theme.toggle()" [title]="theme.themeLabel()">
           @if (theme.resolvedTheme() === 'dark') {
-            <span class="btn-icon">☀</span><span class="btn-label">Light</span>
+            <i class="pi pi-sun btn-icon" aria-hidden="true"></i><span class="btn-label">Light</span>
           } @else {
-            <span class="btn-icon">☾</span><span class="btn-label">Dark</span>
+            <i class="pi pi-moon btn-icon" aria-hidden="true"></i><span class="btn-label">Dark</span>
           }
         </button>
         <div class="dropdown-wrap">
-          <button class="header-btn icon-only" (click)="showFiles.set(!showFiles())" title="Loaded files">ℹ</button>
+          <button class="header-btn icon-only" (click)="showFiles.set(!showFiles())" title="Loaded files">
+            <i class="pi pi-info-circle" aria-hidden="true"></i>
+          </button>
           @if (showFiles()) {
             <div class="dropdown-panel">
               <div class="dropdown-title">Loaded Files</div>
@@ -45,7 +47,7 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
         </div>
         <div class="dropdown-wrap">
           <button class="header-btn" (click)="showSettings.set(!showSettings())">
-            <span class="btn-icon">⚙</span><span class="btn-label">Settings</span>
+            <i class="pi pi-cog btn-icon" aria-hidden="true"></i><span class="btn-label">Settings</span>
           </button>
           @if (showSettings()) {
             <div class="dropdown-panel dropdown-panel--wide">
