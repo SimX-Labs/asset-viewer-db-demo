@@ -1,0 +1,240 @@
+{
+    "id":  "713fc614-ab94-595c-a2ac-a9892b69daff",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Auto Injector",
+    "assetKey":  "tool_auto_injector",
+    "toolId":  "autoInjector1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_auto_injector.prefab",
+    "metadata":  [
+                     {
+                         "id":  "9c3857b7-b60c-532c-83b4-8494eef48c95",
+                         "key":  "currentAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d053f124-865e-5b32-b024-fc691a4906b7",
+                         "key":  "ignoreSyringeNeedleOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Ignore Syringe Needle Override.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "04767af9-77b8-5da2-86bd-ba3bad14d252",
+                         "key":  "max",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Max.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a9443c9b-3f2c-51a3-9542-5db46b9cbb44",
+                         "key":  "maximumAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "513fa64b-574e-528a-a1f8-4578b02438bf",
+                         "key":  "medicationTrackingEnabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `isEnabled` (toggle / flag).",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a7299b93-fcdc-5a8c-bf64-02abaed76b7b",
+                         "key":  "medName",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Current Drug Interactions.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "65996581-bf42-5125-9136-1cac2b9ebf69",
+                         "key":  "min",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Min.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f86fa701-644f-524c-aec1-7d7cc695193b",
+                         "key":  "modelName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "32-VIAL",
+                                          "100-TAB",
+                                          "11-P_SYR"
+                                      ],
+                         "description":  "If the medication data is null after trying to set it, then we have an issue and should log an error and return before trying to access the medication data.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ea0782e7-543f-53d1-a3c7-d4e53384ff06",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "NS 10 mL",
+                                          "Lactated Ringer\u0027s 1,000 mL"
+                                      ],
+                         "description":  "This function sets up what the medication is called, this is what will show up when you use the med Its more of a clean name Setup listeners for setting the values for this medication",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fe768ded-c54b-5597-aa50-38b4881c9698",
+                         "key":  "showNeedle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Show Needle.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "af26983d-6020-5bd9-9884-3bd3a1ceba6d",
+                         "key":  "syringeIncrement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Increment.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a15f9a5c-cf6b-5f64-b3bc-020b78f22250",
+                         "key":  "syringeMethod",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``Oral``"
+                                      ],
+                         "description":  "Find the method in our available methods If the new method is \"Oral\", turn off all the interactions here",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "79aff83d-f5f4-5ec1-be66-1744ed40cb02",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Units.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ThighOutsideR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ThighOutsideL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "c5abaf93-3215-596c-b8e3-2d6d71b96901",
+                           "71e07ec8-c533-597a-ad1d-93924555f347",
+                           "3e819ad8-54e4-5d27-b6ef-c0bf74048e30",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

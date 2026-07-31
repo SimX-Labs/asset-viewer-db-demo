@@ -1,0 +1,195 @@
+{
+    "id":  "6aa5101e-db87-5f2c-95f7-495d95445d1a",
+    "type":  "equipment",
+    "name":  "Group Athena Monitor Left",
+    "assetKey":  "equipment_group_athena_monitor_left",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Space Force/equipment_group_athena_monitor_left.prefab",
+    "primaryMetadata":  {
+                            "id":  "219da1d2-0fbd-5f10-9cf2-cd2e409bf162",
+                            "key":  "AthenaMonitorEquipmentLeft",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c6289e06-075b-5ff0-b2a4-2774a0cab0f5",
+                         "key":  "AthenaMonitorEquipment",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cf915a1a-c4bb-5133-9e32-36f4546aad53",
+                         "key":  "AthenaMonitorEquipment-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b1d4b841-1f94-5819-87d9-9716e9a6da4d",
+                         "key":  "AthenaMonitorEquipment-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d164b23a-b3c8-54fd-a9de-f12820845f00",
+                         "key":  "AthenaMonitorEquipmentLeft-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e787168d-35dd-5979-8022-c83e7cd7dcdf",
+                         "key":  "AthenaMonitorEquipmentLeft-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "36cd888d-2161-5df1-852b-68a78db3b1a8",
+                         "key":  "AthenaMonitorEquipmentLeft-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "63c7a0fc-a378-57c6-a746-f5ed94d16cf7",
+                         "key":  "AthenaMonitorEquipment-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5348a414-88b9-5311-9325-9b2bbf6d905d",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a211f2cc-3fe6-5248-bcd0-6147853f85e9",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a06bc5e7-8102-5da2-98d6-91855d085dc2",
+                         "key":  "monitorMute",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Set Mute_.",
+                         "sourceScripts":  "AthenaController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f606767-97a1-5915-9d25-ea65400d0140",
+                         "key":  "SetConnectedToPatient",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Methods - Handlers",
+                         "sourceScripts":  "PatientVitalsWatcher",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

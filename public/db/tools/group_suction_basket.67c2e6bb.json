@@ -1,0 +1,24 @@
+{
+    "id":  "67c2e6bb-50df-538c-9884-8528b647fa94",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Suction Basket",
+    "assetKey":  "group_suction_basket",
+    "toolId":  "suctionBasket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_suction_basket.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

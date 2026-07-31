@@ -1,0 +1,30 @@
+{
+    "id":  "21d12ad3-eb9c-53f1-afe2-9403cb1fc9fc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tenaculum",
+    "assetKey":  "tool_tenaculum",
+    "toolId":  "tenaculum1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_tenaculum.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "tenaculum",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3a20020d-622e-5851-89b8-343891a44e98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

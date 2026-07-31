@@ -1,7 +1,7 @@
 {
   "version": 1,
   "startCommand": "npm start",
-  "baseUrl": "http://localhost:4200",
+  "baseUrl": "http://localhost:4300",
   "outputDirectory": "feature-shots/screenshots",
   "shotsDirectory": "feature-shots/shots",
   "model": "composer-2.5",

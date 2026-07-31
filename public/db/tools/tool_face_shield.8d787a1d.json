@@ -1,0 +1,32 @@
+{
+    "id":  "8d787a1d-2564-5cf0-b136-9bbffa9516a8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Face Shield",
+    "assetKey":  "tool_face_shield",
+    "toolId":  "faceShield",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_face_shield.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerFaceShield",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ea6748ce-4d49-502f-824b-b4a8678b3fb9",
+                           "8ce0f4d8-4906-5790-931a-5419377eb94f",
+                           "17419c79-b446-5453-be46-ef06b99cbadc"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

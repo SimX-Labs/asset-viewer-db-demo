@@ -1,0 +1,29 @@
+{
+    "id":  "6ae39833-07f5-531c-8933-7b8347af0eb8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suture Scissors",
+    "assetKey":  "tool_suture_scissors",
+    "toolId":  "g1-backpack1-tool_suture_scissors",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_suture_scissors.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "02638df9-3edd-5509-9b36-3173425d9f57",
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "3a20020d-622e-5851-89b8-343891a44e98",
+                           "92b197f0-6ab8-5b0f-80d4-ecafe549bf64",
+                           "ff1b09dd-fe10-555a-bb0d-f57b42da7e72"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

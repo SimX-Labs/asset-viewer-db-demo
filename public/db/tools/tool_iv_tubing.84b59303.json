@@ -1,0 +1,87 @@
+{
+    "id":  "84b59303-d24b-52d7-b9a1-c8ed60d23b44",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Tubing",
+    "assetKey":  "tool_iv_tubing",
+    "toolId":  "ivTubing7",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_iv_tubing.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ConnectIV",
+                             "assetIds":  [
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "93fa2b6b-7641-5efb-81be-29cbfccafcd9",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "09bf775e-8c78-5cd9-9a7c-4cdb9a1ad82b",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "1bf8bedd-cda5-53b6-86b1-cf43c680c81d",
+                                              "259c6ac5-55ca-5d5c-9d56-ea38f0444e8a",
+                                              "5a9b451e-dc1b-587a-ae4d-49ce4e6d18f1"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ConnectArterial",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ConnectIO",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

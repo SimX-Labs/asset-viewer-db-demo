@@ -1,0 +1,68 @@
+{
+    "id":  "a5854557-d905-5430-b1d3-59558b365c67",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Interpreter Tablet",
+    "assetKey":  "tool_interpreter_tablet",
+    "toolId":  "interpreterTablet1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/InterpreterTablet/tool_interpreter_tablet.prefab",
+    "metadata":  [
+                     {
+                         "id":  "af9bd38e-c9c8-5466-8dec-344d99a6bec9",
+                         "key":  "callWaitDuration",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Call Wait Duration.",
+                         "sourceScripts":  "InterpreterTabletController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d15287ab-8da3-5491-aa89-219c3e912298",
+                         "key":  "languages",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`). Updates the `title.text` UI label.",
+                         "sourceScripts":  "InterpreterTabletController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "acc78d90-1614-5ca9-9b7b-77f3f448f779",
+                         "key":  "selectedLanguage",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `title.text` UI label.",
+                         "sourceScripts":  "InterpreterTabletController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

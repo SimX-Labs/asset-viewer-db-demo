@@ -1,0 +1,132 @@
+{
+    "id":  "904ca66e-f859-5911-a6e3-0d6c02a2272e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Io Device Large",
+    "assetKey":  "tool_io_device_large",
+    "toolId":  "manualIODevice",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_io_device_large.prefab",
+    "metadata":  [
+                     {
+                         "id":  "11f43426-5e20-53fe-b8d9-0cccbe1c5cbd",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "smallNeedle",
+                                                "largeNeedle"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``smallNeedle`` / ``largeNeedle``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IOAnkleLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOAnkleRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOHipLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOHipRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOLowerKneeLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOLowerKneeRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOShoulderLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOShoulderRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOSternum",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOUpperKneeLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOUpperKneeRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOWristLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOWristRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

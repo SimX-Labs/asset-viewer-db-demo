@@ -1,0 +1,38 @@
+{
+    "id":  "3d960b70-8a59-5942-ab4f-da579f1d5975",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Catheter",
+    "assetKey":  "kit_catheter",
+    "toolId":  "cathKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_catheter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0dba23c4-0ef9-56e1-a4a3-aa8635d449a4",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

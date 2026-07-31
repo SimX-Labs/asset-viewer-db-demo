@@ -1,0 +1,75 @@
+{
+    "id":  "a1fd7bd2-ba48-5140-a9b5-f3ecb4778549",
+    "type":  "equipment",
+    "name":  "Identificationband",
+    "assetKey":  "equipment_identificationBand",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_identification_band.prefab",
+    "primaryMetadata":  {
+                            "id":  "ab074c98-c5af-56cd-ac1f-71a23fa8c1ec",
+                            "key":  "identificationBand",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `true` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "84de53a3-14df-5d6d-bc9a-daa75d31b4b5",
+                         "key":  "identificationBand-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cee11b39-cda5-51d6-a352-c58b16873f6a",
+                         "key":  "identificationBand-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cfac4eb7-4917-5094-9750-01e3d5f6e7f5",
+                         "key":  "identificationBand-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

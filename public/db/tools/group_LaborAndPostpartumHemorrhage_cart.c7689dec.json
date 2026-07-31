@@ -1,0 +1,24 @@
+{
+    "id":  "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Laborandpostpartumhemorrhage Cart",
+    "assetKey":  "group_LaborAndPostpartumHemorrhage_cart",
+    "toolId":  "laborAndPostpartumHemorrhageCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_LaborAndPostpartumHemorrhage_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

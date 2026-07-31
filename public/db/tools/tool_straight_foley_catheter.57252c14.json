@@ -1,0 +1,60 @@
+{
+    "id":  "57252c14-704c-51fd-b5d5-dd432c0bc396",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Straight Foley Catheter",
+    "assetKey":  "tool_straight_foley_catheter",
+    "toolId":  "straightFoleyCatheter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_straight_foley_catheter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e4df8fe8-e48b-5334-81dc-89079909b002",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal",
+                                                "lubricant"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``normal`` / ``lubricant``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "straightCatheterInsertionSite",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "foleyBubble",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "catheterKitLubricantInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "a1277fa0-8044-5eda-bee5-897a217e2e63"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

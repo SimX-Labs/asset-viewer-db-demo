@@ -1,0 +1,153 @@
+{
+    "id":  "2a4eee73-68c1-5b23-bda0-94ece9f8202b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Clothing Bottom Universal",
+    "assetKey":  "tool_clothing_bottom_universal",
+    "toolId":  "patientClothingBottom1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_clothing_bottom_universal.prefab",
+    "metadata":  [
+                     {
+                         "id":  "aa4582c8-ccee-5db0-9ac6-d45abd6bd43d",
+                         "key":  "allowedToRemoveByCut",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles allowed to remove by cut.",
+                         "sourceScripts":  "ToolOutfitController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ff705395-df16-5d8f-83e7-cfe3e113533c",
+                         "key":  "allowedToRemoveByHand",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles allowed to remove by hand.",
+                         "sourceScripts":  "ToolOutfitController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "56796c60-6567-5eaf-be02-06efc803c590",
+                         "key":  "canPutOnPatient",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "ToolOutfitController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3c5c6dac-cb56-5616-a900-f424857d2dc7",
+                         "key":  "outfit",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "adult01TShirtStriped",
+                                          "adult01JoggingPants",
+                                          "Elder Care"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolOutfitInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9483908e-49b5-5dc6-b0ef-da734c4c2773",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Shorts",
+                                                "Jeans_Toddler01",
+                                                "Skirt",
+                                                "OrionSuit",
+                                                "DragonSuit",
+                                                "Slacks",
+                                                "OrangeSweatPants",
+                                                "Pajamas",
+                                                "Military",
+                                                "Military-WinterCamo",
+                                                "BrownTrousers",
+                                                "Jeans",
+                                                "JeansRipped",
+                                                "CargoPants",
+                                                "Shorts-Green",
+                                                "JeansLightBlue"
+                                            ],
+                         "defaultValue":  "Shorts",
+                         "examples":  [
+                                          "``Shorts`` / ``Jeans_Toddler01`` / ``Skirt`` / ``OrionSuit`` / ``DragonSuit`` / ``Slacks`` / ``OrangeSweatPants`` / ``Pajamas`` / ``Military`` / ``Military-WinterCamo`` / ``BrownTrousers`` / ``Jeans`` / ``JeansRipped`` / ``CargoPants`` / ``Shorts-Green`` / ``JeansLightBlue``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "d8407aad-71ad-5b9e-a2a4-061c78bd7b0e",
+                         "key":  "superHidden",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "In this case we only want to enfore hiding if _superHidden is true If it is false, we dont want it to potentially overwrite other settings",
+                         "sourceScripts":  "ToolOutfitController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f470ab8b-c071-5f40-a39d-75504df323ee",
+                         "key":  "useNewOutfitSystem",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles use new outfit system.",
+                         "sourceScripts":  "ToolOutfitController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LegsLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

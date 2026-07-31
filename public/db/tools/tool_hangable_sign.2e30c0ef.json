@@ -1,0 +1,38 @@
+{
+    "id":  "2e30c0ef-8245-57cd-9d62-9c85ee56a472",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hangable Sign",
+    "assetKey":  "tool_hangable_sign",
+    "toolId":  "hangableSign1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Signs/tool_hangable_sign.prefab",
+    "metadata":  [
+                     {
+                         "id":  "feca77af-b4e8-52e9-9e77-c9cb6e4ab5ae",
+                         "key":  "setSignArt",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "aspirationPrecautions"
+                                      ],
+                         "description":  "update with the new ID hide all the signs except the chosen one Controls visibility of `art` (`SetActive`).",
+                         "sourceScripts":  "HangableSignController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bf494cd2-786f-4a0c-9675-ef58b9408a91"
+                    ]
+}

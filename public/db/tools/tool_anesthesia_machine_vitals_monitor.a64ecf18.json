@@ -1,0 +1,188 @@
+{
+    "id":  "a64ecf18-eb33-5b75-a6e4-88220f2ee282",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Anesthesia Machine Vitals Monitor",
+    "assetKey":  "tool_anesthesia_machine_vitals_monitor",
+    "toolId":  "anesthesiaVitalsMonitor1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_anesthesia_machine_vitals_monitor.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c4a28d37-013c-5e22-bc14-37bbaa86af56",
+                         "key":  "air",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Air.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bd0344dc-51c9-59d8-8959-764475e4fa1b",
+                         "key":  "anesthesiaSqueezeBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Squeeze Bag.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ac7c75b-3432-503e-a085-12717e263682",
+                         "key":  "bagSqueezed",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60f08888-868a-5bb0-bd9e-c3ce7ddb87d8",
+                         "key":  "bellowsActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Bellows Active.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "41ab586d-c56e-5891-91a9-52d957c07191",
+                         "key":  "muteAudio",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Mute Audio.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d4064860-9aab-54a5-a19f-662a73818233",
+                         "key":  "n2o",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update N2o.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dde1b53b-c433-5a85-9e5e-d35e7d53c184",
+                         "key":  "o2",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update O2.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2e3c9ff0-307b-5946-9e1a-3497f6fc479b",
+                         "key":  "rrOverride",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`0`"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "04dd7468-4446-50d9-a3ae-2e956829dca6",
+                         "key":  "sevoflurane",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Sevoflurane.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "29290203-c0b3-5e48-b876-5ebd5414de98",
+                         "key":  "topTwistObject1",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Top Twist1.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a5661a08-6187-5d9f-bdc2-5d28f90adca3",
+                         "key":  "topTwistObject2",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Top Twist2.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

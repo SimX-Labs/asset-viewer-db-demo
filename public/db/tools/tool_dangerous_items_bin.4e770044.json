@@ -1,0 +1,24 @@
+{
+    "id":  "4e770044-d8c9-5494-a446-47d44156a08b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Dangerous Items Bin",
+    "assetKey":  "tool_dangerous_items_bin",
+    "toolId":  "dangerous_items_bin",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/DangerousItemsBin/tool_dangerous_items_bin.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

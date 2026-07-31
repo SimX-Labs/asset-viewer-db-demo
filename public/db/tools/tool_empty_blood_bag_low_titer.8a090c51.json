@@ -1,0 +1,30 @@
+{
+    "id":  "8a090c51-cdb1-5689-8d25-dfd5e95e8cdd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Empty Blood Bag Low Titer",
+    "assetKey":  "tool_empty_blood_bag_low_titer",
+    "toolId":  "tool_empty_blood_bag_low_titer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Blood Transfusion IV/tool_empty_blood_bag_low_titer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "emptyBloodBag_lowTiter_o_neg",
+                             "assetIds":  [
+                                              "5a277606-7373-56e1-8031-435b983708ca"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

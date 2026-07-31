@@ -1,0 +1,24 @@
+{
+    "id":  "09a21837-f570-5442-ba22-b6c582fd9f48",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Trauma Cart",
+    "assetKey":  "group_trauma_cart",
+    "toolId":  "traumaCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_trauma_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

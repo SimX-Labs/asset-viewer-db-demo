@@ -1,0 +1,122 @@
+{
+    "id":  "0483aa73-c570-5429-9f56-75bf8221542f",
+    "type":  "equipment",
+    "name":  "Broselow Tape For Bed Being Up",
+    "assetKey":  "equipment_broselow_tape_for_bed_being_up",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_broselow_tape_for_bed_being_up.prefab",
+    "primaryMetadata":  {
+                            "id":  "49ec6c9d-d80e-52c8-87e4-bc5596a66e67",
+                            "key":  "BroselowTape_BedIsUp",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "248b60aa-bf62-5d6c-becd-9f23cc07b2cd",
+                         "key":  "BroselowTape_BedIsUp-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1fe6c34e-d5ac-53b5-9f00-7bc82aa98e6e",
+                         "key":  "BroselowTape_BedIsUp-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0dca56aa-379a-589e-8c00-24a116fbcdfd",
+                         "key":  "BroselowTape_BedIsUp-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f61fd58c-0160-5884-ad06-a0a23391c558",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b040f363-abee-54d8-a2c7-99a2360e5129",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "BroselowTape_InteractionLocation",
+                                     "assetIds":  [
+                                                      "605add48-ac98-5c0c-9867-096ab626f877",
+                                                      "4b01628a-db82-5275-9fb6-3420e5c5a942",
+                                                      "2bf2629f-0f70-5840-96fa-0ba5504d6d2e",
+                                                      "31bd418d-6c7b-5267-a3d9-a63e0af6fb22",
+                                                      "c56d860d-5576-5ccc-b6d4-9d73bf4524ce"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ac4b6405-c5fb-5550-af2a-52c291b7f61d",
+                         "f19aa377-5238-5982-be8b-966fb1f6833e",
+                         "e5e0949c-1c02-5c13-92b5-f1a4ec59d35b",
+                         "2b9bdd77-5b7c-570c-b325-d7bb1e3396dd",
+                         "5fc97072-6283-5b88-932f-fe5589cddbaf",
+                         "3edb9b7a-143e-5a94-8861-5083f60d324a",
+                         "f122c692-e03b-50ef-90d7-c8500b517d5d",
+                         "ac72bb3d-8db6-56f5-a064-5e4cb7b03a81"
+                     ]
+}

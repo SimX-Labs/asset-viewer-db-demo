@@ -1,0 +1,30 @@
+{
+    "id":  "2cb479a4-1c90-560b-b540-d71e0a952002",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Id Bracelet Baby",
+    "assetKey":  "tool_id_bracelet_baby",
+    "toolId":  "IdentificationBraceletTool",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_id_bracelet_baby.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "identificationBand",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

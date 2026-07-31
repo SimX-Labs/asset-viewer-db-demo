@@ -1,0 +1,388 @@
+{
+    "id":  "a433e1ff-8e04-585c-a5da-fb968d8b5223",
+    "type":  "equipment",
+    "name":  "Group Right Thigh Laceration",
+    "assetKey":  "group_right_thigh_laceration",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/group_right_thigh_laceration.prefab",
+    "primaryMetadata":  {
+                            "id":  "2cf4e047-4456-5e41-b7fe-c540d6e667e6",
+                            "key":  "rightThighLaceration",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "34601a44-3b7c-5560-873f-5910ff2b933b",
+                         "key":  "bloodSweepInteraction",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ecd39713-0e5b-562b-a7f3-137789a559a3",
+                         "key":  "bloodSweepInteraction-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f277b4b1-8d8b-5104-bb39-bb4bbb1e91dd",
+                         "key":  "bloodSweepInteraction-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c7360fe4-d04f-5e4c-90a3-0ee1fa1c592e",
+                         "key":  "bloodSweepInteraction-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5f8a5a40-7e31-56b1-b219-2f2cc3048b2a",
+                         "key":  "CacheCurrentMaterialsFromRenderers",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Cache Current Materials_.",
+                         "sourceScripts":  "MaterialAttributeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f1b224a3-d814-5159-8cfe-b10dd7cf8929",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d7c39d8b-b266-5c78-8764-64b45dd6a27b",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f9332e4-c6a7-5cc7-b413-6a2a6e38afa2",
+                         "key":  "PAUSE_MATERIAL_STRING",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Pause Transition.",
+                         "sourceScripts":  "MaterialAttributeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dad35bbe-ac46-505f-8209-0828edf1fc7f",
+                         "key":  "rightThighLacerationAceWrap-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal"
+                                            ],
+                         "defaultValue":  "normal",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`normal`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "9f6937a5-6198-5b3a-8b72-a80d49b723de",
+                         "key":  "rightThighLacerationBandageWrap-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal"
+                                            ],
+                         "defaultValue":  "normal",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`normal`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "bfc6ca87-426d-5495-ade9-9943f116504d",
+                         "key":  "rightThighLacerationChitoGauze",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disabled",
+                                                "none",
+                                                "packed"
+                                            ],
+                         "defaultValue":  "disabled",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disabled`, `none`, `packed`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "1da4ea56-3814-5a42-a8d9-69429894e9ea",
+                         "key":  "rightThighLacerationChitoGauze-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f97342d-f3ce-541d-8c50-b10ea3d17ac9",
+                         "key":  "rightThighLacerationChitoGauze-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c5a30da8-228b-524a-b3b2-c9fda538112c",
+                         "key":  "rightThighLaceration-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3b9b632f-3e79-5812-b2ba-15f14c1dd7fa",
+                         "key":  "rightThighLaceration-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e86d2891-9a24-5c77-bfa5-24ac15e29678",
+                         "key":  "rightThighLaceration-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "231007d1-0c23-599d-8224-e4e4f7952db4",
+                         "key":  "rightThighLacerationSquareGauze-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal"
+                                            ],
+                         "defaultValue":  "normal",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`normal`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "269fa7db-a780-5e6c-8e18-fa2da41df1fd",
+                         "key":  "StateSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing Often heard as `\u003cprocedureName\u003e-StateSuffix`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "PatientStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e9ffca74-767b-5188-937d-0a01659d4afd",
+                         "key":  "STOP_MATERIAL_STRING",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "stop all the transitions that were set with \"updateMaterial\"",
+                         "sourceScripts":  "MaterialAttributeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6305d99a-dc4d-50fe-a2fa-31626c91e1ec",
+                         "key":  "UPDATE_MATERIAL_STRING",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This comes in as an object",
+                         "sourceScripts":  "MaterialAttributeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "aceWrap",
+                                     "assetIds":  [
+                                                      "7dc4c6dc-5c6a-5a56-ac93-427e6a9fa7b8",
+                                                      "41cef0a5-f78b-5961-8aa6-1dd54bb5011b",
+                                                      "36a8ac69-1a15-5d4d-94ad-b613d4656a34"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "basicSquareGauze",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "chitoSquare",
+                                     "assetIds":  [
+                                                      "bba6756d-5b1c-522e-b45d-d9ce6dba7736",
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874"
+                                                  ],
+                                     "availableIn":  [
+                                                         "none",
+                                                         "packed"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163"
+                     ]
+}

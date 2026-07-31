@@ -1,0 +1,111 @@
+{
+    "id":  "f01a14ca-cbec-5bee-bd17-f6e666449f23",
+    "type":  "equipment",
+    "name":  "Zoll Cardiacleads 4",
+    "assetKey":  "equipment_Zoll_CardiacLeads_4",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Space Force/equipment_Zoll_CardiacLeads_4.prefab",
+    "primaryMetadata":  {
+                            "id":  "53454582-bcca-5b41-b906-d7c049dccd83",
+                            "key":  "Zoll_CardiacLeads_4",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "2b88c316-a9fc-56c1-b806-f5b6a5ed23b7",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ddf89233-9591-59ed-9e4b-549c6d6d438f",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60a5b393-110e-530f-8147-d76652845355",
+                         "key":  "Zoll_CardiacLeads_4-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fb06b81f-99b2-53f6-873a-594e655c1950",
+                         "key":  "Zoll_CardiacLeads_4-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bd248255-a119-5e90-af23-d77ae94d2b58",
+                         "key":  "Zoll_CardiacLeads_4-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "zollCardiacLead",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

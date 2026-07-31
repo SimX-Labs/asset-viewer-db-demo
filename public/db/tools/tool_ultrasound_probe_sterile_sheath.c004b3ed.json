@@ -1,0 +1,30 @@
+{
+    "id":  "c004b3ed-9e89-5840-bb74-c87dfc59802d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ultrasound Probe Sterile Sheath",
+    "assetKey":  "tool_ultrasound_probe_sterile_sheath",
+    "toolId":  "ultrasoundProbeSterileSheath",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Ultrasound/_UltrasoundProbeSterileSheathTool/tool_ultrasound_probe_sterile_sheath.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "RightHandUltrasoundProbeTool",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d64a118a-6a56-513f-aed9-7ddf186f046e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

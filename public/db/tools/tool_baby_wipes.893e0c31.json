@@ -1,0 +1,38 @@
+{
+    "id":  "893e0c31-aeef-5247-aa13-22a0b64bff23",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Baby Wipes",
+    "assetKey":  "tool_baby_wipes",
+    "toolId":  "babyWipes1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_baby_wipes.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d94d8abe-58ba-58b7-8614-745af1f9d538",
+                         "key":  "wipeDirty",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "GetDirtyOnInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

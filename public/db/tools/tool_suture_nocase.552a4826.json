@@ -1,0 +1,46 @@
+{
+    "id":  "552a4826-5edf-566a-8ed8-98171b631663",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suture Nocase",
+    "assetKey":  "tool_suture_nocase",
+    "toolId":  "militaryBackpack-surgical-tool_suture",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_suture_nocase.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ChestTube_Suture",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "thoracotomySuture",
+                             "assetIds":  [
+                                              "5100c792-3ee8-5a82-ac5c-52e1da4b0314"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "861eaacb-ea10-5068-863d-c9c3343b2854",
+                           "01e5e335-d517-5c11-b5fa-d87bc9fb941f",
+                           "8c68e984-aa3e-53f4-9031-df093ac77bd5"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

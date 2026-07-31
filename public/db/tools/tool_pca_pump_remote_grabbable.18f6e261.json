@@ -1,0 +1,55 @@
+{
+    "id":  "18f6e261-95b5-5d66-949d-25b9f1cc3e36",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pca Pump Remote Grabbable",
+    "assetKey":  "tool_pca_pump_remote_grabbable",
+    "toolId":  "pcaPumpRemoteGrabbable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pca_pump_remote_grabbable.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c8212bf9-c39f-5ff4-9ddd-12175dee7210",
+                         "key":  "setConnectedPumpToolId",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Stop listening to old pump events Start listening to new pump events",
+                         "sourceScripts":  "PCAPumpRemoteController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "pcaPumpRemoteEquipmentL",
+                             "assetIds":  [
+                                              "c77973ca-53e6-5631-96f6-0ec8856b0041",
+                                              "c77973ca-53e6-5631-96f6-0ec8856b0041",
+                                              "c77973ca-53e6-5631-96f6-0ec8856b0041"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "pcaPumpRemoteEquipmentR",
+                             "assetIds":  [
+                                              "c648eff3-4d7c-535c-99f7-fce0709db2ac",
+                                              "c648eff3-4d7c-535c-99f7-fce0709db2ac",
+                                              "c648eff3-4d7c-535c-99f7-fce0709db2ac"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

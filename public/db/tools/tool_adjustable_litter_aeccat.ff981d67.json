@@ -1,0 +1,41 @@
+{
+    "id":  "ff981d67-1ce6-5087-b700-32959b232d89",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Adjustable Litter Aeccat",
+    "assetKey":  "tool_adjustable_litter_aeccat",
+    "toolId":  "tool_adjustable_litter_aeccat",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_adjustable_litter_aeccat.prefab",
+    "metadata":  [
+                     {
+                         "id":  "204258d6-e2ce-5e06-a487-8b8f778f42ef",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "removed",
+                                                "placed"
+                                            ],
+                         "defaultValue":  "removed",
+                         "examples":  [
+                                          "``removed`` / ``placed``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

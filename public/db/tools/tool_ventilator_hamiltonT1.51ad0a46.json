@@ -1,0 +1,521 @@
+{
+    "id":  "51ad0a46-f0f4-5849-b4a2-46ef27c4fca4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ventilator Hamiltont1",
+    "assetKey":  "tool_ventilator_hamiltonT1",
+    "toolId":  "HamiltonT1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VentilatorGeneralized_Scripts/HamiltonT1/tool_ventilator_hamiltonT1.prefab",
+    "metadata":  [
+                     {
+                         "id":  "36ea9163-38fe-5cb6-97df-3bc25b7c82f3",
+                         "key":  "AlarmConfigAlarmSelection",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "None",
+                                                "HighPressure_AlarmValue",
+                                                "LowPressure_AlarmValue",
+                                                "HighVt_AlarmValue",
+                                                "LowVt_AlarmValue",
+                                                "HighExpMinVol_AlarmValue",
+                                                "LowExpMinVol_AlarmValue",
+                                                "High_fTotal_AlarmValue",
+                                                "Low_fTotal_AlarmValue"
+                                            ],
+                         "defaultValue":  "None",
+                         "examples":  [
+                                          "``None`` / ``HighPressure_AlarmValue`` / ``LowPressure_AlarmValue`` / ``HighVt_AlarmValue`` / ``LowVt_AlarmValue`` / ``HighExpMinVol_AlarmValue`` / ``LowExpMinVol_AlarmValue`` / ``High_fTotal_AlarmValue`` / ``Low_fTotal_AlarmValue``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "a981947f-5339-52ef-9b45-c02bd408662a",
+                         "key":  "BaseInputs",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "StandbyScreen",
+                                                "VentilationScreen",
+                                                "ControlWindow",
+                                                "AlarmWindow",
+                                                "ModesWindow"
+                                            ],
+                         "defaultValue":  "StandbyScreen",
+                         "examples":  [
+                                          "``StandbyScreen`` / ``VentilationScreen`` / ``ControlWindow`` / ``AlarmWindow`` / ``ModesWindow``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "f9a8aeaa-d3d6-598a-9868-361eab5b1c20",
+                         "key":  "BaseOutputs",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "StandbyScreen",
+                                                "VentilationScreen"
+                                            ],
+                         "defaultValue":  "Standby",
+                         "examples":  [
+                                          "``StandbyScreen`` / ``VentilationScreen``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "7b3c1c90-91d7-587f-b203-e4830a9dd182",
+                         "key":  "ControlsWindowTab",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Basic",
+                                                "More"
+                                            ],
+                         "defaultValue":  "Basic",
+                         "examples":  [
+                                          "``Basic`` / ``More``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "a8389988-87ca-5396-ab60-84dd034af4a7",
+                         "key":  "ControlValueSelection",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "None",
+                                                "Rate",
+                                                "P",
+                                                "Ti",
+                                                "PEEP",
+                                                "FlowTrigger",
+                                                "Oxygen",
+                                                "P_Ramp",
+                                                "Ti_Max",
+                                                "ETS"
+                                            ],
+                         "defaultValue":  "None",
+                         "examples":  [
+                                          "``None`` / ``Rate`` / ``P`` / ``Ti`` / ``PEEP`` / ``FlowTrigger`` / ``Oxygen`` / ``P_Ramp`` / ``Ti_Max`` / ``ETS``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "7daa41bd-aa25-59d6-90d7-fdbe916e936d",
+                         "key":  "DisplayPPLATValue",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "50352d60-ec1f-5b27-a39f-a33585b6142a",
+                         "key":  "HeightSelectionOutput",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Unselected",
+                                                "Selected"
+                                            ],
+                         "defaultValue":  "Unselected",
+                         "examples":  [
+                                          "``Unselected`` / ``Selected``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "fb051ab5-3f97-5e6f-9bf2-c16b4677cc88",
+                         "key":  "ModeOutputs",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "PcvPlus",
+                                                "NIV"
+                                            ],
+                         "defaultValue":  "PcvPlus",
+                         "examples":  [
+                                          "``PcvPlus`` / ``NIV``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "4bd48bbd-ee5d-596a-983a-fca84f4f27e7",
+                         "key":  "SelectPatientHeight",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `isCurrentlySelected` (opposite of the current boolean state).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "564aa041-c0a4-5735-8b30-5a2848a73c06",
+                         "key":  "SetAlarmConfigScreen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `setActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3197b8e2-adfd-57d6-977c-3f35a5399f87",
+                         "key":  "SetConnectedToOxygen",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "OxygenWatcherForTools",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a6be7509-75bf-554d-9479-bf1292f68070",
+                         "key":  "SetConnectedToPatient",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Methods - Handlers",
+                         "sourceScripts":  "PatientVitalsWatcher",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9003e323-ab8f-518d-be6a-e78c0a756cb5",
+                         "key":  "SetControlsWindowTab",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "de4df7ff-271e-5bd0-97e1-000da89da05c",
+                         "key":  "SetControlWindow",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `setActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9f557a85-c90b-55a4-94dd-28978cd87883",
+                         "key":  "SetModesWindow",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `setActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "542f4326-5cb3-5eec-bd0e-3590e5b674ef",
+                         "key":  "SetMonitoringTab",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6b47d323-c641-5219-a84a-54dbd81b1ef0",
+                         "key":  "SetNebulizerMode",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `setActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d5fe429e-4a76-5572-ac0c-8262f600ac75",
+                         "key":  "SetParameterSelected",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Close and save the open control value No value currently selected, select a new control value for editing",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bfedeb21-8f78-5eb9-830e-da31feb6d182",
+                         "key":  "SetPatientGender",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ebf1e210-0d56-533f-b12b-c836475de1c4",
+                         "key":  "SetStandbyModal",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `setActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "54ff924d-5d3a-51f9-b938-73a3ccdf6012",
+                         "key":  "SetVentilationScreen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "HamiltonT1_VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "78b95c5d-e511-535f-bfe0-0122add80748",
+                         "key":  "SexSelectionOutput",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Male",
+                                                "Female"
+                                            ],
+                         "defaultValue":  "Male",
+                         "examples":  [
+                                          "``Male`` / ``Female``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "cf2a81fe-a3cb-54cf-9ce2-dc31d9e1ebda",
+                         "key":  "StandByScreen",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BaseScreen",
+                                                "StandbyScreenControlsWindow",
+                                                "StandbyScreenAlarmWindow",
+                                                "StandbyScreenModesWindow"
+                                            ],
+                         "defaultValue":  "BaseScreen",
+                         "examples":  [
+                                          "``BaseScreen`` / ``StandbyScreenControlsWindow`` / ``StandbyScreenAlarmWindow`` / ``StandbyScreenModesWindow``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "b4c2c0e6-b0d9-55cf-a69c-2e7ca6ecd02d",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "RegularWaveforms",
+                                                "PPLAT_Waveforms"
+                                            ],
+                         "defaultValue":  "RegularWaveform",
+                         "examples":  [
+                                          "``RegularWaveforms`` / ``PPLAT_Waveforms``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "ebdafc24-46c4-53db-9623-48962ea673ac",
+                         "key":  "SWITCH_MODES_ENABLED",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `x` (`SetActive`).",
+                         "sourceScripts":  "HamiltonT1_ChangeModeHandler",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4a3ac10e-58b5-5cc4-9e6a-2b040dc798b5",
+                         "key":  "TEMP_SELECTED_MODE",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "HamiltonT1_ChangeModeHandler",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ae1cb93-0b24-5715-ae91-53812320cfa2",
+                         "key":  "TI_SELECTION_BUTTON_ACTIVE",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `isActive` (toggle / flag).",
+                         "sourceScripts":  "HamiltonT1_ChangeModeHandler",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "691e7d68-79d7-5526-b028-08c009bf6db6",
+                         "key":  "VentilationScreenInputs",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BaseScreen",
+                                                "StandbyModal",
+                                                "MonitoringTab1",
+                                                "MonitoringTab3"
+                                            ],
+                         "defaultValue":  "BaseScreen",
+                         "examples":  [
+                                          "``BaseScreen`` / ``StandbyModal`` / ``MonitoringTab1`` / ``MonitoringTab3``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "2b0ef596-7657-5c45-a29f-ba0552a5d466",
+                         "key":  "VentilationScreenOutputs",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BaseScreen",
+                                                "StandbyModal",
+                                                "MonitoringTab1",
+                                                "MonitoringTab3",
+                                                "VentilationScreenControlsWindow",
+                                                "VentilationScreenAlarmWindow",
+                                                "VentilationScreenModesWindow"
+                                            ],
+                         "defaultValue":  "BaseScreen",
+                         "examples":  [
+                                          "``BaseScreen`` / ``StandbyModal`` / ``MonitoringTab1`` / ``MonitoringTab3`` / ``VentilationScreenControlsWindow`` / ``VentilationScreenAlarmWindow`` / ``VentilationScreenModesWindow``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,165 @@
+{
+    "id":  "a2383ddd-dfc8-553a-9d43-792f46282877",
+    "type":  "equipment",
+    "name":  "Scopolamine Patch Ear L",
+    "assetKey":  "equipment_scopolamine_patch_ear_l",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_scopolamine_patch_ear_l.prefab",
+    "primaryMetadata":  {
+                            "id":  "5eab0ba0-c553-5837-921b-e4657a544038",
+                            "key":  "scopolaminePatchEarL",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "a20184ef-bf91-5784-8595-477439d25d02",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8ceead4b-0eda-5972-b5f5-6f9de68dac1d",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2be022ce-bbb7-5a8d-811e-b789d2f77093",
+                         "key":  "scopolaminePatch",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3da9e994-3d20-5783-842f-b07bc988e9a6",
+                         "key":  "scopolaminePatch-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "961b0619-12b6-5f96-ac82-17e05b582210",
+                         "key":  "scopolaminePatchEarL-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5d6632c3-ee87-505a-a6cc-1144fb182599",
+                         "key":  "scopolaminePatchEarL-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e50c4661-95a9-50ec-949c-051935853da2",
+                         "key":  "scopolaminePatchEarL-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c873824d-634a-5165-a0a3-0edd6b6a2e0a",
+                         "key":  "scopolaminePatch-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3b7b41a8-9f9b-5ebb-b14d-6a25d3b2a797",
+                         "key":  "scopolaminePatch-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

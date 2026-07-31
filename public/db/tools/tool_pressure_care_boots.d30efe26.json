@@ -1,0 +1,32 @@
+{
+    "id":  "d30efe26-a01c-54ba-b30f-a98f58b67528",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pressure Care Boots",
+    "assetKey":  "tool_pressure_care_boots",
+    "toolId":  "pressureCareBoots",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pressure_care_boots.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "pressureCareBoots",
+                             "assetIds":  [
+                                              "f511294f-f8c1-5d6a-bc32-863e178e58ee",
+                                              "f511294f-f8c1-5d6a-bc32-863e178e58ee",
+                                              "f511294f-f8c1-5d6a-bc32-863e178e58ee"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

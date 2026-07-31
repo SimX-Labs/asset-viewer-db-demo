@@ -1,0 +1,130 @@
+{
+    "id":  "2eccbdf9-8a11-559f-943f-0a01af1f1151",
+    "type":  "equipment",
+    "name":  "Cuttable Underwear Top",
+    "assetKey":  "equipment_cuttable_underwear_top",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_cuttable_underwear_top.prefab",
+    "primaryMetadata":  {
+                            "id":  "efac0822-47bd-5034-8cff-2127acad8aad",
+                            "key":  "equipmentCuttableUnderwearTop",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "e075eb41-3151-503e-83e4-50cd63ed01b6",
+                         "key":  "equipmentCuttableUnderwearTop-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `true` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1e9bcd1d-18eb-5ea2-91e3-dbbc0168f677",
+                         "key":  "equipmentCuttableUnderwearTop-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "abf202ab-916d-5b7a-8411-93e15d9b0afc",
+                         "key":  "equipmentCuttableUnderwearTop-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9d839bd1-eee3-5122-924c-70f09e8cb3db",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b9143746-c816-5d39-b184-ef9660ea2b39",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "underwearCut",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "underwearTopCut",
+                                     "assetIds":  [
+                                                      "7cc75e27-dc9a-5cd1-ac18-496c017d1630"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163"
+                     ]
+}

@@ -1,0 +1,141 @@
+{
+    "id":  "77b76438-5dff-5b1f-afb8-0d1be9372d9f",
+    "type":  "equipment",
+    "name":  "Group Blast Injury Bandages Leg L",
+    "assetKey":  "group_blast_injury_bandages_leg_l",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/group_blast_injury_bandages_leg_l.prefab",
+    "primaryMetadata":  {
+                            "id":  "2c7bd767-db1c-5947-80c6-d90cdd458210",
+                            "key":  "blastInjuryChitoGauzeLegL2",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "9d17b313-0267-59bc-b598-b179469d2abc",
+                         "key":  "blastInjuryChitoGauzeLegL2-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "42e0bc74-4a3a-5f33-9591-bb90d20aae35",
+                         "key":  "blastInjuryChitoGauzeLegL2-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4e227714-3f02-555e-81d4-4ac6d1ae06b9",
+                         "key":  "blastInjuryChitoGauzeLegL2-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2fc99e85-55b8-5c54-a95a-588060d2795b",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4996a3db-e4cb-5269-8b2d-4e24dc14dede",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "aceWrap",
+                                     "assetIds":  [
+                                                      "7dc4c6dc-5c6a-5a56-ac93-427e6a9fa7b8",
+                                                      "41cef0a5-f78b-5961-8aa6-1dd54bb5011b",
+                                                      "36a8ac69-1a15-5d4d-94ad-b613d4656a34"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "chitoSquare",
+                                     "assetIds":  [
+                                                      "bba6756d-5b1c-522e-b45d-d9ce6dba7736",
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163"
+                     ]
+}

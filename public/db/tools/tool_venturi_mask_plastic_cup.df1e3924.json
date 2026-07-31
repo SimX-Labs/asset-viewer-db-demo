@@ -1,0 +1,30 @@
+{
+    "id":  "df1e3924-d500-5bc1-975b-35a82220410b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Mask Plastic Cup",
+    "assetKey":  "tool_venturi_mask_plastic_cup",
+    "toolId":  "VenturiPlasticCup",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_mask_plastic_cup.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlasticCup",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

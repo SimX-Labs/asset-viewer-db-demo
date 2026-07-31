@@ -1,0 +1,65 @@
+{
+    "id":  "dc4b3904-1aa5-5f60-ad16-91eef2421a52",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nurse Roll Pack Hanging",
+    "assetKey":  "tool_nurse_roll_pack_hanging",
+    "toolId":  "tool_nurse_roll_pack_hanging",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nurse_roll_pack_hanging.prefab",
+    "metadata":  [
+                     {
+                         "id":  "2c227065-2bb4-509b-a935-0470220b2f77",
+                         "key":  "environmentOrientation",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "active"
+                                            ],
+                         "defaultValue":  "default",
+                         "examples":  [
+                                          "``default`` / ``active``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "a6fe945a-c005-5ecd-a6b7-d5725cb68451",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "absent",
+                                                "hanging"
+                                            ],
+                         "defaultValue":  "absent",
+                         "examples":  [
+                                          "``absent`` / ``hanging``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "nurseRollPackHanging",
+                                     "assetIds":  [
+                                                      "1350e420-92b0-5784-b2f8-9bb90dfacd53"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

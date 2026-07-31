@@ -1,0 +1,37 @@
+{
+    "id":  "2006982b-e3b8-50bd-a7dc-3fead4cfb983",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Peripheral Nerve Stimulator Leads",
+    "assetKey":  "tool_peripheral_nerve_stimulator_leads",
+    "toolId":  "peripheralNerveStimulatorLeads1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Peripheral Nerve Stimulator/tool_peripheral_nerve_stimulator_leads.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "peripheralNerveStimulatorLeadsL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "peripheralNerveStimulatorLeadsR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

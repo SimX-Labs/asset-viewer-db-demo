@@ -1,0 +1,166 @@
+{
+    "id":  "a0f8d698-226d-5882-8e45-c9ef4d95cd3c",
+    "type":  "equipment",
+    "name":  "Bandage Mittens Adult03",
+    "assetKey":  "equipment_bandage_mittens_adult03",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_bandage_mittens_adult03.prefab",
+    "primaryMetadata":  {
+                            "id":  "29e23e33-2fe8-566d-90b1-da7813b93a6c",
+                            "key":  "bandageMittens",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "472eb116-f3c3-52fb-8efc-fd9876525b2c",
+                         "key":  "bandageMittens-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `true` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d476ff9e-3d40-54d5-82a1-ef2e3b426989",
+                         "key":  "bandageMittens-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "37bc6076-8ad6-5a94-b761-6b9b848c8cdd",
+                         "key":  "bandageMittens-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "83e1b5f0-91ef-5262-879f-9756dac87d8c",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2ca37eaf-8761-5530-b60f-9822b5ae6639",
+                         "key":  "handWarming",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "unwrapped",
+                                                "wrapped"
+                                            ],
+                         "defaultValue":  "unwrapped",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`unwrapped`, `wrapped`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "d06cdaed-4dde-5d34-9c55-7dee4002340a",
+                         "key":  "handWarming-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e7052354-4123-5807-9abb-f63ec2de96bd",
+                         "key":  "handWarming-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "da60e5d1-d6eb-5687-b717-85837b661225",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "frostbite",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "frostbiteWrapped",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

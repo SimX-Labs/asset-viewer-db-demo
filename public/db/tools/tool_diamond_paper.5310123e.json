@@ -1,0 +1,30 @@
+{
+    "id":  "5310123e-1c4e-5eef-af89-707bc5b969fd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Diamond Paper",
+    "assetKey":  "tool_diamond_paper",
+    "toolId":  "straightCatheterDiamondPaper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_diamond_paper.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "straightCathDiamondPaper",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "a1277fa0-8044-5eda-bee5-897a217e2e63"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

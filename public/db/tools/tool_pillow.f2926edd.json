@@ -1,0 +1,30 @@
+{
+    "id":  "f2926edd-e053-54da-8087-d44da2f8840a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pillow",
+    "assetKey":  "tool_pillow",
+    "toolId":  "pillow1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pillow.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BedPillow",
+                             "assetIds":  [
+                                              "65ef9c2b-c83e-58b4-ad4c-ee6e047e3928"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "18951214-7c97-5bba-a925-bcbb2c9a4f0e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

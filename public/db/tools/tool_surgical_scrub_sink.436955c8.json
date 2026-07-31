@@ -1,0 +1,30 @@
+{
+    "id":  "436955c8-29ea-5335-a4de-869434e2583d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Surgical Scrub Sink",
+    "assetKey":  "tool_surgical_scrub_sink",
+    "toolId":  "surgicalScrubSink1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_surgical_scrub_sink.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "removeBubble",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

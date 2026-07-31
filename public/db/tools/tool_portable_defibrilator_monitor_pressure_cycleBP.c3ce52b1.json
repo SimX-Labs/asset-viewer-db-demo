@@ -1,0 +1,53 @@
+{
+    "id":  "c3ce52b1-febd-5392-a298-bbf0a629ef38",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Defibrilator Monitor Pressure Cyclebp",
+    "assetKey":  "tool_portable_defibrilator_monitor_pressure_cycleBP",
+    "toolId":  "portableDefib",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Defibrilator/tool_portable_defibrilator_monitor_pressure_cycleBP.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e136d178-3b21-5317-adec-2ad75aaae928",
+                         "key":  "bagOpenStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Only override if no bag mode is active Controls visibility of `BagOpen` (`SetActive`). Controls visibility of `InnerTools` (`SetActive`). Controls visibility of `BagClosed` (`SetActive`).",
+                         "sourceScripts":  "FirstAidBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a5c2df7b-ef10-5a5b-8b13-2e8ad8468984",
+                         "key":  "noBagStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "When toggling no bag mode, update visuals Restore normal behavior based on current open status Controls visibility of `BagOpen` (`SetActive`). Controls visibility of `InnerTools` (`SetActive`). Controls visibility of `BagClosed` (`SetActive`).",
+                         "sourceScripts":  "FirstAidBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

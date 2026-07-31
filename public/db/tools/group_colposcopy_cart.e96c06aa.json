@@ -1,0 +1,24 @@
+{
+    "id":  "e96c06aa-f129-5199-bfe4-dbe67384b957",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Colposcopy Cart",
+    "assetKey":  "group_colposcopy_cart",
+    "toolId":  "linensCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_colposcopy_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

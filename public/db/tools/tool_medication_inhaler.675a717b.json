@@ -1,0 +1,44 @@
+{
+    "id":  "675a717b-e591-5675-9ec7-7b4f914a39db",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Inhaler",
+    "assetKey":  "tool_medication_inhaler",
+    "toolId":  "inhaler2q",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_medication_inhaler.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "HandR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

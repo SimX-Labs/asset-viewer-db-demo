@@ -1,0 +1,56 @@
+{
+    "id":  "cd32f8d4-0082-5da6-925d-46d9fb7236e0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nasal Probe",
+    "assetKey":  "tool_nasal_probe",
+    "toolId":  "nasalProbe1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nasal_probe.prefab",
+    "metadata":  [
+                     {
+                         "id":  "86ab51c7-0001-50fc-9feb-1dca3b7f06c8",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Package",
+                                                "Unpacked",
+                                                "Unsheathed",
+                                                "Inserted"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Package`` / ``Unpacked`` / ``Unsheathed`` / ``Inserted``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NostrilRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "NostrilLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

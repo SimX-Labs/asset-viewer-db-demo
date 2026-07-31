@@ -1,0 +1,75 @@
+{
+    "id":  "ec37886c-7e8a-548a-bd28-749542303ee9",
+    "type":  "equipment",
+    "name":  "Centralline L 01",
+    "assetKey":  "equipment_centralline_L_01",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_centralline_L.prefab",
+    "primaryMetadata":  {
+                            "id":  "46cf0b80-bb36-5cee-af68-1c6124506ba8",
+                            "key":  "CentralIV",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "6f9416e7-b9f8-56e3-97a1-4c4a9f0121f3",
+                         "key":  "CentralIV-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b37d9fff-ea07-5225-a832-0c54698b33c4",
+                         "key":  "CentralIV-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f0238294-6880-5a57-95ab-52240e667d5a",
+                         "key":  "CentralIV-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

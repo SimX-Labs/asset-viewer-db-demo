@@ -1,0 +1,37 @@
+{
+    "id":  "d70f6092-63bc-510a-b97b-3efc853735d3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Eyepro Glasses",
+    "assetKey":  "tool_eyepro_glasses",
+    "toolId":  "eyeproGlasses",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_eyepro_glasses.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerEyeproGlasses",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "eyeproGlasses",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

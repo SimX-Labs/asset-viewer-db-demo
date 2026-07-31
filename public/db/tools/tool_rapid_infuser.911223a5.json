@@ -1,0 +1,135 @@
+{
+    "id":  "911223a5-fcd0-5580-99a1-adcccb2a7292",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Rapid Infuser",
+    "assetKey":  "tool_rapid_infuser",
+    "toolId":  "rapidInfuser",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Rapid Infuser/tool_rapid_infuser.prefab",
+    "metadata":  [
+                     {
+                         "id":  "be988ada-f1ed-5bbc-b486-c07ba1adceb4",
+                         "key":  "greenButtonGlow",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "When the start button is pressed and either of the hung bags are blood, we want to set the flowing tubing to red We don\u0027t really have a way to combine colors right now, so right will supersede left if they are both not clear and both different Controls visibility of `GreenGlow` (`SetActive`).",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "439e6655-3cf6-542c-b58d-432743e41f9e",
+                         "key":  "greenButtonPressable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `GreenButtonPressCollider` (`SetActive`).",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9d5d9f31-0718-50d0-ad0f-6a3606b1665a",
+                         "key":  "leftHasBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c407ad8b-fc6e-5585-a31a-5cf087fcca65",
+                         "key":  "orangeButtonGlow",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5a680096-d1da-5ddd-9d8f-5b5258a5217c",
+                         "key":  "rightHasBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "696e9358-cc28-50e5-ac9e-639bd97b3344",
+                         "key":  "state",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "RapidInfuserController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "IVBag",
+                                     "assetIds":  [
+                                                      "eb3666a2-de2f-52ad-a0ac-d2afa42e0626",
+                                                      "77095e2f-a5a7-5c00-9fe1-9ccbe5820bac",
+                                                      "94a7b005-2b41-5000-8278-76a0fd008c35",
+                                                      "956d66e3-3171-519c-bccc-ad6bece81fb6",
+                                                      "f5e4b766-f8f1-584d-bb7f-4f833e4027d3",
+                                                      "f0665363-963a-5248-8b33-1668588f4660",
+                                                      "0cb3e3bb-827b-5ac4-b229-9702abd87408",
+                                                      "a26bd759-a024-5255-8dc8-9d2651879ba1",
+                                                      "e7bc9288-20a1-58d2-81ad-1ee908e7a97d",
+                                                      "e84a5232-2b05-56e4-a902-c230b4cafd5f",
+                                                      "685826a4-51cd-5bee-8d9d-e03304a61fd8",
+                                                      "7cfcfebe-818a-5ead-b082-69a52a2ec18d",
+                                                      "50c7dd76-0476-5b8e-8e0c-123f95725dff",
+                                                      "51ac1429-28cd-55ce-9d43-a7e6897921ce",
+                                                      "5a277606-7373-56e1-8031-435b983708ca",
+                                                      "252ffabc-3a9e-5358-8f53-94535d675128",
+                                                      "8d1b84b9-3824-5f0a-a5dc-906e914bf5c0"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

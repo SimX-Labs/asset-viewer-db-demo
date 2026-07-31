@@ -1,0 +1,24 @@
+{
+    "id":  "adbcbc5a-1dbf-5f77-97b8-5436c4333625",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Standard Table Ped",
+    "assetKey":  "group_standard_table_ped",
+    "toolId":  "standardTable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_standard_table_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

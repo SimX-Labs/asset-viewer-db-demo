@@ -1,0 +1,69 @@
+{
+    "id":  "cd5229e8-6848-5a4a-bc33-7b0f5525322b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ophthalmoscope",
+    "assetKey":  "tool_ophthalmoscope",
+    "toolId":  "ophthalmoscope",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Chiropractic/tool_ophthalmoscope.prefab",
+    "metadata":  [
+                     {
+                         "id":  "bb3620ae-2d46-5886-9495-e685d10dbc63",
+                         "key":  "eyeImageToUse",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles eye image to use.",
+                         "sourceScripts":  "OphthalmoscopeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ba66689b-6221-539b-a0ae-c1954d5cb878",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "nothing",
+                                                "VesserSwelling_Hazel"
+                                            ],
+                         "defaultValue":  "nothing",
+                         "examples":  [
+                                          "``nothing`` / ``VesserSwelling_Hazel``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "EyeL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "EyeR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

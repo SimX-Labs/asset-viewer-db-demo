@@ -1,0 +1,75 @@
+{
+    "id":  "7e1680fe-fa87-52e5-b058-77fca4095bb8",
+    "type":  "equipment",
+    "name":  "Tongue Blade 0 Playables",
+    "assetKey":  "EQUIPMENT_TONGUE_BLADE_0_Playables",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Patient/EQUIPMENT_TONGUE_BLADE_0_Playables.prefab",
+    "primaryMetadata":  {
+                            "id":  "f1af4f2f-1992-537a-90da-eaba23020bb9",
+                            "key":  "tongueBlade",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "84d5d420-ecaf-58cd-9ded-2fa9fdcbd7f3",
+                         "key":  "tongueBlade-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3cc72359-7dd8-51ba-a7b7-ae989bf95513",
+                         "key":  "tongueBlade-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6d9c0055-043e-538c-a33d-3d03f28da295",
+                         "key":  "tongueBlade-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

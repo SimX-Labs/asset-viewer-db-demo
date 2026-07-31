@@ -1,0 +1,30 @@
+{
+    "id":  "c8f75572-09df-5e4f-a7cc-de47ddecc6f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Neckbrace",
+    "assetKey":  "tool_neckBrace",
+    "toolId":  "neckBrace",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_neckBrace.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "neckBrace",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

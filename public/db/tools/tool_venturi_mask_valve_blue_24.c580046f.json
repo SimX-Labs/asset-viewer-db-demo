@@ -1,0 +1,44 @@
+{
+    "id":  "c580046f-5105-5a98-af1e-1b9088860240",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Mask Valve Blue 24",
+    "assetKey":  "tool_venturi_mask_valve_blue_24",
+    "toolId":  "VenturiValveBlue24",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_mask_valve_blue_24.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ValveAttachment",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ValveAttachment",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ValveSwap",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,189 @@
+{
+    "id":  "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+    "type":  "equipment",
+    "name":  "Newborn Iv Foot Left",
+    "assetKey":  "equipment_newborn_iv_foot_left",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/IV Equipment/Baby_IVs/equipment_newborn_iv_foot_left.prefab",
+    "primaryMetadata":  {
+                            "id":  "b8d70f55-c992-5328-bdf4-bd7ea472de38",
+                            "key":  "newbornIvFootLeft",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `true` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "7bb6e82e-5a53-53f8-9b44-3e2a2694681f",
+                         "key":  "newbornIvFootLeft-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "220ed630-daa9-5686-857b-72d0760b798c",
+                         "key":  "newbornIvFootLeft-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "17fe08f3-dc88-5706-9b0f-788a6f786e8e",
+                         "key":  "newbornIvFootLeftProcedure",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "salineLock",
+                                                "iv"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`none`, `salineLock`, `iv`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "57b1317f-27ec-56c9-ba1a-d6b5f07a6e91",
+                         "key":  "newbornIvFootLeftProcedure-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e7b876b0-1323-59f6-a477-2a623fe25cab",
+                         "key":  "newbornIvFootLeftProcedure-ivRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `RemoveIVTrigger` (`SetActive`).",
+                         "sourceScripts":  "IVEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d63ff45f-cc37-58d7-80ad-6eec69f8c35d",
+                         "key":  "newbornIvFootLeftProcedure-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8663e359-9724-5862-92b2-2643098f37fa",
+                         "key":  "newbornIvFootLeftProcedure-tubingRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `RemoveTubingTrigger` (`SetActive`).",
+                         "sourceScripts":  "IVEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a8844d3c-37f2-5d07-b252-ff340e8266f7",
+                         "key":  "newbornIvFootLeft-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "ConnectIV",
+                                     "assetIds":  [
+                                                      "1d3c5abc-7b25-5abb-902a-03c5685275e7",
+                                                      "84b59303-d24b-52d7-b9a1-c8ed60d23b44"
+                                                  ],
+                                     "availableIn":  [
+                                                         "iv",
+                                                         "salineLock"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "IVHandLeft",
+                                     "assetIds":  [
+                                                      "7a57cebf-dfeb-5c83-b9d8-d503bd7f184f",
+                                                      "e4bcea10-eb9f-5c02-81fc-802e693e6a05",
+                                                      "33329fcf-e699-514e-80a1-9cd4834394a3"
+                                                  ],
+                                     "availableIn":  [
+                                                         "none"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "ivMedication",
+                                     "assetIds":  [
+                                                      "16a83f6e-cd15-5d4d-85f0-010a5e185a16"
+                                                  ],
+                                     "availableIn":  [
+                                                         "iv",
+                                                         "salineLock"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "19093a09-9168-52b5-9c54-dee4189bc38e",
+                         "bd700a03-7623-5746-9c60-3d1f9223854c",
+                         "050b0c37-b7a1-5d15-a40a-1b6cf8c7bdd3",
+                         "06797c92-8566-5df4-b261-3caaf2aef31a",
+                         "a86a80b2-08ac-56af-8a80-8da5512db451"
+                     ]
+}

@@ -1,0 +1,116 @@
+{
+    "id":  "c99b0ef3-cfc0-5e36-bfbb-4c33d8544adf",
+    "type":  "equipment",
+    "name":  "Incentive Spirometer",
+    "assetKey":  "equipment_incentive_spirometer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_incentive_spirometer.prefab",
+    "primaryMetadata":  {
+                            "id":  "9555c443-7c72-5102-ba66-ee79a716d0cc",
+                            "key":  "incentiveSpirometer",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "6cdb80cc-774f-59ba-bbda-aac621dd2e2e",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1e097937-f7a0-5861-8bae-347b21d70a7f",
+                         "key":  "incentiveSpirometer-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c446be48-e6e9-51b6-8bb6-210feb4d261d",
+                         "key":  "incentiveSpirometer-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "52d9f3f0-6f4c-53a5-af59-724c6508cf18",
+                         "key":  "incentiveSpirometer-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5ecf29c6-eb02-587f-a30e-1373b9381d17",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "incentiveSpirometer",
+                                     "assetIds":  [
+                                                      "eb61d098-da6b-5029-9e1d-4defcf4cb580"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383"
+                     ]
+}

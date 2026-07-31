@@ -1,0 +1,41 @@
+{
+    "id":  "d59f793e-a23b-5889-ae5f-076b8b09b22f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Kit Ccat Refrigerator Bag",
+    "assetKey":  "tool_kit_ccat_refrigerator_bag",
+    "toolId":  "kit_CCAT_RefrigeratorBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_kit_ccat_refrigerator_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ada65bb0-b6b0-5bfd-a040-7de008c3f106",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "closed"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

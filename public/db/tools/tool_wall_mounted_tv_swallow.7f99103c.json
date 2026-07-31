@@ -1,0 +1,24 @@
+{
+    "id":  "7f99103c-b8ef-5fe8-a766-bc36fd79d408",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wall Mounted Tv Swallow",
+    "assetKey":  "tool_wall_mounted_tv_swallow",
+    "toolId":  "wallMountedTv1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Wall Mounted TV/tool_wall_mounted_tv_swallow.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

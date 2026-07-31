@@ -1,0 +1,88 @@
+{
+    "id":  "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Rous Hospital Pack",
+    "assetKey":  "kit_rous_hospital_pack",
+    "toolId":  "rousHospitalPack",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/kit_rous_hospital_pack.prefab",
+    "metadata":  [
+                     {
+                         "id":  "25505d38-56ae-52b5-8c0e-35c81d698a2d",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "pocket02",
+                                                "pocket03",
+                                                "pocket04",
+                                                "open",
+                                                "leftLongVelcroPouch",
+                                                "rightLongVelcroPouch",
+                                                "yellowPouch",
+                                                "blackPouch",
+                                                "greenPouch",
+                                                "redPouch",
+                                                "bluePouch",
+                                                "brownPouch"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "closed"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "c2def44a-9d6a-5784-93d2-8a1621e4b402",
+                         "key":  "vesselIsAbleToBePickedUp",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VesselPickupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51ba4f28-c3aa-54cf-bed0-5515e7d4142f",
+                         "key":  "vesselIsAbleToOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `vesselIsAbleToOpen` (toggle / flag).",
+                         "sourceScripts":  "VesselPickupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bagAnchor",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

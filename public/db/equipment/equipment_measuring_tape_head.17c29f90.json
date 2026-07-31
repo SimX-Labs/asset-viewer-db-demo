@@ -1,0 +1,115 @@
+{
+    "id":  "17c29f90-c32e-5969-ac2e-36182794bd09",
+    "type":  "equipment",
+    "name":  "Measuring Tape Head",
+    "assetKey":  "equipment_measuring_tape_head",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_calf_measuring_tape_right.prefab",
+    "primaryMetadata":  {
+                            "id":  "487978d0-acf3-5f30-ab40-cd3b05ba194f",
+                            "key":  "calfMeasuringTapeR",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "31060e4c-7ab1-5c71-b19b-e42cc6b908c3",
+                         "key":  "calfMeasuringTapeR-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "543507b1-0f1e-51b9-853f-05830c32be02",
+                         "key":  "calfMeasuringTapeR-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `true` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e5eb3acd-e32e-54f3-b412-28b970263e8b",
+                         "key":  "calfMeasuringTapeR-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dc5a774a-cf89-568b-8520-558f59edbc65",
+                         "key":  "measurement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `MeasurementValue.text` UI label. Often heard as `\u003cprocedureName\u003e-measurement`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "RespiratoryExcursionsMetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "187143a9-b5f8-5208-a57a-583d47e2dc5e",
+                         "key":  "measurementUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `MeasurementUnits.text` UI label. Often heard as `\u003cprocedureName\u003e-measurementUnits`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "RespiratoryExcursionsMetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "MeasuringTape",
+                                     "assetIds":  [
+                                                      "c56d860d-5576-5ccc-b6d4-9d73bf4524ce"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "19093a09-9168-52b5-9c54-dee4189bc38e",
+                         "bd700a03-7623-5746-9c60-3d1f9223854c",
+                         "050b0c37-b7a1-5d15-a40a-1b6cf8c7bdd3",
+                         "06797c92-8566-5df4-b261-3caaf2aef31a",
+                         "a86a80b2-08ac-56af-8a80-8da5512db451"
+                     ]
+}

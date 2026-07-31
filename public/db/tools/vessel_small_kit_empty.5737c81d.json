@@ -1,0 +1,24 @@
+{
+    "id":  "5737c81d-4bfe-5448-8566-e4cb5b3dc909",
+    "type":  "tool",
+    "kind":  "vessel",
+    "name":  "Small Kit Empty",
+    "assetKey":  "vessel_small_kit_empty",
+    "toolId":  "genericKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/vessel_small_kit_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

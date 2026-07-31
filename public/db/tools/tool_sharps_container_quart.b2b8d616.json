@@ -1,0 +1,25 @@
+{
+    "id":  "b2b8d616-a984-58b6-80d6-7de6d2039834",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sharps Container Quart",
+    "assetKey":  "tool_sharps_container_quart",
+    "toolId":  "tool_sharps_container_quart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/SharpsContainer/tool_sharps_container_quart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "8ce0f4d8-4906-5790-931a-5419377eb94f",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3"
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

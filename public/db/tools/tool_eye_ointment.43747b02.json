@@ -1,0 +1,37 @@
+{
+    "id":  "43747b02-1264-59a7-919b-f78786d97ed6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Eye Ointment",
+    "assetKey":  "tool_eye_ointment",
+    "toolId":  "eyeOintment",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_eye_ointment.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "EyeL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "EyeR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

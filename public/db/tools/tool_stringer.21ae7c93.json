@@ -1,0 +1,30 @@
+{
+    "id":  "21ae7c93-b5ed-5837-ae02-34b682d91f98",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Stringer",
+    "assetKey":  "tool_stringer",
+    "toolId":  "toolStringer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Sterilization Tray/tool_stringer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "StringerPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

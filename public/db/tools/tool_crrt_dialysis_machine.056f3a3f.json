@@ -1,0 +1,1270 @@
+{
+    "id":  "056f3a3f-1d71-5376-8ad7-c68e2f40b322",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Crrt Dialysis Machine",
+    "assetKey":  "tool_crrt_dialysis_machine",
+    "toolId":  "crrtDialysisMachine",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/CRRT Dialysis Machine/tool_crrt_dialysis_machine.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5ba0eec9-a417-5044-8960-59677aaca2d6",
+                         "key":  "accessPressureValue",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles access pressure value.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b3605e78-c455-50e0-875a-5b55a7a4cb8e",
+                         "key":  "airTrapWindowAbnormal",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles air trap window abnormal.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0dbadba4-936a-580a-b56d-0f3b318134b3",
+                         "key":  "airVentLineOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `AirVentClipClosed` (`SetActive`). Controls visibility of `AirVentClipOpen` (`SetActive`). Controls visibility of `AirVentCap` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "05dc1b67-4b1f-5c86-9d02-225735b44daf",
+                         "key":  "alarmMuted",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Broadcasts the negation of `_alarmMuted` (opposite of the current boolean state).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "509e8468-cbe2-51ea-8a81-4c46408ccb2c",
+                         "key":  "alarmPageActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Controls visibility of `HomeScreenParent` (`SetActive`). Controls visibility of `AlarmScreenParent` (`SetActive`). Controls visibility of `AlarmBarAlarmScreen` (`SetActive`). Controls visibility of `HomeBarAlarmScreen` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "05a3b85a-9795-586b-bab3-7d8258b2d6e6",
+                         "key":  "alarmType",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Controls visibility of `AlarmBarInteractionParent` (`SetActive`). Updates the `AlarmBarTextHomeScreen.text` UI label. Updates the `AlarmBarTextAlarmScreen.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "529e1c46-b182-5bec-9858-177e594fb116",
+                         "key":  "allowBloodRateChange",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Updates the `BloodRateValueScreen.text` UI label. Updates the `BloodRateValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1c9c3a9a-cc0d-5653-88fd-901fb137b03a",
+                         "key":  "allowTherapyFluidChange",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Updates the `TherapyFluidValueScreen.text` UI label. Updates the `TherapyFluidValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dc582e93-c2c8-5c26-a4cd-7ff71b85df17",
+                         "key":  "allowUltrafiltrationChange",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Updates the `UltrafiltrationValueScreen.text` UI label. Updates the `UltrafiltrationValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1f7d1963-7ad4-5520-8d77-70674fe0291f",
+                         "key":  "bag1FluidDrain",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `drainStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b476b421-eb76-577d-ae69-1ee48478635d",
+                         "key":  "bag1FluidLevel",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7d94d798-f325-55dd-9018-66da3c79afdd",
+                         "key":  "bag1SealBroken",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f36b4328-0d5b-5fad-9c72-f940654f1812",
+                         "key":  "bag2FluidDrain",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `drainStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "37e8716f-7223-52eb-bee7-09e02092b0d9",
+                         "key":  "bag2FluidLevel",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "28969554-8adc-5d29-be29-1efc5a7dd657",
+                         "key":  "bag2SealBroken",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "afaae1e1-d570-529b-a0ff-694eb494e0c3",
+                         "key":  "bag3FluidDrain",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `drainStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9a2ff99a-7e07-5e66-8436-7d096b819237",
+                         "key":  "bag3FluidLevel",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "86a2e322-d236-5c42-9b97-78a5d5b61812",
+                         "key":  "bag3SealBroken",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e40b7bcb-90a0-532c-aa1c-a84625b1dae3",
+                         "key":  "bagWasBroken",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cb6ddd6d-6531-55ee-976f-8a571b52c86c",
+                         "key":  "balChamberPressureValue",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles bal chamber pressure value.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dbe97306-1be5-5b35-b0e9-743d2e1cb383",
+                         "key":  "bloodPendTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `BloodPendTimeText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b5c5c441-8304-5140-bdec-86b928405b34",
+                         "key":  "bloodPumpRunning",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `runningStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c6c30556-80e0-5390-87eb-a0956359a91f",
+                         "key":  "bloodRateValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Updates the `BloodRateValueScreen.text` UI label. Updates the `BloodRateValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b35c227f-1577-5054-b9ef-1499c9fd8d6e",
+                         "key":  "blueAccessLineConnectedTo",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "If both lines are connected to the patient, do some additional things Controls visibility of `BlueAccessLineConnectedToMachine` (`SetActive`). Controls visibility of `BlueAccessLineConnectedToPatient` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0d03a287-58ed-5809-9752-cd6ba9fdbdfb",
+                         "key":  "blueLineClipSecured",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "SimulationEventManager.StartListening($\"Metadata-{_toolController.ToolId}-{RED_LINE_CLIP_SECURED}\", HandleRedLineClipSecured); Controls visibility of `BlueLineClipUnsecuredMachine` (`SetActive`). Controls visibility of `BlueLineClipUnsecuredPatient` (`SetActive`). Controls visibility of `BlueLineClipSecuredMachine` (`SetActive`). Controls visibility of `BlueLineClipSecuredPatient` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dc0bb231-5eda-55be-8e97-2f5f5dfe8972",
+                         "key":  "canClearNumberTestPageValues",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Also propagate to additional mirror canvases / \u003cparam name=\"data\"\u003e\u003c/param\u003e Setup listeners for all pages to override value on TestValueCell components when we get the event to clear number test page values",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3d6058a9-6ee9-5ad8-a4e9-6fb48535e59d",
+                         "key":  "cartridgeName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `CartidgeNameText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b26157a6-77bd-575d-9a79-57074d0bb768",
+                         "key":  "CloseModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f426f7d1-3e47-5803-aef2-e481e2f67c0b",
+                         "key":  "connectedPatientId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ddb5150a-f4c3-50ea-9674-41b3a4209e3b",
+                         "key":  "currentPage",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "288b3ade-8c29-52f1-8913-6e809fceb6ed",
+                         "key":  "dialyzerPortClipOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `DialyzerPortClipOpen` (`SetActive`). Controls visibility of `DialyzerPortClipClosed` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0704515c-155b-5cec-8bdf-988737a13abb",
+                         "key":  "dialyzerPortSyringeLiquidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles dialyzer port syringe liquid color.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "af5fade1-c98a-57d9-91a0-072986630d1c",
+                         "key":  "effluentPressureValue",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles effluent pressure value.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ad6d2ee6-24f2-5d98-8780-9ade683b8283",
+                         "key":  "fillAmount",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`0`"
+                                      ],
+                         "description":  "Broadcasts integer literal `0` via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "185d66f5-14b5-538a-885d-97429547b7a9",
+                         "key":  "filtrationFraction",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `FiltrationFractionValueText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bbd7134e-7dd6-5cb2-ac58-2744cacce56b",
+                         "key":  "forceScreenOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `ScreenWrapper` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "69295657-bc95-5ffb-9a4b-f03a649ba02a",
+                         "key":  "increment",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`10`"
+                                      ],
+                         "description":  "Broadcasts integer literal `10` via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6119a451-9681-5656-9e4d-1eb324540eeb",
+                         "key":  "initialBloodRateValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `BloodRateValueScreen.text` UI label. Updates the `BloodRateValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f54173d1-ebca-5043-8b49-21d9a9a31f0d",
+                         "key":  "initialTherapyFluidValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `TherapyFluidValueScreen.text` UI label. Updates the `TherapyFluidValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "39049609-6d76-5a17-bdf0-2fa5e46b7b90",
+                         "key":  "initialUltrafiltrationValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `UltrafiltrationValueScreen.text` UI label. Updates the `UltrafiltrationValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2dd464de-1327-5095-a625-098b1c33c041",
+                         "key":  "machineState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "656b1e53-11e6-55e4-a5b4-76b02841b757",
+                         "key":  "max",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`20`"
+                                      ],
+                         "description":  "Broadcasts integer literal `20` via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c0285d2c-3a3a-5798-8a9c-63f8eab3600d",
+                         "key":  "MirrorCanvasToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Find matching tool ID Extract Canvas transform and add to AdditionalMirrorCanvases",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "19702bda-7c1c-5333-a193-8baa3e0905a3",
+                         "key":  "OpenModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7a858b34-3e73-5dab-9cde-47f523f4fb17",
+                         "key":  "overrideDialyzerPortSyringeLiquidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles dialyzer port syringe liquid color override.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d58ab291-d22d-5839-ab10-d3b8ea312161",
+                         "key":  "pages",
+                         "valueType":  "array",
+                         "valueShape":  "array",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "see Complex value reference"
+                                      ],
+                         "description":  "We will get a list of pages We want to go through each item and build out all of our pages and add them to our list of page groups so we can toggle them off and on",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  {
+                                               "shape":  "array",
+                                               "spec":  {
+                                                            "kind":  "array",
+                                                            "element":  {
+                                                                            "kind":  "object",
+                                                                            "subKeys":  [
+                                                                                            {
+                                                                                                "name":  "actionList",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "backButton",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "characterTarget",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "children",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "childrenCustomButtonLabels",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "customMenuTitle",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "data",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "object",
+                                                                                                             "subKeys":  [
+                                                                                                                             {
+                                                                                                                                 "name":  "MedicationAdministrationRecord",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "object",
+                                                                                                                                              "subKeys":  [
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary"
+                                                                                                                                                          ]
+                                                                                                                                          }
+                                                                                                                             }
+                                                                                                                         ]
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "headers",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "itemsPerPage",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "int"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "name",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "pageHeaders",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "questions",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "object",
+                                                                                                                             "subKeys":  [
+                                                                                                                                             {
+                                                                                                                                                 "name":  "customOptions",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "array",
+                                                                                                                                                              "element":  "System.Collections.Specialized.OrderedDictionary"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "maxValue",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "int"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "minValue",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "int"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "question",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "string"
+                                                                                                                                                          }
+                                                                                                                                             }
+                                                                                                                                         ]
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "type",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            }
+                                                                                        ]
+                                                                        }
+                                                        },
+                                               "subKeys":  [
+
+                                                           ],
+                                               "samples":  [
+                                                               "[{\"name\":\"Main Menu\",\"type\":\"Menu\",\"children\":[\"Patient Information\",\"Start Scenario (Enter Room)\"]},{\"name\":\"Patient Information\",\"type\":\"Imaging\",\"children\":[\"EMR_pg01_EMUCase1_PtOverview\",\"EMR_pg02_EMUCase1_PreventativeScreeningOrders\"],\"backButton\":\"Main Menu\"},{\"name\":\"Start Scenario (Enter Room)\",\"type\":\"Imaging\",\"children\":[\"ScenarioBegin\"],\"backButton\":\"Main Menu\"}]",
+                                                               "[{\"name\":\"Main Menu\",\"type\":\"Menu\",\"children\":[\"Patient Overview\",\"Medication Reference\",\"Clinical Calculators\",\"Screening Questionnaires\"]},{\"name\":\"Patient Overview\",\"type\":\"Imaging\",\"children\":[\"EMR_pg01_EMUCase1_PtOverview\",\"EMR_pg02_EMUCase1_PreventativeScreeningOrders\"],\"backButton\":\"Main Menu\"},{\"name\":\"Medication Reference\",\"type\":\"Imaging\",\"children\":[\"EMR_pg04_EMUCase1_DrugGuide03\",\"EMR_pg03_EMUCase1_DrugGuide02\",\"EMR_pg02_EMUCase1_DrugGuide01\"],\"backButton\":\"Main Menu\"},{\"name\":\"Clinical Calculators\",\"type\":\"Menu\",\"children\":[\"Body Mass Index (BMI)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Screening Questionnaires\",\"type\":\"Menu\",\"children\":[\"Influenza Vaccination Screening Questionnaire\",\"Primary Suicide Screening (PHQ-2 + i9)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Body Mass Index (BMI)\",\"type\":\"BMICalculator\",\"backButton\":\"Clinical Calculators\"},{\"name\":\"Influenza Vaccination Screening Questionnaire\",\"type\":\"NumberTest\",\"headers\":[\"Influenza Vaccination Screening Questionnaire\",\"Select either YES or NO\"],\"questions\":[{\"maxValue\":1,\"minValue\":0,\"question\":\"1. Have you had an influenza vaccine before and if so, when was it?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"2. Are you feeling sick today?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"3. Do you have an allergy to eggs or to a component of the influenza vaccine?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"4. Have you ever had a serious reaction to influenza vaccine in the past?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"5. Have you ever had Guillain-Barre Syndrome?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"TOTAL\",\"customOptions\":[\"yes\",\"no\"]},{\"question\":\"\\u003csize=12\\u003e\\u003cb\\u003ePatient is NOT eligible if:\\u003c/b\\u003e \\n \\nPatient answers YES to any question that is NOT the first question.\",\"customOptions\":[]}],\"backButton\":\"Screening Questionnaires\",\"itemsPerPage\":3},{\"name\":\"Screening Questionnaires\",\"type\":\"Menu\",\"children\":[\"Influenza Vaccination Screening Questionnaire\",\"Primary Suicide Screening (PHQ-2 + i9)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Body Mass Index (BMI)\",\"type\":\"BMICalculator\",\"backButton\":\"Clinical Calculators\"},{\"name\":\"Primary Suicide Screening (PHQ-2 + i9)\",\"type\":\"NumberTest\",\"headers\":[\"Primary Suicide Screening (PHQ-2 + i9)\",\"0 = Not at all   1 = Several days   2 = More than half the days   3 = Nearly every day\"],\"questions\":[{\"maxValue\":1,\"minValue\":3,\"question\":\"1. Over the last 2 weeks, how often have you been bothered by: little interest or pleasure in doing things?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"2. Over the last 2 weeks, how often have you been bothered by: feeling down, depressed, or hopeless?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"3. Over the last 2 weeks, how often have you been bothered by: trouble falling asleep, or sleeping too much?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"4. Over the last 2 weeks, how often have you been bothered by: feeling tired or having little energy?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"5. Over the last 2 weeks, how often have you been bothered by: poor appetite or overeating?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"6. Over the last 2 weeks, how often have you been bothered by: feeling bad about yourself -- that you are a failure or have let your family down?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"7. Over the last 2 weeks, how often have you been bothered by: trouble concentrating on things?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"8. Over the last 2 weeks, how often have you been bothered by: moving/speaking so slowly that other people notice, or being very fidgety and restless?\",\"customOptions\":[\"0\",\"1\",\"..."
+                                                           ]
+                                           },
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dd539c7a-e3b8-594e-9d23-7e552c64a7f9",
+                         "key":  "redAccessLineConnectedTo",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "If both lines are connected to the patient, do some additional things Controls visibility of `RedAccessLineConnectedToMachine` (`SetActive`). Controls visibility of `RedAccessLineConnectedToPatient` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8c99f8bd-373f-5308-9b18-aac3a578da39",
+                         "key":  "redLineClipSecured",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Controls visibility of `RedLineClipUnsecuredMachine` (`SetActive`). Controls visibility of `RedLineClipUnsecuredPatient` (`SetActive`). Controls visibility of `RedLineClipSecuredMachine` (`SetActive`). Controls visibility of `RedLineClipSecuredPatient` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ce3f9f5e-8b51-540d-87ee-a2aeacddfbc5",
+                         "key":  "rinseBack",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5f6147eb-1fb9-54dd-b08b-e6cf3775117d",
+                         "key":  "salineBagFluidDrain",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "SimulationEventManager.StartListening($\"Metadata-{_toolController.ToolId}-{BLUE_LINE_CLIP_SECURED}\", HandleBlueLineClipSecured);",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "10347dfc-9dba-55b6-ac7a-7e4ec5c0b754",
+                         "key":  "salineBagFluidLevel",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7f372558-93ce-5742-96c5-680c8896b2ab",
+                         "key":  "setBloodRateStringOverride",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5fe981d8-dd4a-510a-acd6-410983cf0f5b",
+                         "key":  "setTherapyFluidStringOverride",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "985f06cf-07f3-5146-8ee3-baf867873d0d",
+                         "key":  "setUltrafiltrationStringOverride",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51efe08b-e345-5219-83e8-736a6d240e41",
+                         "key":  "syringeLiquidColor",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "19cef044-ce1a-5d62-a470-06f23ef15d89",
+                         "key":  "syringeLiquidColorOnlyOnEmpty",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e0a1c618-faef-5ee6-8e2e-2ca66d6d1bf1",
+                         "key":  "syringeNeedleSize",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`none`"
+                                      ],
+                         "description":  "Broadcasts string literal `none` via `SetToolMetadata`.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "713307cb-b3e8-5ba9-a0b4-d6ad014fa7af",
+                         "key":  "tabletOrientation",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "37320523-f5a2-5d5f-b55e-5e61235faf0d",
+                         "key":  "therapyFluidPendTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `TherapyFluidPendTimeText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fcc7f6bb-35c5-545b-9f3d-9e4b324d6c34",
+                         "key":  "therapyFluidPumpRunning",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `runningStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b0033953-625e-5c88-b217-d9e8dc3ce0a7",
+                         "key":  "therapyFluidValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Updates the `TherapyFluidValueScreen.text` UI label. Updates the `TherapyFluidValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f9a64e3a-d75c-55f0-bcf1-9dbb64a6a072",
+                         "key":  "toolsToCopyMetadataTo",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Declare Clones.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "009e366d-692b-530a-8faf-54cc5b4b661f",
+                         "key":  "treatmentMode",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `TreatmentModeText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1f69c09b-89b7-5b08-bd55-a856379efdef",
+                         "key":  "ultrafiltrationPendTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `UltrafiltrationPendTimeText.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "db94871c-34f6-5b05-8bd0-ad332038d1d0",
+                         "key":  "ultrafiltrationPumpRunning",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `runningStatus` (toggle / flag).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "353ce1c4-95f5-5680-a2eb-58f8ee098584",
+                         "key":  "ultrafiltrationValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Updates the `UltrafiltrationValueScreen.text` UI label. Updates the `UltrafiltrationValueKeyboard.text` UI label.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "992b372c-5a37-5ebb-96ae-2f17dc35a4d9",
+                         "key":  "venousPressureValue",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles venous pressure value.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "db0315b6-aab0-5fe8-9638-d9f5a2975b43",
+                         "key":  "VerticalDrag",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "79f36b14-f759-50e1-82a9-14c96c39eda7",
+                         "key":  "yellowLineBucketFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles yellow line bucket fluid color.",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8ddd18f5-2828-558c-8ffb-7ae26a1355bf",
+                         "key":  "yellowLineConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `YellowLineConnected` (`SetActive`). Controls visibility of `YellowLineDisconnected` (`SetActive`).",
+                         "sourceScripts":  "DialysisMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "blueAccessLineSaline",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ivMedication",
+                                     "assetIds":  [
+                                                      "16a83f6e-cd15-5d4d-85f0-010a5e185a16"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "crrtDialyzerPort",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "redAccessLineSaline",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

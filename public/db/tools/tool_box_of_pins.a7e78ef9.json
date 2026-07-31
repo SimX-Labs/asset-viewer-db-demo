@@ -1,0 +1,51 @@
+{
+    "id":  "a7e78ef9-79ba-5031-8279-535352a10704",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Box Of Pins",
+    "assetKey":  "tool_box_of_pins",
+    "toolId":  "boxOfNeedles",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_box_of_pins.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "hammerToesR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "hammerToesL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandBackR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandBackL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

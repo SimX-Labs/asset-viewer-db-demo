@@ -1,0 +1,37 @@
+{
+    "id":  "ec4ba1ea-03c0-5741-ba40-fe9036b3a096",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Papr Player Equipment",
+    "assetKey":  "tool_PAPR_player_equipment",
+    "toolId":  "PAPR",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_PAPR_player_equipment.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Player_PAPR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "PAPR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

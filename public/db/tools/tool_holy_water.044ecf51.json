@@ -1,0 +1,24 @@
+{
+    "id":  "044ecf51-bba6-5f67-b3b0-774a754b6202",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Holy Water",
+    "assetKey":  "tool_holy_water",
+    "toolId":  "holyWater",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_holy_water.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

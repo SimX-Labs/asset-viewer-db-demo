@@ -1,0 +1,30 @@
+{
+    "id":  "b52a161d-0b8d-5885-9427-b93e6a345648",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inhaler",
+    "assetKey":  "tool_inhaler",
+    "toolId":  "inhaler1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_inhaler.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "HandR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

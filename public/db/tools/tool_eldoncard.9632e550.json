@@ -1,0 +1,60 @@
+{
+    "id":  "9632e550-06d6-55f2-9e67-1be1e7aee551",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Eldoncard",
+    "assetKey":  "tool_eldoncard",
+    "toolId":  "eldonCard1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_eldoncard.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerPrick",
+                             "assetIds":  [
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

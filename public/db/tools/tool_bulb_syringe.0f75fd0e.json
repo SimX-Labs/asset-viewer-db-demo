@@ -1,0 +1,44 @@
+{
+    "id":  "0f75fd0e-e76c-5c9d-9e2d-cc49ad000397",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bulb Syringe",
+    "assetKey":  "tool_bulb_syringe",
+    "toolId":  "bulbSyringe1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bulb Syringe/tool_bulb_syringe.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e4861523-164f-5902-b5cf-c68b5620372b",
+                         "key":  "bulbSqueeze",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BulbSyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygenPeds",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

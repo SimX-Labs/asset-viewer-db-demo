@@ -1,0 +1,90 @@
+{
+    "id":  "9b99dfa4-6988-5eca-a1d6-a4ba18d6363f",
+    "type":  "equipment",
+    "name":  "Prop Pca Pump Remote (2)",
+    "assetKey":  "prop_pca_pump_remote (2)",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/prop_pca_pump_remote.prefab",
+    "primaryMetadata":  {
+                            "id":  "a2a756be-f022-5d68-a316-357800ed49c5",
+                            "key":  "pcaPumpRemote",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "93fbcd48-9b59-574b-a1b3-0c2c3873b703",
+                         "key":  "pcaPumpRemote-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c04a861f-d63e-574e-b77b-49b388ce88ee",
+                         "key":  "pcaPumpRemote-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "91aecbb7-f6f2-51b9-8af7-aaaf86852cfa",
+                         "key":  "pcaPumpRemote-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e5a5d9c6-6015-551f-9b24-08c40057e7d5",
+                         "key":  "setConnectedPumpToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Stop listening to old pump events Start listening to new pump events",
+                         "sourceScripts":  "PCAPumpRemoteController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

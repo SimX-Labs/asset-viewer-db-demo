@@ -1,0 +1,24 @@
+{
+    "id":  "414e4d1f-07ab-506b-85f3-ffe0731c668c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Assessment Card System",
+    "assetKey":  "tool_patient_assessment_card_system",
+    "toolId":  "patientAssessmentCardSystem1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Patient Assessment Card/tool_patient_assessment_card_system.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

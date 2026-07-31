@@ -1,0 +1,60 @@
+{
+    "id":  "e1eddfaa-2180-5d40-8f8b-0a77a685e4f5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Forced Air Blanket Folded",
+    "assetKey":  "tool_forced_air_blanket_folded",
+    "toolId":  "forcedAirBlanketFolded",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_forced_air_blanket_folded.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "forcedAirBlanketUpper",
+                             "assetIds":  [
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "forcedAirBlanketLower",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

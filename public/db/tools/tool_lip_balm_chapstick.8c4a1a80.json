@@ -1,0 +1,31 @@
+{
+    "id":  "8c4a1a80-8b9a-5691-ac1a-c1aa80c8ad81",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lip Balm Chapstick",
+    "assetKey":  "tool_lip_balm_chapstick",
+    "toolId":  "lipBalm",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_lip_balm_chapstick.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3662bdac-c605-5afc-8e68-435998d9b859",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

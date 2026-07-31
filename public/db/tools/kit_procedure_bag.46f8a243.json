@@ -1,0 +1,51 @@
+{
+    "id":  "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Procedure Bag",
+    "assetKey":  "kit_procedure_bag",
+    "toolId":  "procedure_bag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/kit_procedure_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c332a1fa-9cf8-546a-8719-498258bd3cb9",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "mainPocket",
+                                                "mainPocket_eBag01-03",
+                                                "mainPocket_eBag04",
+                                                "mainPocket_mainPouch",
+                                                "middlePocket",
+                                                "bottomPocket",
+                                                "pocket1",
+                                                "pocket2",
+                                                "pocket3",
+                                                "pocket4",
+                                                "pocket5"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "closed"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

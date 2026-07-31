@@ -1,0 +1,37 @@
+{
+    "id":  "1b4c4b04-7b16-5a4d-bf61-408d468837dd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Coban Wrap",
+    "assetKey":  "tool_coban_wrap",
+    "toolId":  "cobanWrap",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_coban_wrap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "cobanWrap",
+                             "assetIds":  [
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+                                              "5cefd56d-17ef-5ca7-8833-e3c7c7411303"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id":  "3ed39195-2d09-55a4-8f26-ef295d2b4a5a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Gear Case",
+    "assetKey":  "tool_gear_case",
+    "toolId":  "tool_gear_case",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_gear_case.prefab",
+    "metadata":  [
+                     {
+                         "id":  "3a323c70-7521-597f-b80d-de5c9eb20e43",
+                         "key":  "environmentOrientation",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "active",
+                                                "inactive"
+                                            ],
+                         "defaultValue":  "active",
+                         "examples":  [
+                                          "``active`` / ``inactive``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "c4a74ad2-22a3-5097-ab35-2a20e3190cfd",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open",
+                                                "ventSetupBag"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "closed"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

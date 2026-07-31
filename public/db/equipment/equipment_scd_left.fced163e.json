@@ -1,0 +1,119 @@
+{
+    "id":  "fced163e-57bb-587e-93db-1fefe9e7e54b",
+    "type":  "equipment",
+    "name":  "Scd Left",
+    "assetKey":  "equipment_scd_left",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_scd_left.prefab",
+    "primaryMetadata":  {
+                            "id":  "cc5c15e3-062d-52db-81b2-1a66c642faef",
+                            "key":  "scd",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "1dfafb10-b4b1-5826-aa84-41f13c77a68c",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c3e5cd71-e90b-5b5d-9dc0-16b91bf2c1de",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d8710582-293b-5851-a7f9-f2870e411eda",
+                         "key":  "scd-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3a09084d-3e78-5fda-8fd8-42ab681039e2",
+                         "key":  "scd-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "610efe18-3dab-5801-b609-0c1b646d6cf7",
+                         "key":  "scd-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "scd",
+                                     "assetIds":  [
+                                                      "b0c500a7-14a2-504a-8f71-3610741f4524"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383",
+                         "dbb0101a-e0a5-5cf6-8f28-7dc22f9ed8c9",
+                         "d0147888-7b8d-59a1-800d-666df87edd5b",
+                         "9e498184-659c-580b-a578-ea60c6ccbbe4"
+                     ]
+}

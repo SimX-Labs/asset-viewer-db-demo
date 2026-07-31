@@ -4,6 +4,15 @@
 // together via UUID foreign-key arrays.
 //
 // See gitbooks/data/db/schemas/*.md in the source repo for the authoritative schema.
+//
+// Interaction fields (current schema):
+//   character / equipment → interactionLocations[]  (places tools can interact; assetIds → tools)
+//   tool.interactions[]                             (outbound ToolInteractions; assetIds → mixed)
+//   tool.interactionLocations[]                     (inbound InteractionTriggers; assetIds → tools)
+//
+// Legacy aliases still accepted by the loader:
+//   character / equipment.interactions  → interactionLocations
+//   tool.interactionTargets             → tool.interactions (outbound)
 
 export type UnityRowType =
   | 'character'
@@ -43,7 +52,9 @@ export interface UnityCharacter {
   isPrimaryInGroup: boolean;
   groupFolder: string;
   prefabPath: string;
-  interactions: UnityInteraction[];
+  interactionLocations: UnityInteraction[];
+  /** @deprecated Prefer interactionLocations */
+  interactions?: UnityInteraction[];
   availableEquipment: string[];
   availableClothing: string[];
 }
@@ -56,7 +67,9 @@ export interface UnityEquipment {
   prefabPath: string;
   primaryMetadata?: UnityMetadataObject | null;
   metadata: UnityMetadataObject[];
-  interactions: UnityInteraction[];
+  interactionLocations: UnityInteraction[];
+  /** @deprecated Prefer interactionLocations */
+  interactions?: UnityInteraction[];
   characterIds: string[];
 }
 
@@ -69,8 +82,12 @@ export interface UnityTool {
   toolId: string;
   prefabPath: string;
   metadata: UnityMetadataObject[];
+  /** Outbound actions (ToolInteractions). */
   interactions: UnityInteraction[];
-  interactionTargets: UnityInteraction[];
+  /** Inbound trigger locations on this tool. */
+  interactionLocations: UnityInteraction[];
+  /** @deprecated Legacy outbound field; prefer interactions */
+  interactionTargets?: UnityInteraction[];
   usedInGroupIds: string[];
   scenarioIds: string[];
 }
@@ -105,5 +122,22 @@ export interface UnityDbBundle {
   toolMetadata: UnityToolMetadata[];
 }
 
-export const UNITY_DB_FILE = 'unity-asset-db.json';
+/** Manifest listing relative paths under the db/ folder (browsers cannot list directories). */
+export interface UnityDbIndex {
+  meta?: {
+    source?: string;
+    generatedAt?: string;
+    counts?: Record<string, number>;
+  };
+  characters: string[];
+  equipment: string[];
+  tools: string[];
+  clothing: string;
+  characterMetadata: string;
+  toolMetadata: string;
+}
+
+/** Root URL path (or absolute URL) of the db folder. Override later for a remote host. */
+export const UNITY_DB_ROOT = 'db';
+export const UNITY_DB_INDEX_FILE = 'index.json';
 export const UNITY_VIRTUAL_FILE = 'Unity Asset DB';

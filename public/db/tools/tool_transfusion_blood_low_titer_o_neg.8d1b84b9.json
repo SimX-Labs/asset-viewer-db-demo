@@ -1,0 +1,51 @@
+{
+    "id":  "8d1b84b9-3824-5f0a-a5dc-906e914bf5c0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Transfusion Blood Low Titer O Neg",
+    "assetKey":  "tool_transfusion_blood_low_titer_o_neg",
+    "toolId":  "tool_transfusion_blood_low_titer_o_neg",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Blood Transfusion IV/tool_transfusion_blood_low_titer_o_neg.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BloodBag_Liter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVBag",
+                             "assetIds":  [
+                                              "a597a960-897b-5110-bcd4-ec451a70f0fc",
+                                              "6751d70d-e2b7-56b0-88a7-536b7f620c18",
+                                              "03324c7b-a6b9-582b-8e70-bf9a0e9b6710",
+                                              "bc0e253e-bd4c-5ffa-a88f-a90facd29346",
+                                              "850bcd6a-54e2-5dcc-9253-609ed19e0bc1",
+                                              "ecb0907e-cf59-514c-bf1a-7298cac95d13",
+                                              "63030996-2f4e-55db-bc02-89d781d3c529",
+                                              "e98fcfe6-345b-5598-b7da-29930dd45015",
+                                              "21be4d43-844e-5c2a-bf00-085ca9fd00e3",
+                                              "a0a0e73c-b009-51fe-8cc6-b360652c81b9",
+                                              "4e3787a4-be65-5076-9c7b-475a52625de3",
+                                              "c836e0c7-7731-5850-85d0-32a5ccda6b77",
+                                              "8c256647-eb2c-5c9c-b32f-da21f1b170fc",
+                                              "911223a5-fcd0-5580-99a1-adcccb2a7292",
+                                              "d1653bfc-0a9b-5857-a8f3-011ada1ddb12"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

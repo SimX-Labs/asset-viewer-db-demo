@@ -1,0 +1,61 @@
+{
+    "id":  "46174cca-864b-5d81-8eaa-74fc0b2a2e8a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lidocaine Spray Bottle",
+    "assetKey":  "tool_lidocaine_spray_bottle",
+    "toolId":  "lidocaineSprayBottle1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_lidocaine_spray_bottle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "23f7a024-8b4e-5316-9e46-c5cb4fe821e3",
+                         "key":  "toolColliderActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "SprayBottleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "cervix",
+                             "assetIds":  [
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "24c78cb1-d8fb-593f-b4b2-7018d019a147",
+                                              "ed099a8e-9035-5d67-9f79-0096d0ef8350",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "ed099a8e-9035-5d67-9f79-0096d0ef8350",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "ed099a8e-9035-5d67-9f79-0096d0ef8350",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "ed099a8e-9035-5d67-9f79-0096d0ef8350",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "ed099a8e-9035-5d67-9f79-0096d0ef8350",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "e96c06aa-f129-5199-bfe4-dbe67384b957",
+                           "b245f0f2-0ae1-5a8d-914a-c767519169ad",
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

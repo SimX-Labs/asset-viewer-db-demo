@@ -1,0 +1,71 @@
+{
+    "id":  "2d08b04a-0db1-51ac-b949-f1c35fd9d489",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Apple Puree",
+    "assetKey":  "tool_apple_puree",
+    "toolId":  "applePuree1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Apple Sauce Puree/tool_apple_puree.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5a90ab40-d835-5636-ad6a-c0b74e9d5dd4",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Closed",
+                                                "Open",
+                                                "Empty"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Closed`` / ``Open`` / ``Empty``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "applePuree",
+                             "assetIds":  [
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+                                              "0a512b20-9917-53cd-8a77-ffadd9ef7991"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

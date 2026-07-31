@@ -1,0 +1,30 @@
+{
+    "id":  "e623a81d-5715-5c76-a259-fc4dea37b310",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tongue Blade Guaiac",
+    "assetKey":  "tool_tongue_blade_guaiac",
+    "toolId":  "tongueblade1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Guaiac Specimen/tool_tongue_blade_guaiac.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "commodeStool",
+                             "assetIds":  [
+                                              "005e9ebc-3cd7-5834-8611-0cd2fba72ade"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,79 @@
+{
+    "id":  "606a9045-5a89-5d57-bf2d-eba4d32d1778",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suction Machine Portable Configurable Container",
+    "assetKey":  "tool_suction_machine_portable_configurable_container",
+    "toolId":  "suctionMachinePortableConfigurableModel",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_suction_machine_portable_configurable_container.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "attachableSwabSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableTubingClosedSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableSuctionCatheterSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableTubingSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableChestTubeDrainTubingSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachablePleurevacSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableTracheostomySuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableYankauerSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

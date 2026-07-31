@@ -1,0 +1,48 @@
+{
+    "id":  "638e60bd-7589-58cb-9952-26688b0d76d0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Or Ring Stand Basin Contents",
+    "assetKey":  "tool_or_ring_stand_basin_contents",
+    "toolId":  "orRingStandBasinContents",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Or Ring Stand/tool_or_ring_stand_basin_contents.prefab",
+    "metadata":  [
+                     {
+                         "id":  "23a5c76d-739f-5305-b0ec-b648f670ad6b",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "grabbed",
+                                                "onTable"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``grabbed`` / ``onTable``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BasinContentsPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c847f5e0-925a-5f60-ada7-cb7157999175"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,336 @@
+{
+    "id":  "8a191d2c-21a3-5234-b3ba-ecb854c00e8f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Syringe Boxed Medium",
+    "assetKey":  "tool_medication_syringe_boxed_medium",
+    "toolId":  "syringeMed1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/Syringes/tool_medication_syringe_boxed_medium.prefab",
+    "metadata":  [
+                     {
+                         "id":  "cdd324e0-64ae-55ae-9e85-455197a3a552",
+                         "key":  "color",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Allow for the background to be turned off completely Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2d1a8a23-d97d-5095-b356-5be2dd711b0c",
+                         "key":  "emptyIntoAir",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "``true``"
+                                      ],
+                         "description":  "Allow Empty Into Air.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4b96688a-4c36-53d7-a561-d39c43f395d5",
+                         "key":  "fillAmount",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "This will be coming from the server so everyone can get updated on the current fill value Only hide the popup if the amount is at 0 Keep track of the current fill value, this updates while filling Updates the `CurrentFillValueText.text` UI label.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d6400e32-ea52-54e7-bed4-d12e4df6c919",
+                         "key":  "increment",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Increment Value.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a28c29e6-f406-5aed-af87-118c9a08b925",
+                         "key":  "max",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Max Value.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "41731abd-b7ff-5892-939d-667a612911f7",
+                         "key":  "medicationData",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This comes in as an object Setup listeners for setting the values for this medication Controls visibility of `gameObject` (`SetActive`). Updates the `DosageLabelText.text` UI label.",
+                         "sourceScripts":  "MedCustomMetadataController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "edc5c06b-99bd-569e-917e-8694b27d78f2",
+                         "key":  "min",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Min Value.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ccf57a5-bcee-5280-a1b4-70cd38b48247",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "These will usually just update at the beginning of the case when the initial data is setup Updates the `l.text` UI label.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2fea10f1-38d3-5bec-82a6-820fd92c1006",
+                         "key":  "startFull",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true``"
+                                      ],
+                         "description":  "Syringe Start Full.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "02b968b5-740e-57b3-94d0-d5d25fee6d1d",
+                         "key":  "syringeCover",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f320ea93-dfe4-52db-86d5-a1748cd25086",
+                         "key":  "syringeLiquidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``blue`` / ``darkYellow`` / ``red`` / ``yellow``"
+                                      ],
+                         "description":  "Update Liquid Color.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c722f6a0-45be-51a8-81a5-7b2f5c1ed267",
+                         "key":  "syringeNeedle",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "687d1c44-6b8b-5a69-bbbf-ec9f8725a300",
+                         "key":  "syringeNeedleSize",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Set the syringe cap color - this is to help differentiate different sized needles This can update throughout a case, most likely not often Controls visibility of `NeedleParent` (`SetActive`).",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "23eeb70a-9c52-5546-89b9-2990d981f17f",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `l.text` UI label.",
+                         "sourceScripts":  "SyringeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ElbowPitR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ElbowPitL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SternumShort",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "KneeR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "KneeL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ShoulderR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ShoulderL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "FemoralR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "dbb0101a-e0a5-5cf6-8f28-7dc22f9ed8c9",
+                                              "d0147888-7b8d-59a1-800d-666df87edd5b",
+                                              "9e498184-659c-580b-a578-ea60c6ccbbe4",
+                                              "79e40e45-878f-5b04-a19d-25c821ff09e0",
+                                              "c60f9eea-75a7-5755-8895-288c6384a58e",
+                                              "a43fef78-3abe-5662-9ae6-9682e3e02d86",
+                                              "ffca9d4a-e0f8-535c-b05c-eb59c0ce9df2",
+                                              "ffca9d4a-e0f8-535c-b05c-eb59c0ce9df2",
+                                              "ffca9d4a-e0f8-535c-b05c-eb59c0ce9df2",
+                                              "ffca9d4a-e0f8-535c-b05c-eb59c0ce9df2"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "FemoralL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "dbb0101a-e0a5-5cf6-8f28-7dc22f9ed8c9",
+                                              "d0147888-7b8d-59a1-800d-666df87edd5b",
+                                              "9e498184-659c-580b-a578-ea60c6ccbbe4",
+                                              "79e40e45-878f-5b04-a19d-25c821ff09e0",
+                                              "c60f9eea-75a7-5755-8895-288c6384a58e",
+                                              "a43fef78-3abe-5662-9ae6-9682e3e02d86",
+                                              "6a593e93-8dcf-5024-8886-61917e0d1cca",
+                                              "6a593e93-8dcf-5024-8886-61917e0d1cca",
+                                              "6a593e93-8dcf-5024-8886-61917e0d1cca",
+                                              "6a593e93-8dcf-5024-8886-61917e0d1cca"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "LeftLegAbscess",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "LeftLegAbscess",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

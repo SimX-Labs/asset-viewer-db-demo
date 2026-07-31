@@ -1,0 +1,37 @@
+{
+    "id":  "98a1dd3c-a0a0-5715-a42d-f03a342a0a01",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Etco2 Adapter",
+    "assetKey":  "tool_etco2_adapter",
+    "toolId":  "etco2Adapter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Intubation/tool_etco2_adapter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "intubationPos1",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationPos2",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "aa81e0d1-1acf-5186-9a0c-13d1ecef12e1"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

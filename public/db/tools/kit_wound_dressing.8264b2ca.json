@@ -1,0 +1,62 @@
+{
+    "id":  "8264b2ca-766d-5aad-bc31-620c8662eb9d",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Wound Dressing",
+    "assetKey":  "kit_wound_dressing",
+    "toolId":  "kitWoundDressing",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_wound_dressing.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ba29face-77e8-5d4c-87b1-51ea8da30f9b",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1c49813e-66fe-537b-be8a-ec4afc9896cf",
+                         "key":  "lidLabelState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "sterile",
+                                                "picc"
+                                            ],
+                         "defaultValue":  "sterile",
+                         "examples":  [
+                                          "``sterile`` / ``picc``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "sterileGauze",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "7a9659f5-eaa9-554a-8187-53050fe017a8"
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

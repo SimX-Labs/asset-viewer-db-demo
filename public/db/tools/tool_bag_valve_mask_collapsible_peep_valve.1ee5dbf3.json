@@ -1,0 +1,100 @@
+{
+    "id":  "1ee5dbf3-1283-536d-a5d0-cec725f7cd5f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bag Valve Mask Collapsible Peep Valve",
+    "assetKey":  "tool_bag_valve_mask_collapsible_peep_valve",
+    "toolId":  "bagValveMask",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_bag_valve_mask_collapsible_peep_valve.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ec971082-1e0a-5837-b25f-ba7f5bd12427",
+                         "key":  "setToolInteractions",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "ToolInteractionRuntimeOverwrite",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f20d7cb0-91a9-5a6f-aa3a-e0961853d2ac",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "peepValve"
+                                            ],
+                         "defaultValue":  "default",
+                         "examples":  [
+                                          "``default`` / ``peepValve``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationBVM",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "cricBVM",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "litterSmeedSlot",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_bvm",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "peepValve",
+                                     "assetIds":  [
+                                                      "9aec9bfc-bb9e-5cd3-8d90-76f1ab542167"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

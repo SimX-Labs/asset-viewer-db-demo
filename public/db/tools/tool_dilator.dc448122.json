@@ -1,0 +1,30 @@
+{
+    "id":  "dc448122-b82b-5921-910c-5af791fac757",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Dilator",
+    "assetKey":  "tool_dilator",
+    "toolId":  "dilator1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/Pericardiocentesis Kit/tool_dilator.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "dilatorPatient",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "166cc7d8-3fb5-5c69-bf41-cbd004c3c64e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

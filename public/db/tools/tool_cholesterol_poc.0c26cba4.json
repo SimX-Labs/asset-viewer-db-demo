@@ -1,0 +1,189 @@
+{
+    "id":  "0c26cba4-960a-5e72-9ca9-18ce4e92813f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cholesterol Poc",
+    "assetKey":  "tool_cholesterol_poc",
+    "toolId":  "cholesterolPoc",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Cholesterol POC/tool_cholesterol_poc.prefab",
+    "metadata":  [
+                     {
+                         "id":  "4a621823-9095-526c-bcc0-5da7c72b78c3",
+                         "key":  "hdlValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "54"
+                                      ],
+                         "description":  "Updates the `HDLValue.text` UI label.",
+                         "sourceScripts":  "CholesterolPOCController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c28efcb4-3332-5641-b8cc-d2e2ef2a62b9",
+                         "key":  "ldlValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `TCValue.text` UI label. Updates the `TopLabel.text` UI label.",
+                         "sourceScripts":  "CholesterolPOCController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b9583f40-24c4-5009-840b-357bf021f15d",
+                         "key":  "showHdlValue",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "True",
+                                          "False"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "CholesterolPOCController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "456e172e-4e7e-5aeb-b904-63abe9a3db1e",
+                         "key":  "showLdlValue",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "True",
+                                          "False"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "CholesterolPOCController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a1743c2a-96c5-5184-9b43-f688413c59c0",
+                         "key":  "showtcValue",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "True",
+                                          "False"
+                                      ],
+                         "description":  "Observed in scenario case files (no matching C# listener on this tool\u0027s controllers).",
+                         "sourceScripts":  "Scenario index",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "def5f0b1-cbf6-5749-b1bc-3a6280efcc6b",
+                         "key":  "tcValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "190"
+                                      ],
+                         "description":  "Updates the `TCValue.text` UI label. Updates the `TopLabel.text` UI label.",
+                         "sourceScripts":  "CholesterolPOCController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerPrick",
+                             "assetIds":  [
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerPrick",
+                             "assetIds":  [
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711"
+                    ]
+}

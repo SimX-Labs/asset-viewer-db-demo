@@ -1,0 +1,416 @@
+{
+    "id":  "202cb08f-59ae-5800-908e-de82339f3800",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Vitals Monitor Cvp Etco2",
+    "assetKey":  "tool_vitals_monitor_cvp_etco2",
+    "toolId":  "vitalsmonitor1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_vitals_monitor_cvp_etco2.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f2ee1b7d-07cd-5f96-9292-a15b580cad10",
+                         "key":  "BpCuffL",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Dont change it if the other side is active",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "40e2d874-c8bb-583c-97ba-d07b2a5ef193",
+                         "key":  "BpCuffR",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Dont change it if the other side is active",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8cc4cdde-6224-5892-bd5f-c3778bcf8284",
+                         "key":  "CardiacLeads",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Cardiac Leads Metadata Equipment are equipped instead, avoid the rest of this function For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "aadae509-b337-5d9b-b068-f06827ce681c",
+                         "key":  "connectedPatientMonitor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "When this is updated, we want to start listening for all of the tools, equipment, vitals etc We can use the same functions as everything else if we just reset the locations to watch to the new location coming in",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7e8219cd-4628-5c03-b48f-8559b7c3b0b2",
+                         "key":  "dbp",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3456fb6e-4196-500e-93b5-1827389b3cdd",
+                         "key":  "EquipCardiacLeads2",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "67f8065f-8c1d-5e67-ba05-a8d596d43dba",
+                         "key":  "EquipPortablePulseOxL",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9831b3e1-91f8-5b06-8620-a04c2fbe51d2",
+                         "key":  "EquipPortablePulseOxR",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cf57f327-0df2-5a7d-bac3-fc5ac32d206f",
+                         "key":  "forceOffAllSound",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `SoundParent` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d0ded228-4388-58c8-a6ab-0cf63a6c07c3",
+                         "key":  "forceOffEtco2",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Activate ETCO2 waveform if it exists Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9f19b9df-07cf-59d3-a5c4-6d9cdc65c06c",
+                         "key":  "forceOffRr",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Force Off Rr.",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d499312e-a050-5e55-a562-f2ad6ad4949d",
+                         "key":  "forceOffScreenPower",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "var dict = new Dictionary\u003cstring, object\u003e(); dict[ToolMetadataList.MONITOR_MUTE] = _powerStatus; Controls visibility of `OffMessageScreen` (`SetActive`). Controls visibility of `VitalsMonitorScreen` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0592d61e-da34-5a42-a634-dd5f7d8e8c28",
+                         "key":  "ignoreVitalsForHrWaveform",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "HR Waveform Overrides",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51dacfab-5573-52fd-a71c-3e4096dffe49",
+                         "key":  "map",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "17e37b76-df42-5f5b-92c7-efeb158309ec",
+                         "key":  "meshstate",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "full",
+                                                "displayonly"
+                                            ],
+                         "defaultValue":  "Full",
+                         "examples":  [
+                                          "``full`` / ``displayonly``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "fadd23b9-1c1b-57d4-b916-f73b8f2dd07b",
+                         "key":  "monitorBpAutoCycle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "sets the bool stops the countdown coroutine if running",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bca7858c-d57c-5bbb-b0d7-d3476c3bdf18",
+                         "key":  "monitorBpRefreshTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "If patient is not wearing either BP cuff, we don\u0027t want to do anything when hitting either cycle button Updates the `CycleTimeText.text` UI label. Updates the `SecondaryCycleTimeText.text` UI label.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "45e5fb14-5c85-5974-8add-e85d662316d4",
+                         "key":  "MonitorBpViewingValues",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If our time was the instant time, go back to the first one",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b66e15f8-7fda-56b4-9691-5967b593040e",
+                         "key":  "monitorMute",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_muted` (opposite of the current boolean state).",
+                         "sourceScripts":  "VitalsMonitorSoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "91495500-c0e4-5187-af3e-39169ec01004",
+                         "key":  "monitorSilence",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_silenced` (opposite of the current boolean state).",
+                         "sourceScripts":  "VitalsMonitorSoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5ae4df9d-3b64-559e-9170-eb95d6897e15",
+                         "key":  "needsToSupportMultiPatients",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles needs to work with multiple patients.",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "39f37697-261c-57eb-b51e-8cc25e126274",
+                         "key":  "overrideHrNumRepetitions",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Override Hr Num Repetitions.",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1c72ee8a-164d-5ea8-9fae-6ea601e00187",
+                         "key":  "PortablePulseOxL",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "102cf6e6-54e6-55cd-89e9-e93af06a3b3a",
+                         "key":  "PortablePulseOxR",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "For the combined monitor/defib machine, we want to make sure the defib pad fields stay on Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "879e52cc-2010-5fa2-bb4b-6d5d480384f3",
+                         "key":  "sbp",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "59bc75e5-76e1-59c8-9477-b0c6cf79ec42",
+                         "key":  "tempSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update the temperature suffix display (e.g., \"°F\" or \"°C\") Get localized suffix if needed Updates the `TempSuffixText.text` UI label.",
+                         "sourceScripts":  "VitalsMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

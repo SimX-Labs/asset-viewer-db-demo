@@ -1,0 +1,104 @@
+{
+    "id":  "f2441397-b2f4-54d6-8fac-b551ecc6af0a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Electrosurgical Generator",
+    "assetKey":  "tool_electrosurgical_generator",
+    "toolId":  "electrosurgicalGenerator",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_electrosurgical_generator.prefab",
+    "metadata":  [
+                     {
+                         "id":  "083b671d-103f-5ea5-9231-5735d37a9bc0",
+                         "key":  "ESU_CoagLevel",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "_coag Level Update. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "ElectrosurgicalGeneratorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3969aca3-f7c4-593c-a9ae-cf2e60bdc734",
+                         "key":  "ESU_CutLevel",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "_cut Level Update. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "ElectrosurgicalGeneratorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "631e14e2-08bd-5bd0-9317-7ca6dd34fd9e",
+                         "key":  "ESU_GroundPadStatus",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles ground pad status update.",
+                         "sourceScripts":  "ElectrosurgicalGeneratorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3342c803-64b5-5b0e-92c1-7ea5ddee8063",
+                         "key":  "ESU_MachinePower",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles machine power update.",
+                         "sourceScripts":  "ElectrosurgicalGeneratorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4cd78fb8-ca34-51c9-b329-118d762620cd",
+                         "key":  "ESU_PencilStatus",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "--- Handlers for Metadata Updates --- Subscribe to our own tool\u0027s metadata for plug statuses.",
+                         "sourceScripts":  "ElectrosurgicalGeneratorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "groundingPadPlug",
+                                     "assetIds":  [
+                                                      "78eaafde-af74-57c0-bd6c-dd0e836de4ae"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

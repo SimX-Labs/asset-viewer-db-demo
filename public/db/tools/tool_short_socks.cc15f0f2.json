@@ -1,0 +1,30 @@
+{
+    "id":  "cc15f0f2-68ba-5f24-a959-10d51d0d24ad",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Short Socks",
+    "assetKey":  "tool_short_socks",
+    "toolId":  "shortSocks",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_short_socks.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "shortSocks",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

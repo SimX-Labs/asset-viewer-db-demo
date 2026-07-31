@@ -1,0 +1,37 @@
+{
+    "id":  "e75c2e92-287c-50e2-b979-0e039c556046",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lead Apron",
+    "assetKey":  "tool_lead_apron",
+    "toolId":  "leadApron",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_lead_apron.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "leadApron",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "PlayerLeadApron",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,329 @@
+{
+    "id":  "15a63434-be42-5807-ba5c-bfe5841927cc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Syringe Infuser",
+    "assetKey":  "tool_syringe_infuser",
+    "toolId":  "syringeInfuser",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_syringe_infuser.prefab",
+    "metadata":  [
+                     {
+                         "id":  "30816b04-429f-554b-915c-ea301fe925d6",
+                         "key":  "alarm",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Broadcasts boolean `false` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cdfebced-5612-5482-8e5e-973c67aaf730",
+                         "key":  "bloodBagState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``Platelets``"
+                                      ],
+                         "description":  "Controls visibility of `BagObject` (`SetActive`).",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ac33a16b-27a3-5dbe-ad2b-7b97098f60b6",
+                         "key":  "bloodSpike",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`none`"
+                                      ],
+                         "description":  "Broadcasts string literal `none` via `SetToolMetadata`.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "273dc653-dfe4-5df5-9795-a59503099c77",
+                         "key":  "fluidLabel",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Broadcasts boolean `false` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fc7ffc7f-fe01-5bd4-9eca-d0509583f389",
+                         "key":  "Given",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ea57165-9ba2-5010-8ad0-7f7edc6f1ed0",
+                         "key":  "infuser",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`off`"
+                                      ],
+                         "description":  "Broadcasts string literal `off` via `SetToolMetadata`.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c41985ab-480b-548f-905c-238786a418e7",
+                         "key":  "ivFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "var newFluidColorAsEnum = (IVfluidColor) Enum.Parse(typeof(IVfluidColor), fluidColor); Only some of the bags have a fluid color controller",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51472c93-4bd8-55b4-8544-088b8be178de",
+                         "key":  "ivIncrementAmounts",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "54cf34d0-b99a-585c-8e0c-533273b2f5bf",
+                         "key":  "ivPumpBagType",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "var bagTypeAsEnum = (IVBagType) Enum.Parse(typeof(IVBagType), bagTypeAsString); ConnectedTubing.SetActive(false); Controls visibility of `BagObject` (`SetActive`). Controls visibility of `TubingParent` (`SetActive`). Controls visibility of `ScreenWrapper` (`SetActive`). Controls visibility of `ConnectedTubing` (`SetActive`).",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4ffa8bd5-a19c-57fa-b249-2b6490f82dd9",
+                         "key":  "ivPumpDrug",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Added by Paul on 3/18/2021 to make sure removing an iv bag gets rid of the tubing when rejoining case This below logic was being triggered when removing a bag and leaving/rejoining a case - so an empty iv hook would appear with the tubing also showing up",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ef2afb6a-fbbd-567a-8bcf-f16e3ecbf87c",
+                         "key":  "ivPumpName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2f4c0fd5-dc54-5b07-a90a-eeb5e5646226",
+                         "key":  "ivPumpOn",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`). Updates the `StatusLabel.text` UI label.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c19e676e-0844-52c9-ac6b-931257724997",
+                         "key":  "ivPumpPower",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "The screen parent can be null on things like the iv setup for the military cases Controls visibility of `ScreenParent` (`SetActive`).",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "92cf4306-3bd0-5aa6-860f-97f4203a88a6",
+                         "key":  "ivPumpTargetLocation",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles target location.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fae5dc97-88eb-5d84-812b-8c276aba6b66",
+                         "key":  "ivPumpValue",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Used when an IV bag is removed - we just want to clear out the text Updates the `RateValue.text` UI label.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9bc5ee4d-6d41-5ecf-a204-17337c9bbee5",
+                         "key":  "ivPumpValueLabel",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5ae068e1-9976-566b-a24d-2fadf3f9b42a",
+                         "key":  "rate",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cf8b2ad6-6776-513e-95a1-6ea8d9a738fc",
+                         "key":  "specificBagToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "This will store the specific tool ID of a hung bag in case we want to pickup a SPECIFIC bag tool when removing a bag",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2874db2c-45ac-500b-8155-512a3d667e4d",
+                         "key":  "state",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Was running into an issue where the tubing connected to the patient was not showing up so added this in here Controls visibility of `TubingParent` (`SetActive`). Controls visibility of `ConnectedTubing` (`SetActive`). Controls visibility of `ScreenWrapper` (`SetActive`).",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "856d51ae-45fa-5a6c-8089-806a3adaffc9",
+                         "key":  "transfusionBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `transfusionStatus` (toggle / flag).",
+                         "sourceScripts":  "IVPumpController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "SyringeInfuser",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

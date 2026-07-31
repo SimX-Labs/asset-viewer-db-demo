@@ -1,0 +1,25 @@
+{
+    "id":  "7d6974c2-bf12-5e3c-9d23-b2437006b139",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Telephone Nolabel",
+    "assetKey":  "tool_telephone_nolabel",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_telephone_nolabel.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ff5eda6f-df7d-570e-a044-7592f3cd2297",
+                           "adbcbc5a-1dbf-5f77-97b8-5436c4333625"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

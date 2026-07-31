@@ -1,0 +1,33 @@
+{
+    "id":  "a3815d53-b174-51f2-97d9-153ce0bfb527",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Clean Sheets",
+    "assetKey":  "tool_clean_sheets",
+    "toolId":  "linenCartClothingGown",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_clean_sheets.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BedSheets",
+                             "assetIds":  [
+                                              "edc2bc32-5a64-5633-9cb1-5e1d70e79116",
+                                              "65ef9c2b-c83e-58b4-ad4c-ee6e047e3928",
+                                              "1ddc41ad-c0c0-5b0c-bdde-0d91eb73e13b"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "4a8795e1-e154-5bfe-820a-ceffc9fb304e",
+                           "18951214-7c97-5bba-a925-bcbb2c9a4f0e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

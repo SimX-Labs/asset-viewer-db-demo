@@ -1,0 +1,24 @@
+{
+    "id":  "b5087136-9069-51c5-a3c8-75ff6e698480",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cardboard Splint",
+    "assetKey":  "tool_cardboard_splint",
+    "toolId":  "cardboardSplint",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_cardboard_splint.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "66dc11d4-73d3-5875-b99f-b213f121b27d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Defibrillator Pad Ped",
+    "assetKey":  "tool_defibrillator_pad_ped",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Defibrilator/tool_defibrillator_pad_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

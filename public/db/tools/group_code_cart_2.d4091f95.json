@@ -1,0 +1,24 @@
+{
+    "id":  "d4091f95-e569-523e-98f1-e9669537b57e",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Code Cart 2",
+    "assetKey":  "group_code_cart_2",
+    "toolId":  "codeCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_code_cart_2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

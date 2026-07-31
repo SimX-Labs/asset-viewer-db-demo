@@ -1,0 +1,24 @@
+{
+    "id":  "c062f4cf-27a5-59bd-ab54-085f8801a96c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Graduated Cylinder",
+    "assetKey":  "tool_graduated_cylinder",
+    "toolId":  "graduatedCylinder",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_graduated_cylinder.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

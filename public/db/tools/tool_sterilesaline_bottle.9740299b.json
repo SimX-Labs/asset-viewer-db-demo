@@ -1,0 +1,25 @@
+{
+    "id":  "9740299b-7e71-5a25-8725-74fd2a2bd21e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterilesaline Bottle",
+    "assetKey":  "tool_sterilesaline_bottle",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Saline Bottle/tool_sterilesaline_bottle.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "18951214-7c97-5bba-a925-bcbb2c9a4f0e",
+                           "2a301bf7-cedd-5e4e-9fee-4111e7b24364"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

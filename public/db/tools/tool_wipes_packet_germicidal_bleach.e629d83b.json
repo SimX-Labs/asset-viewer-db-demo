@@ -1,0 +1,24 @@
+{
+    "id":  "e629d83b-047f-5d0e-ab27-e60b782666e0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wipes Packet Germicidal Bleach",
+    "assetKey":  "tool_wipes_packet_germicidal_bleach",
+    "toolId":  "kit_AE-HighlyContagiousDiseaseBag-Medication-tool_wipes_packet_germicidal_bleach",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wipes_packet_germicidal_bleach.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

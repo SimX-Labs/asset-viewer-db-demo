@@ -1,0 +1,83 @@
+{
+    "id":  "e9f741f6-b8b2-5716-a21b-455b63c362f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "T3 Monitor Norwood",
+    "assetKey":  "tool_t3_monitor_norwood",
+    "toolId":  "t3Monitor1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_t3_monitor_norwood.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a392ec1a-f28a-53ce-aa22-14b5bb898259",
+                         "key":  "OverrideNirsBool",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Nirs O Verride Toggle.",
+                         "sourceScripts":  "T3Controller",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a2c88b5f-02ac-5a30-8571-ce2fbc3a6ffa",
+                         "key":  "OverrideNirsValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Nirs Override Value.",
+                         "sourceScripts":  "T3Controller",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "db4c3cfd-b216-5796-ae39-61f050ca12df",
+                         "key":  "SwapT3image",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "e.g. `120`"
+                                      ],
+                         "description":  "Swap Image.",
+                         "sourceScripts":  "T3Controller",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "00ff9f8e-c375-5fa0-852b-7834868a1b5f",
+                         "key":  "t3GraphPosition",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "T3Controller",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,41 @@
+{
+    "id":  "3dcd8c23-1be6-50fb-950d-595b35fc49ce",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Airway Equipment Bag",
+    "assetKey":  "kit_airway_equipment_bag",
+    "toolId":  "kit_airwayEquipmentBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/kit_airway_equipment_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ccf7ef02-6e7e-5410-ae4f-4204f4ea2dd3",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

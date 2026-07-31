@@ -1,0 +1,41 @@
+{
+    "id":  "4be08506-36fb-5b2e-afb4-40bc5747295f",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Grounding Pad",
+    "assetKey":  "kit_grounding_pad",
+    "toolId":  "kitGroundingPad",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/kit_grounding_pad.prefab",
+    "metadata":  [
+                     {
+                         "id":  "132eef03-3b77-543d-8328-51f0b0a622c8",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Closed",
+                                                "Open"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Closed`` / ``Open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

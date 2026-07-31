@@ -1,0 +1,53 @@
+{
+    "id":  "abedf6cc-cd67-50cd-9374-aaefdbfb75b7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blood Cooler",
+    "assetKey":  "tool_blood_cooler",
+    "toolId":  "bloodCooler",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_blood_cooler.prefab",
+    "metadata":  [
+                     {
+                         "id":  "8705f1c9-30ba-52d7-92c5-ee6c1b0731f6",
+                         "key":  "bloodCoolerToggle",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Toggle. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "BloodCoolerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1bb27ee6-8d31-5167-8981-60e5d5897757",
+                         "key":  "newOpenStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `newStatus` (toggle / flag).",
+                         "sourceScripts":  "BloodCoolerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

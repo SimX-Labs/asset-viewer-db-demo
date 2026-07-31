@@ -1,0 +1,50 @@
+{
+    "id":  "1159fb22-cb9b-547e-80ff-e3b0f9190dca",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Generic Package Labeled Medium",
+    "assetKey":  "tool_generic_package_labeled_medium",
+    "toolId":  "genericPackageLabeledMedium1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_generic_package_labeled_medium.prefab",
+    "metadata":  [
+                     {
+                         "id":  "130b767f-dc42-5fa2-8508-accb221e0fa3",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "blank",
+                                                "label"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``blank`` / ``label``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "3dcd8c23-1be6-50fb-950d-595b35fc49ce",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "7ba2a1a9-9529-55fb-858b-a7f044e2b1d0",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

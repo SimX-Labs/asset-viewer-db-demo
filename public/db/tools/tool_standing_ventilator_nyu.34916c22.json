@@ -1,0 +1,44 @@
+{
+    "id":  "34916c22-3116-547a-a698-851617ea90bc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Standing Ventilator Nyu",
+    "assetKey":  "tool_standing_ventilator_nyu",
+    "toolId":  "standingVentilator",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Ventilator/tool_standing_ventilator_nyu.prefab",
+    "metadata":  [
+                     {
+                         "id":  "178e07b5-a1e0-544d-b9de-8a967b5c496d",
+                         "key":  "alarm",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "lowPressure",
+                                                "lowReturnTv",
+                                                "lowPressureReturnTv",
+                                                "highPressureReturnTv"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``none`` / ``lowPressure`` / ``lowReturnTv`` / ``lowPressureReturnTv`` / ``highPressureReturnTv``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,51 @@
+{
+    "id":  "8740bd44-acf7-5805-a955-062f8f57eede",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suction Yankauer",
+    "assetKey":  "tool_suction_yankauer",
+    "toolId":  "suctionYankauer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_suction_yankauer.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d01ac47d-501d-5a43-b0a3-49db3ae1a442",
+                         "key":  "SetSuctionRequiresActionButtonToFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set requires action button.",
+                         "sourceScripts":  "ToolYankauerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "34857f66-ce21-5d96-9bde-08b029cd259e",
+                           "67c2e6bb-50df-538c-9884-8528b647fa94",
+                           "1d89caf3-5f48-5178-b7b7-de07b46d0678",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

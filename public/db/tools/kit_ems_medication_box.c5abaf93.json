@@ -1,0 +1,64 @@
+{
+    "id":  "c5abaf93-3215-596c-b8e3-2d6d71b96901",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Ems Medication Box",
+    "assetKey":  "kit_ems_medication_box",
+    "toolId":  "emsMedicationBox",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/EMS Tools/kit_ems_medication_box.prefab",
+    "metadata":  [
+                     {
+                         "id":  "515979cd-1f3a-56f8-9b8b-7890ded43eef",
+                         "key":  "epinephrine",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "global"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``global``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "a47c6977-e137-5ce8-8445-4c8d81f1b2da",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open",
+                                                "narcotics",
+                                                "cardiac",
+                                                "sl2",
+                                                "sl3",
+                                                "sl4"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open`` / ``narcotics`` / ``cardiac`` / ``sl2`` / ``sl3`` / ``sl4``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

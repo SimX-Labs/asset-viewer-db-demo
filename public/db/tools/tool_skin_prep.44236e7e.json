@@ -1,0 +1,36 @@
+{
+    "id":  "44236e7e-c18a-5381-8098-dd0a30f6d533",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Skin Prep",
+    "assetKey":  "tool_skin_prep",
+    "toolId":  "skinPrepTool",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Colostomy/tool_skin_prep.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "SkinPrep",
+                             "assetIds":  [
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

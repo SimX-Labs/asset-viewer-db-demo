@@ -1,0 +1,38 @@
+{
+    "id":  "02b1311b-ad77-50ae-9fb0-ce4c359622a8",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Central Line Dressing Change",
+    "assetKey":  "kit_central_line_dressing_change",
+    "toolId":  "centralLineDressingChange",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_central_line_dressing_change.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e24b94ec-99f3-53be-af5a-c91cc3121df7",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

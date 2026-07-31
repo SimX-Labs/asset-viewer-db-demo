@@ -1,0 +1,24 @@
+{
+    "id":  "e69a93d0-5024-5212-9598-c996ec2d9aad",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Generic Concrete Block",
+    "assetKey":  "tool_generic_concrete_block",
+    "toolId":  "ConcreteBlock1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_generic_concrete_block.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

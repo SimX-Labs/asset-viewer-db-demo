@@ -1,0 +1,45 @@
+{
+    "id":  "cb594ec5-bdeb-5f05-be9b-63fcd2db5c48",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Needle Decompression",
+    "assetKey":  "tool_needle_decompression",
+    "toolId":  "o-backpack1-tool_needle_decompression",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_needle_decompression.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "needleDecompression",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "efc21bec-eb46-5bcf-a380-735970bb594d",
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "ae156d9b-ddbe-540e-a31d-55a5967135da",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "d4cd704a-7b54-54ea-b5f0-bd6bf92f99d1",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

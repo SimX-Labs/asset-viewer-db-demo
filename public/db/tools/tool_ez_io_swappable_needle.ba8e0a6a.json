@@ -1,0 +1,164 @@
+{
+    "id":  "ba8e0a6a-7654-528e-b211-ea81c58ede70",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ez Io Swappable Needle",
+    "assetKey":  "tool_ez_io_swappable_needle",
+    "toolId":  "ezIoGun",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/EZ IO Swappable Needle/tool_ez_io_swappable_needle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "bd4e269b-920f-5e77-89ad-e573eb2af3be",
+                         "key":  "drillIsUsed",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "EzIoController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7bf5ed43-e7e5-5f21-b09c-a343ac1b22c0",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "small",
+                                                "large",
+                                                "medium"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+                                          "``none`` / ``small`` / ``large`` / ``medium``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IOAnkleLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOAnkleRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOHipLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOHipRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOLowerKneeLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOLowerKneeRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOShoulderLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOShoulderRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOSternum",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOUpperKneeLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOUpperKneeRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOWristLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IOWristRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "ezIoHead",
+                                     "assetIds":  [
+                                                      "53b04058-9398-5e4e-bb3a-42d8031460ab",
+                                                      "9f2c45e7-2c0a-5f87-878a-57f8f6987396",
+                                                      "35af2166-a1c6-51c5-9c71-02f9ae36440e"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "c89196db-7d85-5c90-87fb-1268ecfe1d64",
+                           "09a21837-f570-5442-ba22-b6c582fd9f48",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

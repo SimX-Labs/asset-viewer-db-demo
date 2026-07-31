@@ -1,0 +1,86 @@
+{
+    "id":  "c40c7558-31b4-5dd3-ad0b-5cbe7b5379cf",
+    "type":  "equipment",
+    "name":  "Staple Wound",
+    "assetKey":  "equipment_staple_wound",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_staple_wound.prefab",
+    "primaryMetadata":  {
+                            "id":  "3d5f5366-511e-5972-802f-1eb35bb70a3a",
+                            "key":  "OnApplication:",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "47caeee5-b72c-52dc-8e38-91280ac115bc",
+                         "key":  "OnApplication:-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8c73abcc-0dcf-50a4-9ac9-814784a0e50f",
+                         "key":  "OnApplication:-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1f298ece-84f9-5f81-a9c3-6abd17cbc9c1",
+                         "key":  "OnApplication:-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "stapleWound",
+                                     "assetIds":  [
+                                                      "e3ae56c5-96c0-5f58-9039-24559ed6071c"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383"
+                     ]
+}

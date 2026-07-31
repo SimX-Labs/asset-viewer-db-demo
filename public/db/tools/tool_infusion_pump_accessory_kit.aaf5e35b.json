@@ -1,0 +1,41 @@
+{
+    "id":  "aaf5e35b-ec65-5323-af1e-c793b5461a24",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Infusion Pump Accessory Kit",
+    "assetKey":  "tool_infusion_pump_accessory_kit",
+    "toolId":  "InfusionPumpAccessoryKit1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_infusion_pump_accessory_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0fbd24d2-6c6e-511b-9384-0a637ff1f8c3",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

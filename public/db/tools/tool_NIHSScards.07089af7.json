@@ -1,0 +1,38 @@
+{
+    "id":  "07089af7-8f47-59b8-80c8-22940d7be10f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nihsscards",
+    "assetKey":  "tool_NIHSScards",
+    "toolId":  "NIHSScards",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/NIHSScards/tool_NIHSScards.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f9e40e5b-5cec-5251-b797-89b3a990a390",
+                         "key":  "NIHSS_StateChange",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "NihssCardsController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

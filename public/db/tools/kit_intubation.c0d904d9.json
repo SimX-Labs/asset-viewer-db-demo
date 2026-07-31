@@ -1,0 +1,39 @@
+{
+    "id":  "c0d904d9-40fd-589e-a272-02ab34c400ad",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Intubation",
+    "assetKey":  "kit_intubation",
+    "toolId":  "intubationKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_intubation.prefab",
+    "metadata":  [
+                     {
+                         "id":  "cfb5bc13-401a-5b5a-8e97-3f960ca7d4a8",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "aa81e0d1-1acf-5186-9a0c-13d1ecef12e1",
+                           "f7b01100-7571-5e59-aa94-275175450ff2"
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

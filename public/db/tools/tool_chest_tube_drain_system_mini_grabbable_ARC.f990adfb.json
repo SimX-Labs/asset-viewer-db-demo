@@ -1,0 +1,37 @@
+{
+    "id":  "f990adfb-d187-5f40-8ecf-19e3a8ebb076",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Chest Tube Drain System Mini Grabbable Arc",
+    "assetKey":  "tool_chest_tube_drain_system_mini_grabbable_ARC",
+    "toolId":  "rollBagUsaf-Table2-group_roll_procedure_bag-tool_chest_tube_drain_system_mini_grabbable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_chest_tube_drain_system_mini_grabbable_ARC.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "chestTubeDrainMiniPlacement",
+                             "assetIds":  [
+                                              "b139eecc-a87b-5c13-a4a3-224113440f7a"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_suction",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

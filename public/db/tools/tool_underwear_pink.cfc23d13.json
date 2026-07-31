@@ -1,0 +1,30 @@
+{
+    "id":  "cfc23d13-1293-52ce-ad30-3e6f4fa6d5a9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Underwear Pink",
+    "assetKey":  "tool_underwear_pink",
+    "toolId":  "underwearPink",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_underwear_pink.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "underwear",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

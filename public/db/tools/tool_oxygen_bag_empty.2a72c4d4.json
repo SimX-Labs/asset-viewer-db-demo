@@ -1,0 +1,24 @@
+{
+    "id":  "2a72c4d4-143f-5696-bfdf-dfdc79666f76",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oxygen Bag Empty",
+    "assetKey":  "tool_oxygen_bag_empty",
+    "toolId":  "oxygenBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_oxygen_bag_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

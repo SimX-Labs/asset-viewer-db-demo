@@ -1,0 +1,30 @@
+{
+    "id":  "eb6b6a24-1e94-5fa7-b803-e6d2231d50ea",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lip Balm",
+    "assetKey":  "tool_lip_balm",
+    "toolId":  "lipBalm1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_lip_balm.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

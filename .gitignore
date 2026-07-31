@@ -8,6 +8,7 @@
 
 # Node
 /node_modules
+/api/node_modules
 npm-debug.log
 yarn-error.log
 
@@ -43,3 +44,6 @@ Thumbs.db
 
 # DBO content (distributed separately; load via Settings in the app)
 /public/DBO_*.json
+
+# Legacy consolidated Unity bundle (replaced by public/db/)
+/public/unity-asset-db.json

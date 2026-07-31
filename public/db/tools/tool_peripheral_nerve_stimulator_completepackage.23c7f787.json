@@ -1,0 +1,24 @@
+{
+    "id":  "23c7f787-53c2-550d-9036-3f817e56f28c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Peripheral Nerve Stimulator Completepackage",
+    "assetKey":  "tool_peripheral_nerve_stimulator_completepackage",
+    "toolId":  "peripheralNerveStimulatorComplete",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Peripheral Nerve Stimulator/tool_peripheral_nerve_stimulator_completepackage.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

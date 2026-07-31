@@ -1,0 +1,24 @@
+{
+    "id":  "8ce0f4d8-4906-5790-931a-5419377eb94f",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Ppewomenshealth Cart",
+    "assetKey":  "group_PPEWomensHealth_cart",
+    "toolId":  "ppeCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_PPEWomensHealth_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -4,11 +4,13 @@ import { firstValueFrom } from 'rxjs';
 import { DboAsset } from '../models/dbo.models';
 import { DboLoadResult } from './dbo-data.service';
 import {
-  UNITY_DB_FILE,
+  UNITY_DB_INDEX_FILE,
+  UNITY_DB_ROOT,
   UNITY_VIRTUAL_FILE,
   UnityCharacter,
   UnityClothing,
   UnityDbBundle,
+  UnityDbIndex,
   UnityEquipment,
   UnityInteraction,
   UnityMetadataObject,
@@ -29,11 +31,13 @@ const CATEGORY_ORDER = [
   'Tool Metadata',
 ];
 
+const FETCH_BATCH_SIZE = 48;
+
 interface ReverseIndex {
   clothingWornBy: Record<string, string[]>;
   containedTools: Record<string, string[]>;
   metadataUsedBy: Record<string, string[]>;
-  /** tool id → equipment ids whose interactions list that tool */
+  /** tool id → equipment ids whose interactionLocations list that tool */
   equipmentByTool: Record<string, string[]>;
   charByAssetKey: Record<string, UnityCharacter>;
 }
@@ -42,14 +46,125 @@ interface ReverseIndex {
 export class UnityDataService {
   private readonly http = inject(HttpClient);
 
-  async loadBundle(): Promise<DboLoadResult> {
-    const bundle = await firstValueFrom(
-      this.http.get<UnityDbBundle>(`/${UNITY_DB_FILE}`)
+  /** Load the per-file db/ tree via index.json, then fetch each row. */
+  async loadDb(root = UNITY_DB_ROOT): Promise<DboLoadResult> {
+    const base = root.replace(/\/+$/, '');
+    const index = await firstValueFrom(
+      this.http.get<UnityDbIndex>(`${base}/${UNITY_DB_INDEX_FILE}`)
     );
-    if (!bundle || !Array.isArray(bundle.characters)) {
-      throw new Error('Invalid Unity asset DB bundle');
+    if (!index || !Array.isArray(index.characters)) {
+      throw new Error(`Invalid Unity asset DB index at ${base}/${UNITY_DB_INDEX_FILE}`);
     }
-    return this.buildFromText(bundle);
+
+    const [characters, equipment, tools, clothing, characterMetadata, toolMetadata] =
+      await Promise.all([
+        this.fetchJsonFiles<UnityCharacter>(base, index.characters),
+        this.fetchJsonFiles<UnityEquipment>(base, index.equipment),
+        this.fetchJsonFiles<UnityTool>(base, index.tools),
+        firstValueFrom(this.http.get<UnityClothing[]>(`${base}/${index.clothing}`)),
+        firstValueFrom(
+          this.http.get<UnityMetadataObject[]>(`${base}/${index.characterMetadata}`)
+        ),
+        firstValueFrom(
+          this.http.get<(UnityMetadataObject & { toolIds?: string[] })[]>(
+            `${base}/${index.toolMetadata}`
+          )
+        ),
+      ]);
+
+    return this.buildFromBundle({
+      meta: {
+        source: index.meta?.source ?? base,
+        generatedAt: index.meta?.generatedAt,
+        counts: {
+          characters: characters.length,
+          equipment: equipment.length,
+          tools: tools.length,
+          clothing: Array.isArray(clothing) ? clothing.length : 0,
+          characterMetadata: Array.isArray(characterMetadata) ? characterMetadata.length : 0,
+          toolMetadata: Array.isArray(toolMetadata) ? toolMetadata.length : 0,
+        },
+      },
+      characters,
+      equipment,
+      tools,
+      clothing: Array.isArray(clothing) ? clothing : [],
+      characterMetadata: (Array.isArray(characterMetadata) ? characterMetadata : []) as UnityDbBundle['characterMetadata'],
+      toolMetadata: (Array.isArray(toolMetadata) ? toolMetadata : []) as UnityDbBundle['toolMetadata'],
+    });
+  }
+
+  /** @deprecated Use loadDb — kept for call sites during transition. */
+  loadBundle(): Promise<DboLoadResult> {
+    return this.loadDb();
+  }
+
+  /**
+   * Build from a folder selection (webkitdirectory). Expects relative paths such as
+   * `characters/*.json`, `equipment/*.json`, `tools/*.json`, plus root array files.
+   */
+  async buildFromFolderFiles(files: File[]): Promise<DboLoadResult> {
+    const byRel = new Map<string, File>();
+    for (const f of files) {
+      const rel = (f as File & { webkitRelativePath?: string }).webkitRelativePath || f.name;
+      // Strip a leading folder segment if the user picked the db/ parent or db itself.
+      const normalized = rel.replace(/\\/g, '/').replace(/^[^/]+\/db\//, '').replace(/^db\//, '');
+      byRel.set(normalized, f);
+    }
+
+    const readJson = async <T>(rel: string): Promise<T | null> => {
+      const file = byRel.get(rel);
+      if (!file) return null;
+      return JSON.parse(await file.text()) as T;
+    };
+
+    const listDir = (prefix: string): string[] =>
+      [...byRel.keys()].filter(
+        (p) => p.startsWith(prefix + '/') && p.toLowerCase().endsWith('.json') && !p.slice(prefix.length + 1).includes('/')
+      );
+
+    const readDir = async <T>(prefix: string): Promise<T[]> => {
+      const paths = listDir(prefix);
+      const rows: T[] = [];
+      for (let i = 0; i < paths.length; i += FETCH_BATCH_SIZE) {
+        const batch = paths.slice(i, i + FETCH_BATCH_SIZE);
+        const part = await Promise.all(
+          batch.map(async (p) => {
+            try {
+              return (await readJson<T>(p)) as T;
+            } catch {
+              return null;
+            }
+          })
+        );
+        for (const row of part) if (row) rows.push(row);
+      }
+      return rows;
+    };
+
+    const clothing = (await readJson<UnityClothing[]>('clothing.json')) ?? [];
+    const characterMetadata =
+      (await readJson<UnityDbBundle['characterMetadata']>('character-metadata.json')) ?? [];
+    const toolMetadata =
+      (await readJson<UnityDbBundle['toolMetadata']>('tool-metadata.json')) ?? [];
+
+    const bundle: UnityDbBundle = {
+      meta: { source: 'folder', generatedAt: new Date().toISOString() },
+      characters: await readDir<UnityCharacter>('characters'),
+      equipment: await readDir<UnityEquipment>('equipment'),
+      tools: await readDir<UnityTool>('tools'),
+      clothing: Array.isArray(clothing) ? clothing : [],
+      characterMetadata: Array.isArray(characterMetadata) ? characterMetadata : [],
+      toolMetadata: Array.isArray(toolMetadata) ? toolMetadata : [],
+    };
+
+    if (!bundle.characters.length && !bundle.equipment.length && !bundle.tools.length) {
+      throw new Error(
+        'No Unity asset DB rows found. Select the db folder (with characters/, equipment/, tools/).'
+      );
+    }
+
+    return this.buildFromBundle(bundle);
   }
 
   parseText(text: string): UnityDbBundle {
@@ -61,6 +176,10 @@ export class UnityDataService {
   }
 
   buildFromText(bundle: UnityDbBundle): DboLoadResult {
+    return this.buildFromBundle(bundle);
+  }
+
+  buildFromBundle(bundle: UnityDbBundle): DboLoadResult {
     const reverse = this.buildReverseIndex(bundle);
     const assetMap: Record<string, DboAsset> = {};
     const categories: Record<string, DboAsset[]> = {};
@@ -114,6 +233,42 @@ export class UnityDataService {
     };
   }
 
+  private async fetchJsonFiles<T>(base: string, relPaths: string[]): Promise<T[]> {
+    const out: T[] = [];
+    for (let i = 0; i < relPaths.length; i += FETCH_BATCH_SIZE) {
+      const batch = relPaths.slice(i, i + FETCH_BATCH_SIZE);
+      const part = await Promise.all(
+        batch.map((rel) =>
+          firstValueFrom(this.http.get<T>(`${base}/${rel.replace(/^\/+/, '')}`))
+        )
+      );
+      out.push(...part);
+    }
+    return out;
+  }
+
+  /** Character/equipment locations — new field, with legacy `interactions` fallback. */
+  private hostLocations(
+    row: { interactionLocations?: UnityInteraction[]; interactions?: UnityInteraction[] }
+  ): UnityInteraction[] {
+    return row.interactionLocations ?? row.interactions ?? [];
+  }
+
+  /**
+   * Tool outbound vs inbound.
+   * New: interactions = outbound, interactionLocations = inbound.
+   * Legacy: interactionTargets = outbound, interactions = inbound.
+   */
+  private toolOutbound(t: UnityTool): UnityInteraction[] {
+    if (Array.isArray(t.interactionTargets)) return t.interactionTargets;
+    return t.interactions ?? [];
+  }
+
+  private toolInbound(t: UnityTool): UnityInteraction[] {
+    if (Array.isArray(t.interactionTargets)) return t.interactions ?? [];
+    return t.interactionLocations ?? [];
+  }
+
   private buildReverseIndex(bundle: UnityDbBundle): ReverseIndex {
     const clothingWornBy: Record<string, string[]> = {};
     const containedTools: Record<string, string[]> = {};
@@ -140,10 +295,10 @@ export class UnityDataService {
       for (const m of e.metadata ?? []) {
         if (m?.id) (metadataUsedBy[m.id] ??= []).push(e.id);
       }
-      // Cross-ref: each tool listed on an equipment interaction is "compatible"
-      // with that equipment (inverse of Compatible Tools on the equipment page).
+      // Cross-ref: each tool listed on an equipment interaction location is
+      // "compatible" with that equipment (inverse of Compatible Tools).
       const seen = new Set<string>();
-      for (const it of e.interactions ?? []) {
+      for (const it of this.hostLocations(e)) {
         for (const toolId of it.assetIds ?? []) {
           if (seen.has(toolId)) continue;
           seen.add(toolId);
@@ -217,7 +372,8 @@ export class UnityDataService {
       .map((o) => ({ AssetId: o.id }));
     if (variants.length) data['Variants'] = variants;
 
-    if (c.interactions?.length) data['Interactions'] = this.adaptInteractions(c.interactions);
+    const locations = this.hostLocations(c);
+    if (locations.length) data['Interactions'] = this.adaptInteractions(locations);
     data['AvailableEquipment'] = this.toRefs(c.availableEquipment);
     data['AvailableClothing'] = this.toRefs(c.availableClothing);
 
@@ -238,7 +394,8 @@ export class UnityDataService {
     };
     if (e.primaryMetadata) data['PrimaryMetadata'] = this.compactMetadata(e.primaryMetadata);
     if (e.metadata?.length) data['Metadata'] = e.metadata.map((m) => this.compactMetadata(m));
-    if (e.interactions?.length) data['Interactions'] = this.adaptInteractions(e.interactions);
+    const locations = this.hostLocations(e);
+    if (locations.length) data['Interactions'] = this.adaptInteractions(locations);
     data['CompatibleCharacters'] = this.toRefs(e.characterIds);
 
     return {
@@ -273,9 +430,12 @@ export class UnityDataService {
       PrefabPath: t.prefabPath,
     };
     if (t.metadata?.length) data['Metadata'] = t.metadata.map((m) => this.compactMetadata(m));
-    if (t.interactions?.length) data['InteractionSenders'] = this.adaptInteractions(t.interactions);
-    if (t.interactionTargets?.length)
-      data['InteractionTargets'] = this.adaptInteractions(t.interactionTargets);
+
+    const outbound = this.toolOutbound(t);
+    const inbound = this.toolInbound(t);
+    if (outbound.length) data['InteractionSenders'] = this.adaptInteractions(outbound);
+    if (inbound.length) data['InteractionLocations'] = this.adaptInteractions(inbound);
+
     if (t.usedInGroupIds?.length) data['UsedInGroups'] = this.toRefs(t.usedInGroupIds);
 
     // "Kids" of a group / kit: tools that declare this row in their usedInGroupIds.

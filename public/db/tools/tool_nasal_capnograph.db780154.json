@@ -1,0 +1,25 @@
+{
+    "id":  "db780154-4236-571f-a281-3c561bfdcbf7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nasal Capnograph",
+    "assetKey":  "tool_nasal_capnograph",
+    "toolId":  "tool_nasal_capnograph",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_nasal_capnograph.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

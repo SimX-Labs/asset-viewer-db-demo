@@ -1,0 +1,41 @@
+{
+    "id":  "f2e458fb-22a2-5ee8-b9b8-d3caa8bb8c2d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Spiral Notebook",
+    "assetKey":  "tool_spiral_notebook",
+    "toolId":  "spiralNotebook",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_spiral_notebook.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b9522a8a-cace-5cc4-832c-f81a1afadd0a",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "open",
+                                                "closed"
+                                            ],
+                         "defaultValue":  "open",
+                         "examples":  [
+                                          "``open`` / ``closed``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

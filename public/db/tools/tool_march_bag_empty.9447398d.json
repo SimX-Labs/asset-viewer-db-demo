@@ -1,0 +1,24 @@
+{
+    "id":  "9447398d-dabf-5dc8-b0ca-d707ea98b99e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "March Bag Empty",
+    "assetKey":  "tool_march_bag_empty",
+    "toolId":  "marchBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_march_bag_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

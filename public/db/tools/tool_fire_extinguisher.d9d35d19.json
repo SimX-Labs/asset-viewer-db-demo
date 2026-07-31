@@ -1,0 +1,38 @@
+{
+    "id":  "d9d35d19-b474-5524-8544-6c288261f6f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Fire Extinguisher",
+    "assetKey":  "tool_fire_extinguisher",
+    "toolId":  "fireExtinguisherBody",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_fire_extinguisher.prefab",
+    "metadata":  [
+                     {
+                         "id":  "29812e11-24f3-552e-bfe7-954e77d35f52",
+                         "key":  "fireExtinguisherInUse",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Fire Extinguisher.",
+                         "sourceScripts":  "FireExtinguisherController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,38 @@
+{
+    "id":  "f6d85aa2-655f-5abc-951a-facc898f47e6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Fridge",
+    "assetKey":  "tool_fridge",
+    "toolId":  "fridge-nutrition",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_fridge.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1a595ad9-e34f-5713-80fb-ca65ab8de3f0",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

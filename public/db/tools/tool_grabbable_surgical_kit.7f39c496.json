@@ -1,0 +1,44 @@
+{
+    "id":  "7f39c496-46c9-5616-9480-588ebd5b4947",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Grabbable Surgical Kit",
+    "assetKey":  "tool_grabbable_surgical_kit",
+    "toolId":  "trayGrab2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/tool_grabbable_surgical_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "3beb7f14-0b43-5d39-bc26-6c5895a81cff",
+                         "key":  "isPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `PickupTrayTrigger` (`SetActive`). Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "HoldableTrayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "trayPlacement",
+                             "assetIds":  [
+                                              "6f39f9ba-214e-5bba-9969-31aff73d3bdd"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

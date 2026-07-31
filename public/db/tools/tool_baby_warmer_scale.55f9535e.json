@@ -1,0 +1,156 @@
+{
+    "id":  "55f9535e-97ae-5d4f-ae24-5d8f1ba896c5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Baby Warmer Scale",
+    "assetKey":  "tool_baby_warmer_scale",
+    "toolId":  "babyWarmer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_baby_warmer_scale.prefab",
+    "metadata":  [
+                     {
+                         "id":  "7a4f7f24-4f43-5cea-ad1c-30c9de6e578f",
+                         "key":  "babyWarmerPower",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `PowerDisplay` (`SetActive`). Controls visibility of `WarmerLight` (`SetActive`).",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bca34379-c08f-5abf-9115-090781472a91",
+                         "key":  "babyWarmerTemp",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Change the F number below to pick how many decimal places we want in the display Updates the `Temperature.text` UI label.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4ca0ad4f-6894-5051-aba6-b4c1d7a5121e",
+                         "key":  "babyWarmerUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``celsius`` / ``fahrenheit``"
+                                      ],
+                         "description":  "_skipInitialConversion = false; return; Updates the `TemperatureUnits.text` UI label.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b7d80da5-240d-55a4-becf-12926990d107",
+                         "key":  "initialWeightUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``kilograms`` / ``pounds``"
+                                      ],
+                         "description":  "Updates the `WeightUnits.text` UI label.",
+                         "sourceScripts":  "ScaleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "81813733-384d-5141-8c68-bd577629d852",
+                         "key":  "startTimer",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "We don\u0027t want to start the counting coroutine again if it is already running, this causes the timer to double in speed",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7653b557-fe0d-55d6-88aa-30d025afb8c6",
+                         "key":  "timerTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ef468d19-200c-5c53-a431-367bf14f12a3",
+                         "key":  "weightUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`pounds`"
+                                      ],
+                         "description":  "Broadcasts string literal `kilograms` via `SetToolMetadata`.",
+                         "sourceScripts":  "ScaleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "70a5ddca-8e91-5a50-bc46-d27d85fd8f12",
+                         "key":  "weightValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ScaleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "attachableTubingRight",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableTubingLeft",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

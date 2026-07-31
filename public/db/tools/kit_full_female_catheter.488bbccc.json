@@ -1,0 +1,38 @@
+{
+    "id":  "488bbccc-d544-5d07-8ba3-9f221c374f0a",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Full Female Catheter",
+    "assetKey":  "kit_full_female_catheter",
+    "toolId":  "fullFemaleCathKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_full_female_catheter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "8e08b118-a5d2-5d3c-8bd5-1185f7d22f53",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

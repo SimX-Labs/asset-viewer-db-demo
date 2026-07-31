@@ -1,0 +1,65 @@
+{
+    "id":  "6902f400-f82a-5e92-8222-c9e44a5127d2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Biohazard Bag Blood Swab",
+    "assetKey":  "tool_biohazard_bag_blood_swab",
+    "toolId":  "biohazardBagBloodSwab1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Wound Culture Kit/tool_biohazard_bag_blood_swab.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6c464235-41be-58b0-8cc5-023161cd031f",
+                         "key":  "activateWoundSwabBagInteraction",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `InteractionCollider` (`SetActive`).",
+                         "sourceScripts":  "WoundCultureBiohazardBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "08457945-2c83-5e32-9d8b-dbac5bf34219",
+                         "key":  "woundCultureContainerStored",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `StoredSwabContainer` (`SetActive`).",
+                         "sourceScripts":  "WoundCultureBiohazardBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "biohazardBag",
+                                     "assetIds":  [
+                                                      "21517967-6d5d-563a-8b0a-523f25776cb5",
+                                                      "642eab0c-50e0-53ea-a87a-afe896537473",
+                                                      "487f56e4-d987-5fdc-8f1f-9ca766ad7089",
+                                                      "bdc5f42c-3305-5b03-a37f-e4e1888f5680",
+                                                      "ece7996c-8a86-5f9c-9499-248632e0392d",
+                                                      "c7f8a3c3-d865-5b5c-b7fd-0eab92d3a3e3",
+                                                      "cbf6c5d8-b096-571a-891b-9a70d101cc71"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

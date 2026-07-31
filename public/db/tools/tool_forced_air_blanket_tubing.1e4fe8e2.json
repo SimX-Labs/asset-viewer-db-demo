@@ -1,0 +1,53 @@
+{
+    "id":  "1e4fe8e2-9160-581c-adb8-f20aad98a18c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Forced Air Blanket Tubing",
+    "assetKey":  "tool_forced_air_blanket_tubing",
+    "toolId":  "forcedAirBlanketTubing",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_forced_air_blanket_tubing.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "forcedAirBlanketHosePort",
+                             "assetIds":  [
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "9f01ef62-0868-561d-999a-a28679ec4836",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "3d0ca06b-2094-5a2c-bfe5-36cf85118685",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b",
+                                              "7187b73a-c7dd-593e-bc90-4224d31d990b"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

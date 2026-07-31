@@ -1,0 +1,119 @@
+{
+    "id":  "2b55358b-1244-585e-8de1-27628df33444",
+    "type":  "equipment",
+    "name":  "Foam Bandage Dressing 02",
+    "assetKey":  "equipment_foam_bandage_dressing_02",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_foam_bandage_dressing_02.prefab",
+    "primaryMetadata":  {
+                            "id":  "74158d16-c61a-5af8-89a5-b49245f81325",
+                            "key":  "FoamBandage2",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `true` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "bc404371-5254-511a-99a3-85234bf56ab3",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "283b2758-8518-5b6c-ab15-b0b84b4d91fc",
+                         "key":  "FoamBandage2-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2790e00a-a151-579c-b934-e63c84289126",
+                         "key":  "FoamBandage2-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "71a4b601-7d3e-53cf-a61e-4adbc7f44ee4",
+                         "key":  "FoamBandage2-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3dfdef89-a1a5-5b64-90a6-257257591fe2",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "foamBandageDressing2",
+                                     "assetIds":  [
+                                                      "b7d5856b-6136-5e1d-85ee-a29fbb1a0ab6"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050"
+                     ]
+}

@@ -1,0 +1,111 @@
+{
+    "id":  "869c72ca-ee48-58de-94c8-2eddcdeacfca",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Baby Warmer",
+    "assetKey":  "tool_baby_warmer",
+    "toolId":  "babyWarmer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_baby_warmer.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c4eadf85-c43e-5879-9825-dd331bdb0afd",
+                         "key":  "babyWarmerPower",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `PowerDisplay` (`SetActive`). Controls visibility of `WarmerLight` (`SetActive`).",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5faf5717-2456-5be9-8e3c-fd6f0a5b6d51",
+                         "key":  "babyWarmerTemp",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Change the F number below to pick how many decimal places we want in the display Updates the `Temperature.text` UI label.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3a740a1f-ccbc-583c-bfc0-74799dbf1886",
+                         "key":  "babyWarmerUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``celsius`` / ``fahrenheit``"
+                                      ],
+                         "description":  "_skipInitialConversion = false; return; Updates the `TemperatureUnits.text` UI label.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9a9f7013-bd09-5c65-803b-090a55cceda8",
+                         "key":  "startTimer",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "We don\u0027t want to start the counting coroutine again if it is already running, this causes the timer to double in speed",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5d409231-434c-5116-9067-ebce82d38ba7",
+                         "key":  "timerTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BabyWarmerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "attachableTubingRight",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "attachableTubingLeft",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

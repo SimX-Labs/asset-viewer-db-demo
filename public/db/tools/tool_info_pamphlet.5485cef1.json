@@ -1,0 +1,91 @@
+{
+    "id":  "5485cef1-c60a-5a76-99cb-8a4e8186cf1b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Info Pamphlet",
+    "assetKey":  "tool_info_pamphlet",
+    "toolId":  "infoPamphlet1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Info Pamphlet/tool_info_pamphlet.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c15bab0f-1d2d-55f8-a4b3-6dd3067cbdba",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BandladeshDiet",
+                                                "CommunityCenters",
+                                                "FreeClinics",
+                                                "Library",
+                                                "Meals",
+                                                "Pharmacies",
+                                                "SeniorCenters",
+                                                "UrbanGardens",
+                                                "VaccineInfo_Bengali",
+                                                "VaccineInfo_English",
+                                                "MentalHealth",
+                                                "HearingLoss",
+                                                "Nutrition",
+                                                "Obesity",
+                                                "Parkinsons",
+                                                "Bereavement"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "BandladeshDiet",
+                                          "FreeClinics",
+                                          "Library"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "infoPamphlet",
+                             "assetIds":  [
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73",
+                                              "b5d0c239-5b53-5bc3-963c-1cc6e78aea73"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711"
+                    ]
+}

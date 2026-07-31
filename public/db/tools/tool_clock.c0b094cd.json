@@ -1,0 +1,24 @@
+{
+    "id":  "c0b094cd-0feb-5bf0-bd15-0924bd581bad",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Clock",
+    "assetKey":  "tool_clock",
+    "toolId":  "clock",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clock/tool_clock.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

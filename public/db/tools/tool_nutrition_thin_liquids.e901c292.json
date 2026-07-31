@@ -1,0 +1,30 @@
+{
+    "id":  "e901c292-0805-5b03-880c-d8bba6049e95",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nutrition Thin Liquids",
+    "assetKey":  "tool_nutrition_thin_liquids",
+    "toolId":  "ThinLiquids",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Nutrition/tool_nutrition_thin_liquids.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "b15cb507-6fb7-586c-b372-8b01a4023107",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suction Yankauer Nasal",
+    "assetKey":  "tool_suction_yankauer_nasal",
+    "toolId":  "suctionYankauerNasal",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_suction_yankauer_nasal.prefab",
+    "metadata":  [
+                     {
+                         "id":  "4ccc1ed4-f96e-540f-80ec-2e5d74a8fec3",
+                         "key":  "SetSuctionRequiresActionButtonToFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set requires action button.",
+                         "sourceScripts":  "ToolYankauerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

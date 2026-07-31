@@ -1,0 +1,44 @@
+{
+    "id":  "cdea1dfb-d77c-5f56-81d1-1f72b8c81f01",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Playerwatch Digital",
+    "assetKey":  "tool_playerwatch_digital",
+    "toolId":  "DigitalWatchLRemovable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Player Digital Watch/tool_playerwatch_digital.prefab",
+    "metadata":  [
+                     {
+                         "id":  "10d822af-a08e-54b1-846d-3003999fbcdc",
+                         "key":  "AttachToPlayer",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Attach To Player.",
+                         "sourceScripts":  "PlayerWatch",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Anchor-PlayerWatch",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

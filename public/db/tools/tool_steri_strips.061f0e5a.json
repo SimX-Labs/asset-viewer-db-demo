@@ -1,0 +1,30 @@
+{
+    "id":  "061f0e5a-d5e2-56ae-9721-40869172c30f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Steri Strips",
+    "assetKey":  "tool_steri_strips",
+    "toolId":  "SteriStrips",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_steri_strips.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "steriStrip",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,71 @@
+{
+    "id":  "5535a10e-ad46-5b6c-9909-449b17bbf4bf",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Biohazard Bag",
+    "assetKey":  "tool_biohazard_bag",
+    "toolId":  "biohazardBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/CatheterKit/tool_biohazard_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1cbfa093-ce77-572d-953f-957de1707415",
+                         "key":  "hasCatheter",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "BiohazardBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ddda9557-b47e-54ee-b1b9-cf05c1556a45",
+                         "key":  "readyForCatheter",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `CatheterInteractionCollider` (`SetActive`).",
+                         "sourceScripts":  "BiohazardBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "biohazardBagPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "biohazardBag",
+                                     "assetIds":  [
+                                                      "21517967-6d5d-563a-8b0a-523f25776cb5",
+                                                      "642eab0c-50e0-53ea-a87a-afe896537473",
+                                                      "487f56e4-d987-5fdc-8f1f-9ca766ad7089",
+                                                      "bdc5f42c-3305-5b03-a37f-e4e1888f5680",
+                                                      "ece7996c-8a86-5f9c-9499-248632e0392d",
+                                                      "c7f8a3c3-d865-5b5c-b7fd-0eab92d3a3e3",
+                                                      "cbf6c5d8-b096-571a-891b-9a70d101cc71"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "3eacc668-74d2-54b9-81c5-652a067f4ede"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

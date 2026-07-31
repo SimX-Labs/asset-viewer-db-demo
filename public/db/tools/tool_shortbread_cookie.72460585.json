@@ -1,0 +1,71 @@
+{
+    "id":  "72460585-da8b-51c6-95f1-488c169d5fc6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Shortbread Cookie",
+    "assetKey":  "tool_shortbread_cookie",
+    "toolId":  "shortBreadCookie",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/ShortBreadCookie/tool_shortbread_cookie.prefab",
+    "metadata":  [
+                     {
+                         "id":  "aab8da64-e78d-5eed-8b66-7c9fce77ec02",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Closed",
+                                                "Open",
+                                                "EmptyWrapper"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Closed`` / ``Open`` / ``EmptyWrapper``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "shortBreadCookie",
+                             "assetIds":  [
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861",
+                                              "8c271abe-a103-5bb9-86cc-d93b56076861"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

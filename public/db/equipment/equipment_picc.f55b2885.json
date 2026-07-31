@@ -1,0 +1,442 @@
+{
+    "id":  "f55b2885-877c-5f6f-9689-3b2d1fcb9688",
+    "type":  "equipment",
+    "name":  "Picc",
+    "assetKey":  "equipment_picc",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/PICC Equipment/equipment_picc.prefab",
+    "primaryMetadata":  {
+                            "id":  "6d281a68-f053-541b-945f-70ce6ec17285",
+                            "key":  "skin_protectant",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "1a967ec0-8f1a-5472-bbd2-6453017faab3",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "508a5b24-0f7f-5c5e-841a-feb6dd6fb064",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5217dd4d-b2dd-542f-ae58-7e0dd9de4086",
+                         "key":  "networkOnBecomeOccupied",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Become Occupied Networked.",
+                         "sourceScripts":  "EnvironmentToolAnchorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "39ea16ab-5305-58bb-8457-a56ad204bb81",
+                         "key":  "networkOnBecomeOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Become Open Networked.",
+                         "sourceScripts":  "EnvironmentToolAnchorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a8cbea57-f4b6-59ca-9607-a163b9276c1b",
+                         "key":  "picc",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Start",
+                                                "IntroducerNeedle",
+                                                "Guidewire",
+                                                "IntroducerRemoved",
+                                                "Incision",
+                                                "Dialator",
+                                                "GuidewireRemoved",
+                                                "DialatorRemoved",
+                                                "Cath",
+                                                "SheathRemoved",
+                                                "TLockRemoved",
+                                                "Flushed",
+                                                "Capped"
+                                            ],
+                         "defaultValue":  "Start",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`Start`, `IntroducerNeedle`, `Guidewire`, `IntroducerRemoved`, `Incision`, `Dialator`, `GuidewireRemoved`, `DialatorRemoved`, `Cath`, `SheathRemoved`, `TLockRemoved`, `Flushed`, `Capped`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "9abcfcb8-fa16-5bc3-b3ea-e4063c82e045",
+                         "key":  "picc-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "065a0f5e-f832-5b77-b837-5c4d50186437",
+                         "key":  "picc-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "da642a87-964b-5b3b-91ce-fd8aa3096b09",
+                         "key":  "skin_protectant-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9353ef06-1b7c-51db-8a86-34fb897589b5",
+                         "key":  "skin_protectant-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4df95a55-e40c-5057-b783-0a16a1e38f88",
+                         "key":  "skin_protectant-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7deab606-0e18-5b45-9f3a-7c30e222f116",
+                         "key":  "storePreviousTool",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Store Previous Tool.",
+                         "sourceScripts":  "EnvironmentToolAnchorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "13bf6935-0fb4-56c8-b5cb-b6112b23446d",
+                         "key":  "venipunctureTourniquet",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "70bfc3d8-1bce-5b49-bee6-00ae5692b425",
+                         "key":  "venipunctureTourniquet-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "75d28b77-eefc-574e-a9c7-30f26b2bf126",
+                         "key":  "venipunctureTourniquet-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a024ca06-cc75-5f9f-9b6d-519fcca29b97",
+                         "key":  "venipunctureTourniquet-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "64a3d90c-4d13-50a9-b91f-024d7bf551e6",
+                         "key":  "venipunctureTQstate",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Normal",
+                                                "NotGrabbable",
+                                                "Hidden"
+                                            ],
+                         "defaultValue":  "Normal",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`Normal`, `NotGrabbable`, `Hidden`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "18f83c64-84e0-5602-ba3a-5644e16cdb26",
+                         "key":  "venipunctureTQstate-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "20ec726b-e0ca-5579-8dba-bf188e4f0f9f",
+                         "key":  "venipunctureTQstate-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "fenestratedDrapeInteraction",
+                                     "assetIds":  [
+                                                      "e2318b0e-f51c-5839-8771-f40dda712c3d"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ivMedication",
+                                     "assetIds":  [
+                                                      "16a83f6e-cd15-5d4d-85f0-010a5e185a16"
+                                                  ],
+                                     "availableIn":  [
+                                                         "Capped"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "lubricantInteractionPatient",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "marking_pen",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "needlefreeConnector",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "Flushed",
+                                                         "TLockRemoved"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "picc_cath",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "DialatorRemoved"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "picc_dialator",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "Incision"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "PICC_dressing",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "picc_guidewire",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "IntroducerNeedle"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "picc_incision",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "IntroducerRemoved"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "picc_introducer",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "Start"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "PICC_statlock",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "skin_protectant",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "VascularAccess_chloraprep",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "VascularAccess_chloraprep2",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "1facc457-8ffa-5bc1-8a34-48ee37a9e946",
+                         "668f8145-a212-58db-a87d-59c29b6b2382",
+                         "35724b30-b755-5d70-adea-d6d57e96032e",
+                         "552a3787-b1eb-554d-9a52-fe3ad2aa9de8",
+                         "8a929814-cea0-5802-9580-a9a013aeaa62",
+                         "e06d33cf-aebd-5d0c-a439-ef85a6ea93a2"
+                     ]
+}

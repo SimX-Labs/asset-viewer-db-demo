@@ -1,0 +1,46 @@
+{
+    "id":  "0e8562b2-9d00-5cf2-bd4e-5f07afa8964f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suppository Generic",
+    "assetKey":  "tool_suppository_generic",
+    "toolId":  "pyxisSuppository",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_suppository_generic.prefab",
+    "metadata":  [
+                     {
+                         "id":  "26635505-adab-582e-a475-ac1c2203b61a",
+                         "key":  "medId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "11-P_SYR",
+                                          "65-L_IV",
+                                          "C_1000-B_IV"
+                                      ],
+                         "description":  "Set the interaction medication to be the new medication",
+                         "sourceScripts":  "SuppositoryController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Rectum",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

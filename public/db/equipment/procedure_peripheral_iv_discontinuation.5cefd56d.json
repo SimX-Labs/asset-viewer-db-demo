@@ -1,0 +1,199 @@
+{
+    "id":  "5cefd56d-17ef-5ca7-8833-e3c7c7411303",
+    "type":  "equipment",
+    "name":  "Procedure Peripheral Iv Discontinuation",
+    "assetKey":  "procedure_peripheral_iv_discontinuation",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/procedure_peripheral_iv_discontinuation.prefab",
+    "primaryMetadata":  {
+                            "id":  "225cdabd-2c63-5dab-9a52-dc74d87b0db4",
+                            "key":  "peripheralIvDiscontinuation",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "gone",
+                                                   "dirty",
+                                                   "ivRemoved",
+                                                   "newGauze",
+                                                   "complete"
+                                               ],
+                            "defaultValue":  "gone",
+                            "examples":  [
+                                             "gone, dirty, ivRemoved, newGauze, complete"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `peripheralIvDiscontinuation`. Values: `gone`, `dirty`, `ivRemoved`, `newGauze`, `complete`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "bfff8e2c-0f6b-5c87-b0c4-d22edd049ac3",
+                         "key":  "peripheralIV",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disconnected",
+                                                "iv"
+                                            ],
+                         "defaultValue":  "disconnected",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disconnected`, `iv`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "60ac5b63-9052-53b0-8432-5742f25b593b",
+                         "key":  "peripheralIV-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a84229a6-ef6e-5fdf-8e9c-74fae2ca5d9d",
+                         "key":  "peripheralIvDiscontinuation-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "47fe781b-7662-56a1-bb6c-95f345623824",
+                         "key":  "peripheralIvDiscontinuation-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "965e659e-fb3c-5b98-93ec-e4ec26dc9396",
+                         "key":  "peripheralIvDiscontinuation-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b4575399-56c5-5cd4-a2f0-9fab381ca6e1",
+                         "key":  "peripheralIV-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "adhesiveRemoverWipe",
+                                     "assetIds":  [
+                                                      "c15e8a28-1742-505f-81a9-14beefecbe67"
+                                                  ],
+                                     "availableIn":  [
+                                                         "complete",
+                                                         "dirty",
+                                                         "ivRemoved",
+                                                         "newGauze"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "basicSquareGauze",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  [
+                                                         "complete",
+                                                         "dirty",
+                                                         "ivRemoved",
+                                                         "newGauze"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "cobanWrap",
+                                     "assetIds":  [
+                                                      "1b4c4b04-7b16-5a4d-bf61-408d468837dd"
+                                                  ],
+                                     "availableIn":  [
+                                                         "complete",
+                                                         "dirty",
+                                                         "ivRemoved",
+                                                         "newGauze"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "ConnectIV",
+                                     "assetIds":  [
+                                                      "1d3c5abc-7b25-5abb-902a-03c5685275e7",
+                                                      "84b59303-d24b-52d7-b9a1-c8ed60d23b44"
+                                                  ],
+                                     "availableIn":  [
+                                                         "complete",
+                                                         "dirty",
+                                                         "disconnected",
+                                                         "ivRemoved",
+                                                         "newGauze"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "ivMedication",
+                                     "assetIds":  [
+                                                      "16a83f6e-cd15-5d4d-85f0-010a5e185a16"
+                                                  ],
+                                     "availableIn":  [
+                                                         "complete",
+                                                         "dirty",
+                                                         "ivRemoved",
+                                                         "newGauze"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36"
+                     ]
+}

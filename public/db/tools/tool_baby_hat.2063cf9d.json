@@ -1,0 +1,34 @@
+{
+    "id":  "2063cf9d-119b-5752-b05e-2047972d22c6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Baby Hat",
+    "assetKey":  "tool_baby_hat",
+    "toolId":  "babyHat1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_baby_hat.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "babyHat",
+                             "assetIds":  [
+                                              "05af9b4b-e146-5710-a0fd-10d917a3f75c",
+                                              "05af9b4b-e146-5710-a0fd-10d917a3f75c",
+                                              "05af9b4b-e146-5710-a0fd-10d917a3f75c",
+                                              "05af9b4b-e146-5710-a0fd-10d917a3f75c",
+                                              "05af9b4b-e146-5710-a0fd-10d917a3f75c"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

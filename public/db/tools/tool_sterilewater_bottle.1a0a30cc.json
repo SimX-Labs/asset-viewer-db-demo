@@ -1,0 +1,133 @@
+{
+    "id":  "1a0a30cc-1962-5e7f-9e3d-cc59bdd307c2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterilewater Bottle",
+    "assetKey":  "tool_sterilewater_bottle",
+    "toolId":  "salineBottle1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Saline Bottle/tool_sterilewater_bottle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "54a3d3b2-5337-5fb6-a905-fb8ba834a288",
+                         "key":  "liquidEmpty",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "LiquidFillControllerNetworked",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "771b757f-35ae-5f9c-88ef-3ccbd1dbb0b9",
+                         "key":  "liquidEmptyRate",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles liquid empty rate.",
+                         "sourceScripts":  "LiquidFillControllerNetworked",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "25ec7e4c-2d0d-586d-9d00-19bcada2a5d2",
+                         "key":  "liquidFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "LiquidFillControllerNetworked",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "046d803a-7399-59fd-8ec4-4e3382bf6808",
+                         "key":  "liquidFillRate",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles liquid fill rate.",
+                         "sourceScripts":  "LiquidFillControllerNetworked",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cc11bfbb-74dd-5364-a231-201237adb5ff",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "notAbleToSuction",
+                                                "ableToSuction"
+                                            ],
+                         "defaultValue":  "notAbleToSuction",
+                         "examples":  [
+                                          "``notAbleToSuction`` / ``ableToSuction``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "68844fdf-448f-581f-9b95-85ccc9be8cf9",
+                         "key":  "toolColliderActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "SalineBottleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "toxicHeadChemical",
+                             "assetIds":  [
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3",
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3",
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3",
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3",
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3",
+                                              "d13a02d8-1542-593b-977b-8913781a9eb3"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "waterBottleSuction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

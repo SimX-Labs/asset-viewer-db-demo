@@ -1,0 +1,41 @@
+{
+    "id":  "6b757835-dacb-56e4-80cd-f2ea74fdb99a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Survival 2 Bundle",
+    "assetKey":  "tool_survival_2_bundle",
+    "toolId":  "survival2Bundle",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_survival_2_bundle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b6e03cdd-cd47-563b-aecb-b2fb75a6856d",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

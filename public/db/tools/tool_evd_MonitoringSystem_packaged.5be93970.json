@@ -1,0 +1,37 @@
+{
+    "id":  "5be93970-737a-570f-98e6-08280beef9a3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Evd Monitoringsystem Packaged",
+    "assetKey":  "tool_evd_MonitoringSystem_packaged",
+    "toolId":  "tool_evd_MonitoringSystem_packaged",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/EVD Monitoring System/tool_evd_MonitoringSystem_packaged.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mount_evdStation",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_evdStation",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

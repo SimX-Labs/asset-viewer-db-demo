@@ -1,0 +1,53 @@
+{
+    "id":  "059c5e29-4411-59f8-8dcb-8925a07b19e5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tmmedica Red Bag",
+    "assetKey":  "tool_tmmedica_red_bag",
+    "toolId":  "redBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/HomeCareBag/tool_tmmedica_red_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "92902738-aad6-5c1c-b4e3-396bf2412b8c",
+                         "key":  "bagOpenStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Only override if no bag mode is active Controls visibility of `BagOpen` (`SetActive`). Controls visibility of `InnerTools` (`SetActive`). Controls visibility of `BagClosed` (`SetActive`).",
+                         "sourceScripts":  "FirstAidBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c1f389f5-a881-54d4-89e5-89c140ebfc83",
+                         "key":  "noBagStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "When toggling no bag mode, update visuals Restore normal behavior based on current open status Controls visibility of `BagOpen` (`SetActive`). Controls visibility of `InnerTools` (`SetActive`). Controls visibility of `BagClosed` (`SetActive`).",
+                         "sourceScripts":  "FirstAidBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "9d3ec490-4784-5d65-9d07-f834d9bb8f66",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inhaler Spacer",
+    "assetKey":  "tool_inhaler_spacer",
+    "toolId":  "inhalerSpacer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_inhaler_spacer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

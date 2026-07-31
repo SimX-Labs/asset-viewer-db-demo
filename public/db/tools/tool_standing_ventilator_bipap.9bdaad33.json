@@ -1,0 +1,24 @@
+{
+    "id":  "9bdaad33-c3b9-5119-acb5-c43ac4364bc8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Standing Ventilator Bipap",
+    "assetKey":  "tool_standing_ventilator_bipap",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Ventilator/tool_standing_ventilator_bipap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

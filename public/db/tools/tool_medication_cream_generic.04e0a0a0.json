@@ -1,0 +1,76 @@
+{
+    "id":  "04e0a0a0-3c60-53e7-8016-640283396d31",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Cream Generic",
+    "assetKey":  "tool_medication_cream_generic",
+    "toolId":  "medicationCream",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/Creams/tool_medication_cream_generic.prefab",
+    "metadata":  [
+                     {
+                         "id":  "29b944e5-129b-5f02-9bb7-8d2875f99a2d",
+                         "key":  "modelName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "32-VIAL",
+                                          "100-TAB",
+                                          "11-P_SYR"
+                                      ],
+                         "description":  "Set the interaction medication to be the new medication",
+                         "sourceScripts":  "MedicationPillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1dcd3182-ee86-5d97-b279-60583504300f",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Set the interaction medication to be the new medication Lets try to figure out the model name from the med name",
+                         "sourceScripts":  "MedicationPillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3566b2d8-bb0a-50ac-ade7-46f8f79766ac",
+                         "key":  "pillCount",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Pill Count.",
+                         "sourceScripts":  "MedicationPillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "perineumWound",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

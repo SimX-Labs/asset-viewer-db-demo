@@ -1,0 +1,333 @@
+{
+    "id":  "fa0e2264-4926-532d-a3a8-a7e27532379f",
+    "type":  "equipment",
+    "name":  "Tracheostomy",
+    "assetKey":  "equipment_tracheostomy",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Tracheostomy/equipment_tracheostomy.prefab",
+    "primaryMetadata":  {
+                            "id":  "919b23c3-d5af-535b-9a95-cea7bc887f5b",
+                            "key":  "tracheostomy",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "0083e12b-fc40-513b-adec-cc7393e75da6",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "55c2fdac-9d56-59b2-8a52-161b55261e09",
+                         "key":  "flowmeterToTarget",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set flowmeter to target. Often heard as `\u003cprocedureName\u003e-flowmeterToTarget`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "GenericOxygenController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "393ddcbc-8e76-5c70-a7aa-5cc72d72bc7f",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "37105adc-1ecf-5380-89c3-eb4bd996dd04",
+                         "key":  "PatientStates: []-state",
+                         "valueType":  "string",
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a state listed below",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b92576c2-70ba-50e1-a358-1dab4bae639b",
+                         "key":  "placeableTrachDome",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "gone",
+                                                "attachedNotConnected",
+                                                "held"
+                                            ],
+                         "defaultValue":  "gone",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`gone`, `attachedNotConnected`, `held`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "bd56254d-3b47-5521-be62-579b846872cb",
+                         "key":  "placeableTrachDome-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "caaffcd3-9c20-561f-9df6-9f7d2ce3f818",
+                         "key":  "placeableTrachDome-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "75acce57-e369-5414-95fd-f9ddfcbc3ab2",
+                         "key":  "StateSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing Often heard as `\u003cprocedureName\u003e-StateSuffix`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "PatientStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e3ad170-d100-5549-a52a-226485b7520f",
+                         "key":  "trachDome-venturi",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "40",
+                                                "35"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`none`, `40`, `35`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "ee387f79-f76a-512c-9239-746315d64520",
+                         "key":  "tracheostomy-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "722d32ab-2e0b-518f-993a-8f5a7af34978",
+                         "key":  "tracheostomy-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "273178cf-d05a-5e8c-87fb-851b337b7db0",
+                         "key":  "tracheostomy-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60e37b34-076c-5df3-b973-d80210fe49bc",
+                         "key":  "tracheostomy-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clean",
+                                                "dirty"
+                                            ],
+                         "defaultValue":  "clean",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`clean`, `dirty`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "6f0849db-0f0a-510a-8204-5c2f8a18175c",
+                         "key":  "trachSize",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `TrachSizeText.text` UI label. Often heard as `\u003cprocedureName\u003e-trachSize`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "TracheostomyEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5fc3ab55-f3bc-5a8e-9111-4054aa9c0fc0",
+                         "key":  "trachSizeVisible",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `TrachSizeGameObject` (`SetActive`). Often heard as `\u003cprocedureName\u003e-trachSizeVisible`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "TracheostomyEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "52d50070-7d94-547f-9b2a-bd616185bb0e",
+                         "key":  "trachSplitGauze-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clean",
+                                                "dirty"
+                                            ],
+                         "defaultValue":  "clean",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`clean`, `dirty`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "proceduralTrachDome",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "gone"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "trachDome",
+                                     "assetIds":  [
+                                                      "210630d8-b420-55ea-aa24-117b90c3d4c7"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "tracheostomy",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSpeakingValve",
+                                     "assetIds":  [
+                                                      "01603ced-5d1b-58d0-bfb6-3f5ff6b9a06b"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSplitGauze",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSuction",
+                                     "assetIds":  [
+                                                      "30779c40-5329-5adc-ae81-2bd53a56a64f",
+                                                      "69527ed0-1ddd-5a2b-adb8-6bbc05e1b31a",
+                                                      "6ac224ee-a870-527a-9d91-49f0e5499b38"
+                                                  ],
+                                     "availableIn":  [
+                                                         "gone"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "1facc457-8ffa-5bc1-8a34-48ee37a9e946",
+                         "668f8145-a212-58db-a87d-59c29b6b2382",
+                         "35724b30-b755-5d70-adea-d6d57e96032e"
+                     ]
+}

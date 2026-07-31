@@ -1,0 +1,30 @@
+{
+    "id":  "858b1c7e-bb9b-5300-9a77-3cc28ce3a31a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Monitor Leads Peds",
+    "assetKey":  "tool_monitor_leads_peds",
+    "toolId":  "cardiacleads1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_monitor_leads_peds.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "AbdomenLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "f3059a11-d3e0-5c3d-b861-0ec919dcb3bd"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

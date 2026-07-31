@@ -1,0 +1,24 @@
+{
+    "id":  "65ef4924-ae2a-5f07-9c2e-f543cb4473de",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Clothing Top Tshirt White",
+    "assetKey":  "tool_patient_clothing_top_tshirt_white",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_patient_clothing_top_tshirt_white.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

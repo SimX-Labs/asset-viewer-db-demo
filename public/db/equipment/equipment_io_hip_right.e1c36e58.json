@@ -1,0 +1,410 @@
+{
+    "id":  "e1c36e58-28d7-55bb-b35d-b0fc2632d5d8",
+    "type":  "equipment",
+    "name":  "Io Hip Right",
+    "assetKey":  "equipment_io_hip_right",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/IO Equipment/equipment_io_hip_right.prefab",
+    "primaryMetadata":  {
+                            "id":  "7a1be8d5-4827-5d22-8804-80ea5bb757bf",
+                            "key":  "IOHipRight",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "none",
+                                                   "salineLock",
+                                                   "iv",
+                                                   "buretteConnected"
+                                               ],
+                            "defaultValue":  "none",
+                            "examples":  [
+                                             "none, salineLock, iv, buretteConnected"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `IOHipRight`. Values: `none`, `salineLock`, `iv`, `buretteConnected`. Underlying ProcedureName on nested prefab controller: `IOShoulderLeft`.",
+                            "sourceScripts":  "IOEquipmentController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "ef324bfc-e37c-51e0-a7bc-5c002aef751d",
+                         "key":  "bloodDraw",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fe6167bd-b223-5351-b4f5-daa0eedb346b",
+                         "key":  "bloodDraw-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "98e063ee-c245-52ac-ae4c-fb3db3170ecd",
+                         "key":  "bloodDraw-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2f4e499a-13b2-5c1e-b46f-d04825771bbb",
+                         "key":  "bloodDraw-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a29213a2-fe0b-5791-8bd9-d66481911116",
+                         "key":  "currentAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set current vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9b81612b-fe3a-5119-ad25-b5440efd31a0",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "818c96cc-ee46-5c05-8df0-8b9ac3621621",
+                         "key":  "ignoreSyringeNeedleOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Ignore Syringe Needle Override.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c48d0514-6b84-5514-b41e-3c7054ad964a",
+                         "key":  "IOHipRight-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4f0935f6-8d67-5928-9e87-91f5b72e80f7",
+                         "key":  "IOHipRight-ioRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `RemoveIOTrigger` (`SetActive`).",
+                         "sourceScripts":  "IOEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "214ee157-b7fb-5d5e-b776-a1788f03fb65",
+                         "key":  "IOHipRight-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fe131e3c-0713-5868-8881-7f6e3d3302f2",
+                         "key":  "IOHipRight-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "01834fa5-bd83-56d6-ac82-15614ccb7b03",
+                         "key":  "IOHipRight-tubingRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `RemoveTubingTrigger` (`SetActive`).",
+                         "sourceScripts":  "IOEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d0da0490-fc9a-59c1-b052-4efcea70520f",
+                         "key":  "IOShoulderLeft",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "85be5495-2ce9-572e-8463-43172dd1cd98",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "980bf3bb-ce49-5bb5-b1d2-db39ad597ce5",
+                         "key":  "max",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Max.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a14e2555-a1e9-59db-bad5-51c8a9d423fb",
+                         "key":  "maximumAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set maximum vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "afff2e89-c5f3-50c1-bf6f-45f6a1bdcb67",
+                         "key":  "medicationTrackingEnabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set allow medication tracking.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4b2c208f-a447-5733-8a35-e03a9216e34c",
+                         "key":  "medName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Current Drug Interactions.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "28671174-5b46-5b44-bf0a-75595f6e6595",
+                         "key":  "min",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Min.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d8b22505-391b-5a56-bc6a-2496d49f2f6c",
+                         "key":  "modelName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If the medication data is null after trying to set it, then we have an issue and should log an error and return before trying to access the medication data.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "237962db-13fc-5241-a771-7c574e993ab1",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This function sets up what the medication is called, this is what will show up when you use the med Its more of a clean name Setup listeners for setting the values for this medication",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7f53bf1e-fe91-57f5-863b-414e1a19e694",
+                         "key":  "showNeedle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Show Needle.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2148dbb7-67aa-5cbf-ab54-2bfeeb7b7a92",
+                         "key":  "syringeIncrement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Increment.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6c774230-851c-5597-a941-d5011f503e53",
+                         "key":  "syringeMethod",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``Oral``"
+                                      ],
+                         "description":  "Find the method in our available methods If the new method is \"Oral\", turn off all the interactions here",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca7873ff-f932-5dd4-b7ce-baa2ef152ea6",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Units.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

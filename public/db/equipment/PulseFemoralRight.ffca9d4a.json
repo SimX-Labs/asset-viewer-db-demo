@@ -1,0 +1,121 @@
+{
+    "id":  "ffca9d4a-e0f8-535c-b05c-eb59c0ce9df2",
+    "type":  "equipment",
+    "name":  "Pulsefemoralright",
+    "assetKey":  "PulseFemoralRight",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Generic Equipment Prefabs/Pulses/PulseFemoralRight.prefab",
+    "primaryMetadata":  {
+                            "id":  "5714193f-2744-54c3-9a02-01249babcaad",
+                            "key":  "pulseFemoralRight",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `true` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "dd44fd61-3027-51ae-8ac5-9abfe9e2fb07",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1cffdd82-b077-55a8-8747-709275753139",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b0b06abf-8334-5f63-ae9d-179febf3186c",
+                         "key":  "pulseFemoralRight-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5c3ff589-a4b3-51a9-8cd5-3e117824dae1",
+                         "key":  "pulseFemoralRight-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7fb1f914-a373-5a37-9d86-0a804ee81415",
+                         "key":  "pulseFemoralRight-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "FemoralR",
+                                     "assetIds":  [
+                                                      "0abc8402-8f55-5397-8073-19112e474b7f",
+                                                      "3e2be5c8-2a87-5dfa-9d10-418056af381e",
+                                                      "8a191d2c-21a3-5234-b3ba-ecb854c00e8f",
+                                                      "b221151e-343c-5c2f-a62a-3c8cdbd14ac0",
+                                                      "befcb8e5-09ef-5ef4-8e85-bdbd74b72bb5",
+                                                      "3625f67f-66e4-567e-bdd9-dec77fa6dd92",
+                                                      "a98184fe-52df-57e0-a4ea-bd03ab5d240a",
+                                                      "8cb39ce0-7f4a-5048-8627-e268453c72bd"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "a16e61db-3909-5fca-a154-bbc410d5b907",
+                         "ca026494-3933-5318-9c22-053701dbab03",
+                         "4038e008-f43d-5720-b296-184363c9d69c",
+                         "8deff51b-eeb9-53a8-be85-7c9dc5b15ccd"
+                     ]
+}

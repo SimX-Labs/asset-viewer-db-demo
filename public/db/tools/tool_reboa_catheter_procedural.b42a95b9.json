@@ -1,0 +1,408 @@
+{
+    "id":  "b42a95b9-a9d7-57f6-bb32-a52d0db688b1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Reboa Catheter Procedural",
+    "assetKey":  "tool_reboa_catheter_procedural",
+    "toolId":  "reboaCatheterProcedural",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/ARC Tools/tool_reboa_catheter_procedural.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ba4d0885-5246-5e9d-a471-fc9a44a96b81",
+                         "key":  "artFlushSyringeAttached",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `ArtFlushSyringe` (`SetActive`).",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3674c71d-eecf-552e-9a3d-007f9575837d",
+                         "key":  "artFlushSyringeCanFlush",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1fe8dd8e-acac-57b3-b25b-c410e5699540",
+                         "key":  "artLineConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `ArtLineConnectedTubing` (`SetActive`). Controls visibility of `ArtLineFlushInteractionParent` (`SetActive`). Controls visibility of `ArtLineConnectedTubingInHand` (`SetActive`).",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "35017d30-a80e-51d0-aa5a-72dd6a72ab39",
+                         "key":  "artStopcockPosition",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f3952cdb-10db-5f7b-b9e8-e5f1af71b9cc",
+                         "key":  "balFlushSyringeAttached",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `BalFlushSyringe` (`SetActive`).",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0d8b9bef-462f-5d4f-ade1-75d4a435a7b8",
+                         "key":  "balFlushSyringeCanFlush",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "faedaa82-eb40-5e83-b567-09b459ac7268",
+                         "key":  "balLineConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "620b7b34-da87-5eb0-8364-4852f7077232",
+                         "key":  "balStopcockOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_balStopcockOpen` (opposite of the current boolean state).",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "41b3d0e2-24a7-5e70-9bd7-2bc91f01fc92",
+                         "key":  "connectedColorManagerId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "73d1b921-bd79-51ea-84a4-dd939d2fbdcc",
+                         "key":  "insertionAmount",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0894b5cb-6bb2-574a-9467-48bc9ff878a9",
+                         "key":  "isFlushing",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `FlushLiquid` (`SetActive`).",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "21a376e8-80b0-5c08-8e68-a422cae10da2",
+                         "key":  "ivFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Clear | Red | Blue | Yellow | Brown | White | Pink because we subscribe to this tool\u0027s metadata event, if this tools has a metadata event of this signature come through, we will call the handler with it",
+                         "sourceScripts":  "IvFluidColorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d25f27e2-a562-5158-963c-34a2527b88bb",
+                         "key":  "orangeSheathAttached",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a67475fa-1994-5b0b-9f88-2cf66d1c7f0f",
+                         "key":  "orangeSheathRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ReboaCatheterToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "reboaCatheter",
+                             "assetIds":  [
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "reboaCatheter",
+                             "assetIds":  [
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88",
+                                              "4ff321eb-d5c8-54fb-b221-eafc8f203f88"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "arterialLine",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "balFlushInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "artFlushInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "b5043ee3-bff2-596e-8863-0a6ee17ee486"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

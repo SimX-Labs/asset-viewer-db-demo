@@ -1,0 +1,98 @@
+{
+    "id":  "2f2e9544-1c4f-54ec-86d5-9353b8e99b5c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Endoscope Screen",
+    "assetKey":  "tool_endoscope_screen",
+    "toolId":  "endoscopeScreen",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Tool_Endoscope_screen.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1579d26b-70b1-56cf-8024-d34cfd3c0be5",
+                         "key":  "Power",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles power.",
+                         "sourceScripts":  "EndoscopyVideoPlayer",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3f8a1842-8e3b-5313-b487-effaf1cfd416",
+                         "key":  "power",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles power.",
+                         "sourceScripts":  "EndoscopyVideoPlayer",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b4687c7d-90c8-545a-9813-87d81168753a",
+                         "key":  "VideoID",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Prepare Video.",
+                         "sourceScripts":  "EndoscopyVideoPlayer",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "33618270-6833-51b7-bb5d-577111d65fac",
+                         "key":  "Volume",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles volume.",
+                         "sourceScripts":  "EndoscopyVideoPlayer",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3b7dbf59-6a7d-51b3-a92c-cbd7326f53eb",
+                         "key":  "volume",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles volume.",
+                         "sourceScripts":  "EndoscopyVideoPlayer",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,37 @@
+{
+    "id":  "64c50073-10e2-5c75-bac0-da6309779dea",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterile Water Wipe Packet",
+    "assetKey":  "tool_sterile_water_wipe_packet",
+    "toolId":  "sterileWaterWipePacket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/tool_sterile_water_wipe_packet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "EyeL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "EyeR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

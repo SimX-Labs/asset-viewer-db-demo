@@ -1,0 +1,80 @@
+{
+    "id":  "d7fe56e8-eed9-5239-be5c-4ae1b02e3436",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tischler Mini",
+    "assetKey":  "tool_tischler_mini",
+    "toolId":  "tischlerMini1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_tischler_mini.prefab",
+    "metadata":  [
+                     {
+                         "id":  "09e127d7-9840-5253-9c70-8d6c2660afe0",
+                         "key":  "biopsyTissue",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "specimenA",
+                                                "specimenB",
+                                                "specimenC",
+                                                "specimenD"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+                                          "``none`` / ``specimenA`` / ``specimenB`` / ``specimenC`` / ``specimenD``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "fb4a4527-ebf4-51ea-b5e4-8b14c29fd54b",
+                         "key":  "hasTissueSample",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "TischlerMiniController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3127b885-1e82-5838-be2c-8b1ea6b6e5ab",
+                         "key":  "isSqueezing",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Is Squeezing Changed.",
+                         "sourceScripts":  "TischlerMiniController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "toothpick",
+                                     "assetIds":  [
+                                                      "5e326627-d2e0-5cd1-9ade-58dc88285cbb"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "e96c06aa-f129-5199-bfe4-dbe67384b957"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

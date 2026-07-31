@@ -1,0 +1,155 @@
+{
+    "id":  "5100c792-3ee8-5a82-ac5c-52e1da4b0314",
+    "type":  "character",
+    "name":  "Adult03 P14 Damage Control",
+    "assetKey":  "character_core_adult03_p14_damage_control",
+    "baseAddressable":  "character_core_adult03_p14_damage_control",
+    "isVariant":  false,
+    "isPrimaryInGroup":  true,
+    "groupFolder":  "character_core_adult03_p14_damage_control",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Characters/Adult03/character_core_adult03_p14_damage_control.prefab",
+    "interactionLocations":  [
+                                 {
+                                     "location":  "Ace_Wrap",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "chitoGauze",
+                                     "assetIds":  [
+                                                      "bba6756d-5b1c-522e-b45d-d9ce6dba7736"
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "chloraprepLarge",
+                                     "assetIds":  [
+                                                      "ed076ad0-3f68-56d1-aa16-fcc28a730a36"
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "drainage",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "firstIncision",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "OR_Towel",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "OrganPacking_1",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "OrganPacking_2",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "OrganPacking_3",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "retractorBoth",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "retractorL",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "retractorR",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "scissors",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "Suction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "thoracotomySuture",
+                                     "assetIds":  [
+                                                      "27130174-cd0d-54bc-8075-8d9a8f3aff2f",
+                                                      "552a4826-5edf-566a-8ed8-98171b631663"
+                                                  ],
+                                     "availableIn":  [
+
+                                                     ]
+                                 }
+                             ],
+    "availableEquipment":  [
+
+                           ],
+    "availableClothing":  [
+
+                          ]
+}

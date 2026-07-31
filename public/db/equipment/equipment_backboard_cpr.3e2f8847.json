@@ -1,0 +1,83 @@
+{
+    "id":  "3e2f8847-650a-59a3-bfbd-5f040d0d5f26",
+    "type":  "equipment",
+    "name":  "Backboard Cpr",
+    "assetKey":  "equipment_backboard_cpr",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_backboard_cpr.prefab",
+    "primaryMetadata":  {
+                            "id":  "7069c4e5-5e2e-54ba-bee3-2cd1f292c88f",
+                            "key":  "backboard-cpr",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "12873f80-f5d8-5862-b270-8c3cbc41c6ae",
+                         "key":  "backboard-cpr-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3653f10e-915e-556a-8e78-390b58cdbcba",
+                         "key":  "backboard-cpr-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `true` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "425cd4b0-3f1d-5e24-acf4-cd6e860a0972",
+                         "key":  "backboard-cpr-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "BackboardCPR",
+                                     "assetIds":  [
+                                                      "94e04da1-2e85-5c8f-a4f5-ade66aa4408a"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "fd586bde-cee3-55fd-a104-0df1e4fb8e22",
+                         "b20c0553-91b0-59e6-869d-8590c0dd4ac9",
+                         "70f1f7ea-8c24-5c1d-9841-99bcb6f7b503"
+                     ]
+}

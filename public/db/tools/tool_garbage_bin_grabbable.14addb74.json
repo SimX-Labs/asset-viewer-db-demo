@@ -1,0 +1,24 @@
+{
+    "id":  "14addb74-e5d5-53a6-870b-d481d4abccac",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Garbage Bin Grabbable",
+    "assetKey":  "tool_garbage_bin_grabbable",
+    "toolId":  "garbage1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_garbage_bin_grabbable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

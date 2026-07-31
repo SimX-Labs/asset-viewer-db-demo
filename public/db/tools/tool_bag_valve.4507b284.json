@@ -1,0 +1,37 @@
+{
+    "id":  "4507b284-26d7-53cf-b5c4-f3173880daf7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bag Valve",
+    "assetKey":  "tool_bag_valve",
+    "toolId":  "bagValve1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_bag_valve.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BagValve",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "litterSmeedSlot",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

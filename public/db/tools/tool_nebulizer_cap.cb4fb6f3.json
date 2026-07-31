@@ -1,0 +1,89 @@
+{
+    "id":  "cb4fb6f3-4e7c-573b-bea1-adfe4e94061b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nebulizer Cap",
+    "assetKey":  "tool_nebulizer_cap",
+    "toolId":  "nebulizerCap",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_nebulizer_cap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NebuCap",
+                             "assetIds":  [
+                                              "61a40680-fb3e-5790-ab46-79726696f34b",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "e31fff76-d618-5485-9eb7-7e30aff19b97",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0",
+                                              "1db737f8-1ae9-5804-b517-6be965594ca0"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

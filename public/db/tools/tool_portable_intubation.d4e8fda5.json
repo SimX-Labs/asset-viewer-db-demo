@@ -1,0 +1,24 @@
+{
+    "id":  "d4e8fda5-9c7a-5347-a95f-a8d03919dd28",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Intubation",
+    "assetKey":  "tool_portable_intubation",
+    "toolId":  "portableIntubation1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_portable_intubation.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id":  "dd983431-355a-5aec-a246-bd28e208c126",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Rdic",
+    "assetKey":  "tool_rdic",
+    "toolId":  "rdic",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_rdic.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationRDIC",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "cricRDIC",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "litterSmeedSlot",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "PatientOxygenIntubationRDIC",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "cricRDICAdapter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

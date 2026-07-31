@@ -1,0 +1,41 @@
+{
+    "id":  "ae156d9b-ddbe-540e-a31d-55a5967135da",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Airforce Fanny Pack",
+    "assetKey":  "kit_airforce_fanny_pack",
+    "toolId":  "airforceFannyPack",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/kit_airforce_fanny_pack.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f74189af-8b51-5003-b362-17f7532d7691",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,58 @@
+{
+    "id":  "80248b68-7f6a-545b-addb-30184d80c8c9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Cannula Saline Lock",
+    "assetKey":  "tool_iv_cannula_saline_lock",
+    "toolId":  "salineLockIvUsed",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_iv_cannula_saline_lock.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ivCannula",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,71 @@
+{
+    "id":  "45691793-79f6-5bf8-b0cc-a2c4d391994a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Colposcope Digital",
+    "assetKey":  "tool_colposcope_digital",
+    "toolId":  "colposcope1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Colposcope/tool_colposcope_digital.prefab",
+    "metadata":  [
+                     {
+                         "id":  "889e2c8e-a9fb-5407-96df-8d3b89b1dece",
+                         "key":  "cameraState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "on",
+                                                "off"
+                                            ],
+                         "defaultValue":  "on",
+                         "examples":  [
+                                          "``on`` / ``off``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "76f192e3-e5c1-5dd2-82bc-b3decc8e9b73",
+                         "key":  "greenFilterApplied",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Green Filter.",
+                         "sourceScripts":  "ColposcopeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f1e26385-dfd6-59aa-806f-1b81f5376efe",
+                         "key":  "zoomLevel",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Camera Zoom.",
+                         "sourceScripts":  "ColposcopeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

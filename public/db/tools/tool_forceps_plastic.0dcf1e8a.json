@@ -1,0 +1,24 @@
+{
+    "id":  "0dcf1e8a-28c9-5892-9c39-1e933ee8577a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Forceps Plastic",
+    "assetKey":  "tool_forceps_plastic",
+    "toolId":  "ForcepsPlastic",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_forceps_plastic.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

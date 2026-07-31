@@ -1,0 +1,77 @@
+{
+    "id":  "da16a26f-abe8-58c0-aa1a-ce498593b410",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pharmaceuticals Box",
+    "assetKey":  "tool_pharmaceuticals_box",
+    "toolId":  "pharmaceuticalsBox",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pharmaceuticals_box.prefab",
+    "metadata":  [
+                     {
+                         "id":  "30985e09-5e21-5409-abd0-6a7f6a4ec43e",
+                         "key":  "environmentOrientation",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "inactive",
+                                                "active"
+                                            ],
+                         "defaultValue":  "inactive",
+                         "examples":  [
+                                          "``inactive`` / ``active``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "c99b0787-9c34-5b05-aa39-d44e696f6072",
+                         "key":  "lidState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "lid1",
+                                                "lid2"
+                                            ],
+                         "defaultValue":  "lid1",
+                         "examples":  [
+                                          "``lid1`` / ``lid2``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "13c50c0e-c9e6-5f66-a7cd-3d24a2a942cb",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

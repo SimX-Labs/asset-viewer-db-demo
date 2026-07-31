@@ -1,0 +1,30 @@
+{
+    "id":  "c1ecc73d-85e5-5001-b322-99dd3697845d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Urinary Collection Box Small",
+    "assetKey":  "tool_urinary_collection_box_small",
+    "toolId":  "urineCollectionBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/UrinaryCollectionBag/tool_urinary_collection_box_small.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "urinaryBag",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

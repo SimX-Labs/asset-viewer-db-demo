@@ -1,0 +1,30 @@
+{
+    "id":  "94eb503a-de5d-57dd-9479-2a15b4f6ce62",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "M8 Paper Sheet",
+    "assetKey":  "tool_m8_paper_sheet",
+    "toolId":  "m8_paper_sheet",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/M8 Paper/tool_m8_paper_sheet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "m8PaperSheetLocation",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

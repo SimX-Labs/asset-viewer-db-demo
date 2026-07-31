@@ -1,0 +1,24 @@
+{
+    "id":  "454d7608-7404-5e14-a06f-6fd378ebf5eb",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Biohazard Bag Red Floor",
+    "assetKey":  "tool_biohazard_bag_red_floor",
+    "toolId":  "biohazardBagRed",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_biohazard_bag_red_floor.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

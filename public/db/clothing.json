@@ -1,0 +1,3026 @@
+[
+    {
+        "id":  "2ec5ff07-6bbc-559d-b4f1-94fcf7cba732",
+        "type":  "clothing",
+        "name":  "Cargo Pant",
+        "assetKey":  "Cargo_pant"
+    },
+    {
+        "id":  "efdde166-852d-5070-8c73-1146dedbe93b",
+        "type":  "clothing",
+        "name":  "Jumper",
+        "assetKey":  "Jumper"
+    },
+    {
+        "id":  "52f1e87b-1aa3-53b9-8ff9-2c8999cb6344",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "a38878ec-af85-5d16-a0e3-a8d99db315ad",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "7d5c3517-8758-53fe-a5d5-de2fcc35658f",
+        "type":  "clothing",
+        "name":  "Scrub Shirt",
+        "assetKey":  "Scrub_Shirt"
+    },
+    {
+        "id":  "cacc55f8-7c94-5312-b1e9-9c96201f654d",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "4fb2ed38-7490-5744-8da5-03659184af02",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "bfd55b3e-5548-571e-aba6-199beb3a1c3d",
+        "type":  "clothing",
+        "name":  "Pencil Skirt",
+        "assetKey":  "Pencil_skirt"
+    },
+    {
+        "id":  "960189fa-bf73-53f0-be46-90b05238454b",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "3a548dc3-4a65-5f14-9353-99d6641579b6",
+        "type":  "clothing",
+        "name":  "Character Adult01 Sterilegloves",
+        "assetKey":  "character_adult01_SterileGloves"
+    },
+    {
+        "id":  "4f4a7a99-2eb4-5e25-b86a-8913df573b5c",
+        "type":  "clothing",
+        "name":  "Vest3",
+        "assetKey":  "Vest3"
+    },
+    {
+        "id":  "d10ca684-2662-5e42-881d-fb5ee1328723",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "aeb0851d-934a-5f1d-8466-15997ac0c5cf",
+        "type":  "clothing",
+        "name":  "Henley Longsleeve",
+        "assetKey":  "Henley_Longsleeve"
+    },
+    {
+        "id":  "8bf61617-5e30-5701-9797-68aefc475648",
+        "type":  "clothing",
+        "name":  "Blazer",
+        "assetKey":  "Blazer"
+    },
+    {
+        "id":  "05054aec-8bf0-5daf-9ea2-2fd0f8040677",
+        "type":  "clothing",
+        "name":  "Pajamatops",
+        "assetKey":  "PajamaTops"
+    },
+    {
+        "id":  "03a4a766-9fad-591e-b8b9-74927a7bd12f",
+        "type":  "clothing",
+        "name":  "T Shirt A",
+        "assetKey":  "T_shirt_A"
+    },
+    {
+        "id":  "83d905c5-2cc6-56aa-aa80-98f30fbe7253",
+        "type":  "clothing",
+        "name":  "Camisole",
+        "assetKey":  "Camisole"
+    },
+    {
+        "id":  "b25ff2c6-e967-5f55-a5df-21c19e5870ef",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "7f88dd61-6556-5b6c-8b3b-96185a21587f",
+        "type":  "clothing",
+        "name":  "Gown Pregnant 9months",
+        "assetKey":  "Gown_Pregnant_9Months"
+    },
+    {
+        "id":  "12cce907-3884-561b-a209-dae655b6302c",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "bf5fb3ec-b5da-5751-9900-64b8661dc39e",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated Wintercamo",
+        "assetKey":  "T_shirt_Decemated_WinterCamo"
+    },
+    {
+        "id":  "3e1c669e-a33f-5e4e-80d1-5b8e6e75f0f8",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "fa8c475a-ff1f-5358-a735-f4f13742bb9c",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "61715db2-fc15-5144-8c2b-66e351f7cd70",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "328295aa-8862-5fe5-bd78-c5e7b8c03b65",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "7278da35-a682-5c3c-8d3e-1ecd11165ac2",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "057e821d-b2ad-5891-9a93-7d97f2d59fb8",
+        "type":  "clothing",
+        "name":  "Henley Longsleeve",
+        "assetKey":  "Henley_Longsleeve"
+    },
+    {
+        "id":  "2745a225-4086-50e3-87e5-2a30d26238b0",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "f141fbe1-b627-5640-9a38-89ea4cd77df4",
+        "type":  "clothing",
+        "name":  "Camisole",
+        "assetKey":  "Camisole"
+    },
+    {
+        "id":  "4538eeb6-771a-59ed-bdf8-1e42b091cc85",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "516d7f20-dca4-5a44-851e-9d6913d22cd0",
+        "type":  "clothing",
+        "name":  "Cargo Pant",
+        "assetKey":  "Cargo_pant"
+    },
+    {
+        "id":  "3aee4c05-2938-5b04-87fa-aceed0f4de39",
+        "type":  "clothing",
+        "name":  "Orion Suit",
+        "assetKey":  "Orion_Suit"
+    },
+    {
+        "id":  "9b6caed2-fc5e-5e98-a241-204c634a2801",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "aab87820-d803-53b8-9efd-976bd4e40c34",
+        "type":  "clothing",
+        "name":  "Pajamabottoms Toddler01",
+        "assetKey":  "PajamaBottoms_Toddler01"
+    },
+    {
+        "id":  "e6f4f584-89eb-544e-9a76-204443d99d8a",
+        "type":  "clothing",
+        "name":  "Orion Boots",
+        "assetKey":  "Orion_Boots"
+    },
+    {
+        "id":  "68fe1780-34f9-5e1b-945c-2e74add589f2",
+        "type":  "clothing",
+        "name":  "Shorts",
+        "assetKey":  "Shorts"
+    },
+    {
+        "id":  "e4963279-85bb-56df-80f9-ff3de09ff8b8",
+        "type":  "clothing",
+        "name":  "Shirt",
+        "assetKey":  "Shirt"
+    },
+    {
+        "id":  "b96fd327-4766-569a-aed9-bb8dd35c249d",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "c3d4ebb0-b958-5136-8ca7-5b5894ab5f4a",
+        "type":  "clothing",
+        "name":  "Low Rise Shorts",
+        "assetKey":  "Low_rise_Shorts"
+    },
+    {
+        "id":  "383f8740-fd84-5702-b928-a29965cfb969",
+        "type":  "clothing",
+        "name":  "Surgeontop",
+        "assetKey":  "SurgeonTop"
+    },
+    {
+        "id":  "98b3ad06-f3c6-522e-acdc-626c0bb283eb",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "212e9665-85d7-5b8c-8326-cd2a2b350c36",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "7a954ec9-e3fe-5a52-a0b3-419becbcd532",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "846bb63e-d4ec-5a94-afd9-32af81cf4b52",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "4c1b75a1-722e-5f22-b840-f209ec802c64",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "2ca4bc62-210f-5ec3-a16b-80be1edad1e7",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "be17abd9-2c62-5578-a628-c9266fe472df",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "0eb78898-ee00-565b-9d07-9fa765b3a16d",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "0687e1c1-fd28-5651-9746-b3226ab52181",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "64e015e4-2c92-56fd-abaa-e36b667826bc",
+        "type":  "clothing",
+        "name":  "Diaper",
+        "assetKey":  "Diaper"
+    },
+    {
+        "id":  "0a6fc765-0627-5a0b-a5f4-4e21badb8dd8",
+        "type":  "clothing",
+        "name":  "Pencil Skirt",
+        "assetKey":  "Pencil_skirt"
+    },
+    {
+        "id":  "440cfeff-adaf-51b1-91aa-251d6cad74c5",
+        "type":  "clothing",
+        "name":  "Low Rise Shorts",
+        "assetKey":  "Low_rise_Shorts"
+    },
+    {
+        "id":  "017e28ff-57d1-5f74-a3c2-7de3fb1878ac",
+        "type":  "clothing",
+        "name":  "Classic Shorts Cut",
+        "assetKey":  "Classic_Shorts_Cut"
+    },
+    {
+        "id":  "8f853e9f-3ac8-5ea4-80df-bb88aa723835",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "93cdab98-7a8e-5368-8409-1da9e4cddd05",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "aa4b5955-e1c2-5f02-98d9-0e3d7a93b3cd",
+        "type":  "clothing",
+        "name":  "Cargo Pant Usaf",
+        "assetKey":  "Cargo_pant_USAF"
+    },
+    {
+        "id":  "782aa836-1214-5cad-8c99-70a35abb9154",
+        "type":  "clothing",
+        "name":  "Shorts",
+        "assetKey":  "Shorts"
+    },
+    {
+        "id":  "05a53bfd-6330-53a4-990c-17b9556ea6fc",
+        "type":  "clothing",
+        "name":  "Orion Boots",
+        "assetKey":  "Orion_Boots"
+    },
+    {
+        "id":  "7769591c-8f0b-5c68-ba5f-e998aee43c97",
+        "type":  "clothing",
+        "name":  "Police Shoes Bl",
+        "assetKey":  "Police_Shoes_BL"
+    },
+    {
+        "id":  "b11195c0-5f00-55a5-bf3a-7dfbabc93853",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "1571320f-9a75-58f5-b79d-364c0879d819",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "2f2fa4b5-9c03-55f5-a9aa-9abd613d6a21",
+        "type":  "clothing",
+        "name":  "Camisole",
+        "assetKey":  "Camisole"
+    },
+    {
+        "id":  "cec2ca6c-bcfa-5180-a393-9418ff46961f",
+        "type":  "clothing",
+        "name":  "Blazer",
+        "assetKey":  "Blazer"
+    },
+    {
+        "id":  "eb4e7c4a-f806-5a8e-bd13-0dd68c634c91",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "4b35d653-4244-5aef-b392-55cfa48e0c64",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "086f0be9-4b6c-5082-bd5b-769304e2cb2b",
+        "type":  "clothing",
+        "name":  "Sneakers B",
+        "assetKey":  "Sneakers_B"
+    },
+    {
+        "id":  "fe03df52-78d9-52da-b355-2cfea04e774b",
+        "type":  "clothing",
+        "name":  "Cargo Pant Somali",
+        "assetKey":  "Cargo_pant_Somali"
+    },
+    {
+        "id":  "62e27737-b164-5ef2-b230-b3e22f2a6cbe",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "0db63819-da16-5bb9-9de4-8488cfc0aa51",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "c6af18dd-4643-5fd6-be39-2ed8af760414",
+        "type":  "clothing",
+        "name":  "T Shirt B",
+        "assetKey":  "T_shirt_B"
+    },
+    {
+        "id":  "3a8ffb1d-62c4-591c-b4c0-eede72f33782",
+        "type":  "clothing",
+        "name":  "Pajamatop Toddler01",
+        "assetKey":  "PajamaTop_Toddler01"
+    },
+    {
+        "id":  "e591a042-7441-50ed-b11d-2e62658b3a09",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "d34b9362-8f6c-50a4-9fef-3ad9c16b7f59",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated",
+        "assetKey":  "T_shirt_Decemated"
+    },
+    {
+        "id":  "8c1bdadf-46e4-5757-8354-38e37759422d",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "0ff260c0-ba1b-5205-945d-00d96d7c952d",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated-af",
+        "assetKey":  "T_shirt_Decemated-AF"
+    },
+    {
+        "id":  "2ca13cdb-e450-5ba5-a368-b93cae1e493d",
+        "type":  "clothing",
+        "name":  "Rocker Jeans",
+        "assetKey":  "Rocker_Jeans"
+    },
+    {
+        "id":  "c68e097b-fb3f-5504-85ff-226bd95a4c34",
+        "type":  "clothing",
+        "name":  "Open Collar Short Sleeves Shirt",
+        "assetKey":  "Open_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "ef42f981-b445-56b1-84e5-7fb013342fad",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "0a4a0105-62d0-5322-9848-d8850495582f",
+        "type":  "clothing",
+        "name":  "Jumper",
+        "assetKey":  "Jumper"
+    },
+    {
+        "id":  "25c470fc-a57b-5738-a0f2-3365cbb0bc97",
+        "type":  "clothing",
+        "name":  "Winterpants",
+        "assetKey":  "WinterPants"
+    },
+    {
+        "id":  "69923107-1952-5287-a916-b8198ea5a000",
+        "type":  "clothing",
+        "name":  "Leather Shoes",
+        "assetKey":  "Leather_shoes"
+    },
+    {
+        "id":  "2f06f79e-6bfe-5eeb-b998-84a8cae31651",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "3dcc999a-a96b-591c-ae60-7b687831b1cd",
+        "type":  "clothing",
+        "name":  "Glove R Light Blue",
+        "assetKey":  "Glove_R_Light_Blue"
+    },
+    {
+        "id":  "ba7dca1f-a5c0-5b43-8f21-c75c0ce0e474",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "4d91221c-0c8e-547b-903f-b642b2124657",
+        "type":  "clothing",
+        "name":  "Pants Tactical",
+        "assetKey":  "Pants_Tactical"
+    },
+    {
+        "id":  "d9d8f4a7-8f17-5319-8edc-3b0934478e48",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "e25904f5-6e13-55d1-8360-b0c5418d8ec7",
+        "type":  "clothing",
+        "name":  "Field Jacket Marines",
+        "assetKey":  "Field_Jacket_Marines"
+    },
+    {
+        "id":  "896a49df-3a43-59a2-bc37-0b76b03ef224",
+        "type":  "clothing",
+        "name":  "Skinny Pants",
+        "assetKey":  "Skinny_Pants"
+    },
+    {
+        "id":  "050c367a-5d37-5af3-bbec-067e4790b2db",
+        "type":  "clothing",
+        "name":  "Slacks Cut",
+        "assetKey":  "Slacks_Cut"
+    },
+    {
+        "id":  "9fed4f60-ba3d-5240-ae93-a07761cbf441",
+        "type":  "clothing",
+        "name":  "Cargo Pant Wintercamo",
+        "assetKey":  "Cargo_pant_WinterCamo"
+    },
+    {
+        "id":  "41794260-dfe0-5c55-8064-f9fa85201dea",
+        "type":  "clothing",
+        "name":  "Cardigan",
+        "assetKey":  "Cardigan"
+    },
+    {
+        "id":  "0c39e0f1-9268-56cb-bd73-5ee1768e557f",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "bea92a49-1be0-53f0-ade3-6c54db5e6e11",
+        "type":  "clothing",
+        "name":  "Shirt",
+        "assetKey":  "Shirt"
+    },
+    {
+        "id":  "a6be6e53-bfb0-5c78-97f2-81c7a2debeca",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "6710e7a6-98d5-5422-af2c-695012c3fb4d",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "f1916730-557b-5ce3-b70b-edba4cd5aa07",
+        "type":  "clothing",
+        "name":  "Camisole",
+        "assetKey":  "Camisole"
+    },
+    {
+        "id":  "f475fb54-8f79-5245-8e25-82b97c557e28",
+        "type":  "clothing",
+        "name":  "Scrubs Shirt",
+        "assetKey":  "Scrubs_Shirt"
+    },
+    {
+        "id":  "de6c6a32-715f-58b8-a9d2-21a9ee6b2aa6",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "727f79d4-c7e4-5f40-b909-d78f20c95845",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "3a1c12a5-ed08-5cfe-aa3a-60b8d0560ffa",
+        "type":  "clothing",
+        "name":  "Flip Flops",
+        "assetKey":  "Flip_flops"
+    },
+    {
+        "id":  "764b0eba-46b5-5ce8-a0e5-855114f1094c",
+        "type":  "clothing",
+        "name":  "Business Shirt",
+        "assetKey":  "Business_Shirt"
+    },
+    {
+        "id":  "02a2808b-2307-5d03-9c3c-f1c2b6bacd25",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "d4fa24df-49a6-5a95-99df-a9cc6c526032",
+        "type":  "clothing",
+        "name":  "Gloves",
+        "assetKey":  "Gloves"
+    },
+    {
+        "id":  "1918ad79-68e3-5a49-befa-efa05aa8df1f",
+        "type":  "clothing",
+        "name":  "Boots Gi",
+        "assetKey":  "Boots_GI"
+    },
+    {
+        "id":  "0af30a0c-b6ca-5992-aaa0-d3ea23082371",
+        "type":  "clothing",
+        "name":  "Flip Flops",
+        "assetKey":  "Flip_flops"
+    },
+    {
+        "id":  "5e85d627-fbfd-559f-a7ed-e62afa18b24c",
+        "type":  "clothing",
+        "name":  "Flip Flops",
+        "assetKey":  "Flip_flops"
+    },
+    {
+        "id":  "bcc25014-7198-504f-8c33-ff911ebc9a34",
+        "type":  "clothing",
+        "name":  "Open Collar Long Sleeves Shirt",
+        "assetKey":  "Open_collar_long_sleeves_shirt"
+    },
+    {
+        "id":  "faddbbf1-74cb-5ea7-8cfe-44fc9acd230f",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "f20d81eb-ff25-54c2-bd1d-6127b95239e8",
+        "type":  "clothing",
+        "name":  "Tank Top",
+        "assetKey":  "Tank_top"
+    },
+    {
+        "id":  "7fc68a82-c621-5fd6-a992-83ead90560ed",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "696b81e2-e187-597e-bbfa-2dfed529d52d",
+        "type":  "clothing",
+        "name":  "Biker Jeans",
+        "assetKey":  "Biker_Jeans"
+    },
+    {
+        "id":  "2f230960-5289-5dbc-9286-e65277e07fa4",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "7d9d10d7-3810-5961-b19a-f280f62aa264",
+        "type":  "clothing",
+        "name":  "Camisole Toppulledup",
+        "assetKey":  "Camisole_TopPulledUp"
+    },
+    {
+        "id":  "a772f821-2f61-5925-bc29-d731d7a88ab5",
+        "type":  "clothing",
+        "name":  "Cardigan",
+        "assetKey":  "Cardigan"
+    },
+    {
+        "id":  "fa8f0588-8e6f-5e24-a039-1db5916f93bc",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "71d58a64-7cda-5220-b6fc-07d8ed5c1358",
+        "type":  "clothing",
+        "name":  "Scrubs Shirt",
+        "assetKey":  "Scrubs_Shirt"
+    },
+    {
+        "id":  "462267e5-2c34-5e99-82f7-b22e95e1c998",
+        "type":  "clothing",
+        "name":  "Blazer",
+        "assetKey":  "Blazer"
+    },
+    {
+        "id":  "b2517eef-44e4-5102-96f7-3c07c3c8adf9",
+        "type":  "clothing",
+        "name":  "Bra 01",
+        "assetKey":  "Bra_01"
+    },
+    {
+        "id":  "a341b70e-0b17-5aca-bd3a-ad66d466eec7",
+        "type":  "clothing",
+        "name":  "Classic Shorts Cut",
+        "assetKey":  "Classic_Shorts_Cut"
+    },
+    {
+        "id":  "195a484f-f5a7-5fad-bd2d-256f891aa8f9",
+        "type":  "clothing",
+        "name":  "V Neck Scrub Shirt",
+        "assetKey":  "V_Neck_Scrub_Shirt"
+    },
+    {
+        "id":  "71cadfc2-6a3b-53ae-a79c-7588a2663319",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "de4d9d4e-bf1c-501e-ac92-784391096866",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "07f39884-99ca-5a2e-a086-afccffd38786",
+        "type":  "clothing",
+        "name":  "Scarf",
+        "assetKey":  "Scarf"
+    },
+    {
+        "id":  "99ce8e75-2397-5d0b-9257-3ba9f3e7a38a",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "c5202bff-fd53-53a9-a6b8-2e18a6437449",
+        "type":  "clothing",
+        "name":  "Bottoms",
+        "assetKey":  "Bottoms"
+    },
+    {
+        "id":  "8ca89126-7794-5942-8464-f528a34e24c9",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "908bbd9d-b111-5ad8-bf5b-7ba4bb9d0d4e",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "233154c1-abfa-5875-88c8-21e9d49ff800",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "ce4e0253-1eae-53c3-bb6a-d69e92c21f4e",
+        "type":  "clothing",
+        "name":  "Winterjacket",
+        "assetKey":  "WinterJacket"
+    },
+    {
+        "id":  "3a3a6c57-b003-5ffa-ad48-5edb8506ce90",
+        "type":  "clothing",
+        "name":  "Dragon Gloves",
+        "assetKey":  "Dragon_Gloves"
+    },
+    {
+        "id":  "791c14a8-ec08-5030-a008-16a6d14fbdf9",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "74649409-786c-5ed1-be6a-635fbeed5c5d",
+        "type":  "clothing",
+        "name":  "Tunic",
+        "assetKey":  "Tunic"
+    },
+    {
+        "id":  "f114f252-42c1-5333-b757-dec6bccbb12b",
+        "type":  "clothing",
+        "name":  "Bandana",
+        "assetKey":  "Bandana"
+    },
+    {
+        "id":  "ac6eba40-d117-5be5-85b9-9007329a4683",
+        "type":  "clothing",
+        "name":  "Flip Flops",
+        "assetKey":  "Flip_flops"
+    },
+    {
+        "id":  "83a5994a-ec79-5560-bb1b-3c0f858be4d7",
+        "type":  "clothing",
+        "name":  "Camisole",
+        "assetKey":  "Camisole"
+    },
+    {
+        "id":  "d2839137-3430-5004-827f-c702f0f3fb11",
+        "type":  "clothing",
+        "name":  "Field Jacket Usaf",
+        "assetKey":  "Field_Jacket_USAF"
+    },
+    {
+        "id":  "0c202606-b744-5d1b-ae16-66d6054b6695",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "fc74a2b8-a743-53fb-ba9a-092ef6a0d97d",
+        "type":  "clothing",
+        "name":  "Low Rise Shorts",
+        "assetKey":  "Low_rise_Shorts"
+    },
+    {
+        "id":  "c6602a9b-a257-5a50-ac79-103e9fd690f2",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "d795bffd-a296-5fb3-bfb5-07a8bad506d5",
+        "type":  "clothing",
+        "name":  "Tunic Cut",
+        "assetKey":  "Tunic_Cut"
+    },
+    {
+        "id":  "e387429e-7f57-583d-8414-18d337caf4a8",
+        "type":  "clothing",
+        "name":  "Shorts",
+        "assetKey":  "Shorts"
+    },
+    {
+        "id":  "32ec13f4-d1cd-5830-a0c3-c1568416f452",
+        "type":  "clothing",
+        "name":  "Field Jacket",
+        "assetKey":  "Field_Jacket"
+    },
+    {
+        "id":  "c9337e70-0420-5a4b-b5dd-cca1c6729ed0",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "1a2f6d1d-32ac-52ad-9a5f-df516eeba2da",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "172446c1-57cf-5163-b8ba-2339560eed76",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "60cf0918-a196-5528-959a-b2f42ff742c7",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "efa2dd42-c3d4-59a4-984b-560a8d39dedd",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt",
+        "assetKey":  "Close_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "8ae752de-ec96-521a-ad6d-3321a0f4f0f0",
+        "type":  "clothing",
+        "name":  "Wintergloves",
+        "assetKey":  "WinterGloves"
+    },
+    {
+        "id":  "0cb027f6-3ed2-5ea7-aac1-fa21b0e1b30a",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "672655b3-343e-5b85-b9ca-0606d6f18768",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "c315a21b-ff98-56e6-9552-7b5ed92b0438",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "b7f3061e-6cfc-5e2c-ad89-21ff201e5702",
+        "type":  "clothing",
+        "name":  "Tunic",
+        "assetKey":  "Tunic"
+    },
+    {
+        "id":  "c0417cf4-00ed-5d60-92dd-d001c0b1615d",
+        "type":  "clothing",
+        "name":  "Glove L White",
+        "assetKey":  "Glove_L_White"
+    },
+    {
+        "id":  "33fbea28-1e08-566d-8049-163ff62d3c85",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "8fd5034b-04f3-5533-81b4-0963fd2d0536",
+        "type":  "clothing",
+        "name":  "Short Cowboy Boots",
+        "assetKey":  "Short_cowboy_boots"
+    },
+    {
+        "id":  "06e93487-2326-58b9-8402-b174979b9dfa",
+        "type":  "clothing",
+        "name":  "Business Shirt",
+        "assetKey":  "Business_Shirt"
+    },
+    {
+        "id":  "3d23c67a-091b-5323-a60f-46604a5d7bcb",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve Marines",
+        "assetKey":  "Field_Jacket_ShortSleeve_Marines"
+    },
+    {
+        "id":  "c9310a62-7605-50ae-879f-12e693510aac",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "266c3767-ec12-5cc1-94b5-ee2dd1d5ca5a",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "036bd397-7d6b-5c7e-b337-275c61c7bf8a",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "14b2da20-b5d9-5b07-b5f9-ce79b664cbcb",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "ee7a11cf-9b81-5ab8-a402-016293e43c55",
+        "type":  "clothing",
+        "name":  "Orion Boots",
+        "assetKey":  "Orion_Boots"
+    },
+    {
+        "id":  "48e815a6-c692-54ea-85a9-f01c97ae7094",
+        "type":  "clothing",
+        "name":  "Pants Tactical",
+        "assetKey":  "Pants_Tactical"
+    },
+    {
+        "id":  "87effcd7-5d45-59dc-a2ce-c5733d9acf58",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "d3da555f-502e-5b5b-8334-9ce4ebffdb5e",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "12816964-dc1e-5a4a-875a-865b37f53370",
+        "type":  "clothing",
+        "name":  "Teddybearpin",
+        "assetKey":  "TeddyBearPin"
+    },
+    {
+        "id":  "37d282bd-b41e-52b3-bd3d-b932b04fe677",
+        "type":  "clothing",
+        "name":  "Cargo Pant German",
+        "assetKey":  "Cargo_pant_German"
+    },
+    {
+        "id":  "96190d8a-14f0-5e03-a279-52e2974748e4",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "3275e20c-fe3d-5536-87ea-d95e75bdc6c5",
+        "type":  "clothing",
+        "name":  "Pencilskirt",
+        "assetKey":  "PencilSkirt"
+    },
+    {
+        "id":  "1173d5a4-cac3-5bee-8b3d-a8376e0256bc",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "922bf244-64c1-5b93-81dc-ab58dee4edf4",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "628ff982-fa18-5de1-8302-9c15024b628e",
+        "type":  "clothing",
+        "name":  "Boots",
+        "assetKey":  "Boots"
+    },
+    {
+        "id":  "ba929864-43ba-52e0-94b5-c156b5f31f47",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "379abd74-8649-54e7-85dc-8d3b5bec5a19",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "75ba4f59-8b02-58f7-9c7c-2ddc7341c608",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "6908bedf-4de7-5cd6-b042-f87dc316fcdb",
+        "type":  "clothing",
+        "name":  "Cargo Pant Marines",
+        "assetKey":  "Cargo_pant_Marines"
+    },
+    {
+        "id":  "a5db98de-55d3-56af-9bbd-e2743f65e669",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "7d63edb2-e6cd-5370-ac8f-1932cb03ffe9",
+        "type":  "clothing",
+        "name":  "Shirt",
+        "assetKey":  "Shirt"
+    },
+    {
+        "id":  "7e43b92a-69cd-57b5-8f2c-4aba2101eb23",
+        "type":  "clothing",
+        "name":  "Winterpants",
+        "assetKey":  "WinterPants"
+    },
+    {
+        "id":  "c3faa04b-b2e4-587f-a9d6-c89341569897",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "95ecdd74-846f-558f-98c8-b51a0fb7efa9",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "0afbe5ea-8bc6-53ff-bb9e-16db045437e9",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "da7523a0-b9f3-5608-9d23-adeb005f7534",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated Winter",
+        "assetKey":  "T_shirt_Decemated_Winter"
+    },
+    {
+        "id":  "5d26b28c-a4fb-59a3-9c0a-e119f9acd904",
+        "type":  "clothing",
+        "name":  "Shirt",
+        "assetKey":  "Shirt"
+    },
+    {
+        "id":  "0499bcef-9dfd-5e16-9c78-9fd854da8ea2",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "e804338a-ddb5-5211-b168-81f8a7ad08ba",
+        "type":  "clothing",
+        "name":  "Scrub Shirt",
+        "assetKey":  "Scrub_Shirt"
+    },
+    {
+        "id":  "b9181a23-9ad5-56d2-96e7-8ad63482f593",
+        "type":  "clothing",
+        "name":  "T Shirt B",
+        "assetKey":  "T_Shirt_B"
+    },
+    {
+        "id":  "2d42eb49-ae68-58c2-b165-9ac5ee30af5c",
+        "type":  "clothing",
+        "name":  "Boxersforgown",
+        "assetKey":  "BoxersForGown"
+    },
+    {
+        "id":  "c1dbb4fd-f3d9-550a-b8a9-580de6f5cc49",
+        "type":  "clothing",
+        "name":  "Jeans B",
+        "assetKey":  "Jeans_B"
+    },
+    {
+        "id":  "f39f1ced-dda8-5896-9b90-9ffc22039fe5",
+        "type":  "clothing",
+        "name":  "Pencilskirt",
+        "assetKey":  "PencilSkirt"
+    },
+    {
+        "id":  "2c1e6b1c-244c-5164-99d2-b806dea9aae4",
+        "type":  "clothing",
+        "name":  "Leather Shoes",
+        "assetKey":  "Leather_shoes"
+    },
+    {
+        "id":  "e3685fb1-8185-58a6-8c22-4ab3dae9217f",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve Usaf",
+        "assetKey":  "Field_Jacket_ShortSleeve_USAF"
+    },
+    {
+        "id":  "6b427f10-ca15-5944-b809-fb3b56dc3713",
+        "type":  "clothing",
+        "name":  "Winterboots",
+        "assetKey":  "WinterBoots"
+    },
+    {
+        "id":  "3207459e-7213-5b26-a0f6-b36358fddb55",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "44782623-e795-5283-93a5-8c73dafe3d19",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "34cf35e1-037c-5f6f-a7b3-e50cfb693dba",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "abfb82f6-5ad8-54de-9f60-4cc642d717c3",
+        "type":  "clothing",
+        "name":  "T Shirt Cut",
+        "assetKey":  "T_shirt_Cut"
+    },
+    {
+        "id":  "f435d1da-1214-584b-9156-05575528ed3b",
+        "type":  "clothing",
+        "name":  "Bra",
+        "assetKey":  "Bra"
+    },
+    {
+        "id":  "f2d246a3-43cd-5e57-ac3e-31fac25071ef",
+        "type":  "clothing",
+        "name":  "Field Jacket Usaf Dirty Bloody",
+        "assetKey":  "Field_Jacket_USAF_Dirty_Bloody"
+    },
+    {
+        "id":  "732f91a3-1915-5c8b-8da8-14629700b7e3",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "73a349c7-e51e-5975-a824-20acaac67636",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "d8900165-5bcf-5380-b92f-986796a78eea",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "aeed0b5a-3b4e-5cb6-8d4a-41daea531a41",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "7aa90cef-edae-5ced-899d-fe799dd53020",
+        "type":  "clothing",
+        "name":  "Orion Glove L",
+        "assetKey":  "Orion_Glove_L"
+    },
+    {
+        "id":  "e5d21641-85b2-59ad-8c41-22ef3321e6b1",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "344ca4fe-b469-520c-81aa-3662e8f4b329",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "2c74bb08-736f-5d9b-b612-5fb88949ae1c",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "7f8ae305-66b8-5093-843f-7d2f9cb76129",
+        "type":  "clothing",
+        "name":  "Strap Top",
+        "assetKey":  "Strap_Top"
+    },
+    {
+        "id":  "a000a5da-f8c4-57e9-9cd9-aa033bc06470",
+        "type":  "clothing",
+        "name":  "Field Jacket Usaf 01",
+        "assetKey":  "Field_Jacket_USAF_01"
+    },
+    {
+        "id":  "19d607a7-5c39-57dd-8304-50895ba9bcf4",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "efa8126e-8f59-5fce-b33d-44b914bf62bf",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "ff571c7b-bdd0-5e34-9b9f-73e331f42d63",
+        "type":  "clothing",
+        "name":  "Gown top",
+        "assetKey":  "Gown Top"
+    },
+    {
+        "id":  "dbaf635e-6372-58ab-ac7b-1fd2e43e638d",
+        "type":  "clothing",
+        "name":  "Cargo Pant Usaf Soiled",
+        "assetKey":  "Cargo_pant_USAF_soiled"
+    },
+    {
+        "id":  "e67cb396-5a0f-582d-99e3-ce33893daa34",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "22b1c05f-06e7-542d-8264-a4dcf941c9d6",
+        "type":  "clothing",
+        "name":  "Skinny Pants",
+        "assetKey":  "Skinny_Pants"
+    },
+    {
+        "id":  "7de693db-bc46-541e-97f5-603a0fcab33c",
+        "type":  "clothing",
+        "name":  "Dragon Pants",
+        "assetKey":  "Dragon_Pants"
+    },
+    {
+        "id":  "ffa7755d-f4b1-5412-a634-9142011b1079",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "3bee7654-f511-5e5a-9bf5-8a17d8c28d2a",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms",
+        "assetKey":  "Underwear_Bottoms"
+    },
+    {
+        "id":  "f21a70b9-f00d-53f3-b5a8-27c0079fdfc5",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "5fbf9cea-a346-5953-9045-5592eede8d00",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "b47f48b5-6a21-55c1-b380-7efc165a2d03",
+        "type":  "clothing",
+        "name":  "4 Sleeves Tops",
+        "assetKey":  "__4_sleeves_tops"
+    },
+    {
+        "id":  "02142e11-849b-5b29-aa34-a922410f1add",
+        "type":  "clothing",
+        "name":  "Socks",
+        "assetKey":  "Socks"
+    },
+    {
+        "id":  "43170bb1-e859-5480-975f-a8bbec5f623d",
+        "type":  "clothing",
+        "name":  "Gown Pregnant 22weeks",
+        "assetKey":  "Gown_Pregnant_22Weeks"
+    },
+    {
+        "id":  "837c7806-9367-506c-8b02-b5490f99f2a8",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "6dfbbfb3-09b8-5c8a-8494-bb25f55ab9a8",
+        "type":  "clothing",
+        "name":  "Winterboots",
+        "assetKey":  "WinterBoots"
+    },
+    {
+        "id":  "e6ca169d-bd97-5788-b18c-82877612e572",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated-wintercamo",
+        "assetKey":  "T_shirt_Decemated-WinterCamo"
+    },
+    {
+        "id":  "425827b5-6d80-53d5-980f-3f0ca1729f5d",
+        "type":  "clothing",
+        "name":  "Longsleevedshirt",
+        "assetKey":  "LongSleevedShirt"
+    },
+    {
+        "id":  "04f6a212-8d09-51c1-bf97-e70466445705",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "9d44a395-0fb1-55eb-a802-8f9b16418a03",
+        "type":  "clothing",
+        "name":  "Field Jacket German",
+        "assetKey":  "Field_Jacket_German"
+    },
+    {
+        "id":  "0df48382-1834-58e2-985b-9fb898cea987",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "0442f050-67a0-598b-adf0-91299a203c2d",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "ae0e6058-9a34-513b-a710-e8985454d8a7",
+        "type":  "clothing",
+        "name":  "Leather Shoes",
+        "assetKey":  "Leather_shoes"
+    },
+    {
+        "id":  "03a17340-6bf8-5fee-af99-286dad0404a3",
+        "type":  "clothing",
+        "name":  "Pencilskirt",
+        "assetKey":  "PencilSkirt"
+    },
+    {
+        "id":  "0fd7cd9c-b36d-5f6d-b967-ce06b7e311b4",
+        "type":  "clothing",
+        "name":  "Boots Wintercamo",
+        "assetKey":  "Boots_WinterCamo"
+    },
+    {
+        "id":  "a2482dbf-f195-55b0-a5f5-452b041ec4d3",
+        "type":  "clothing",
+        "name":  "Henley Longsleeve",
+        "assetKey":  "Henley_Longsleeve"
+    },
+    {
+        "id":  "c3283de2-1b50-5226-bad5-212f34a39615",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "dc09aa9f-739c-51cf-ad01-c14787c59446",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "e43e53ae-52af-52eb-8aa1-b934f2ad9393",
+        "type":  "clothing",
+        "name":  "Hijab Neck",
+        "assetKey":  "Hijab_Neck"
+    },
+    {
+        "id":  "eee43bad-00be-5538-b99a-951527709052",
+        "type":  "clothing",
+        "name":  "Shirt",
+        "assetKey":  "Shirt"
+    },
+    {
+        "id":  "66534e70-2e64-528f-a604-6c4e6f963f2d",
+        "type":  "clothing",
+        "name":  "Shoes Slipons",
+        "assetKey":  "Shoes_SlipOns"
+    },
+    {
+        "id":  "c7dd06df-f879-590c-95a3-747121330097",
+        "type":  "clothing",
+        "name":  "Pajamabottoms",
+        "assetKey":  "PajamaBottoms"
+    },
+    {
+        "id":  "cf6b1aa6-efa2-539e-ac80-f70f67993e8b",
+        "type":  "clothing",
+        "name":  "Cardigan",
+        "assetKey":  "Cardigan"
+    },
+    {
+        "id":  "09f6819b-8729-5bd6-a247-4e5831266ceb",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "6e76ef97-054a-5a5d-8e90-3556b11af67b",
+        "type":  "clothing",
+        "name":  "Tank Top",
+        "assetKey":  "Tank_top"
+    },
+    {
+        "id":  "42b18c31-ee45-545c-aaac-98d04eb6b0a7",
+        "type":  "clothing",
+        "name":  "Business Shirt",
+        "assetKey":  "Business_Shirt"
+    },
+    {
+        "id":  "b7dae5ed-6f28-5891-afa8-04cbc64e8ba5",
+        "type":  "clothing",
+        "name":  "Winterjacket",
+        "assetKey":  "WinterJacket"
+    },
+    {
+        "id":  "f71e33c7-297f-500b-ba3a-edb0ca329762",
+        "type":  "clothing",
+        "name":  "Punk Leather Jacket",
+        "assetKey":  "Punk_Leather_Jacket"
+    },
+    {
+        "id":  "8b20437a-5c6a-54f1-9ae1-7e48c87e7541",
+        "type":  "clothing",
+        "name":  "T Shirt Cut",
+        "assetKey":  "T_shirt_Cut"
+    },
+    {
+        "id":  "bdfeff71-d362-5311-85c3-82114c85a79e",
+        "type":  "clothing",
+        "name":  "Business Shirt",
+        "assetKey":  "Business_Shirt"
+    },
+    {
+        "id":  "71fcd654-9ab3-500a-aa37-0038f7f061eb",
+        "type":  "clothing",
+        "name":  "Gown Opened",
+        "assetKey":  "Gown_Opened"
+    },
+    {
+        "id":  "8977beb7-cc77-5593-a745-0b947056cb95",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "9ebd6a24-0d17-57a2-b05e-177250158d23",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "956f427e-0cfd-5ad2-9776-91b3703a95eb",
+        "type":  "clothing",
+        "name":  "Henley Longsleeve",
+        "assetKey":  "Henley_Longsleeve"
+    },
+    {
+        "id":  "37ca2c01-bb68-5e7d-b470-8a022fc8b1a9",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "e7d60093-39c9-5be8-bfb2-98fed3a67fee",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "aaf4f2a4-219e-5e49-9a5e-156259e95acf",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "61128b1c-5443-526a-a4d4-f33c58634958",
+        "type":  "clothing",
+        "name":  "Scrubs Shirt",
+        "assetKey":  "Scrubs_Shirt"
+    },
+    {
+        "id":  "6ab4cad7-aeed-5099-a256-11f45d3c17b0",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "c4a2718a-0ccf-5448-9752-4003076f3b43",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "edbe9d6e-82b0-5822-a6c5-6ee02a3c3945",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve",
+        "assetKey":  "Field_Jacket_ShortSleeve"
+    },
+    {
+        "id":  "6b948b64-180c-5375-94a8-6a1980188faf",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "7c78a419-caf9-5710-b3aa-0d9df9369e12",
+        "type":  "clothing",
+        "name":  "Pencilskirt",
+        "assetKey":  "PencilSkirt"
+    },
+    {
+        "id":  "ece79253-1bc8-52e0-ad3a-0d9321bc060f",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "2ab3c410-9c68-594c-a63b-634619014822",
+        "type":  "clothing",
+        "name":  "Skirt",
+        "assetKey":  "Skirt"
+    },
+    {
+        "id":  "1d239769-4859-5272-a77f-f035138468ce",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "d50eda34-6a78-545e-bffe-68949dc194af",
+        "type":  "clothing",
+        "name":  "Field Jacket Wintercamo",
+        "assetKey":  "Field_Jacket_WinterCamo"
+    },
+    {
+        "id":  "52680084-2e02-5b13-846f-4613b2e4ebd6",
+        "type":  "clothing",
+        "name":  "Field Jacket Usaf Muddy",
+        "assetKey":  "Field_Jacket_USAF_Muddy"
+    },
+    {
+        "id":  "ed3beca3-ce82-5cd7-aa70-061f5b9a0171",
+        "type":  "clothing",
+        "name":  "Dragon Boots",
+        "assetKey":  "Dragon_Boots"
+    },
+    {
+        "id":  "d0003d7a-ac52-5e6b-bd92-40e0e111fec6",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "b3b48e6d-915c-5059-b27f-6d80df0d4d8b",
+        "type":  "clothing",
+        "name":  "Shirt Plaid",
+        "assetKey":  "Shirt_Plaid"
+    },
+    {
+        "id":  "3cc09d46-6226-5a40-9051-064d11cb399c",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "8964be67-bd7d-5c8b-8674-9de3193c2a34",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt",
+        "assetKey":  "Close_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "822bbf05-fb18-5a0b-bb91-9a1918ae77f9",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "676ec593-4192-5a65-92bc-64fe7ab7b8fe",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "e2438a5b-9c20-59a7-939c-d9768012b473",
+        "type":  "clothing",
+        "name":  "Boxers",
+        "assetKey":  "Boxers"
+    },
+    {
+        "id":  "b1b8758d-f090-5cf1-9ee9-e9f67e22f20a",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "9a567fc7-b29f-5729-b068-9447020c90f8",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "efd25626-4a85-584c-841f-f40dd9bd36ce",
+        "type":  "clothing",
+        "name":  "Tank Top",
+        "assetKey":  "Tank_top"
+    },
+    {
+        "id":  "82a180fb-2326-5166-b291-4ae27b1c0ae8",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "779d51f9-9599-5e07-aff9-3d8f74422a1d",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "f23137ab-16d7-5415-9de5-d1e7f036a221",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "8f2a1d28-c9c9-58bc-88ea-ddd213472490",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "471034f0-b75c-52e4-a7fa-23c1ddca59a4",
+        "type":  "clothing",
+        "name":  "T Shirt Military",
+        "assetKey":  "T_shirt_Military"
+    },
+    {
+        "id":  "023a1dce-2dae-589a-97b2-b474a6221409",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated",
+        "assetKey":  "T_shirt_Decemated"
+    },
+    {
+        "id":  "ced3c482-f853-56cb-8455-c88367512524",
+        "type":  "clothing",
+        "name":  "Open Collar Long Sleeves Shirt",
+        "assetKey":  "Open_collar_long_sleeves_shirt"
+    },
+    {
+        "id":  "65f876c9-5f84-5819-b46d-ac5934249d90",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "592f61c1-5e7d-5428-a197-df784295fe2f",
+        "type":  "clothing",
+        "name":  "Classic Shorts",
+        "assetKey":  "Classic_Shorts"
+    },
+    {
+        "id":  "ca8fb406-c5e1-566b-a8c9-924574493cdc",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "dd3a41b4-9c9a-5810-8327-50c8fe8690fe",
+        "type":  "clothing",
+        "name":  "Cargo Pant German Bloody",
+        "assetKey":  "Cargo_pant_German_Bloody"
+    },
+    {
+        "id":  "24e20bfa-0ba9-5c5f-a6bd-702b4d61bf49",
+        "type":  "clothing",
+        "name":  "Low Rise Shorts",
+        "assetKey":  "Low_rise_Shorts"
+    },
+    {
+        "id":  "5fb2f6be-609e-5def-920a-f6a79a19b468",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "0475805a-a745-54c2-997f-38d704c2b799",
+        "type":  "clothing",
+        "name":  "Cargo Pant Usaf Amputee",
+        "assetKey":  "Cargo_pant_USAF_Amputee"
+    },
+    {
+        "id":  "2d215eb7-4127-5cd3-80c8-309fad162350",
+        "type":  "clothing",
+        "name":  "Boots",
+        "assetKey":  "Boots"
+    },
+    {
+        "id":  "6064df9d-32f8-50be-9e5b-8d72bae61542",
+        "type":  "clothing",
+        "name":  "Skirt",
+        "assetKey":  "Skirt"
+    },
+    {
+        "id":  "590282f9-f1af-5393-bc6a-c908f77fead7",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "3f6cfbaa-49bc-5aad-a8be-f648e4c2ab89",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt",
+        "assetKey":  "Close_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "bfca79ec-3b1e-5139-850f-35248ad7375c",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "24fa6c9e-df06-515c-9d70-9cd86dd98a90",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "a5ac1c7e-b101-53c0-8973-b743726e06ae",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "d75de07d-df16-5fc8-92cd-66623774fe6b",
+        "type":  "clothing",
+        "name":  "Tank Top",
+        "assetKey":  "Tank_top"
+    },
+    {
+        "id":  "a21927c9-9f8d-5697-a39a-d37fe8ba97f5",
+        "type":  "clothing",
+        "name":  "Business Suit",
+        "assetKey":  "Business_Suit"
+    },
+    {
+        "id":  "9d43340a-fe8a-51c3-928e-0719081a3484",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "51c8dcd1-265d-55da-a236-0aa77b2b8434",
+        "type":  "clothing",
+        "name":  "Glove L Light Blue",
+        "assetKey":  "Glove_L_Light_Blue"
+    },
+    {
+        "id":  "5a5b9cc0-d04c-5289-89cf-4b13a3e24557",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "b690318a-8efe-56ba-aea5-e66990fe23e6",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "d4e2729d-7ebe-52a6-a84b-e323e18249d2",
+        "type":  "clothing",
+        "name":  "Shorts",
+        "assetKey":  "Shorts"
+    },
+    {
+        "id":  "3d16d0ba-1c1e-513f-9a71-301b80f51fdc",
+        "type":  "clothing",
+        "name":  "Orion Glove R",
+        "assetKey":  "Orion_Glove_R"
+    },
+    {
+        "id":  "9f6b4445-22d8-5793-aece-5c7d58412e22",
+        "type":  "clothing",
+        "name":  "Slacks Cut",
+        "assetKey":  "Slacks_Cut"
+    },
+    {
+        "id":  "26080f86-3fd9-5f7f-8b4f-a4be1a745acc",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve Usaf Dirty Bloody",
+        "assetKey":  "Field_Jacket_ShortSleeve_USAF_Dirty_BLoody"
+    },
+    {
+        "id":  "0ebb35d4-6109-529a-be36-421e11d20fc3",
+        "type":  "clothing",
+        "name":  "Pants Cargo",
+        "assetKey":  "Pants_Cargo"
+    },
+    {
+        "id":  "b3ae1b1e-09eb-57ce-8984-9b758be5ad20",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "3aaa41b0-b266-54d5-a465-b3e94d0c953e",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "7cf6f794-89c2-5d1d-837c-52f18bab1213",
+        "type":  "clothing",
+        "name":  "Skirt Longer",
+        "assetKey":  "Skirt_Longer"
+    },
+    {
+        "id":  "b9c97d47-bae0-520e-b18a-2b95c135c2a9",
+        "type":  "clothing",
+        "name":  "Biker Jeans",
+        "assetKey":  "Biker_Jeans"
+    },
+    {
+        "id":  "c6d9fd3b-3aa1-5dcb-ab49-38c02c8d7a3d",
+        "type":  "clothing",
+        "name":  "Blazer",
+        "assetKey":  "Blazer"
+    },
+    {
+        "id":  "ad51bfc7-067e-55d3-bfc4-c33df6bb35f9",
+        "type":  "clothing",
+        "name":  "T Shirt Winter",
+        "assetKey":  "T_shirt_Winter"
+    },
+    {
+        "id":  "bb368f8d-ae3a-58f3-8381-e63dc16d6c64",
+        "type":  "clothing",
+        "name":  "Shirt Tactical",
+        "assetKey":  "Shirt_Tactical"
+    },
+    {
+        "id":  "1c20c632-cb13-5d51-900c-6c7a81adc74f",
+        "type":  "clothing",
+        "name":  "Low Rise Shorts",
+        "assetKey":  "Low_rise_Shorts"
+    },
+    {
+        "id":  "3e8eed49-aebd-5a13-9de2-4ddc7d238e33",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "d57083d4-9302-5702-a33e-ba17015ea7bd",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "357ef924-4f36-5dbc-b4d1-0883ca809ebc",
+        "type":  "clothing",
+        "name":  "Open Blazer",
+        "assetKey":  "Open_Blazer"
+    },
+    {
+        "id":  "f6cdb041-7b18-53ac-888d-2a49d56762a4",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "0f273313-207f-5e94-bb3b-221946216125",
+        "type":  "clothing",
+        "name":  "Cargo Pant Usaf Muddy",
+        "assetKey":  "Cargo_pant_USAF_muddy"
+    },
+    {
+        "id":  "3b272aa6-9b76-5447-bd10-9f2752cced43",
+        "type":  "clothing",
+        "name":  "Dragon Top",
+        "assetKey":  "Dragon_Top"
+    },
+    {
+        "id":  "dc367c6d-c9ee-536a-bb36-55b569efc582",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "95e50f73-09a3-536b-90cd-cf0406899fd7",
+        "type":  "clothing",
+        "name":  "Basketball Shoes",
+        "assetKey":  "Basketball_Shoes"
+    },
+    {
+        "id":  "879cb79b-7ad9-5a7d-94fd-7e55933e4c8b",
+        "type":  "clothing",
+        "name":  "Dragon Gloves",
+        "assetKey":  "Dragon_Gloves"
+    },
+    {
+        "id":  "384a8da1-d1e1-5db8-95f2-7785f3aeb937",
+        "type":  "clothing",
+        "name":  "Scrub Shirt",
+        "assetKey":  "Scrub_Shirt"
+    },
+    {
+        "id":  "e5e1a667-2716-52de-abe5-ea8d306b55ce",
+        "type":  "clothing",
+        "name":  "Pencil Skirt",
+        "assetKey":  "Pencil_skirt"
+    },
+    {
+        "id":  "166cb092-fd1a-53da-9356-3c0486dd1f9a",
+        "type":  "clothing",
+        "name":  "Tunic Cut",
+        "assetKey":  "Tunic_Cut"
+    },
+    {
+        "id":  "2b16b92b-e6f9-5318-acf3-71cf7898748b",
+        "type":  "clothing",
+        "name":  "Longsleevetee",
+        "assetKey":  "LongsleeveTee"
+    },
+    {
+        "id":  "3be3c224-34b8-5569-ab06-3479d96ac41a",
+        "type":  "clothing",
+        "name":  "Slip Ons",
+        "assetKey":  "Slip_ons"
+    },
+    {
+        "id":  "e3c971a6-c4be-5dba-8775-43e63df0a277",
+        "type":  "clothing",
+        "name":  "Cargo Pant Marines",
+        "assetKey":  "Cargo_pant_Marines"
+    },
+    {
+        "id":  "649ea40c-924f-5792-bde4-1ce2593fc49e",
+        "type":  "clothing",
+        "name":  "Glove R White",
+        "assetKey":  "Glove_R_White"
+    },
+    {
+        "id":  "f3364751-3bc7-58a4-a72f-fe0a342d927a",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "52ffe5c3-c8a6-5874-8523-e6007a1bcc77",
+        "type":  "clothing",
+        "name":  "Field Jacket Somali",
+        "assetKey":  "Field_Jacket_Somali"
+    },
+    {
+        "id":  "512b459c-8181-59f4-893f-2ef6e577c19e",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "a6ff42b8-41ea-54b0-b3f1-3a14f1cd4ffc",
+        "type":  "clothing",
+        "name":  "Boots",
+        "assetKey":  "Boots"
+    },
+    {
+        "id":  "2198b0bc-0718-54c3-94f7-a71d415b94b1",
+        "type":  "clothing",
+        "name":  "Fieldjacket Gunshotwound Lnipple",
+        "assetKey":  "FieldJacket_GunshotWound_LNipple"
+    },
+    {
+        "id":  "93b7f84c-716a-5fb0-afa7-475c022010e6",
+        "type":  "clothing",
+        "name":  "Skirt",
+        "assetKey":  "Skirt"
+    },
+    {
+        "id":  "57f0909a-190b-575a-904d-cc5cf9217890",
+        "type":  "clothing",
+        "name":  "Skinny Pants",
+        "assetKey":  "Skinny_Pants"
+    },
+    {
+        "id":  "f3f061d8-4c0e-5e74-8cc0-fcc1dc539b97",
+        "type":  "clothing",
+        "name":  "Jogging Pants",
+        "assetKey":  "Jogging_Pants"
+    },
+    {
+        "id":  "04e48e14-0cb6-5ad6-b972-c5eadec753dd",
+        "type":  "clothing",
+        "name":  "Tank Top",
+        "assetKey":  "Tank_top"
+    },
+    {
+        "id":  "48193277-8432-53bb-ba6a-2afb93b8d8fa",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt Decemated",
+        "assetKey":  "Close_collar_short_sleeves_shirt_decemated"
+    },
+    {
+        "id":  "4b20a978-6c06-5199-99e3-1645fdb8fa73",
+        "type":  "clothing",
+        "name":  "Boxers Swollenlegs",
+        "assetKey":  "Boxers_SwollenLegs"
+    },
+    {
+        "id":  "aac6b242-a63e-5688-8300-3e3ad3c3c866",
+        "type":  "clothing",
+        "name":  "Gown Swollenlegs",
+        "assetKey":  "Gown_SwollenLegs"
+    },
+    {
+        "id":  "6657c087-3849-55b9-890b-1dac878c4843",
+        "type":  "clothing",
+        "name":  "Slip Ons Black",
+        "assetKey":  "Slip_Ons_Black"
+    },
+    {
+        "id":  "f44d5c3c-d1aa-5510-8ab8-8b0c74035523",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "143dbb32-a634-5cbf-855f-bc4a51e87856",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "2fcbc537-e955-5e95-a6c7-9af5613d5096",
+        "type":  "clothing",
+        "name":  "V Neck Scrub Shirt",
+        "assetKey":  "V_Neck_Scrub_Shirt"
+    },
+    {
+        "id":  "f80b68ab-c119-5e80-ae48-539f4c57839a",
+        "type":  "clothing",
+        "name":  "Boots Flightsuit",
+        "assetKey":  "Boots_FlightSuit"
+    },
+    {
+        "id":  "54403c06-a56e-57f9-a47c-a09a77314cf8",
+        "type":  "clothing",
+        "name":  "Flightsuit",
+        "assetKey":  "FlightSuit"
+    },
+    {
+        "id":  "43115bac-c4f3-53e0-a2fc-2d565abe7d8e",
+        "type":  "clothing",
+        "name":  "Coverall Inmate",
+        "assetKey":  "Coverall_Inmate"
+    },
+    {
+        "id":  "b5becf8e-83a7-5881-bd62-a91ed6e5677f",
+        "type":  "clothing",
+        "name":  "Bootscoveralls Black",
+        "assetKey":  "BootsCoveralls_Black"
+    },
+    {
+        "id":  "e5c9ec2f-3abb-5aae-beb7-eb2628376176",
+        "type":  "clothing",
+        "name":  "Police Shirt Short Cyan",
+        "assetKey":  "Police_Shirt_Short_Cyan"
+    },
+    {
+        "id":  "d7f0edbf-c897-524f-9db4-847769f063c4",
+        "type":  "clothing",
+        "name":  "Badge 0",
+        "assetKey":  "Badge_0"
+    },
+    {
+        "id":  "29d16e85-89a9-56fd-b503-1a78c5616dd4",
+        "type":  "clothing",
+        "name":  "Police Belt",
+        "assetKey":  "Police_Belt"
+    },
+    {
+        "id":  "35b7a44e-a710-5489-b731-75f3250dce0e",
+        "type":  "clothing",
+        "name":  "Police Pants B",
+        "assetKey":  "Police_Pants_B"
+    },
+    {
+        "id":  "4aa696a9-b61f-5ede-80a9-cd903d36da59",
+        "type":  "clothing",
+        "name":  "Police Shoes Bl",
+        "assetKey":  "Police_Shoes_BL"
+    },
+    {
+        "id":  "6d685620-0ddb-5dad-9931-240f303532e4",
+        "type":  "clothing",
+        "name":  "Police Pants Wbaton",
+        "assetKey":  "Police_Pants_wBaton"
+    },
+    {
+        "id":  "b3db69dc-4d70-56b8-9f49-4baf4fafddb5",
+        "type":  "clothing",
+        "name":  "Police Shirt Short Cyan Wbodycam",
+        "assetKey":  "Police_Shirt_Short_Cyan_wBodyCam"
+    },
+    {
+        "id":  "4c670c9d-c59f-5034-9963-05e21ed33080",
+        "type":  "clothing",
+        "name":  "Police Shoes",
+        "assetKey":  "Police_Shoes"
+    },
+    {
+        "id":  "5804d3de-24a9-5adc-8899-29d589c03297",
+        "type":  "clothing",
+        "name":  "Scrub Pants",
+        "assetKey":  "Scrub_Pants"
+    },
+    {
+        "id":  "98856224-ff9f-51c8-b240-9e597a017fd4",
+        "type":  "clothing",
+        "name":  "Scrub Shirt",
+        "assetKey":  "Scrub_Shirt"
+    },
+    {
+        "id":  "4667c8bc-b4c2-5979-bcce-8a735d90db47",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "8bfd94d3-07d1-5279-b68c-126d54388cab",
+        "type":  "clothing",
+        "name":  "Labcoat Midlength",
+        "assetKey":  "LabCoat_MidLength"
+    },
+    {
+        "id":  "4644fccd-e56f-5798-bee9-a05340f05133",
+        "type":  "clothing",
+        "name":  "Leather Shoes",
+        "assetKey":  "Leather_shoes"
+    },
+    {
+        "id":  "d7cf60c7-26e3-513b-997f-0371fbb8e55d",
+        "type":  "clothing",
+        "name":  "Open Collar Short Sleeves Shirt",
+        "assetKey":  "Open_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "2051299d-2868-5e5b-82fa-d0347f1cb595",
+        "type":  "clothing",
+        "name":  "Slacks",
+        "assetKey":  "Slacks"
+    },
+    {
+        "id":  "3e0e608d-1819-5556-814e-fb8373cd223c",
+        "type":  "clothing",
+        "name":  "Open Collar Long Sleeves Shirt",
+        "assetKey":  "Open_collar_long_sleeves_shirt"
+    },
+    {
+        "id":  "ebd2cc3f-14f9-5607-b59a-5f6f2d6279b0",
+        "type":  "clothing",
+        "name":  "Pants Tucked",
+        "assetKey":  "Pants_Tucked"
+    },
+    {
+        "id":  "9700bc88-a471-58d9-8b02-3e07754cc815",
+        "type":  "clothing",
+        "name":  "Safety Vest",
+        "assetKey":  "Safety_vest"
+    },
+    {
+        "id":  "73d61fe2-c068-5cd2-a318-55d6e028a683",
+        "type":  "clothing",
+        "name":  "Boots",
+        "assetKey":  "Boots"
+    },
+    {
+        "id":  "f8088b3b-32c4-5672-ad47-d9b7274d1b3d",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "9dc5d378-b660-5d66-a983-61eb475264e8",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt",
+        "assetKey":  "Close_collar_short_sleeves_shirt"
+    },
+    {
+        "id":  "7fa6e14d-b502-5f5c-ae1e-247ba99a64b2",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "01276420-ae72-59d3-9b99-2c2e2c72c9c0",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "f4976bb7-697d-5bcf-b282-bc45393e4721",
+        "type":  "clothing",
+        "name":  "Hoodie",
+        "assetKey":  "Hoodie"
+    },
+    {
+        "id":  "af0120f1-048a-50a7-9335-95ac75ed3320",
+        "type":  "clothing",
+        "name":  "Sneakers",
+        "assetKey":  "Sneakers"
+    },
+    {
+        "id":  "1ae69b1a-842b-553b-879b-7c6149f55435",
+        "type":  "clothing",
+        "name":  "Baby Pants",
+        "assetKey":  "Baby_pants"
+    },
+    {
+        "id":  "89102370-e584-5378-8017-8dcec7b81b13",
+        "type":  "clothing",
+        "name":  "Baby Shirt",
+        "assetKey":  "Baby_shirt"
+    },
+    {
+        "id":  "83d23c10-047e-5be9-8b64-9b1130419144",
+        "type":  "clothing",
+        "name":  "Boots",
+        "assetKey":  "Boots"
+    },
+    {
+        "id":  "4783ecc8-005e-5500-952c-334d2f1b7e72",
+        "type":  "clothing",
+        "name":  "Cargo Pant Usaf",
+        "assetKey":  "Cargo_pant_USAF"
+    },
+    {
+        "id":  "4bb87fa2-304b-5ebb-9ca5-8ab6b1b54f42",
+        "type":  "clothing",
+        "name":  "Field Jacket1",
+        "assetKey":  "Field_Jacket1"
+    },
+    {
+        "id":  "e84a85a8-85c6-535d-9953-3a4b71eef7b9",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve",
+        "assetKey":  "Field_Jacket_ShortSleeve"
+    },
+    {
+        "id":  "4f344d58-deba-5cf3-8446-bd62341a3c45",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated",
+        "assetKey":  "T_shirt_Decemated"
+    },
+    {
+        "id":  "660ef7b9-5780-596a-b4b0-aa0197e1fe82",
+        "type":  "clothing",
+        "name":  "Vest3",
+        "assetKey":  "Vest3"
+    },
+    {
+        "id":  "addcda2a-487e-59f4-b731-b4d55216206e",
+        "type":  "clothing",
+        "name":  "Boots Usaf",
+        "assetKey":  "Boots_USAF"
+    },
+    {
+        "id":  "f1ffd16f-e795-5fe1-8828-01239266c22f",
+        "type":  "clothing",
+        "name":  "Canvas Shoes Bloodysooty",
+        "assetKey":  "Canvas_shoes_BloodySooty"
+    },
+    {
+        "id":  "2b8a79b7-bbad-5790-9f10-2fbc2ffe6037",
+        "type":  "clothing",
+        "name":  "Jeans Bloodysooty",
+        "assetKey":  "Jeans_BloodySooty"
+    },
+    {
+        "id":  "9086c9c3-63ee-5f07-8419-6e6d9b13fd59",
+        "type":  "clothing",
+        "name":  "T Shirt Bloodysooty",
+        "assetKey":  "T_shirt_BloodySooty"
+    },
+    {
+        "id":  "d33145f2-8517-500e-8049-aa76d3860c85",
+        "type":  "clothing",
+        "name":  "Canvas Shoes",
+        "assetKey":  "Canvas_shoes"
+    },
+    {
+        "id":  "4b0197ce-d079-5e6d-996d-cf7256ef98e1",
+        "type":  "clothing",
+        "name":  "Jeans",
+        "assetKey":  "Jeans"
+    },
+    {
+        "id":  "8c6b22cd-fb7e-5775-981f-6d089c0d1d63",
+        "type":  "clothing",
+        "name":  "T Shirt",
+        "assetKey":  "T_shirt"
+    },
+    {
+        "id":  "081d24a1-cca6-547e-9007-2b8b7ec9f008",
+        "type":  "clothing",
+        "name":  "Shorts Bloodysooty",
+        "assetKey":  "Shorts_BloodySooty"
+    },
+    {
+        "id":  "f97c265a-d32b-5aa4-8653-c97461b2d66c",
+        "type":  "clothing",
+        "name":  "T Shirt Bloodysooty",
+        "assetKey":  "T_shirt__BloodySooty"
+    },
+    {
+        "id":  "d2eccdcd-0c5f-59bd-a77c-c83388a90675",
+        "type":  "clothing",
+        "name":  "Trainers Bloodysooty",
+        "assetKey":  "Trainers_BloodySooty"
+    },
+    {
+        "id":  "d6af087e-6876-590f-b926-8db1a44f230d",
+        "type":  "clothing",
+        "name":  "Jeans Bloodysooty",
+        "assetKey":  "Jeans_BloodySooty"
+    },
+    {
+        "id":  "f8384ed7-3a1c-538d-aa41-12d67aa4a31f",
+        "type":  "clothing",
+        "name":  "Sneakers Bloodysooty",
+        "assetKey":  "Sneakers_BloodySooty"
+    },
+    {
+        "id":  "08deda09-bd3d-59d7-9771-2c1161df7c74",
+        "type":  "clothing",
+        "name":  "T Shirt Bloodysooty",
+        "assetKey":  "T_shirt_BloodySooty"
+    },
+    {
+        "id":  "f3e03190-2afa-59ca-b7e9-3e6a7c160cd7",
+        "type":  "clothing",
+        "name":  "Boots Bloodysooty",
+        "assetKey":  "Boots_BloodySooty"
+    },
+    {
+        "id":  "609b22eb-387c-56cf-8b13-42ec86ec3bb7",
+        "type":  "clothing",
+        "name":  "Pants Cargo Bloodysooty",
+        "assetKey":  "Pants_Cargo_BloodySooty"
+    },
+    {
+        "id":  "3b704896-e665-5543-8762-69b12945e69a",
+        "type":  "clothing",
+        "name":  "Shirt Plaid Bloodysooty",
+        "assetKey":  "Shirt_Plaid_BloodySooty"
+    },
+    {
+        "id":  "8dc51b65-0e48-56fb-9f0c-280534b5d7f2",
+        "type":  "clothing",
+        "name":  "Emt Shirt Short Cyan",
+        "assetKey":  "EMT_Shirt_Short_Cyan"
+    },
+    {
+        "id":  "9f751d97-8e37-54f0-a40a-234c91cf7e30",
+        "type":  "clothing",
+        "name":  "Emt Pants",
+        "assetKey":  "EMT_Pants"
+    },
+    {
+        "id":  "57a50c18-f112-5089-915a-629f4df16c72",
+        "type":  "clothing",
+        "name":  "Emt Shoes",
+        "assetKey":  "EMT_Shoes"
+    },
+    {
+        "id":  "08eb23ac-e47f-573d-80b4-93efaaf3f435",
+        "type":  "clothing",
+        "name":  "Canvas Shoes Grey Kids Dirtblood",
+        "assetKey":  "Canvas_shoes_Grey_Kids_DirtBlood"
+    },
+    {
+        "id":  "fc3da38a-2380-5ed2-ba23-05bc813a265a",
+        "type":  "clothing",
+        "name":  "Classic Shorts Khaki Kids Dirtblood",
+        "assetKey":  "Classic_Shorts_Khaki_Kids_DirtBlood"
+    },
+    {
+        "id":  "9e58f788-9092-53f5-8162-596af4b6dd3e",
+        "type":  "clothing",
+        "name":  "T Shirt Kids Truck Dirtblood",
+        "assetKey":  "T_shirt_Kids_Truck_DirtBlood"
+    },
+    {
+        "id":  "c3e4b77e-46b5-5ad5-85c3-2699ff9b4a56",
+        "type":  "clothing",
+        "name":  "Cargo Pant Airforce Captain",
+        "assetKey":  "Cargo_pant_AirForce_Captain"
+    },
+    {
+        "id":  "d432d4fa-8919-5ef1-9f2f-95ac4a763703",
+        "type":  "clothing",
+        "name":  "Field Jacket Airforce Captain",
+        "assetKey":  "Field_Jacket_AirForce_Captain"
+    },
+    {
+        "id":  "777f3e9a-8f12-5fac-9fc6-2d92743c37e1",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve Airforce Captain",
+        "assetKey":  "Field_Jacket_ShortSleeve_AirForce_Captain"
+    },
+    {
+        "id":  "34c4a41b-7c5a-52c0-a1cf-d6d48625b632",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated Airforce Captain",
+        "assetKey":  "T_shirt_Decemated_AirForce_Captain"
+    },
+    {
+        "id":  "e77dbaea-155f-5cea-a612-28102407724c",
+        "type":  "clothing",
+        "name":  "Boots Airforce Captain",
+        "assetKey":  "Boots_AirForce_Captain"
+    },
+    {
+        "id":  "423c8b3a-2793-5394-9109-bbbe877f25b3",
+        "type":  "clothing",
+        "name":  "Classic Shorts Green",
+        "assetKey":  "Classic_Shorts_Green"
+    },
+    {
+        "id":  "5153c61c-eb4b-5fe8-9b02-46bb826656b4",
+        "type":  "clothing",
+        "name":  "Sneakers A Grey",
+        "assetKey":  "Sneakers_A_Grey"
+    },
+    {
+        "id":  "5a982b65-b4c2-57fa-beb4-c142208d5930",
+        "type":  "clothing",
+        "name":  "T Shirt Grey",
+        "assetKey":  "T_shirt_Grey"
+    },
+    {
+        "id":  "cdadc04a-a549-57ff-b047-7ff21b85a48f",
+        "type":  "clothing",
+        "name":  "Cardigan Blue",
+        "assetKey":  "Cardigan_Blue"
+    },
+    {
+        "id":  "7d73e43c-b6f9-50a1-8137-bafa5e257674",
+        "type":  "clothing",
+        "name":  "Skinny Pants Lightblue",
+        "assetKey":  "Skinny_Pants_LightBlue"
+    },
+    {
+        "id":  "cc0a6d54-bcee-5ea4-9881-17159a27fdc3",
+        "type":  "clothing",
+        "name":  "Sneakers White",
+        "assetKey":  "Sneakers_White"
+    },
+    {
+        "id":  "4de2e626-0c38-5d26-80eb-f31000669f88",
+        "type":  "clothing",
+        "name":  "Tank Top White",
+        "assetKey":  "Tank_top_White"
+    },
+    {
+        "id":  "2a74070f-2bd0-589e-9a53-77741dc6149b",
+        "type":  "clothing",
+        "name":  "Open Collar Short Sleeves Shirt Black",
+        "assetKey":  "Open_collar_short_sleeves_shirt_Black"
+    },
+    {
+        "id":  "c1246153-4e0d-50aa-8521-2af55eeab7a3",
+        "type":  "clothing",
+        "name":  "Slacks Grey",
+        "assetKey":  "Slacks_Grey"
+    },
+    {
+        "id":  "10bacc15-03f0-5a8e-85b6-541267f2f510",
+        "type":  "clothing",
+        "name":  "Slip Ons Black",
+        "assetKey":  "Slip_ons_Black"
+    },
+    {
+        "id":  "668e9b74-ef05-5205-a5fb-cf82c4a9bdcc",
+        "type":  "clothing",
+        "name":  "Close Collar Short Sleeves Shirt Teal",
+        "assetKey":  "Close_collar_short_sleeves_shirt_Teal"
+    },
+    {
+        "id":  "761de2a5-cb27-5693-9ab9-ce111b663ad6",
+        "type":  "clothing",
+        "name":  "Jeans Tan",
+        "assetKey":  "Jeans_Tan"
+    },
+    {
+        "id":  "eaf865c6-a65f-559e-8501-f6a9626e154f",
+        "type":  "clothing",
+        "name":  "Short Cowboy Boots Burgandy",
+        "assetKey":  "Short_cowboy_boots_Burgandy"
+    },
+    {
+        "id":  "df42f6e3-d88c-5d4f-8773-daf1b6a2c5e3",
+        "type":  "clothing",
+        "name":  "Biker Boots",
+        "assetKey":  "Biker_Boots"
+    },
+    {
+        "id":  "ea0adc42-20dc-55a6-91be-07b08a21fcc2",
+        "type":  "clothing",
+        "name":  "Biker Jacket",
+        "assetKey":  "Biker_Jacket"
+    },
+    {
+        "id":  "2bf5c2c5-237c-500c-80fe-cb9300d480c6",
+        "type":  "clothing",
+        "name":  "Biker Jeans",
+        "assetKey":  "Biker_Jeans"
+    },
+    {
+        "id":  "667fffe1-7c68-5986-abca-a24f0856df5c",
+        "type":  "clothing",
+        "name":  "Biker Tank Top",
+        "assetKey":  "Biker_Tank_top"
+    },
+    {
+        "id":  "168f50d9-357f-5792-9fe9-ed88a9b47d04",
+        "type":  "clothing",
+        "name":  "Labcoat Midlength Overscrubs",
+        "assetKey":  "LabCoat_MidLength_OverScrubs"
+    },
+    {
+        "id":  "1b907cf1-aecb-59aa-b325-4c1912feae95",
+        "type":  "clothing",
+        "name":  "Glove L",
+        "assetKey":  "Glove_L"
+    },
+    {
+        "id":  "28ac2332-466f-5358-b228-3f10a0c1333b",
+        "type":  "clothing",
+        "name":  "Glove R",
+        "assetKey":  "Glove_R"
+    },
+    {
+        "id":  "e1ffcc6c-6bf5-5a04-b123-39a1f5f90385",
+        "type":  "clothing",
+        "name":  "Glove L Purple",
+        "assetKey":  "Glove_L_Purple"
+    },
+    {
+        "id":  "78ee92b9-c81c-578c-86c4-b3b85db03655",
+        "type":  "clothing",
+        "name":  "Glove R Purple",
+        "assetKey":  "Glove_R_Purple"
+    },
+    {
+        "id":  "284ac38b-6506-5327-a721-bebea12ffa93",
+        "type":  "clothing",
+        "name":  "Boots Muddy",
+        "assetKey":  "Boots_Muddy"
+    },
+    {
+        "id":  "7b1fe0b3-926f-53d7-9ebb-1d857bde2c44",
+        "type":  "clothing",
+        "name":  "Open Collar Long Sleeves Shirt Bloody",
+        "assetKey":  "Open_collar_long_sleeves_shirt_Bloody"
+    },
+    {
+        "id":  "e0a661b7-485f-5f35-aee8-b8ef74999815",
+        "type":  "clothing",
+        "name":  "Pants Tucked Muddy",
+        "assetKey":  "Pants_Tucked_Muddy"
+    },
+    {
+        "id":  "c27d42ce-cc51-5c59-a04d-86a4d19aca45",
+        "type":  "clothing",
+        "name":  "Safety Vest Bloody",
+        "assetKey":  "Safety_vest_Bloody"
+    },
+    {
+        "id":  "e8efdcc4-1e53-5453-a7ee-967fdb1f32d7",
+        "type":  "clothing",
+        "name":  "Biker Boots Bloody",
+        "assetKey":  "Biker_Boots_Bloody"
+    },
+    {
+        "id":  "88c13eb1-f444-5ba4-b1a5-219c9202fbf7",
+        "type":  "clothing",
+        "name":  "Biker Jacket Bloody",
+        "assetKey":  "Biker_Jacket_Bloody"
+    },
+    {
+        "id":  "2d71ccac-fef5-5527-b8ed-728d88f2f89a",
+        "type":  "clothing",
+        "name":  "Biker Jeans Bloody",
+        "assetKey":  "Biker_Jeans_Bloody"
+    },
+    {
+        "id":  "b1e86b4e-920c-54bc-8096-cf45c00166e8",
+        "type":  "clothing",
+        "name":  "Tank Top Bloody",
+        "assetKey":  "Tank_top_Bloody"
+    },
+    {
+        "id":  "c0adee6a-5326-5ef6-9422-d7d142344d25",
+        "type":  "clothing",
+        "name":  "Labcoat Overscrubs",
+        "assetKey":  "LabCoat_OverScrubs"
+    },
+    {
+        "id":  "cc21d573-67ae-5917-8a78-15b1e993b94f",
+        "type":  "clothing",
+        "name":  "Scrub Pants Lightblue",
+        "assetKey":  "Scrub_Pants_LightBlue"
+    },
+    {
+        "id":  "297fcf11-6cfe-57e3-8885-337d22a8c77e",
+        "type":  "clothing",
+        "name":  "Scrub Shirt Lightblue",
+        "assetKey":  "Scrub_Shirt_LightBlue"
+    },
+    {
+        "id":  "72d6b3aa-470e-5561-bfa4-b833e0b65040",
+        "type":  "clothing",
+        "name":  "Scrub Pants Forbooties",
+        "assetKey":  "Scrub_Pants_forBooties"
+    },
+    {
+        "id":  "0bee96fb-c346-5e38-b58d-13293cda4c41",
+        "type":  "clothing",
+        "name":  "Trousers Wraps",
+        "assetKey":  "trousers_Wraps"
+    },
+    {
+        "id":  "22c27a16-49ae-5035-9d9a-21936e6bb0f9",
+        "type":  "clothing",
+        "name":  "Trousers Full",
+        "assetKey":  "trousers_Full"
+    },
+    {
+        "id":  "3601f1af-f6e2-50a8-8e4d-32e07ea1d017",
+        "type":  "clothing",
+        "name":  "Shoe wraps",
+        "assetKey":  "Shoe Wraps"
+    },
+    {
+        "id":  "3b40264f-b43f-53df-a392-0c6a1586a379",
+        "type":  "clothing",
+        "name":  "Shoe wraps",
+        "assetKey":  "Shoe Wraps"
+    },
+    {
+        "id":  "09282ff3-adbd-53c2-ad4b-f75c36c88715",
+        "type":  "clothing",
+        "name":  "Adultdiapers Shorts",
+        "assetKey":  "AdultDiapers_Shorts"
+    },
+    {
+        "id":  "b14b2039-8e13-52c1-9ae7-a2254a94592b",
+        "type":  "clothing",
+        "name":  "Blouse Roses",
+        "assetKey":  "Blouse_Roses"
+    },
+    {
+        "id":  "be981cd1-bcc7-50f4-b320-bafdec6d7d5a",
+        "type":  "clothing",
+        "name":  "Bra Large",
+        "assetKey":  "Bra_Large"
+    },
+    {
+        "id":  "ccee7103-21d1-5ec2-bc53-bd5f534033ae",
+        "type":  "clothing",
+        "name":  "Nightgown",
+        "assetKey":  "Nightgown"
+    },
+    {
+        "id":  "844dd938-d433-5e7e-b345-2b92f652b7a8",
+        "type":  "clothing",
+        "name":  "Scrub Pants Plaid",
+        "assetKey":  "Scrub_Pants_Plaid"
+    },
+    {
+        "id":  "afdc127a-d2c4-572f-9190-0dc663113b3e",
+        "type":  "clothing",
+        "name":  "Slippers White",
+        "assetKey":  "Slippers_White"
+    },
+    {
+        "id":  "21004810-425f-5c29-b90e-0b064e85e103",
+        "type":  "clothing",
+        "name":  "Pajama Pants Grey Swollenlegs",
+        "assetKey":  "Pajama_Pants_Grey_SwollenLegs"
+    },
+    {
+        "id":  "065e5e4c-3bad-5009-99af-da8421a92000",
+        "type":  "clothing",
+        "name":  "T Shirt Blue Swollenlegs",
+        "assetKey":  "T_shirt_Blue_SwollenLegs"
+    },
+    {
+        "id":  "52435b7d-49ea-5c59-baac-bde833c4b39f",
+        "type":  "clothing",
+        "name":  "Sportsbra Blue",
+        "assetKey":  "SportsBra_Blue"
+    },
+    {
+        "id":  "1d3b1531-540f-570e-bc31-a91bc3ba7a2f",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms Femalebriefs",
+        "assetKey":  "Underwear_Bottoms_FemaleBriefs"
+    },
+    {
+        "id":  "b7e2816b-5f0a-58ee-82ac-3af749ccc41a",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms Femalebriefs",
+        "assetKey":  "Underwear_Bottoms_FemaleBriefs"
+    },
+    {
+        "id":  "93d11856-a19e-51ad-904e-815aa10ea50b",
+        "type":  "clothing",
+        "name":  "Labcoat Midlength Overscrubs",
+        "assetKey":  "LabCoat_MidLength_OverScrubs"
+    },
+    {
+        "id":  "be63307b-8dd2-51ea-a090-c8e37b30d4a3",
+        "type":  "clothing",
+        "name":  "Diaper",
+        "assetKey":  "Diaper"
+    },
+    {
+        "id":  "dd828736-9fc8-54fd-a798-416c20a1dbc9",
+        "type":  "clothing",
+        "name":  "Jeans Tan",
+        "assetKey":  "Jeans_Tan"
+    },
+    {
+        "id":  "577e187a-effb-5e96-9867-fba2ed774f04",
+        "type":  "clothing",
+        "name":  "Sneakers Bluegreen",
+        "assetKey":  "Sneakers_BlueGreen"
+    },
+    {
+        "id":  "2f566714-ebce-5279-8a83-a11c84243c37",
+        "type":  "clothing",
+        "name":  "T Shirt Bluestripes",
+        "assetKey":  "T_shirt_BlueStripes"
+    },
+    {
+        "id":  "5828c0f2-08e0-5d66-90c3-3cb9e6d6d77a",
+        "type":  "clothing",
+        "name":  "Hoodie Blueletterman",
+        "assetKey":  "Hoodie_BlueLetterman"
+    },
+    {
+        "id":  "3bbea4e4-6a05-56bb-bd61-ac631254d396",
+        "type":  "clothing",
+        "name":  "Sneakers White",
+        "assetKey":  "Sneakers_White"
+    },
+    {
+        "id":  "8023cbb4-632f-5b53-ae24-e3473e8e6edd",
+        "type":  "clothing",
+        "name":  "T Shirt White",
+        "assetKey":  "T_shirt_White"
+    },
+    {
+        "id":  "b5c1f640-9944-5b7e-92ca-c03fdb35e1a6",
+        "type":  "clothing",
+        "name":  "Cargopants Blue",
+        "assetKey":  "CargoPants_Blue"
+    },
+    {
+        "id":  "739d68a1-7a12-5d34-83e6-7d2ca730af7e",
+        "type":  "clothing",
+        "name":  "Gown Soiled Left",
+        "assetKey":  "Gown_Soiled_Left"
+    },
+    {
+        "id":  "fda214a5-7208-58d0-920c-ed0acfb05d71",
+        "type":  "clothing",
+        "name":  "Labcoat Overscrubs",
+        "assetKey":  "LabCoat_OverScrubs"
+    },
+    {
+        "id":  "796cd3e0-f14f-5a70-a678-473cd3a1a18c",
+        "type":  "clothing",
+        "name":  "Scrub Pants Lightblue",
+        "assetKey":  "Scrub_Pants_LightBlue"
+    },
+    {
+        "id":  "60fb6780-0a1f-5c4d-879a-f8a88bf65908",
+        "type":  "clothing",
+        "name":  "Scrub Shirt Lightblue",
+        "assetKey":  "Scrub_Shirt_LightBlue"
+    },
+    {
+        "id":  "11ed8ce5-8472-5431-81c3-86efd3709717",
+        "type":  "clothing",
+        "name":  "Sneakers White",
+        "assetKey":  "Sneakers_White"
+    },
+    {
+        "id":  "0bfa6cac-b030-508d-b40f-9069fa5fc8dd",
+        "type":  "clothing",
+        "name":  "Labcoat Midlength",
+        "assetKey":  "LabCoat_MidLength"
+    },
+    {
+        "id":  "ecd54cd0-1d4e-5211-8c6c-55f28b38ce2b",
+        "type":  "clothing",
+        "name":  "Labcoat Overscrubs",
+        "assetKey":  "LabCoat_OverScrubs"
+    },
+    {
+        "id":  "4891f271-8fcd-5d9c-917f-0424c69605ea",
+        "type":  "clothing",
+        "name":  "Scrub Pants Lightblue",
+        "assetKey":  "Scrub_Pants_LightBlue"
+    },
+    {
+        "id":  "ff0da05d-f4aa-5add-bfaa-33e837c0f554",
+        "type":  "clothing",
+        "name":  "Scrub Shirt Lightblue",
+        "assetKey":  "Scrub_Shirt_LightBlue"
+    },
+    {
+        "id":  "3db6945a-9456-54dc-a5bc-c488873a16ae",
+        "type":  "clothing",
+        "name":  "Sneakers Bluegreen",
+        "assetKey":  "Sneakers_BlueGreen"
+    },
+    {
+        "id":  "265dd2b0-bb13-5f50-801b-000351c11a1c",
+        "type":  "clothing",
+        "name":  "Gown Adult04 Fullypregnant",
+        "assetKey":  "Gown_Adult04_FullyPregnant"
+    },
+    {
+        "id":  "839bf4f0-e4ab-52d3-a508-a0677a456e9b",
+        "type":  "clothing",
+        "name":  "Gown Adult04 Fullypregnantlifted",
+        "assetKey":  "Gown_Adult04_FullyPregnantLifted"
+    },
+    {
+        "id":  "dd1c4941-f8ea-5631-8ade-70da4f3b8c28",
+        "type":  "clothing",
+        "name":  "Gown Adult04 Fullypregnant Overbelly",
+        "assetKey":  "Gown_Adult04_FullyPregnant_OverBelly"
+    },
+    {
+        "id":  "445047ef-8b9e-51d7-9202-9238a36e7951",
+        "type":  "clothing",
+        "name":  "Gown",
+        "assetKey":  "Gown"
+    },
+    {
+        "id":  "03109273-6615-5c97-8c12-e74e73936bde",
+        "type":  "clothing",
+        "name":  "Gown Adult04 Overbelly",
+        "assetKey":  "Gown_Adult04_OverBelly"
+    },
+    {
+        "id":  "359ddb2d-7a1d-5707-b6a5-bffcc1ac9aec",
+        "type":  "clothing",
+        "name":  "Sportsbra Blue Large",
+        "assetKey":  "SportsBra_Blue_Large"
+    },
+    {
+        "id":  "f7ff1223-56ba-5d1f-ab91-81460e21acff",
+        "type":  "clothing",
+        "name":  "Underwear Bottoms Femalebriefs Fullypregnant",
+        "assetKey":  "Underwear_Bottoms_FemaleBriefs_FullyPregnant"
+    },
+    {
+        "id":  "22654a5f-ee1c-53d4-a6e2-cfe507e161f9",
+        "type":  "clothing",
+        "name":  "Glove L Light Blue",
+        "assetKey":  "Glove_L_Light_Blue"
+    },
+    {
+        "id":  "2a89d37d-628c-52f8-ba7c-10637debde61",
+        "type":  "clothing",
+        "name":  "Glove R Light Blue",
+        "assetKey":  "Glove_R_Light_Blue"
+    },
+    {
+        "id":  "3c04fbb4-1ed6-56af-883b-0662ea8ce1f4",
+        "type":  "clothing",
+        "name":  "Gloves",
+        "assetKey":  "Gloves"
+    },
+    {
+        "id":  "0456fd47-7270-55d5-a7ac-0f813018ed21",
+        "type":  "clothing",
+        "name":  "Glove L Purple",
+        "assetKey":  "Glove_L_Purple"
+    },
+    {
+        "id":  "7b00d922-023f-5d3f-a0f8-c11ae24ce72f",
+        "type":  "clothing",
+        "name":  "Glove R Purple",
+        "assetKey":  "Glove_R_Purple"
+    },
+    {
+        "id":  "2ef35e6d-cd68-5775-8e33-dc0bbb7c319b",
+        "type":  "clothing",
+        "name":  "Glove L White",
+        "assetKey":  "Glove_L_White"
+    },
+    {
+        "id":  "cc28f511-7f8e-53b7-981c-ec1eadeb92ac",
+        "type":  "clothing",
+        "name":  "Glove R White",
+        "assetKey":  "Glove_R_White"
+    },
+    {
+        "id":  "9837f79b-73ca-5bd2-8d0a-e79bd456dc6b",
+        "type":  "clothing",
+        "name":  "Ppetop Yellow",
+        "assetKey":  "PPETop_Yellow"
+    },
+    {
+        "id":  "86123da8-9578-543c-8a6c-fd551ca91649",
+        "type":  "clothing",
+        "name":  "Ppetop Yellow",
+        "assetKey":  "PPETop_Yellow"
+    },
+    {
+        "id":  "616112f1-bd83-5d34-8041-6b7c7650be42",
+        "type":  "clothing",
+        "name":  "Boots Damagecontrol",
+        "assetKey":  "Boots_DamageControl"
+    },
+    {
+        "id":  "e8531ddc-142b-589e-a6c9-92a072fc8d03",
+        "type":  "clothing",
+        "name":  "Cargo Pant Marines Damagecontrol",
+        "assetKey":  "Cargo_pant_Marines_DamageControl"
+    },
+    {
+        "id":  "36e411f6-0808-57d8-92e7-f761d2dfd279",
+        "type":  "clothing",
+        "name":  "Field Jacket Damagecontrol",
+        "assetKey":  "Field_Jacket_DamageControl"
+    },
+    {
+        "id":  "db448af9-f93e-5f5c-90fb-dc9512c5d03e",
+        "type":  "clothing",
+        "name":  "Field Jacket Shortsleeve Damagecontrol",
+        "assetKey":  "Field_Jacket_ShortSleeve_DamageControl"
+    },
+    {
+        "id":  "b285725d-c054-5753-b124-6fb114b82fea",
+        "type":  "clothing",
+        "name":  "T Shirt Decemated Damagecontrol",
+        "assetKey":  "T_shirt_Decemated_DamageControl"
+    },
+    {
+        "id":  "f844b984-7784-5eab-b193-702c3bbe0662",
+        "type":  "clothing",
+        "name":  "Vest Damagecontrol",
+        "assetKey":  "Vest_DamageControl"
+    }
+]

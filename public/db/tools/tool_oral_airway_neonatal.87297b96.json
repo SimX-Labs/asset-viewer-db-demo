@@ -1,0 +1,24 @@
+{
+    "id":  "87297b96-4672-584f-b3ff-52362648c038",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oral Airway Neonatal",
+    "assetKey":  "tool_oral_airway_neonatal",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_oral_airway_neonatal.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,50 @@
+{
+    "id":  "39c8dea1-1e14-5c4b-a423-7ec5463071a0",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Broselow Cart",
+    "assetKey":  "group_broselow_cart",
+    "toolId":  "broselowCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_broselow_cart.prefab",
+    "metadata":  [
+                     {
+                         "id":  "88fca213-65da-5e5b-a6dc-2e76e2bb7a9e",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "drawer1Open",
+                                                "drawer2Open",
+                                                "drawer3Open",
+                                                "drawer4Open",
+                                                "drawer5Open",
+                                                "drawer6Open",
+                                                "drawer7Open",
+                                                "drawer8Open",
+                                                "drawer9Open",
+                                                "drawer10Open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``drawer1Open`` / ``drawer2Open`` / ``drawer3Open`` / ``drawer4Open`` / ``drawer5Open`` / ``drawer6Open`` / ``drawer7Open`` / ``drawer8Open`` / ``drawer9Open`` / ``drawer10Open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "4744756f-6ef7-50fd-9eeb-a7992d4ef6c9"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,233 @@
+{
+    "id":  "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+    "type":  "equipment",
+    "name":  "Debridement leg left",
+    "assetKey":  "Debridement Leg Left",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/Debridement Leg Left.prefab",
+    "primaryMetadata":  {
+                            "id":  "b3883d49-6853-5cff-9a14-6ee64d52320c",
+                            "key":  "Leg-debridementL",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "8e0a5a7c-7228-5d9c-8613-1dfa8d602a0b",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ae57d72f-f80b-5c96-8c03-214ed4148519",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1294555f-ca35-5149-adfb-0111cf323d3b",
+                         "key":  "LeftLegDebridement",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disabled",
+                                                "dirty",
+                                                "untreated",
+                                                "treated",
+                                                "packed"
+                                            ],
+                         "defaultValue":  "disabled",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disabled`, `dirty`, `untreated`, `treated`, `packed`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "1020d3d8-4fc6-5122-af96-e5cfefc8e2d5",
+                         "key":  "LeftLegDebridement-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "96e408f6-2387-5f2e-aa72-aead1b4bdf31",
+                         "key":  "LeftLegDebridement-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "53f8fff0-18e9-54f3-97f0-3e69b4270ee0",
+                         "key":  "Leg-debridementL-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e91722ea-0c9f-5795-9e03-0026ebdd0572",
+                         "key":  "Leg-debridementL-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "13b4b5ee-313b-5f1a-ab87-b91d639c017c",
+                         "key":  "Leg-debridementL-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f520927f-a9f1-587f-af26-4ba3b862483a",
+                         "key":  "ProcedureSteps:",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Animations: []"
+                                            ],
+                         "defaultValue":  "Animations: []",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`Animations: []`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "b44b0341-4605-5ac9-81d4-cde00d4bc7ed",
+                         "key":  "ProcedureSteps:-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6d8786ea-ec6f-5006-b849-27d58b84ce4f",
+                         "key":  "ProcedureSteps:-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "chitoGuaze",
+                                     "assetIds":  [
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874",
+                                                      "26df97c9-647e-5b41-b174-48612abe6981",
+                                                      "068799f7-c341-5278-886a-644f397f84ac"
+                                                  ],
+                                     "availableIn":  [
+                                                         "dirty",
+                                                         "treated",
+                                                         "untreated"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "cricCut1",
+                                     "assetIds":  [
+                                                      "7fa7aa58-5af1-505e-8b9b-dace91c776c0",
+                                                      "c1a4aec0-1e1b-528d-9ecc-4b6349b0c66f",
+                                                      "034d560d-a38c-525b-9d5b-06e639ece5b8"
+                                                  ],
+                                     "availableIn":  [
+                                                         "dirty",
+                                                         "treated",
+                                                         "untreated"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383"
+                     ]
+}

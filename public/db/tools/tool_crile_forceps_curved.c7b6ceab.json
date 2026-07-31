@@ -1,0 +1,30 @@
+{
+    "id":  "c7b6ceab-86f1-5c14-a1ce-61bf41752cd2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Crile Forceps Curved",
+    "assetKey":  "tool_crile_forceps_curved",
+    "toolId":  "crileForcepsCurved",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_crile_forceps_curved.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement2",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

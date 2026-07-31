@@ -1,0 +1,72 @@
+{
+    "id":  "5ddc8ba2-f22d-51f5-a2a0-b9d0feeab9bc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iodine Swab Container Triple",
+    "assetKey":  "tool_iodine_swab_container_triple",
+    "toolId":  "iodineSwabContainer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/CatheterKit/tool_iodine_swab_container_triple.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f5b2eb55-ad7b-5326-b95c-f328c59af016",
+                         "key":  "openContainer",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Controls visibility of `OpenContainer` (`SetActive`). Controls visibility of `ClosedContainer` (`SetActive`).",
+                         "sourceScripts":  "IodineSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0a9d1cd5-a5da-59a3-8c94-95914f5eaa18",
+                         "key":  "swabHeld",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `Swab1` (`SetActive`). Controls visibility of `Swab2` (`SetActive`). Controls visibility of `Swab3` (`SetActive`).",
+                         "sourceScripts":  "IodineSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c244604a-1589-55bc-a3f6-70deb4477713",
+                         "key":  "swabUsed",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Swab1.SetActive(false); Swab2.SetActive(false); Controls visibility of `SwabRemovalCollider1` (`SetActive`). Controls visibility of `SwabRemovalCollider2` (`SetActive`). Controls visibility of `Swab1` (`SetActive`). Controls visibility of `SwabRemovalCollider3` (`SetActive`). Controls visibility of `Swab2` (`SetActive`). Controls visibility of `Swab3` (`SetActive`).",
+                         "sourceScripts":  "IodineSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3d960b70-8a59-5942-ab4f-da579f1d5975",
+                           "78589a96-974c-5759-acb3-5dffb9832179",
+                           "08e97a9d-70f1-51d3-884e-23495f30169c",
+                           "488bbccc-d544-5d07-8ba3-9f221c374f0a",
+                           "3eacc668-74d2-54b9-81c5-652a067f4ede"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

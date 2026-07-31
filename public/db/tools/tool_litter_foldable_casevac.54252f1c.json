@@ -1,0 +1,72 @@
+{
+    "id":  "54252f1c-ed90-58bb-8f89-f343e8b816b1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Litter Foldable Casevac",
+    "assetKey":  "tool_litter_foldable_casevac",
+    "toolId":  "LitterFoldable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Foldable Litter/tool_litter_foldable_casevac.prefab",
+    "metadata":  [
+                     {
+                         "id":  "08880b99-7004-5a49-84af-b51b42d29e8b",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "completelyFoldedUp",
+                                                "strapsUndone",
+                                                "partiallyUnfolded",
+                                                "fullUnfoldLeft",
+                                                "fullUnfoldRight",
+                                                "fullyStraightened",
+                                                "partiallySpreadA",
+                                                "partiallySpreadB",
+                                                "fullyAssembled"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``completelyFoldedUp`` / ``strapsUndone`` / ``partiallyUnfolded`` / ``fullUnfoldLeft`` / ``fullUnfoldRight`` / ``fullyStraightened`` / ``partiallySpreadA`` / ``partiallySpreadB`` / ``fullyAssembled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "foldableLitter",
+                             "assetIds":  [
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+                                              "1f23ba6e-6d8b-560c-b446-37b3655cd151"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

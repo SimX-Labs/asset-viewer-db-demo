@@ -1,0 +1,79 @@
+{
+    "id":  "f7a6d746-4922-5b5a-936f-6e4a0a1e8cae",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Water Bottle 750ml",
+    "assetKey":  "tool_water_bottle_750ml",
+    "toolId":  "waterBottle750ml",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_water_bottle_750ml.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ac5a8eb2-267e-5f4a-948c-7aa7871f676d",
+                         "key":  "lid",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "15badf8e-13f4-5990-b60e-07f32894923e",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "urine",
+                                                "water"
+                                            ],
+                         "defaultValue":  "empty",
+                         "examples":  [
+                                          "``empty`` / ``urine`` / ``water``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Groin",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "foleyBagDrain",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "waterBottle750ml",
+                                     "assetIds":  [
+                                                      "cd64beba-4165-55bc-8b38-4d0c34b88ab0"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "29d432a1-a6c2-56f7-a445-2bf16ece8b8f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

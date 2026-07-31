@@ -1,0 +1,105 @@
+{
+    "id":  "7010191f-e072-5226-85ee-8a98efdfad33",
+    "type":  "equipment",
+    "name":  "Lanyard",
+    "assetKey":  "equipment_lanyard",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Lanyard/equipment_lanyard.prefab",
+    "primaryMetadata":  {
+                            "id":  "92abfd8c-853d-561f-ac0b-c1d4a997fe82",
+                            "key":  "lanyard",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "24094d11-2bff-56a2-9b2c-504555d822dc",
+                         "key":  "connectedToToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Add Connected To Tool Id.",
+                         "sourceScripts":  "MetadataEquipmentCommunicator",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a24af82d-2684-561b-bd88-4748277a5092",
+                         "key":  "lanyard-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "81202f2c-fecb-5a9e-9448-5e3bd6e08b23",
+                         "key":  "lanyard-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cc0c3147-3afc-59cf-8934-e26c07203078",
+                         "key":  "lanyard-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "32b36cbb-5242-5187-9c37-70fa6ad97bb9",
+                         "key":  "lanyardTexture",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set lanyard texture. Often heard as `\u003cprocedureName\u003e-lanyardTexture`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "LanyardMetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

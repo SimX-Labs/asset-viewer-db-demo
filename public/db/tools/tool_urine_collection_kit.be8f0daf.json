@@ -1,0 +1,41 @@
+{
+    "id":  "be8f0daf-04d9-5110-ac36-71a78ce214ab",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Urine Collection Kit",
+    "assetKey":  "tool_urine_collection_kit",
+    "toolId":  "urineCollectionKit1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Collection Cup/tool_urine_collection_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "72201e93-dc31-5b31-a276-2643dae33461",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Empty",
+                                                "Filled"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Empty`` / ``Filled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

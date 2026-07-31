@@ -1,0 +1,30 @@
+{
+    "id":  "e781060e-2535-5d76-81e7-8a45ce605450",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blades",
+    "assetKey":  "tool_blades",
+    "toolId":  "surgicalBlades1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_blades.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement8",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

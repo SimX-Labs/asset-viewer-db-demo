@@ -1,0 +1,61 @@
+{
+    "id":  "5f6589da-acf4-5578-9ce5-0867a248f0d8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Water Bottle",
+    "assetKey":  "tool_water_bottle",
+    "toolId":  "waterBottle",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_water_bottle.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "waterBottle",
+                             "assetIds":  [
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c",
+                                              "ede7643f-e1e9-523d-bd95-70f5ca58a75c"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

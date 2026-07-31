@@ -1,0 +1,30 @@
+{
+    "id":  "ee372cac-dbb0-5dc8-8cbc-bb88b910afda",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Placenta",
+    "assetKey":  "tool_placenta",
+    "toolId":  "placenta1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Placenta Delivery/tool_placenta.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "laborDeliveryBowl",
+                             "assetIds":  [
+                                              "58bc9d99-c4b7-56eb-8646-ee6d988332a3"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,111 @@
+{
+    "id":  "009bd4b9-c8ce-5e57-ac1e-824a0b030fb9",
+    "type":  "equipment",
+    "name":  "Fabric Tape Wrapped Hips",
+    "assetKey":  "equipment_fabric_tape_wrapped_hips",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_fabric_tape_wrapped_hips.prefab",
+    "primaryMetadata":  {
+                            "id":  "0967cad0-7e47-5e1e-8785-dc9ee36c4ca8",
+                            "key":  "FabricMeasuringTapeHips",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "bcd40800-92b3-5e01-8be4-a0589da21d47",
+                         "key":  "FabricMeasuringTapeHips-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "85d28721-f49b-57db-a343-b22f0aa11e30",
+                         "key":  "FabricMeasuringTapeHips-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `true` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "36b9fae0-22ab-5599-95e1-66b4a9e80465",
+                         "key":  "FabricMeasuringTapeHips-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "647e651e-a935-53b1-8e7c-9d25d5d38f1e",
+                         "key":  "measurement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `MeasurementValue.text` UI label. Often heard as `\u003cprocedureName\u003e-measurement`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "RespiratoryExcursionsMetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5958f117-5113-5516-8c05-9cdd3106672e",
+                         "key":  "measurementUnits",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `MeasurementUnits.text` UI label. Often heard as `\u003cprocedureName\u003e-measurementUnits`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "RespiratoryExcursionsMetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "MeasuringTapeHips",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "c3014d63-6f20-5c4f-9a87-afc4b4193673",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nutrition Extremely Thick Puree",
+    "assetKey":  "tool_nutrition_extremely_thick_puree",
+    "toolId":  "ExtremelyThickPuree",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Nutrition/tool_nutrition_extremely_thick_puree.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

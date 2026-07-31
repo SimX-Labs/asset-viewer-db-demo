@@ -1,0 +1,33 @@
+{
+    "id":  "d8e9781e-01f3-5335-88eb-306ffbdcf9d6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Needle Small",
+    "assetKey":  "tool_needle_small",
+    "toolId":  "swappableNeedle",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Syringe/tool_needle_small.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "syringeHead",
+                             "assetIds":  [
+                                              "b245f0f2-0ae1-5a8d-914a-c767519169ad",
+                                              "6564b2ba-56c6-51b2-aa35-57c544647ee1",
+                                              "424d4dc2-d64b-5022-a53b-094010a08930",
+                                              "8a3f7eeb-fa60-5eb7-8b43-201bd8880f05"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

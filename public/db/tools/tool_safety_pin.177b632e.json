@@ -1,0 +1,37 @@
+{
+    "id":  "177b632e-7d8d-59bc-a7c3-929147e1d489",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Safety Pin",
+    "assetKey":  "tool_safety_pin",
+    "toolId":  "safetyPin1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_safety_pin.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "safetyPinLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "safetyPinRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

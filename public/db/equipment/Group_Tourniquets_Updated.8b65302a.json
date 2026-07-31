@@ -1,0 +1,992 @@
+{
+    "id":  "8b65302a-92bd-5720-876d-49d0adaf42f8",
+    "type":  "equipment",
+    "name":  "Group Tourniquets Updated",
+    "assetKey":  "Group_Tourniquets_Updated",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Groups/Group_Tourniquets_Updated.prefab",
+    "primaryMetadata":  {
+                            "id":  "362899e4-64a1-5dff-8564-7b091295b1ee",
+                            "key":  "tourniquetLArmUpperBottom",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "4539a36d-0d43-5549-82aa-322e5c6a77cd",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1767ef10-2d7e-5d1d-9107-70ea7f6b887f",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "35c68187-643f-59de-8f58-0a6d2e595be1",
+                         "key":  "toggle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Sets original bleed. Often heard as `\u003cprocedureName\u003e-toggle`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "TourniquetEffectController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e9e0904d-67a7-5461-8a9d-9d5e967ca4b9",
+                         "key":  "tourniquetLArmLowerBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "1aad1ab2-b12e-55a5-b208-604ec984c327",
+                         "key":  "tourniquetLArmLowerBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a23ecf8f-8c89-5f30-953e-8a6b955202fe",
+                         "key":  "tourniquetLArmLowerBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2e2ba2b2-9155-56a7-b5b6-67d13e35e4e9",
+                         "key":  "tourniquetLArmLowerTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "15351c6a-396e-54e6-a788-423d3993bca0",
+                         "key":  "tourniquetLArmLowerTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8f8296ed-7f35-5b0a-a856-1afaa8f53594",
+                         "key":  "tourniquetLArmLowerTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "13abead0-16a0-5971-b99d-d545dd8f6d43",
+                         "key":  "tourniquetLArmUpperBottom-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ab623f8-672b-5322-b3c2-7a7de8890f1c",
+                         "key":  "tourniquetLArmUpperBottom-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4296d22b-2b50-565b-9f8e-3fec96630072",
+                         "key":  "tourniquetLArmUpperBottom-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "06dcdbc0-955f-58df-b68b-22c95c5e9d35",
+                         "key":  "tourniquetLArmUpperBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "09b32785-b77f-570f-ba69-07a5e301829a",
+                         "key":  "tourniquetLArmUpperBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cb4e65db-8d6c-5610-bba5-dff12a075934",
+                         "key":  "tourniquetLArmUpperBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "54705de6-9e42-5201-9036-4f4e4640d489",
+                         "key":  "tourniquetLArmUpperTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "b798ee62-7c87-5301-81d2-61e279a8a49d",
+                         "key":  "tourniquetLArmUpperTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51cd4d0d-ace6-5792-b6a5-f83f71bbe0a1",
+                         "key":  "tourniquetLArmUpperTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9a21e436-9457-5d09-825e-dbb5dc0efdbb",
+                         "key":  "tourniquetLLegLowerBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "34b76066-eadc-59f3-8a0a-f01f19ffbc37",
+                         "key":  "tourniquetLLegLowerBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "10bb710a-5b04-527c-98ea-0ab8d7909487",
+                         "key":  "tourniquetLLegLowerBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "199cfb94-20ec-501f-96cd-233d37d83248",
+                         "key":  "tourniquetLLegLowerTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "31ef7be0-4159-5327-b87d-79ea5798f4b3",
+                         "key":  "tourniquetLLegLowerTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b6eac353-ec63-55f0-90ab-4cbbc5d91a34",
+                         "key":  "tourniquetLLegLowerTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c58f3d42-087b-57f5-a9c5-06c03ae172a4",
+                         "key":  "tourniquetLLegUpperBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "ef9d289f-89a4-5e12-9ed3-714d33086df1",
+                         "key":  "tourniquetLLegUpperBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8e4413e7-5161-56f5-afd8-189b18d535a9",
+                         "key":  "tourniquetLLegUpperBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d618c66b-a129-5906-a917-cbfb5614ee75",
+                         "key":  "tourniquetLLegUpperTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "d0608d3d-3e96-5f58-abee-a7856b6276e8",
+                         "key":  "tourniquetLLegUpperTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8db08b69-ece0-5c60-8a31-5a122bf13da7",
+                         "key":  "tourniquetLLegUpperTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "04235c2e-5e48-5064-89cf-d11c6da176b8",
+                         "key":  "tourniquetRArmLowerBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "917d502d-05ab-595a-b9e1-d02dc2b9610f",
+                         "key":  "tourniquetRArmLowerBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "31beb683-4828-5978-8c18-47bdd354a7bf",
+                         "key":  "tourniquetRArmLowerBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9de41e8d-cb5a-5965-8501-53e83d40ab1d",
+                         "key":  "tourniquetRArmLowerTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "17a1daee-6b13-52d4-8d1a-33d5f185e5d2",
+                         "key":  "tourniquetRArmLowerTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fdf0e168-e940-5cfb-b72c-f33e6a12162f",
+                         "key":  "tourniquetRArmLowerTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "125bdc23-60da-5836-9842-3844998199d7",
+                         "key":  "tourniquetRArmUpperBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "c7d43021-62b9-528c-9fcb-22f4bf9ffaaf",
+                         "key":  "tourniquetRArmUpperBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "76e6b81b-3d79-5caf-a03b-85e83bfa014b",
+                         "key":  "tourniquetRArmUpperBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "afe3f584-c742-5457-ac46-512a4b99c3a0",
+                         "key":  "tourniquetRArmUpperTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "f71fc203-6def-5929-b923-1e8e214289a1",
+                         "key":  "tourniquetRArmUpperTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3c8c1af6-d7d5-57b0-a4ff-57316e7ada17",
+                         "key":  "tourniquetRArmUpperTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e68c8fb-28c8-55fa-ac6b-9ad22d744c86",
+                         "key":  "tourniquetRLegLowerBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "fd98fb9e-c8d6-5cd5-b458-e7e99f286d14",
+                         "key":  "tourniquetRLegLowerBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0c1d330e-f2c1-5545-af24-7bdc2c2d98a1",
+                         "key":  "tourniquetRLegLowerBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "86cbb8c4-689b-5fc0-b2da-f026cf36c2f3",
+                         "key":  "tourniquetRLegLowerTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "21a33443-38a3-5153-aecc-8acc2b8176dd",
+                         "key":  "tourniquetRLegLowerTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7c07989f-28cc-51bf-adef-2eef01415444",
+                         "key":  "tourniquetRLegLowerTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e237875-4cbe-5fd0-8236-18b50af088ed",
+                         "key":  "tourniquetRLegUpperBottomStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "9eeabd59-90e5-5775-9104-26f698a8bbc4",
+                         "key":  "tourniquetRLegUpperBottomStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e1f6ac96-e3a7-5d5f-b5f6-862d901b67d5",
+                         "key":  "tourniquetRLegUpperBottomStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8a288fa1-1126-5d45-92d3-5ddb6e7c4c32",
+                         "key":  "tourniquetRLegUpperTopStyle",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "loosened",
+                                                "tightened"
+                                            ],
+                         "defaultValue":  "loosened",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`loosened`, `tightened`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "40651949-b441-55b0-b4ed-40d7f5d7114f",
+                         "key":  "tourniquetRLegUpperTopStyle-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e2e8308c-9d22-5a06-aba9-02815428c582",
+                         "key":  "tourniquetRLegUpperTopStyle-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "eaaffea1-4f1b-5609-99aa-4394d76a3cb0",
+                         "key":  "tourniquetType",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "nonSkinned",
+                                                "skinned"
+                                            ],
+                         "defaultValue":  "nonSkinned",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`nonSkinned`, `skinned`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "c2745259-1e23-5151-b064-a31aa9f69629",
+                         "key":  "tourniquetType-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a0cec54c-f4aa-50cb-a47d-b55ab64e2f5b",
+                         "key":  "tourniquetType-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "tourniquet",
+                                     "assetIds":  [
+                                                      "b85f9a20-fa30-5f85-b90d-1617f154759a",
+                                                      "4b0e44ad-528c-5f17-85eb-d19d631d3eb6"
+                                                  ],
+                                     "availableIn":  [
+                                                         "skinned"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "tourniquetCut",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "loosened",
+                                                         "skinned"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                         "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                         "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                         "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                         "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                         "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                         "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "ac4b6405-c5fb-5550-af2a-52c291b7f61d",
+                         "f19aa377-5238-5982-be8b-966fb1f6833e",
+                         "e5e0949c-1c02-5c13-92b5-f1a4ec59d35b",
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050",
+                         "2b9bdd77-5b7c-570c-b325-d7bb1e3396dd",
+                         "5fc97072-6283-5b88-932f-fe5589cddbaf",
+                         "3edb9b7a-143e-5a94-8861-5083f60d324a",
+                         "f122c692-e03b-50ef-90d7-c8500b517d5d",
+                         "ac72bb3d-8db6-56f5-a064-5e4cb7b03a81"
+                     ]
+}

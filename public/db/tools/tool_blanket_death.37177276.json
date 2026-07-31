@@ -1,0 +1,30 @@
+{
+    "id":  "37177276-8a8f-5192-9653-9fae3369d7ab",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blanket Death",
+    "assetKey":  "tool_blanket_death",
+    "toolId":  "deathBlanket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_blanket_death.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "deathBlanket",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

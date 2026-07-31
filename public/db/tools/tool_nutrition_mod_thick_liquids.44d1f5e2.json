@@ -1,0 +1,30 @@
+{
+    "id":  "44d1f5e2-d616-5d09-9163-4f88d0466629",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nutrition Mod Thick Liquids",
+    "assetKey":  "tool_nutrition_mod_thick_liquids",
+    "toolId":  "ModeratelyThickLiquids",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Nutrition/tool_nutrition_mod_thick_liquids.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

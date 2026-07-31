@@ -1,0 +1,74 @@
+{
+    "id":  "875579ac-b5b2-5eae-a999-431a9d4098ea",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hand Held Suction",
+    "assetKey":  "tool_hand_held_suction",
+    "toolId":  "handHeldSuction",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_hand_held_suction.prefab",
+    "metadata":  [
+                     {
+                         "id":  "20bd9306-b53f-5d26-be93-2f7a31488c7e",
+                         "key":  "fluidLevel",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "e.g. `120`"
+                                      ],
+                         "description":  "Controls visibility of `LiquidObject` (`SetActive`).",
+                         "sourceScripts":  "HandHeldSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "handHeldSuction",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "handHeldSuctionIntubation",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "handHeldSuctionIntubationAdapter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "handHeldSuctionCric",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "handHeldSuctionCricAdapter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

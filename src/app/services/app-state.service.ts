@@ -72,7 +72,7 @@ export class AppStateService {
       const mode = this.dataMode();
       const result =
         mode === 'unity'
-          ? await this.unityData.loadBundle()
+          ? await this.unityData.loadDb()
           : await this.dboData.loadDefaultFiles();
       this.applyLoadResult(result);
       const label = mode === 'unity' ? 'Unity asset DB' : 'DBO files';
@@ -330,12 +330,9 @@ export class AppStateService {
     this.openAssetTab(id, true);
   }
 
-  async loadFilesFromInput(files: FileList, shiftKey: boolean): Promise<void> {
-    if (this.dataMode() === 'unity') {
-      const first = files.item(0);
-      if (!first) return;
-      const text = await first.text();
-      const result = this.unityData.buildFromText(this.unityData.parseText(text));
+  async loadUnityDbFolder(files: FileList): Promise<void> {
+    try {
+      const result = await this.unityData.buildFromFolderFiles(Array.from(files));
       this.resetForModeSwitch();
       this.applyLoadResult(result);
       this.statusMessage.set(
@@ -344,9 +341,13 @@ export class AppStateService {
       this.statusError.set(false);
       this.loaded.set(true);
       this.handleInitialNavigation();
-      return;
+    } catch (err) {
+      this.statusMessage.set(`Error: ${(err as Error).message}`);
+      this.statusError.set(true);
     }
+  }
 
+  async loadFilesFromInput(files: FileList, shiftKey: boolean): Promise<void> {
     const results: { name: string; data: Record<string, DboAsset[]> }[] = [];
     for (const file of Array.from(files)) {
       const text = await file.text();

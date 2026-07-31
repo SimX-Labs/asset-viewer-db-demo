@@ -1,0 +1,53 @@
+{
+    "id":  "96f88275-c03f-57be-8cda-6c8b0b11479e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cric Bougie",
+    "assetKey":  "tool_cric_bougie",
+    "toolId":  "militaryBackpack-airway-tool_cric_bougie",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_cric_bougie.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "cricBougie",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationBougie",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationPreload",
+                             "assetIds":  [
+                                              "2af16864-2d0e-5336-886e-a587ffcf4f5a",
+                                              "4dcc7422-96b8-59ea-9f83-cdff22da6ded"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

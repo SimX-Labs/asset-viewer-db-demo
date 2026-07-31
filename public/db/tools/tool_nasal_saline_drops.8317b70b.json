@@ -1,0 +1,30 @@
+{
+    "id":  "8317b70b-0419-51cc-a5b1-b437ac6c18e7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nasal Saline Drops",
+    "assetKey":  "tool_nasal_saline_drops",
+    "toolId":  "NasalSalineDrops",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nasal_saline_drops.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

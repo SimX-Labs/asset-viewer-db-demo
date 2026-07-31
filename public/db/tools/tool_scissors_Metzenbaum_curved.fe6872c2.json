@@ -1,0 +1,30 @@
+{
+    "id":  "fe6872c2-1079-599d-b618-0c461479b8ae",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Scissors Metzenbaum Curved",
+    "assetKey":  "tool_scissors_Metzenbaum_curved",
+    "toolId":  "scissorsMetzenbaumCurved",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_scissors_Metzenbaum_curved.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement5",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "1d89caf3-5f48-5178-b7b7-de07b46d0678"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

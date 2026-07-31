@@ -1,0 +1,90 @@
+{
+    "id":  "b1082975-e5aa-50bf-8f52-c8ebd192e87e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Assessment Card",
+    "assetKey":  "tool_patient_assessment_card",
+    "toolId":  "patientAssessmentCard1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Patient Assessment Card/tool_patient_assessment_card.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6657cd47-c391-5493-b814-d0d54ac1ee57",
+                         "key":  "patientAssessmentCard",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "blank",
+                                                "karen",
+                                                "patrick",
+                                                "sarah",
+                                                "tom",
+                                                "wim",
+                                                "deadWim",
+                                                "deadTom",
+                                                "deadSarah"
+                                            ],
+                         "defaultValue":  "blank",
+                         "examples":  [
+                                          "``blank`` / ``karen`` / ``patrick`` / ``sarah`` / ``tom`` / ``wim`` / ``deadWim`` / ``deadTom`` / ``deadSarah``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "ba573fba-4cf3-58a1-bb41-de544a79abdf",
+                         "key":  "setPenWriteState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles pen write state.",
+                         "sourceScripts":  "PatientAssessmentCardController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5a2fccbc-a235-50a4-a5e4-3f363e02a58c",
+                         "key":  "toolMetaData",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolStateInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "patientAssessmentCard",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "penWrite",
+                                     "assetIds":  [
+                                                      "d418f96a-3ac8-5547-bea6-545ec1c28a7f"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

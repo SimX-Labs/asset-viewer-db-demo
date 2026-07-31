@@ -1,0 +1,44 @@
+{
+    "id":  "632c0397-4ec5-515f-8200-11647ca85959",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Digital Peak Flow Meter",
+    "assetKey":  "tool_digital_peak_flow_meter",
+    "toolId":  "digitalPeakFlowMeter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Digital Peak Flow Meter/tool_digital_peak_flow_meter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "92283752-1fea-54cb-a850-be61e632d1c4",
+                         "key":  "rate",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles rate change.",
+                         "sourceScripts":  "DigitalPeakFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "digitalPeakFlowMeter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

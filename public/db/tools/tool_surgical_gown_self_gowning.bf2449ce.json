@@ -1,0 +1,117 @@
+{
+    "id":  "bf2449ce-cd7e-5624-8454-1fcecf2ed98a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Surgical Gown Self Gowning",
+    "assetKey":  "tool_surgical_gown_self_gowning",
+    "toolId":  "surgicalGownSelfGowning",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Gown/tool_surgical_gown_self_gowning.prefab",
+    "metadata":  [
+                     {
+                         "id":  "fd612bae-5105-5b23-8531-8572c7eb61a6",
+                         "key":  "attachSleeves",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "NOTE: this algorithm only works for 1 user, as the Scrubbing, Gowning, Gloving case is designed for 1 user only. For the moderators, we just need to get the first other player Controls visibility of `LeftHandSleeve` (`SetActive`). Controls visibility of `RightHandSleeve` (`SetActive`).",
+                         "sourceScripts":  "SurgicalGownSelfGowing",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "59a407af-09a9-5be8-8713-87d557e0f60e",
+                         "key":  "bothHandsIn",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "SurgicalGownSelfGowing",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6e7a5665-1640-5a0f-b0b9-646880c6c92a",
+                         "key":  "canOpen",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Can Open.",
+                         "sourceScripts":  "SurgicalGownSelfGowing",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8b27e654-27e9-50bf-a126-b40c179acb46",
+                         "key":  "detachSleeve",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Controls visibility of `LeftHandSleeve` (`SetActive`). Controls visibility of `RightHandSleeve` (`SetActive`).",
+                         "sourceScripts":  "SurgicalGownSelfGowing",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "51bfef90-80a4-5159-a6c5-17ed41c1aa12",
+                         "key":  "removeGown",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Remove Gown.",
+                         "sourceScripts":  "SurgicalGownSelfGowing",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b5acad6b-d8f9-50e6-b7ef-ebbf520b4947",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "folded",
+                                                "foldedLocked",
+                                                "open"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``folded`` / ``foldedLocked`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "5e097803-5f3b-5b99-b458-0e32c9a66b26"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

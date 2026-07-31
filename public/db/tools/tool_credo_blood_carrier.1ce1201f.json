@@ -1,0 +1,41 @@
+{
+    "id":  "1ce1201f-1ed6-597f-904e-b11041953450",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Credo Blood Carrier",
+    "assetKey":  "tool_credo_blood_carrier",
+    "toolId":  "credoBloodCarrier",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/EMT Blood Carrier/tool_credo_blood_carrier.prefab",
+    "metadata":  [
+                     {
+                         "id":  "2b6aa83f-fae3-5bad-82af-158890013734",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

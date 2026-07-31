@@ -1,0 +1,32 @@
+{
+    "id":  "438114a2-9977-54ae-b080-ee4debe6d049",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Stopcock",
+    "assetKey":  "tool_stopcock",
+    "toolId":  "stopcock1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/Pericardiocentesis Kit/tool_stopcock.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "stopcockPatient",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "02638df9-3edd-5509-9b36-3173425d9f57",
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "166cc7d8-3fb5-5c69-bf41-cbd004c3c64e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

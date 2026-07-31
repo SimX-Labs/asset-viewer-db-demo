@@ -1,0 +1,94 @@
+{
+    "id":  "d85c3b52-07b0-5aca-85d2-a8b68c2f4c95",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Foley Catheter",
+    "assetKey":  "tool_foley_catheter",
+    "toolId":  "foleyCatheter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_foley_catheter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "bcb37a04-2aca-5856-bce2-b2b1608e0727",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal",
+                                                "lubricant"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``normal`` / ``lubricant``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "catheterInsertionSite",
+                             "assetIds":  [
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "5b9ab0ac-4bcb-5e73-86f6-753a2bcc4fda",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+                                              "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "catheterKitLubricantInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "foleyBubble",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "09a21837-f570-5442-ba22-b6c582fd9f48",
+                           "3d960b70-8a59-5942-ab4f-da579f1d5975",
+                           "78589a96-974c-5759-acb3-5dffb9832179",
+                           "08e97a9d-70f1-51d3-884e-23495f30169c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d",
+                           "c8fa902f-a487-5521-99fb-9045ffd0c8d0"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

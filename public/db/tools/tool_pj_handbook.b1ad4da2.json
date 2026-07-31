@@ -1,0 +1,24 @@
+{
+    "id":  "b1ad4da2-b063-5c9e-bbdf-1527022078c8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pj Handbook",
+    "assetKey":  "tool_pj_handbook",
+    "toolId":  "pjHandbook",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pj_handbook.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

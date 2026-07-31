@@ -1,0 +1,24 @@
+{
+    "id":  "672be543-7f0a-5297-bcf8-534984d939ad",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Stand Ground Second Set",
+    "assetKey":  "tool_iv_stand_ground_second_set",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/IVs/tool_iv_stand_ground_second_set.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

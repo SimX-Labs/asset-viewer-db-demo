@@ -1,0 +1,32 @@
+{
+    "id":  "95593d64-41a6-5dbf-b3c6-85731fa27767",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Generic Concrete Block Grabbable",
+    "assetKey":  "tool_generic_concrete_block_grabbable",
+    "toolId":  "tool_generic_concrete_block_grabbable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_generic_concrete_block_grabbable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "litterFoldableElevate",
+                             "assetIds":  [
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a",
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a",
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

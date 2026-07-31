@@ -1,0 +1,46 @@
+{
+    "id":  "548fb2a0-6f6e-548e-b2bf-68c5691f10a9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Panties",
+    "assetKey":  "tool_panties",
+    "toolId":  "panties",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_panties.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b890822b-f8cb-5635-a8d5-57eab0d1f262",
+                         "key":  "outfit",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "adult01TShirtStriped",
+                                          "adult01JoggingPants",
+                                          "Elder Care"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolOutfitInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "panties",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

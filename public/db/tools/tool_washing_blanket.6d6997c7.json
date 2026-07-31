@@ -1,0 +1,30 @@
+{
+    "id":  "6d6997c7-1330-543d-9e8b-3b517e8e124d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Washing Blanket",
+    "assetKey":  "tool_washing_blanket",
+    "toolId":  "washingBlanket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/tool_washing_blanket.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Pelvic",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

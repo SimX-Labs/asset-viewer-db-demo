@@ -1,0 +1,109 @@
+{
+    "id":  "ddfd1e23-abd9-59be-bd98-6d9ca727205f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pacer Wire",
+    "assetKey":  "tool_pacer_wire",
+    "toolId":  "pacerWire",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Pacer/tool_pacer_wire.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c55e7ea3-7a59-5a9c-b980-20a572839c14",
+                         "key":  "adaptersAttached",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "return; Currently there is no scenario where the user can remove the adapters. However, this is still included if that scenario exists in the future. Controls visibility of `adaptersModelOnWire` (`SetActive`). Fires the `adapters_were_attached` interaction event when conditions are met. Fires the `adapters_were_unattached` interaction event when conditions are met.",
+                         "sourceScripts":  "PacerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ea73818-870f-51f0-9e78-9e1ac410bee4",
+                         "key":  "sheathAttached",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``correct`` / ``incorrect``"
+                                      ],
+                         "description":  "If this is null, that means the sheath isnt on in any form Controls visibility of `sheathModelOnWireCorrect` (`SetActive`). Controls visibility of `sheathModelOnWireIncorrect` (`SetActive`). Fires the `sheath_attached_correctly` interaction event when conditions are met. Fires the `sheath_attached_incorrectly` interaction event when conditions are met.",
+                         "sourceScripts":  "PacerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f729efb5-7c54-5ed1-9340-f61218a93774",
+                         "key":  "sheathCapAttached",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Currently there is no scenario where the user can remove the cap. However, this is still included if that scenario exists in the future. SimulationEventManager.StartListening($\"Metadata-{_toolController.ToolId}-{ToolMetadataList.SHEATH_ATTACHED_CORRECTLY}\", SheathAttachedCorrectly); Controls visibility of `sheathCapModelOnSheath` (`SetActive`). Fires the `sheath_cap_was_attached` interaction event when conditions are met. Fires the `sheath_cap_was_unattached` interaction event when conditions are met.",
+                         "sourceScripts":  "PacerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b53741ad-294b-5329-933f-805db463da98",
+                         "key":  "syringeAttached",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true``"
+                                      ],
+                         "description":  "Currently there is no scenario where the user can remove the syringe. However, this is still included if that scenario exists in the future. Controls visibility of `syringeModelOnWire` (`SetActive`). Fires the `syringe_was_attached` interaction event when conditions are met. Fires the `syringe_was_unattached` interaction event when conditions are met.",
+                         "sourceScripts":  "PacerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "stopcock",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "sheathInteraction",
+                                     "assetIds":  [
+                                                      "2c70708b-62d4-5bfd-989d-23403aa98b95"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "adapterConnector",
+                                     "assetIds":  [
+                                                      "a61e4121-ce92-5820-8bf4-c58e054a5bc6"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

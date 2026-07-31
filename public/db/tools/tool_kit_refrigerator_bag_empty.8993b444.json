@@ -1,0 +1,24 @@
+{
+    "id":  "8993b444-3ef1-5363-a6d7-1d83f060affc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Kit Refrigerator Bag Empty",
+    "assetKey":  "tool_kit_refrigerator_bag_empty",
+    "toolId":  "kit_CCAT_RefrigeratorBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_kit_refrigerator_bag_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

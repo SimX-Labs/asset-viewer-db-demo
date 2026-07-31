@@ -1,0 +1,38 @@
+{
+    "id":  "1f38fe6c-c375-5fed-9348-558d6835fcc5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inserted Dilator",
+    "assetKey":  "tool_inserted_dilator",
+    "toolId":  "insertedDilator",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/Pericardiocentesis Kit/tool_inserted_dilator.prefab",
+    "metadata":  [
+                     {
+                         "id":  "83724b82-0c74-5422-9c67-ebaa24077860",
+                         "key":  "multiHeldPosition",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles object to move movement.",
+                         "sourceScripts":  "HandHoldGenericPushPullControllerMultiAxis",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

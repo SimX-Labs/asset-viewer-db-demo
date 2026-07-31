@@ -1,0 +1,41 @@
+{
+    "id":  "e018d6d8-8d80-57f8-8889-2169a8709fa3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Urinary Collection Bag Full",
+    "assetKey":  "tool_urinary_collection_bag_full",
+    "toolId":  "urineCollectionBagFull",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/UrinaryCollectionBag/tool_urinary_collection_bag_full.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f604afca-42dd-5f8e-9ac5-daf77ba6eb63",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "50"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``empty`` / ``50``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

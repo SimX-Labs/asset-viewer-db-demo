@@ -1,0 +1,41 @@
+{
+    "id":  "4777d693-cf66-5208-9fb1-c649e39a2d6a",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Nursing Bag",
+    "assetKey":  "kit_nursing_bag",
+    "toolId":  "kitNursingBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/kit_nursing_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "46ae975c-f4c9-51fc-9103-e2b893b39531",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "open",
+                                                "closed"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``open`` / ``closed``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

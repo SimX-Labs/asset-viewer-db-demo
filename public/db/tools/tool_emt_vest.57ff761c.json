@@ -1,0 +1,30 @@
+{
+    "id":  "57ff761c-812b-5b2e-8b1a-88e18aad2f28",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Emt Vest",
+    "assetKey":  "tool_emt_vest",
+    "toolId":  "emtVest",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_emt_vest.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerEmtVest",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

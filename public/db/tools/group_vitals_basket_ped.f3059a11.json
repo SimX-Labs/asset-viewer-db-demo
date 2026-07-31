@@ -1,0 +1,24 @@
+{
+    "id":  "f3059a11-d3e0-5c3d-b861-0ec919dcb3bd",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Vitals Basket Ped",
+    "assetKey":  "group_vitals_basket_ped",
+    "toolId":  "vitalsBasket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_vitals_basket_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

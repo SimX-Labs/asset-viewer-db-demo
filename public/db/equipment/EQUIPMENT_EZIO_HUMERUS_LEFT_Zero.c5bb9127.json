@@ -1,0 +1,75 @@
+{
+    "id":  "c5bb9127-650a-5e5f-a47f-867904ce4502",
+    "type":  "equipment",
+    "name":  "Ezio Humerus Left Zero",
+    "assetKey":  "EQUIPMENT_EZIO_HUMERUS_LEFT_Zero",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/EQUIPMENT_EZIO_HUMERUS_LEFT_Zero.prefab",
+    "primaryMetadata":  {
+                            "id":  "7263b0ce-0b65-588d-8b85-46a58f173cc4",
+                            "key":  "IOHumerusLeft",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "ea05d41d-520d-5e46-aacd-b94b9929276f",
+                         "key":  "IOHumerusLeft-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "55d48d49-ac86-5c0b-8801-97d3099635eb",
+                         "key":  "IOHumerusLeft-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c63d66fb-62ab-50e8-9519-bb2de46e39e4",
+                         "key":  "IOHumerusLeft-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

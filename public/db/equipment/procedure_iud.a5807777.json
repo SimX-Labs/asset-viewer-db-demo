@@ -1,0 +1,426 @@
+{
+    "id":  "a5807777-6e10-55ff-9cd3-332dada52bc3",
+    "type":  "equipment",
+    "name":  "Procedure Iud",
+    "assetKey":  "procedure_iud",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/IUD Inserter/PROCEDURE_IUD.prefab",
+    "primaryMetadata":  {
+                            "id":  "9de55c7e-ae72-5eb6-b385-f82600d458d2",
+                            "key":  "speculum",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "bb500203-da1c-54b3-b29e-90078e021acd",
+                         "key":  "ApplyGlobalTextureOverlay",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e",
+                         "sourceScripts":  "CharacterTextureStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3de407a2-3ce2-5564-9d77-2afe0688d168",
+                         "key":  "colposcopy",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60798a86-1523-5898-9f6b-2022707fd072",
+                         "key":  "colposcopy-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cfa34c66-0865-5ace-aa99-587e97d82f73",
+                         "key":  "colposcopy-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e45e6a04-b347-5d18-867d-e1ff1b970808",
+                         "key":  "CurrentStateOverride",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If no data was passed in, then do nothing. / \u003cparam name=\"data\"\u003e\u003c/param\u003e",
+                         "sourceScripts":  "CharacterTextureStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "61a54cc6-988f-5ed6-833b-7fc882430c05",
+                         "key":  "DecalState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If no data was passed, return. Get the data as a dictionary. If fail, then return. / \u003cparam name=\"data\"\u003e\u003c/param\u003e",
+                         "sourceScripts":  "CharacterTextureStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a8b7ff61-fb1d-527f-a093-221a52ed34a3",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "19013b5e-c3de-5b62-89ca-938574af7fe3",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca61771f-bfc2-57d6-b766-300d44bf5c44",
+                         "key":  "iudInserter",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d6c1b57c-77ad-5264-be9e-9a3117a0f404",
+                         "key":  "iudInserter-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "df3942a8-9a7e-5a01-bdfa-26a859879619",
+                         "key":  "iudInserter-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e7615c59-f523-51c1-a1e6-1fefe970d0c3",
+                         "key":  "iudInserter-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1a594b11-582d-50d1-9e6a-78fd7a430368",
+                         "key":  "IUDInsertion",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "speculum",
+                                                "speculumWithTenaculum",
+                                                "iUDinserterWithTenaculum"
+                                            ],
+                         "defaultValue":  "default",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`default`, `speculum`, `speculumWithTenaculum`, `iUDinserterWithTenaculum`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "19a82b4e-719e-5445-93fb-6b333d3a36d1",
+                         "key":  "IUDInsertion-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a39ddb7c-ee29-5332-b4df-2eb299abca15",
+                         "key":  "IUDInsertion-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "28419c6d-1a08-5c79-bcce-ab8c8905a8f9",
+                         "key":  "ProcedureSteps: []",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d89a627c-5069-5da1-8bbd-28b96f54235d",
+                         "key":  "ProcedureSteps: []-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cfc8d9c6-d837-5e2a-bf23-064cda9cebd5",
+                         "key":  "ProcedureSteps: []-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "305276b3-3cce-5cf6-81f8-b2c5d2aef5bf",
+                         "key":  "SLIDER_POSITION",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `HandLockingCollider` (`SetActive`).",
+                         "sourceScripts":  "IUDInserterControllerHelper",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0e122a75-47fc-50b0-914b-839440cb211d",
+                         "key":  "speculum-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "46c0b8dc-30dd-5d6a-90e3-b53c4d133254",
+                         "key":  "speculum-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "38d3ee90-1f75-56c1-9f60-a9bb51994200",
+                         "key":  "speculum-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "cervix",
+                                     "assetIds":  [
+                                                      "46174cca-864b-5d81-8eaa-74fc0b2a2e8a",
+                                                      "16a83f6e-cd15-5d4d-85f0-010a5e185a16"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "iudinserter",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "iudinserterWithTenaculum",
+                                     "assetIds":  [
+                                                      "d31bbcae-517c-5312-b582-928c570af866"
+                                                  ],
+                                     "availableIn":  [
+                                                         "speculumWithTenaculum"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "iudstring",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "speculumUterineSoundAndTenaculum",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "speculumWithTenaculum"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "speculumWithTenaculum",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "speculum"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "speculumWithUterineSound",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "speculum"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163"
+                     ]
+}

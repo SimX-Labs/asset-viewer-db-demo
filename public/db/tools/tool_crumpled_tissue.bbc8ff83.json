@@ -1,0 +1,24 @@
+{
+    "id":  "bbc8ff83-94bf-57dc-a68f-646737c33efe",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Crumpled Tissue",
+    "assetKey":  "tool_crumpled_tissue",
+    "toolId":  "CrumpledTissue1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_crumpled_tissue.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

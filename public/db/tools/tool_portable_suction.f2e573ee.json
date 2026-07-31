@@ -1,0 +1,229 @@
+{
+    "id":  "f2e573ee-9782-5c3b-a592-961de5d71326",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Suction",
+    "assetKey":  "tool_portable_suction",
+    "toolId":  "portableSuction1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_portable_suction.prefab",
+    "metadata":  [
+                     {
+                         "id":  "50bd8caf-7011-5922-b52f-571f2d89c9fc",
+                         "key":  "autoFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4b555a24-3646-59d5-aa82-b52dcad9f82f",
+                         "key":  "blockedSuction",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles blocked suction.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c0286e3b-174b-532e-804c-fc43696d78bc",
+                         "key":  "currentFillAmount",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c8b76bac-951a-5d7d-b0f5-81e36eb7242c",
+                         "key":  "currentlyFilling",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "782faa00-8ea3-5b0e-b3d7-4dafae00aa9f",
+                         "key":  "dialState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d25e6d87-4333-5bfc-aea4-dbd08e5a6247",
+                         "key":  "fluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "saliva",
+                         "examples":  [
+
+                                      ],
+                         "description":  "This comes in as a string for a color Now we can set the actual color from that string",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "73ee6234-06f9-5627-8075-9b1077f39a99",
+                         "key":  "fluidLevelMax",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This comes in as a float",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b2762853-fa10-5617-8fac-b2efc21fdc50",
+                         "key":  "fluidMaterial",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``yellowSputum``"
+                                      ],
+                         "description":  "Set Fluid Material.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "55e30592-0aca-5310-9007-9640f2fd56cf",
+                         "key":  "playSuctionActiveSound",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cb446f80-2f0a-5398-9522-cb275dda84c7",
+                         "key":  "powerOn",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `currentPowerStatus` (toggle / flag).",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ecb4ffb0-d2bd-5669-b629-82ba2aba27b0",
+                         "key":  "sourceOfTruthOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c01f020b-e1e5-56f4-b032-0bc840634489",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "yankauer",
+                                                "tracheostomy",
+                                                "nothing"
+                                            ],
+                         "defaultValue":  "yankauer",
+                         "examples":  [
+                                          "``yankauer`` / ``tracheostomy`` / ``nothing``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "4c1b766f-5074-506d-a421-7aa9b584a19b",
+                         "key":  "suctionIsFillingElsewhere",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Set Suction Filling Elsewhere.",
+                         "sourceScripts":  "ToolSuctionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mount_suction",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "d8717caf-8f69-507f-a39b-916a025a8551",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Sti Testing",
+    "assetKey":  "kit_STI_testing",
+    "toolId":  "stiTest",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_sti_testing.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d304b601-4196-52c7-9488-19344f10602a",
+                         "key":  "isPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `PickupTrayTrigger` (`SetActive`). Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "HoldableTrayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "trayPlacementMayo",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "8b07dc07-a19c-5f1c-a23b-5e1dfcf39cf8"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,74 @@
+{
+    "id":  "0e927cb0-62cf-50a3-8106-cf866433f64b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Bag Platelets",
+    "assetKey":  "tool_iv_bag_platelets",
+    "toolId":  "ivBagPlatelets",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_iv_bag_platelets.prefab",
+    "metadata":  [
+                     {
+                         "id":  "afbc81ce-9560-56b3-88bc-a82db17a9e20",
+                         "key":  "bloodBagMesh",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BloodBagMeshController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "eb5f5835-a2ae-5b19-b7e9-ee63d7bac389",
+                         "key":  "ivFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Clear | Red | Blue | Yellow | Brown | White | Pink because we subscribe to this tool\u0027s metadata event, if this tools has a metadata event of this signature come through, we will call the handler with it",
+                         "sourceScripts":  "IvFluidColorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6a487cab-bedc-5be3-892b-4f1ce32eec33",
+                         "key":  "medicationData",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This comes in as an object Setup listeners for setting the values for this medication Controls visibility of `gameObject` (`SetActive`). Updates the `DosageLabelText.text` UI label.",
+                         "sourceScripts":  "MedCustomMetadataController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IVBagBlood",
+                             "assetIds":  [
+                                              "b9c2c008-5fb3-5aae-9bd1-662c74d385e3"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

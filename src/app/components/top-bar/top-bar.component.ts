@@ -77,8 +77,11 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
               <hr />
               <div class="dropdown-title">File</div>
               @if (state.dataMode() === 'unity') {
-                <button class="dropdown-action" (click)="fileInput.click()">Load Unity DB bundle...</button>
-                <p class="dropdown-hint">Select a consolidated <code>unity-asset-db.json</code> bundle.</p>
+                <button class="dropdown-action" (click)="folderInput.click()">Load Unity DB folder...</button>
+                <p class="dropdown-hint">
+                  Select a <code>db/</code> folder (<code>characters/</code>, <code>equipment/</code>,
+                  <code>tools/</code>). Defaults to <code>public/db</code> on startup.
+                </p>
               } @else {
                 <button class="dropdown-action" (click)="fileInput.click()">Load DBO File(s)...</button>
                 <p class="dropdown-hint">Hold Shift to add files without clearing existing data.</p>
@@ -144,6 +147,14 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
         hidden
         (change)="onFilesSelected($event)"
       />
+      <input
+        #folderInput
+        type="file"
+        hidden
+        webkitdirectory
+        directory
+        (change)="onFolderSelected($event)"
+      />
     </header>
   `,
   styleUrl: './top-bar.component.scss',
@@ -158,6 +169,14 @@ export class TopBarComponent {
     const input = event.target as HTMLInputElement;
     if (!input.files?.length) return;
     await this.state.loadFilesFromInput(input.files, (event as KeyboardEvent & { shiftKey?: boolean }).shiftKey ?? false);
+    input.value = '';
+    this.showSettings.set(false);
+  }
+
+  async onFolderSelected(event: Event): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) return;
+    await this.state.loadUnityDbFolder(input.files);
     input.value = '';
     this.showSettings.set(false);
   }

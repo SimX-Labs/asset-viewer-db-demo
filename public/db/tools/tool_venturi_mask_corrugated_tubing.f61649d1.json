@@ -1,0 +1,30 @@
+{
+    "id":  "f61649d1-33db-56bb-b600-9099532ff4d8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Mask Corrugated Tubing",
+    "assetKey":  "tool_venturi_mask_corrugated_tubing",
+    "toolId":  "VenturiCorrugatedTubing",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_mask_corrugated_tubing.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BaseMask",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "7051679a-a3bd-5adf-af8d-e400abf86f54",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bloody Gauze Medium",
+    "assetKey":  "tool_bloody_gauze_medium",
+    "toolId":  "bloodyGauzeMedium",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Circulation Tools/tool_bloody_gauze_medium.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "salineTarget",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

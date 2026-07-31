@@ -1,0 +1,141 @@
+{
+    "id":  "097a8976-03cd-576a-8995-28b662ebdb3a",
+    "type":  "equipment",
+    "name":  "Non Skid Socks",
+    "assetKey":  "equipment_non_skid_socks",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/NonSkid Socks/equipment_non_skid_socks.prefab",
+    "primaryMetadata":  {
+                            "id":  "ca891163-1137-5a23-ab1f-41a4270f878f",
+                            "key":  "nonSkidSocks",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "501f5430-aa7c-50d9-9a75-6b44380e3788",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "192a64f0-27be-5e59-8503-3778d1568409",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7bbad339-c7cd-59de-a0c8-73e82f08c5df",
+                         "key":  "nonSkidSocks-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bcbf37c7-18da-50d0-9506-aa7c84b4d49a",
+                         "key":  "nonSkidSocks-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f92aa4da-2bf2-5739-98fe-7c2d901211ef",
+                         "key":  "nonSkidSocks-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "nonSkidSocks",
+                                     "assetIds":  [
+                                                      "ddc35043-28fb-5856-bd0f-49b073b726ed"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                         "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                         "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                         "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                         "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                         "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                         "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383",
+                         "dbb0101a-e0a5-5cf6-8f28-7dc22f9ed8c9",
+                         "d0147888-7b8d-59a1-800d-666df87edd5b",
+                         "9e498184-659c-580b-a578-ea60c6ccbbe4",
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050",
+                         "1facc457-8ffa-5bc1-8a34-48ee37a9e946",
+                         "668f8145-a212-58db-a87d-59c29b6b2382",
+                         "35724b30-b755-5d70-adea-d6d57e96032e",
+                         "552a3787-b1eb-554d-9a52-fe3ad2aa9de8",
+                         "8a929814-cea0-5802-9580-a9a013aeaa62",
+                         "e06d33cf-aebd-5d0c-a439-ef85a6ea93a2"
+                     ]
+}

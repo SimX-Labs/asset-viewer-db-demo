@@ -1,0 +1,24 @@
+{
+    "id":  "51cad372-e8e2-5820-87fc-43b487bc8b8f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Purple Gloves Box V2",
+    "assetKey":  "tool_purple_gloves_box_V2",
+    "toolId":  "glovebox_Pickable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_purple_gloves_box_V2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c2e9c05a-f7c3-5f0f-9a1d-d36122391d68"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

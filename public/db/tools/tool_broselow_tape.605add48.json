@@ -1,0 +1,122 @@
+{
+    "id":  "605add48-ac98-5c0c-9867-096ab626f877",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Broselow Tape",
+    "assetKey":  "tool_broselow_tape",
+    "toolId":  "BroselowTape",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_broselow_tape.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1d3ede91-81fd-5bfd-9431-22fa5bf7be5a",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Unused",
+                                                "Used",
+                                                "UsedGrey",
+                                                "UsedWhite"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Unused`` / ``Used`` / ``UsedGrey`` / ``UsedWhite``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "BroselowTape_InteractionLocation",
+                             "assetIds":  [
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "BroselowTape_InteractionLocation",
+                             "assetIds":  [
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "5f789180-2545-59cb-a9ca-e4bed4736038",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a",
+                                              "0483aa73-c570-5429-9f56-75bf8221542f",
+                                              "d1df70c7-eaa6-5997-8915-79c8f8d6720a"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "BroselowTapeUniversal_InteractionLocation",
+                             "assetIds":  [
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310",
+                                              "c95454ea-bf9c-5cbb-b0bf-cf056502f310"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "39c8dea1-1e14-5c4b-a423-7ec5463071a0"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

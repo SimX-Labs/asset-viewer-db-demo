@@ -1,0 +1,58 @@
+{
+    "id":  "5c2930b4-8994-54e9-8f0c-d9bfbbfeafd7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Baby Bottle",
+    "assetKey":  "tool_baby_bottle",
+    "toolId":  "babyBottle1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BabyBottle/tool_baby_bottle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0aba5f72-2059-56a8-a23b-7f18f21bcf2e",
+                         "key":  "bottleFull",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Simple vibrate controller holding bottle if feeding the baby directly Controls visibility of `Milk` (`SetActive`).",
+                         "sourceScripts":  "BabyBottleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bottleMouth",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bottleHandL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bottleHandR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

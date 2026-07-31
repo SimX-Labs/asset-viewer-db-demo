@@ -1,0 +1,48 @@
+{
+    "id":  "39047cea-9162-52ff-8bee-ac53e1bf7d7c",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Procedure Cart Peds",
+    "assetKey":  "group_procedure_cart_peds",
+    "toolId":  "procedureCart_peds",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_procedure_cart_peds.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e3ae6aab-a8c3-53b4-949f-397ac65821eb",
+                         "key":  "epinephrine",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "global"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``global``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "trayPlacement_UVcath",
+                                     "assetIds":  [
+                                                      "17ddd3b5-1604-5bdc-bc7e-999e2f5ad726",
+                                                      "0df3f76b-185a-568a-85dc-ae73f029a57a"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

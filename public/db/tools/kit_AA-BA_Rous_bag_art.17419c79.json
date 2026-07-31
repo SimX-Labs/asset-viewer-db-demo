@@ -1,0 +1,24 @@
+{
+    "id":  "17419c79-b446-5453-be46-ef06b99cbadc",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Aa-ba Rous Bag Art",
+    "assetKey":  "kit_AA-BA_Rous_bag_art",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/Scenes/Environments/Military/C-130/kit_AA-BA_Rous_bag_art.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

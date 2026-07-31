@@ -1,0 +1,47 @@
+{
+    "id":  "883f0c09-0a3e-53fc-8986-852787c952df",
+    "type":  "tool",
+    "kind":  "vessel",
+    "name":  "Kit Bed Bath Basin",
+    "assetKey":  "vessel_kit_bed_bath_basin",
+    "toolId":  "vesselKitBedBathBasin",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/vessel_kit_bed_bath_basin.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d6b28839-7712-5b63-af76-b33de0486188",
+                         "key":  "grabState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "grabbable",
+                                                "placed"
+                                            ],
+                         "defaultValue":  "grabbable",
+                         "examples":  [
+                                          "``grabbable`` / ``placed``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bathBasinPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

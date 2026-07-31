@@ -1,0 +1,223 @@
+{
+    "id":  "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+    "type":  "equipment",
+    "name":  "Procedure Colostomybag",
+    "assetKey":  "equipment_procedure_ColostomyBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Colostomy/equipment_procedure_ColostomyBag.prefab",
+    "primaryMetadata":  {
+                            "id":  "7e62a61f-8db3-5d94-8919-55fb7613e2f8",
+                            "key":  "equipmentProcedureColostomyBag",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "27e5b2e3-0fb5-59e3-b24f-a6be93fd5cd1",
+                         "key":  "ColostomyChange",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BagToRemove",
+                                                "CleanWithGuaze",
+                                                "AdhesiveToRemove",
+                                                "RemoveWafer",
+                                                "CleanBody",
+                                                "PrepSkin",
+                                                "AttachWafer",
+                                                "AttachBag",
+                                                "BagAttached"
+                                            ],
+                         "defaultValue":  "BagToRemove",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`BagToRemove`, `CleanWithGuaze`, `AdhesiveToRemove`, `RemoveWafer`, `CleanBody`, `PrepSkin`, `AttachWafer`, `AttachBag`, `BagAttached`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "4569240f-910d-51ab-9eac-06a57ee56699",
+                         "key":  "ColostomyChange-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7ca32829-fdea-5a84-a76c-8c8fc0d82678",
+                         "key":  "ColostomyChange-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d1611449-21d0-5419-88b3-7c74aca65df3",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "59def8d8-607d-5a16-9ded-21d4f7b66939",
+                         "key":  "equipmentProcedureColostomyBag-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1b11bc0a-173d-57a1-bcf0-4f3214dd6426",
+                         "key":  "equipmentProcedureColostomyBag-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e530b32a-626d-5ccc-8bb6-03c9e4810adc",
+                         "key":  "equipmentProcedureColostomyBag-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ed8beeee-1326-596a-af28-cb4adc1aa326",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "AdhesiveToRemove",
+                                     "assetIds":  [
+                                                      "c15e8a28-1742-505f-81a9-14beefecbe67"
+                                                  ],
+                                     "availableIn":  [
+                                                         "AdhesiveToRemove"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "ApplyBag",
+                                     "assetIds":  [
+                                                      "23360e3f-da24-566b-b695-3627e03e72e3",
+                                                      "f256014f-6164-51bd-bbbb-98ff0380a1a4"
+                                                  ],
+                                     "availableIn":  [
+                                                         "AttachBag"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "ApplyWafer",
+                                     "assetIds":  [
+                                                      "57c6ba4e-72ec-52de-93ad-cb63cb7481aa",
+                                                      "30bcb5b2-7e3d-5cfc-b5a5-05dffe5a5765"
+                                                  ],
+                                     "availableIn":  [
+                                                         "AttachWafer"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "CleanBody",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "CleanBody"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "MessToClean",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  [
+                                                         "CleanWithGuaze"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "SkinPrep",
+                                     "assetIds":  [
+                                                      "44236e7e-c18a-5381-8098-dd0a30f6d533"
+                                                  ],
+                                     "availableIn":  [
+                                                         "PrepSkin"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                         "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                         "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                         "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                         "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                         "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                         "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81"
+                     ]
+}

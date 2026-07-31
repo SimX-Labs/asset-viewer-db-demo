@@ -1,0 +1,74 @@
+{
+    "id":  "33329fcf-e699-514e-80a1-9cd4834394a3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tactical Iv Kit",
+    "assetKey":  "tool_tactical_iv_kit",
+    "toolId":  "tacticalIvKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_tactical_iv_kit.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IVHandRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVHandLeft",
+                             "assetIds":  [
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVForearmRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVForearmLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

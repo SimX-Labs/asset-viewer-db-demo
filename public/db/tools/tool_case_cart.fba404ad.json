@@ -1,0 +1,24 @@
+{
+    "id":  "fba404ad-7251-53de-941b-978a392a5cf1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Case Cart",
+    "assetKey":  "tool_case_cart",
+    "toolId":  "caseCart1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_case_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

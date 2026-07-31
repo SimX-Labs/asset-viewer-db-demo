@@ -1,0 +1,48 @@
+{
+    "id":  "ad682a4e-a260-5dc8-b776-63993a08c58e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Collection Bag",
+    "assetKey":  "tool_collection_bag",
+    "toolId":  "collectionBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/Pericardiocentesis Kit/tool_collection_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f5ff22fd-603d-534b-915d-a4118de89a71",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "tray",
+                                                "empty",
+                                                "full"
+                                            ],
+                         "defaultValue":  "tray",
+                         "examples":  [
+                                          "``tray`` / ``empty`` / ``full``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "aspiratePatientCollectionBag",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "166cc7d8-3fb5-5c69-bf41-cbd004c3c64e"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

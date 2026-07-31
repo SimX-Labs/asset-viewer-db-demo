@@ -1,0 +1,24 @@
+{
+    "id":  "be6af6fd-2d9c-5df4-8716-c48f163beac5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ventilator Right Angle Adapter",
+    "assetKey":  "tool_ventilator_right_angle_adapter",
+    "toolId":  "ventilatorRightAngleAdapter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ventilator_right_angle_adapter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

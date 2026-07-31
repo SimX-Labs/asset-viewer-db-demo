@@ -1,0 +1,188 @@
+{
+    "id":  "65cfd695-4a84-525e-9949-247abd00bbbd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Ventilator Box",
+    "assetKey":  "tool_portable_ventilator_box",
+    "toolId":  "portableVentilator1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Ventilator/tool_portable_ventilator_box.prefab",
+    "metadata":  [
+                     {
+                         "id":  "9adf5c4c-82c3-5585-8a08-0fca25cbaee3",
+                         "key":  "alarmStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "If we hit this, it means someone is manually changing the metadata from the case file",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2496a976-f186-5218-aa2b-2044e2d7f71f",
+                         "key":  "connected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `connectionStatus` (toggle / flag).",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "63a0c845-35cc-53e5-93af-f9ffaffff493",
+                         "key":  "connectedLocation",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8613c9dc-0a50-569f-8122-7bb49d15a718",
+                         "key":  "connectedToNewPatient",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d9fdf087-303f-5916-856e-39f972fc49cd",
+                         "key":  "control",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `AssistCtrlActive` (`SetActive`). Controls visibility of `SimVCpapActive` (`SetActive`).",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "18784305-6266-58af-9f8c-636627e12ab6",
+                         "key":  "currentlySelectedFieldIndex",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d74e38a4-1148-595a-bd83-0b942e0c0266",
+                         "key":  "mode",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `VolumeObjectActive` (`SetActive`). Controls visibility of `PressureObjectActive` (`SetActive`).",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9f36740d-bf0a-54c9-9a7c-41488e8263f2",
+                         "key":  "power",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "aacfab83-6682-5086-9ac1-ac319220045a",
+                         "key":  "rr",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "38883d70-2deb-5b0e-880d-ab223d4696d6",
+                         "key":  "shouldOverrideVitals",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles should override vitals.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "34787a74-fc11-54a1-80e8-b0ece748c790",
+                         "key":  "useMultiPatients",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles needs to work with multiple patients.",
+                         "sourceScripts":  "VentilatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

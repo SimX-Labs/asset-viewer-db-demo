@@ -1,0 +1,30 @@
+{
+    "id":  "7eea0606-52df-59b9-9fb2-93bd9269095e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Packing Gauze",
+    "assetKey":  "tool_packing_gauze",
+    "toolId":  "packingGauze1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_packing_gauze.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LeftLegAbscess",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "74d94e58-b834-5753-8356-f6e408fb2db4"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,25 @@
+{
+    "id":  "e3aae0a7-5f78-5b0d-9c6a-daa195a035de",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Garbage Bin",
+    "assetKey":  "tool_garbage_bin",
+    "toolId":  "garbage1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_garbage_bin.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

@@ -1,0 +1,195 @@
+{
+    "id":  "187f1e80-a1bf-57b1-9596-7a736ffd564c",
+    "type":  "equipment",
+    "name":  "Tracheostomy Sputum",
+    "assetKey":  "equipment_tracheostomy_sputum",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Tracheostomy/equipment_tracheostomy_sputum.prefab",
+    "primaryMetadata":  {
+                            "id":  "4fdcbffb-21dd-5cc8-890a-9fc85df6384c",
+                            "key":  "tracheostomy",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "00dc7aaf-abd6-5d62-88a4-90f62acfdaa5",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e16a8e3d-dc84-5524-b45b-6455fe86d44e",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8320df01-a233-5eb2-8033-162fe9daa84b",
+                         "key":  "StateSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing Often heard as `\u003cprocedureName\u003e-StateSuffix`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "PatientStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b7a9e842-8e44-5e64-af3e-0e79cc95b167",
+                         "key":  "trachDome-venturi",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "40",
+                                                "35"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`none`, `40`, `35`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "80882df3-b4ae-5c8f-942c-ed6292c4c0cd",
+                         "key":  "tracheostomy-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8ecf970d-e5f7-56d5-beb3-ec73de9fe730",
+                         "key":  "tracheostomy-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f7e631a8-a735-5ac3-ad37-fd5c22ba2eca",
+                         "key":  "tracheostomy-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d6133f72-c7d9-519c-8703-c77b153c8240",
+                         "key":  "trachSplitGauze-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clean",
+                                                "dirty"
+                                            ],
+                         "defaultValue":  "clean",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`clean`, `dirty`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "trachDome",
+                                     "assetIds":  [
+                                                      "210630d8-b420-55ea-aa24-117b90c3d4c7"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "tracheostomy",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSpeakingValve",
+                                     "assetIds":  [
+                                                      "01603ced-5d1b-58d0-bfb6-3f5ff6b9a06b"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSplitGauze",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "trachSuction",
+                                     "assetIds":  [
+                                                      "30779c40-5329-5adc-ae81-2bd53a56a64f",
+                                                      "69527ed0-1ddd-5a2b-adb8-6bbc05e1b31a",
+                                                      "6ac224ee-a870-527a-9d91-49f0e5499b38"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "1facc457-8ffa-5bc1-8a34-48ee37a9e946",
+                         "668f8145-a212-58db-a87d-59c29b6b2382",
+                         "35724b30-b755-5d70-adea-d6d57e96032e"
+                     ]
+}

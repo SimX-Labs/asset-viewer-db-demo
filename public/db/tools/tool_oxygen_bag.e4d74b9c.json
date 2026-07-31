@@ -1,0 +1,41 @@
+{
+    "id":  "e4d74b9c-a31a-5eca-ad7f-9100a2194042",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oxygen Bag",
+    "assetKey":  "tool_oxygen_bag",
+    "toolId":  "oxygenBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_oxygen_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6abaf345-c027-5236-bd84-e7202417f291",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

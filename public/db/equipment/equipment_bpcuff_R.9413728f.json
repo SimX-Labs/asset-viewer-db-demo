@@ -1,0 +1,75 @@
+{
+    "id":  "9413728f-a259-5e2b-81e5-20049e908ac5",
+    "type":  "equipment",
+    "name":  "Bpcuff R",
+    "assetKey":  "equipment_bpcuff_R",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_bpcuff_R.prefab",
+    "primaryMetadata":  {
+                            "id":  "8992f948-a92e-5baf-a2b8-08fd6a9cf37d",
+                            "key":  "BpCuff",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "474811f9-b003-5a2a-a48e-afd4e3087105",
+                         "key":  "BpCuff-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "89f32aec-cb15-5e48-a0eb-a587c551cd2a",
+                         "key":  "BpCuff-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ad314c7f-b092-59ed-85e9-6e9a21918474",
+                         "key":  "BpCuff-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "075cc8fd-3b3d-5257-9b71-cdcf09c6e80f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tccc Sharpie",
+    "assetKey":  "tool_TCCC_sharpie",
+    "toolId":  "tcccSharpie1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/TCCC Card/tool_TCCC_sharpie.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "tcccSharpieRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "tcccSharpieLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "tcccSharpie",
+                             "assetIds":  [
+                                              "b4934dc9-5091-5007-953f-3a3ecb365979"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

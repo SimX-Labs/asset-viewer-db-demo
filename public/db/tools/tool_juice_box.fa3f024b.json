@@ -1,0 +1,30 @@
+{
+    "id":  "fa3f024b-43af-5d2a-84a3-1a41d66244a7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Juice Box",
+    "assetKey":  "tool_juice_box",
+    "toolId":  "juiceBox1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_juice_box.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "juiceBox",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

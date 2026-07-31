@@ -1,0 +1,24 @@
+{
+    "id":  "6aba9bd5-7d7c-57ca-ae74-b7d15aab3e42",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Ultrasound",
+    "assetKey":  "tool_portable_ultrasound",
+    "toolId":  "portableUltrasoundWrapper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_portable_ultrasound.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

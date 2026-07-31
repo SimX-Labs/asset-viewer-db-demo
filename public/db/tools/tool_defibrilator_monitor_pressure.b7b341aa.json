@@ -1,0 +1,550 @@
+{
+    "id":  "b7b341aa-c6aa-5d5a-806f-953ae01cdb06",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Defibrilator Monitor Pressure",
+    "assetKey":  "tool_defibrilator_monitor_pressure",
+    "toolId":  "defibrilatorMonitor",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Defibrilator/tool_defibrilator_monitor_pressure.prefab",
+    "metadata":  [
+                     {
+                         "id":  "db5c1b2c-b919-5cc8-9f59-2aed1376fdc9",
+                         "key":  "bpCycled",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "75268514-8309-5e21-80f5-465f27d20fb8",
+                         "key":  "connected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `connectionStatus` (toggle / flag).",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d10025c1-b852-559f-aa6f-a6ded2e25142",
+                         "key":  "connectedPatient",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "262fb8c2-209e-555d-89f8-f21964eb259c",
+                         "key":  "connectedPatientMonitor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "36233ebc-850c-5a62-9c2d-d850c67e1124",
+                         "key":  "currentZollMode",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Handles current zoll mode. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "MonitorDefibPacerCombinedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d0c5c3ba-ece3-5466-9ace-74b70677f06e",
+                         "key":  "dbp",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9ac2984c-dad3-5e32-96fd-5d0a917b6eb2",
+                         "key":  "defibCharging",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Stop the coroutines",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "134c5170-e949-59d0-8613-cb3ade564762",
+                         "key":  "defibMode",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Mode Changed.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d6833561-60d0-548e-96ba-facb236b597e",
+                         "key":  "defibOnOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Button Pressed.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dcb8cbbf-b3d2-5718-a6ef-550e92619d13",
+                         "key":  "Defibrillator",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Make sure we actually turn on the monitor when pads are attached Controls visibility of `BottomRow` (`SetActive`). Controls visibility of `CheckPadsRow` (`SetActive`). Controls visibility of `ModeLabelGroup` (`SetActive`). Controls visibility of `gameObject` (`SetActive`). Controls visibility of `VitalsText` (`SetActive`).",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9facd904-b950-525d-8105-aa0adcb029bd",
+                         "key":  "defibSelectedEnergy",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Energy Changed.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c4bf510c-9a8b-5675-b5c8-bca0d2143ae0",
+                         "key":  "EquipDefibrillator",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Make sure we actually turn on the monitor when pads are attached Controls visibility of `BottomRow` (`SetActive`). Controls visibility of `CheckPadsRow` (`SetActive`). Controls visibility of `ModeLabelGroup` (`SetActive`). Controls visibility of `gameObject` (`SetActive`). Controls visibility of `VitalsText` (`SetActive`).",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3bac2dfd-de9b-59ab-b12c-1be8d7735394",
+                         "key":  "EquipInternalDefibrillator",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Equip Internal Defibrillator.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ad8722d5-c51a-5073-8fca-98febc6109ff",
+                         "key":  "hr",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca9b56b0-27a1-5bdc-8017-cdca342aeb7f",
+                         "key":  "ignoreVitalsForHrWaveform",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Ignore Vitals For Hr Waveform.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "263894a2-6e75-5f7b-94cd-fc87c05eb5e9",
+                         "key":  "map",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e813aa8f-242a-5de3-987b-d8b390c811bf",
+                         "key":  "monitorBpAutoCycle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "sets the bool stops the countdown coroutine if running",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e4af2b21-1b4f-556f-8c8e-18245dd78e1b",
+                         "key":  "monitorBpRefreshTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "If patient is not wearing either BP cuff, we don\u0027t want to do anything when hitting either cycle button Updates the `CycleTimeText.text` UI label. Updates the `SecondaryCycleTimeText.text` UI label.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "277170ee-de7b-5fca-843a-e9983f01ead2",
+                         "key":  "MonitorBpViewingValues",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If our time was the instant time, go back to the first one",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a17c8265-aac3-5bec-a912-ff9678003912",
+                         "key":  "monitorMute",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_muted` (opposite of the current boolean state).",
+                         "sourceScripts":  "VitalsMonitorSoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "922c42cd-8270-516f-9b71-dde07d3ec995",
+                         "key":  "monitorSilence",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_silenced` (opposite of the current boolean state).",
+                         "sourceScripts":  "VitalsMonitorSoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4b1ce673-69a6-5585-bb73-e4cc301e9dc5",
+                         "key":  "needsToSupportMultiPatients",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9d7f984c-7550-51e4-892b-22fe341e0c1e",
+                         "key":  "overrideHrNumRepetitions",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Override Hr Num Repetitions.",
+                         "sourceScripts":  "DefibrillatorMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "065177e8-2ad6-5d3e-b19b-f1adcd5bf64f",
+                         "key":  "pacerCapturing",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Pacing without capture interactions The waveform will change for these, but will not override the pt\u0027s HR",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dee8de1e-b251-5bcc-9c88-d7606f202d61",
+                         "key":  "pacerHr",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "BroadcastPacerCapturing(DetermineCaptureEligibility()); Updates the `PacerHr.text` UI label.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "07affa9e-9741-5074-acda-3c04a17b95b5",
+                         "key":  "pacerHrThreshold",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles hr threshold.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "95747ed8-8ea8-5ad1-bc0b-86886180640f",
+                         "key":  "pacerOutput",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "BroadcastPacerCapturing(DetermineCaptureEligibility()); Updates the `PacerOutput.text` UI label.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "79175315-71d1-5870-97f8-c7e2b14e6d37",
+                         "key":  "pacerStartStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "BroadcastPacerCapturing(true); BroadcastPacerCapturing(false); Updates the `PacemakerStatusText.text` UI label.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2caf1bb9-adbe-5b22-8fb2-2bd2d302e356",
+                         "key":  "sbp",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "VitalsBPController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6c3e3aa3-dabd-5215-b2e3-60de65d2392a",
+                         "key":  "screenPowerOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "SimulationEventManager.StartListening($\"Metadata-{_toolController.ToolId}-{CURRENT_ZOLL_MODE}\", HandleCurrentZollMode); Controls visibility of `ScreenDisplay` (`SetActive`).",
+                         "sourceScripts":  "MonitorDefibPacerCombinedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8624c691-d36c-586e-b692-118f92d83c7a",
+                         "key":  "setConnectedPatient",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "952a5dd2-8071-5d51-960c-aa5d50caf1ae",
+                         "key":  "shouldOverrideWaveforms",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles should override waveforms.",
+                         "sourceScripts":  "PacemakerControllerSimplified",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d54f78fd-f64e-5d70-9624-3e8e3a45aaaf",
+                         "key":  "tempSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Change text for temperature Updates the `TemperatureSuffixText.text` UI label.",
+                         "sourceScripts":  "VitalsController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8ae080ad-002d-5027-81f3-9eff5e7869d1",
+                         "key":  "zollMode",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Monitor",
+                                                "Defib",
+                                                "Pacer"
+                                            ],
+                         "defaultValue":  "Monitor",
+                         "examples":  [
+                                          "``Monitor`` / ``Defib`` / ``Pacer``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "defibAnchor",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_defib",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

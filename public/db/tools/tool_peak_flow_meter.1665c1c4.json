@@ -1,0 +1,30 @@
+{
+    "id":  "1665c1c4-bef6-50ae-af08-e810b181b62c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Peak Flow Meter",
+    "assetKey":  "tool_peak_flow_meter",
+    "toolId":  "peakFlowMeter1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_peak_flow_meter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "peakFlowMeter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

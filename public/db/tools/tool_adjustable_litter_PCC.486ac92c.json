@@ -1,0 +1,66 @@
+{
+    "id":  "486ac92c-8e3d-524a-8a8e-d542c432489a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Adjustable Litter Pcc",
+    "assetKey":  "tool_adjustable_litter_PCC",
+    "toolId":  "tool_adjustable_litter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_adjustable_litter_PCC.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ca8d3f84-c3c4-52b5-816d-a70bb6985713",
+                         "key":  "infuser",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "on"
+                                            ],
+                         "defaultValue":  "off",
+                         "examples":  [
+                                          "``off`` / ``on``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "bf63a62f-14f2-5ec4-a94d-f203ae3e9975",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "gone",
+                                                "off",
+                                                "on"
+                                            ],
+                         "defaultValue":  "gone",
+                         "examples":  [
+                                          "``gone`` / ``off`` / ``on``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "pressureInfuser",
+                                     "assetIds":  [
+                                                      "397ff687-ba4d-5300-b421-752b18211b2e"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "29d432a1-a6c2-56f7-a445-2bf16ece8b8f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

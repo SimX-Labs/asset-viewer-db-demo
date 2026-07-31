@@ -1,0 +1,328 @@
+{
+    "id":  "ad1d2e14-b068-524c-9c09-a149926c52d7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Assessment Monitor Mobile",
+    "assetKey":  "tool_assessment_monitor_mobile",
+    "toolId":  "patientSelectMonitor",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Tablet/tool_assessment_monitor_mobile.prefab",
+    "metadata":  [
+                     {
+                         "id":  "8a42b759-289e-5ebf-9e26-640c33d2de94",
+                         "key":  "canClearNumberTestPageValues",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Also propagate to additional mirror canvases / \u003cparam name=\"data\"\u003e\u003c/param\u003e Setup listeners for all pages to override value on TestValueCell components when we get the event to clear number test page values",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3aac6006-a54a-50bd-8156-caeed263f455",
+                         "key":  "CloseModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ea05002b-fd11-5221-9382-87808c04b51f",
+                         "key":  "currentPage",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This will be a string for the current group",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c91f9985-36fe-5bf7-8d27-b1ad96620c2e",
+                         "key":  "MirrorCanvasToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Find matching tool ID Extract Canvas transform and add to AdditionalMirrorCanvases",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "273e9324-56bf-561e-9fe0-ee7c31947a12",
+                         "key":  "OpenModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c2634023-c1b1-53c6-83c9-c2efde23c8d9",
+                         "key":  "pages",
+                         "valueType":  "array",
+                         "valueShape":  "array",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "see Complex value reference"
+                                      ],
+                         "description":  "We will get a list of pages We want to go through each item and build out all of our pages and add them to our list of page groups so we can toggle them off and on",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  {
+                                               "shape":  "array",
+                                               "spec":  {
+                                                            "kind":  "array",
+                                                            "element":  {
+                                                                            "kind":  "object",
+                                                                            "subKeys":  [
+                                                                                            {
+                                                                                                "name":  "actionList",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "backButton",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "characterTarget",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "children",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "childrenCustomButtonLabels",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "customMenuTitle",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "data",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "object",
+                                                                                                             "subKeys":  [
+                                                                                                                             {
+                                                                                                                                 "name":  "MedicationAdministrationRecord",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "object",
+                                                                                                                                              "subKeys":  [
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary",
+                                                                                                                                                              "System.Collections.Specialized.OrderedDictionary"
+                                                                                                                                                          ]
+                                                                                                                                          }
+                                                                                                                             }
+                                                                                                                         ]
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "headers",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "itemsPerPage",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "int"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "name",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "pageHeaders",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "questions",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "object",
+                                                                                                                             "subKeys":  [
+                                                                                                                                             {
+                                                                                                                                                 "name":  "customOptions",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "array",
+                                                                                                                                                              "element":  "System.Collections.Specialized.OrderedDictionary"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "maxValue",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "int"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "minValue",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "int"
+                                                                                                                                                          }
+                                                                                                                                             },
+                                                                                                                                             {
+                                                                                                                                                 "name":  "question",
+                                                                                                                                                 "spec":  {
+                                                                                                                                                              "kind":  "primitive",
+                                                                                                                                                              "display":  "string"
+                                                                                                                                                          }
+                                                                                                                                             }
+                                                                                                                                         ]
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "type",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            }
+                                                                                        ]
+                                                                        }
+                                                        },
+                                               "subKeys":  [
+
+                                                           ],
+                                               "samples":  [
+                                                               "[{\"name\":\"Main Menu\",\"type\":\"Menu\",\"children\":[\"Patient Information\",\"Start Scenario (Enter Room)\"]},{\"name\":\"Patient Information\",\"type\":\"Imaging\",\"children\":[\"EMR_pg01_EMUCase1_PtOverview\",\"EMR_pg02_EMUCase1_PreventativeScreeningOrders\"],\"backButton\":\"Main Menu\"},{\"name\":\"Start Scenario (Enter Room)\",\"type\":\"Imaging\",\"children\":[\"ScenarioBegin\"],\"backButton\":\"Main Menu\"}]",
+                                                               "[{\"name\":\"Main Menu\",\"type\":\"Menu\",\"children\":[\"Patient Overview\",\"Medication Reference\",\"Clinical Calculators\",\"Screening Questionnaires\"]},{\"name\":\"Patient Overview\",\"type\":\"Imaging\",\"children\":[\"EMR_pg01_EMUCase1_PtOverview\",\"EMR_pg02_EMUCase1_PreventativeScreeningOrders\"],\"backButton\":\"Main Menu\"},{\"name\":\"Medication Reference\",\"type\":\"Imaging\",\"children\":[\"EMR_pg04_EMUCase1_DrugGuide03\",\"EMR_pg03_EMUCase1_DrugGuide02\",\"EMR_pg02_EMUCase1_DrugGuide01\"],\"backButton\":\"Main Menu\"},{\"name\":\"Clinical Calculators\",\"type\":\"Menu\",\"children\":[\"Body Mass Index (BMI)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Screening Questionnaires\",\"type\":\"Menu\",\"children\":[\"Influenza Vaccination Screening Questionnaire\",\"Primary Suicide Screening (PHQ-2 + i9)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Body Mass Index (BMI)\",\"type\":\"BMICalculator\",\"backButton\":\"Clinical Calculators\"},{\"name\":\"Influenza Vaccination Screening Questionnaire\",\"type\":\"NumberTest\",\"headers\":[\"Influenza Vaccination Screening Questionnaire\",\"Select either YES or NO\"],\"questions\":[{\"maxValue\":1,\"minValue\":0,\"question\":\"1. Have you had an influenza vaccine before and if so, when was it?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"2. Are you feeling sick today?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"3. Do you have an allergy to eggs or to a component of the influenza vaccine?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"4. Have you ever had a serious reaction to influenza vaccine in the past?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"5. Have you ever had Guillain-Barre Syndrome?\",\"customOptions\":[\"yes\",\"no\"]},{\"maxValue\":1,\"minValue\":0,\"question\":\"TOTAL\",\"customOptions\":[\"yes\",\"no\"]},{\"question\":\"\\u003csize=12\\u003e\\u003cb\\u003ePatient is NOT eligible if:\\u003c/b\\u003e \\n \\nPatient answers YES to any question that is NOT the first question.\",\"customOptions\":[]}],\"backButton\":\"Screening Questionnaires\",\"itemsPerPage\":3},{\"name\":\"Screening Questionnaires\",\"type\":\"Menu\",\"children\":[\"Influenza Vaccination Screening Questionnaire\",\"Primary Suicide Screening (PHQ-2 + i9)\"],\"backButton\":\"Main Menu\"},{\"name\":\"Body Mass Index (BMI)\",\"type\":\"BMICalculator\",\"backButton\":\"Clinical Calculators\"},{\"name\":\"Primary Suicide Screening (PHQ-2 + i9)\",\"type\":\"NumberTest\",\"headers\":[\"Primary Suicide Screening (PHQ-2 + i9)\",\"0 = Not at all   1 = Several days   2 = More than half the days   3 = Nearly every day\"],\"questions\":[{\"maxValue\":1,\"minValue\":3,\"question\":\"1. Over the last 2 weeks, how often have you been bothered by: little interest or pleasure in doing things?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"2. Over the last 2 weeks, how often have you been bothered by: feeling down, depressed, or hopeless?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"3. Over the last 2 weeks, how often have you been bothered by: trouble falling asleep, or sleeping too much?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"4. Over the last 2 weeks, how often have you been bothered by: feeling tired or having little energy?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"5. Over the last 2 weeks, how often have you been bothered by: poor appetite or overeating?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"6. Over the last 2 weeks, how often have you been bothered by: feeling bad about yourself -- that you are a failure or have let your family down?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"7. Over the last 2 weeks, how often have you been bothered by: trouble concentrating on things?\",\"customOptions\":[\"0\",\"1\",\"2\",\"3\"]},{\"maxValue\":1,\"minValue\":3,\"question\":\"8. Over the last 2 weeks, how often have you been bothered by: moving/speaking so slowly that other people notice, or being very fidgety and restless?\",\"customOptions\":[\"0\",\"1\",\"..."
+                                                           ]
+                                           },
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bdc49282-36a0-5b5d-8635-7035257a1cb9",
+                         "key":  "tabletOrientation",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5826ed1d-4949-5850-9699-977e8c291481",
+                         "key":  "toolsToCopyMetadataTo",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Declare Clones.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "48f351d8-ced8-54c2-8975-65ce5c90f05a",
+                         "key":  "VerticalDrag",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "6effdebd-90b0-5d0d-85c0-5bd285f05682",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blanket Padding",
+    "assetKey":  "tool_blanket_padding",
+    "toolId":  "blanketPadding",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_blanket_padding.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "blanketPadding",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "29d432a1-a6c2-56f7-a445-2bf16ece8b8f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

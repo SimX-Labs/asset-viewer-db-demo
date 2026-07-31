@@ -1,0 +1,30 @@
+{
+    "id":  "d81150f9-445c-512e-b97b-7181a581e44b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ultrasound Gel",
+    "assetKey":  "tool_ultrasound_gel",
+    "toolId":  "ultrasoundGel",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ultrasound_gel.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ultrasoundGelInteraction",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

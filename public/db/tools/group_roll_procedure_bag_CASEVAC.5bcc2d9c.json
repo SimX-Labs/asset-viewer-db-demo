@@ -1,0 +1,44 @@
+{
+    "id":  "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Roll Procedure Bag Casevac",
+    "assetKey":  "group_roll_procedure_bag_CASEVAC",
+    "toolId":  "rollBagUsaf",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_roll_procedure_bag_CASEVAC.prefab",
+    "metadata":  [
+                     {
+                         "id":  "42577535-5a8e-5f01-945c-22fc647bc6f8",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "chestTubeOpen",
+                                                "foleyOpen",
+                                                "monitorsOpen",
+                                                "venousArterialOpen"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``chestTubeOpen`` / ``foleyOpen`` / ``monitorsOpen`` / ``venousArterialOpen``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

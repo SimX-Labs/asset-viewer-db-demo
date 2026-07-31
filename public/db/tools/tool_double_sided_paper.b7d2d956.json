@@ -1,0 +1,24 @@
+{
+    "id":  "b7d2d956-e756-528e-a2b5-97f2846c96a2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Double Sided Paper",
+    "assetKey":  "tool_double_sided_paper",
+    "toolId":  "doubleSidedPaper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_double_sided_paper.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

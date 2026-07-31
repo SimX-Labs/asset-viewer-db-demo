@@ -1,0 +1,24 @@
+{
+    "id":  "c2b34bd5-f5fc-5c81-82be-4db709a13056",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wastepaper Basket",
+    "assetKey":  "tool_wastepaper_basket",
+    "toolId":  "wastepaper_basket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wastepaper_basket.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

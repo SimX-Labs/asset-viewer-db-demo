@@ -1,0 +1,24 @@
+{
+    "id":  "6372ddad-a4aa-5898-a181-61736360a8a0",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Airway Cart Override",
+    "assetKey":  "group_airway_cart_override",
+    "toolId":  "airwayCartOverride",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_airway_cart_override.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

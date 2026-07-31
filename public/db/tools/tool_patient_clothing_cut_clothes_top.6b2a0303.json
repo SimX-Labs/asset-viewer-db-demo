@@ -1,0 +1,30 @@
+{
+    "id":  "6b2a0303-c21f-5e16-bbdd-0de250380ee5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Clothing Cut Clothes Top",
+    "assetKey":  "tool_patient_clothing_cut_clothes_top",
+    "toolId":  "cutClothingTop",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/Dutch Cases/tool_patient_clothing_cut_clothes_top.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "cutClothesTop",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

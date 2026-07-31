@@ -1,0 +1,30 @@
+{
+    "id":  "dc67a7f8-ac71-5d12-8fa4-745c5968e1de",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Menstral Pad Coldpack",
+    "assetKey":  "tool_menstral_pad_coldpack",
+    "toolId":  "menstralPadPackagedColdpack",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_menstral_pad_coldpack.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "menstralPad",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

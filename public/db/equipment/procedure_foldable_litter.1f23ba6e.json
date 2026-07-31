@@ -1,0 +1,749 @@
+{
+    "id":  "1f23ba6e-6d8b-560c-b446-37b3655cd151",
+    "type":  "equipment",
+    "name":  "Procedure Foldable Litter",
+    "assetKey":  "procedure_foldable_litter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Foldable Litter/procedure_foldable_litter_casevac.prefab",
+    "primaryMetadata":  {
+                            "id":  "69ec2d18-8c61-513a-94e3-c7be0fdf26b1",
+                            "key":  "ToolAnchors-CASEVAC",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "fc48465c-f40b-512d-acea-3f5f7fad2531",
+                         "key":  "connecctedToSuction",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles connected to suction.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cfb39f16-7db7-5e02-9cd1-f186aade0dcd",
+                         "key":  "connectedSuctionToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles connected suction tool id.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e554ff35-4601-5054-8571-6072eae3105e",
+                         "key":  "connectedToPatient",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles connected to patient.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5cc189be-fbd6-57d9-9b51-5adc82fa1ba8",
+                         "key":  "currentAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set current vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "038f1b76-1c28-5b8c-bab5-362e4f1f1553",
+                         "key":  "CurrentState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Receive State.",
+                         "sourceScripts":  "TransformStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f8cc26ca-01b5-5423-9e98-ab3458ae4bad",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "35a8df10-8a99-58a4-ab2a-84f6d92e55e7",
+                         "key":  "fluidLabel",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Metadata.",
+                         "sourceScripts":  "FoleyBagLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5430763b-9492-523d-8e85-66675a8f6add",
+                         "key":  "foldableLitterProcedure",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "gone",
+                                                "placed"
+                                            ],
+                         "defaultValue":  "gone",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`gone`, `placed`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "b013d3a3-8039-5416-a8b9-c20a31c51938",
+                         "key":  "foldableLitterProcedure-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5b018e43-fb7d-5cd2-83e3-cd5e62f7d8b3",
+                         "key":  "foldableLitterProcedure-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2f36ea8c-b9f3-5d1f-a4ac-65fd2a0079f3",
+                         "key":  "ignoreSyringeNeedleOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Ignore Syringe Needle Override.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "20c428d6-1f52-5aba-9ec6-125877c165af",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5973e1ff-78c6-5fc4-b1d0-12199a18e1d7",
+                         "key":  "ivFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Clear | Red | Blue | Yellow | Brown | White | Pink because we subscribe to this tool\u0027s metadata event, if this tools has a metadata event of this signature come through, we will call the handler with it",
+                         "sourceScripts":  "IvFluidColorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "739c9150-09bb-5b35-806b-f14560b829e8",
+                         "key":  "liquidAutoFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles liquid auto fill.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cbe5da99-5b55-5797-8500-7d158fc98dac",
+                         "key":  "LiquidFillRatio",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Set Liquid Fill Ratio.",
+                         "sourceScripts":  "PleurevacToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "94d4495e-8361-5c6c-99a4-46c43beaeaf4",
+                         "key":  "litter_casevac-state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "ground",
+                                                "up"
+                                            ],
+                         "defaultValue":  "ground",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a PatientStateController state (`ground`, `up`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "PatientStateController"
+                     },
+                     {
+                         "id":  "cefd0f91-e957-5c3b-a026-bb8fd43f3304",
+                         "key":  "manuallySetLiquidLevel",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "ChestTubeDrainController, PleurevacToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e4b3c513-2c1a-5ee1-9bec-abb2903dcd05",
+                         "key":  "max",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Max.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "75e390a6-6c6f-509b-bda3-18fdd9eccddf",
+                         "key":  "maximumAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set maximum vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ff9f46b6-af71-5baa-b535-42d940872ead",
+                         "key":  "maximumFillAmount",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set max fill amount.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8a1aabac-ca93-549e-990c-c6f53a260bf4",
+                         "key":  "medicationTrackingEnabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set allow medication tracking.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "08fdb817-9874-50c4-a60d-52e3138b7eb7",
+                         "key":  "medName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Current Drug Interactions.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "eccac91a-edcb-5808-8106-055240e1512e",
+                         "key":  "min",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Min.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "444340dd-f041-5748-b281-931c699df901",
+                         "key":  "modelName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If the medication data is null after trying to set it, then we have an issue and should log an error and return before trying to access the medication data.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "77c35f81-c8d8-5948-bca9-f49685f21eaa",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This function sets up what the medication is called, this is what will show up when you use the med Its more of a clean name Setup listeners for setting the values for this medication",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "897f2d02-30f6-530d-a79c-23f1708692f4",
+                         "key":  "patientHasAirLeak",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `AirLeakParticles` (`SetActive`).",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f3bfede8-ba48-5319-8f91-dd329c88dcd6",
+                         "key":  "PleurevacBubbleAnimation",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Receive Animation Toggle.",
+                         "sourceScripts":  "PleurevacToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "057c2d58-9483-568b-8976-b79d45a498be",
+                         "key":  "PleurevacBubbleAnimationObject",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "PleurevacToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b443d387-6953-5225-8a60-49f35854ed82",
+                         "key":  "rnInitial",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Rn Value.",
+                         "sourceScripts":  "FoleyBagLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4b677f4e-5131-53a8-8e13-02865e34fe7f",
+                         "key":  "setFilledLiquidLevel",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Receive Set Fill Connected Millileters.",
+                         "sourceScripts":  "PleurevacToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a9f02c8a-033d-517a-ae0e-acf55acff99c",
+                         "key":  "SetTubingState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "We can simplify this code to just receive a state name string and include the spline id in the metadata listener Often heard as `\u003cprocedureName\u003e-SetTubingState`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "SplineNodeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6a9c995c-bb73-59c0-8359-269fbaddddcc",
+                         "key":  "shouldFillWithLiquid",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles should fill with liquid.",
+                         "sourceScripts":  "ChestTubeDrainController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6c6e14a3-9686-59a6-9bd4-3e29773bf1a7",
+                         "key":  "showNeedle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Show Needle.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7bd78f7c-9e37-55b4-b50a-a81c5f83ed44",
+                         "key":  "sizeText",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Size Text.",
+                         "sourceScripts":  "FoleyBagLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "15628685-b8a7-5c23-abdb-6111c417359e",
+                         "key":  "startText",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Start Text.",
+                         "sourceScripts":  "FoleyBagLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f147f819-f8d9-501d-8687-94d400a49b12",
+                         "key":  "StateKey",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "391f9cf1-e919-5954-9aca-2a003586ab2c",
+                         "key":  "StateSuffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing Often heard as `\u003cprocedureName\u003e-StateSuffix`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "PatientStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d9e911ef-fc39-573d-bd0a-b4bdea5a0990",
+                         "key":  "syringeIncrement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Increment.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "96e6748c-3138-53f1-a601-1e4e46844233",
+                         "key":  "syringeMethod",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``Oral``"
+                                      ],
+                         "description":  "Find the method in our available methods If the new method is \"Oral\", turn off all the interactions here",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "de9f170e-a4d7-59eb-9353-85592aba9a9c",
+                         "key":  "ToolAnchors-CASEVAC-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5bdf0cf5-b105-52db-8f76-361a036ff499",
+                         "key":  "ToolAnchors-CASEVAC-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0ea2429b-36ad-578a-bee5-229048ba2f0e",
+                         "key":  "ToolAnchors-CASEVAC-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "321212b9-e639-576c-8213-f10926088ed4",
+                         "key":  "toolIdThisInteractedWithMetadata",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set tool id storage.",
+                         "sourceScripts":  "ToolInteractionStorage",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e6b3ed1e-f143-5d2c-9425-ed9cdec996c9",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Units.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "buckleA",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "placed"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "buckleB",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "placed"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "buckleC",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "placed"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "foldableLitter",
+                                     "assetIds":  [
+                                                      "54252f1c-ed90-58bb-8f89-f343e8b816b1"
+                                                  ],
+                                     "availableIn":  [
+                                                         "gone"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163"
+                     ]
+}

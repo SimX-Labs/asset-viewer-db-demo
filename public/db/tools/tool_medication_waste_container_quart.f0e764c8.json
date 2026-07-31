@@ -1,0 +1,24 @@
+{
+    "id":  "f0e764c8-d589-560d-8716-035b8d40fd19",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Waste Container Quart",
+    "assetKey":  "tool_medication_waste_container_quart",
+    "toolId":  "tool_sharps_container_quart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/SharpsContainer/tool_medication_waste_container_quart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

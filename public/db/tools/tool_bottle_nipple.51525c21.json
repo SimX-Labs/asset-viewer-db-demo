@@ -1,0 +1,41 @@
+{
+    "id":  "51525c21-11f9-5ec3-8d27-668df09c3c38",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bottle Nipple",
+    "assetKey":  "tool_bottle_nipple",
+    "toolId":  "BabyBottleNipple",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bottle_nipple.prefab",
+    "metadata":  [
+                     {
+                         "id":  "951d5133-441d-5ee1-a75c-905fdc91e405",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Preemie",
+                                                "Y-Cut"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Preemie`` / ``Y-Cut``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

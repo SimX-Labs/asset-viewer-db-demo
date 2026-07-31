@@ -1,0 +1,37 @@
+{
+    "id":  "3a16c205-65c4-5a5b-ab31-cc2657b19d1f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Scba Backpack With Mask",
+    "assetKey":  "tool_SCBA_backpack_with_mask",
+    "toolId":  "SCBA",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_SCBA_backpack_with_mask.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Player_SCBA",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SCBA",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

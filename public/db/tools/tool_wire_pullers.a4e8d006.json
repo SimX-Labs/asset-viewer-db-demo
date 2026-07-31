@@ -1,0 +1,59 @@
+{
+    "id":  "a4e8d006-9dfa-5562-85fb-9780f445a6ac",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wire Pullers",
+    "assetKey":  "tool_wire_pullers",
+    "toolId":  "tool_wire_pullers",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Resternotomy/tool_wire_pullers.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ef154b2b-3b8e-5664-a7e0-de5738b40d9c",
+                         "key":  "openStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `open` (toggle / flag).",
+                         "sourceScripts":  "WirePullersController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ed1c8015-6824-5f97-906f-b05988a57e6d",
+                         "key":  "wirePull",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "WirePullersController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "wiresToPull",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

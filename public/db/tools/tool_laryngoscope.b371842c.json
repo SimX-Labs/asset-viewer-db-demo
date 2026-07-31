@@ -1,0 +1,44 @@
+{
+    "id":  "b371842c-9576-5cbb-9c80-b049a981b35d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Laryngoscope",
+    "assetKey":  "tool_laryngoscope",
+    "toolId":  "ToolTray-Airway-1-tool_laryngoscope",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_laryngoscope.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "intubationLaryngoscope",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "efc21bec-eb46-5bcf-a380-735970bb594d",
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "39c8dea1-1e14-5c4b-a423-7ec5463071a0",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "5b49b70b-7a81-5769-a15b-5f030f5955dd",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "c0d904d9-40fd-589e-a272-02ab34c400ad",
+                           "f7b01100-7571-5e59-aa94-275175450ff2",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

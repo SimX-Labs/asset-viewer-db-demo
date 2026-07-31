@@ -1,0 +1,48 @@
+{
+    "id":  "314edc51-22c1-5ab4-922c-ac3565a59d85",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Mayostand Towel",
+    "assetKey":  "tool_mayostand_towel",
+    "toolId":  "mayoStandTowel",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_mayostand_towel.prefab",
+    "metadata":  [
+                     {
+                         "id":  "78fef690-0911-5848-9919-4de96bd903fd",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Rolled",
+                                                "Folded",
+                                                "OnMayoStand"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Rolled`` / ``Folded`` / ``OnMayoStand``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandTowelPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

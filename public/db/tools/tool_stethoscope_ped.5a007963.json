@@ -1,0 +1,25 @@
+{
+    "id":  "5a007963-6725-5c3c-8e15-119c8115f963",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Stethoscope Ped",
+    "assetKey":  "tool_stethoscope_ped",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_stethoscope_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "adbcbc5a-1dbf-5f77-97b8-5436c4333625",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

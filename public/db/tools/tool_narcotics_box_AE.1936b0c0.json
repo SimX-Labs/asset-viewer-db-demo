@@ -1,0 +1,41 @@
+{
+    "id":  "1936b0c0-8cde-5f01-a5ae-d267b53acedc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Narcotics Box Ae",
+    "assetKey":  "tool_narcotics_box_AE",
+    "toolId":  "narcoticsCaseAE",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_narcotics_box_AE.prefab",
+    "metadata":  [
+                     {
+                         "id":  "39f22b40-922a-59cb-a209-dae04e414385",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

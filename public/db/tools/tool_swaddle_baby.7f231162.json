@@ -1,0 +1,30 @@
+{
+    "id":  "7f231162-b369-5737-adfd-f18f9a93fa47",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Swaddle Baby",
+    "assetKey":  "tool_swaddle_baby",
+    "toolId":  "swaddleE1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_swaddle_baby.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "AbdomenLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

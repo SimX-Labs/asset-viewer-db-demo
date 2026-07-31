@@ -1,0 +1,198 @@
+{
+    "id":  "72041a5a-525b-5d0f-b5d6-62c88775f6c4",
+    "type":  "equipment",
+    "name":  "Procedure Infectedsurgicalwoundabdomen",
+    "assetKey":  "procedure_InfectedSurgicalWoundAbdomen",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/procedure_InfectedSurgicalWoundAbdomen.prefab",
+    "primaryMetadata":  {
+                            "id":  "4ba586f8-e6f6-5a9f-a2ac-f29ab8a69b61",
+                            "key":  "InfectedAbdomenSurgeryWound",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "Step1_AbdDirty",
+                                                   "Step2_GuazeDirty",
+                                                   "Step3_NoMesh_SterilizeInteraction",
+                                                   "Step4_NoMesh_PlaceGauze_Interaction",
+                                                   "Step5_NoMesh_GuazeClean",
+                                                   "Step6_GauzeAndTapeClean",
+                                                   "Step7_AbdClean",
+                                                   "Step8_AbdTape"
+                                               ],
+                            "defaultValue":  "Step1_AbdDirty",
+                            "examples":  [
+                                             "Step1_AbdDirty, Step2_GuazeDirty, Step3_NoMesh_SterilizeInteraction, Step4_NoMesh_PlaceGauze_Interaction, Step5_NoMesh_GuazeClean, Step6_GauzeAndTapeClean, Step7_AbdClean, Step8_AbdTape"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `InfectedAbdomenSurgeryWound`. Values: `Step1_AbdDirty`, `Step2_GuazeDirty`, `Step3_NoMesh_SterilizeInteraction`, `Step4_NoMesh_PlaceGauze_Interaction`, `Step5_NoMesh_GuazeClean`, `Step6_GauzeAndTapeClean`, `Step7_AbdClean`, `Step8_AbdTape`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c07cdfa8-6a08-5585-bdaf-fc0bfecacdd3",
+                         "key":  "InfectedAbdomenSurgeryWound-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8c69e3ff-8dae-5ff4-9593-bb4f27c3ee48",
+                         "key":  "InfectedAbdomenSurgeryWound-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b4f43c3f-44d0-57fb-ac0e-f0f47facc231",
+                         "key":  "InfectedAbdomenSurgeryWound-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8aaf8465-24ba-5634-bc93-323f56ff8eb2",
+                         "key":  "WrittenLabel",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "NoLabel",
+                                                "Step1_BlankLabel",
+                                                "Step2_WrittenLabel"
+                                            ],
+                         "defaultValue":  "NoLabel",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`NoLabel`, `Step1_BlankLabel`, `Step2_WrittenLabel`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "2285405f-531c-555c-b0b9-0945f782c97b",
+                         "key":  "WrittenLabel-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "18042cd1-4abc-5e4b-a7ea-7157640a3a58",
+                         "key":  "WrittenLabel-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "abdominalPad",
+                                     "assetIds":  [
+                                                      "e4cde9d3-e502-5f7f-ab21-26407efa0964"
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step5_NoMesh_GuazeClean",
+                                                         "Step6_GauzeAndTapeClean"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "basicSquareGauze",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step4_NoMesh_PlaceGauze_Interaction"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "marker",
+                                     "assetIds":  [
+                                                      "b0d0a66a-1e58-5c4c-9935-87410d376012"
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step1_BlankLabel"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "sterilizeWound",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step3_NoMesh_SterilizeInteraction"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "tapePicc",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step5_NoMesh_GuazeClean",
+                                                         "Step7_AbdClean"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "tegadermTape",
+                                     "assetIds":  [
+                                                      "a8f1be81-80f1-574c-a312-2d104942d366"
+                                                  ],
+                                     "availableIn":  [
+                                                         "Step8_AbdTape"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050"
+                     ]
+}

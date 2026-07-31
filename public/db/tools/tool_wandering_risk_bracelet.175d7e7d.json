@@ -1,0 +1,30 @@
+{
+    "id":  "175d7e7d-3a40-5d91-95fb-3f6649cb190f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wandering Risk Bracelet",
+    "assetKey":  "tool_wandering_risk_bracelet",
+    "toolId":  "WanderingBracelet",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wandering_risk_bracelet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "wanderingBracelet",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

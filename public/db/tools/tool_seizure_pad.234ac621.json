@@ -1,0 +1,79 @@
+{
+    "id":  "234ac621-8528-55f7-8b75-9aec5593acce",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Seizure Pad",
+    "assetKey":  "tool_seizure_pad",
+    "toolId":  "SeizurePad_0",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_seizure_pad.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "SeizurePadLowerLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SeizurePadLowerRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SeizurePadUpperLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SeizurePadUpperRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "seizurePadLeft",
+                             "assetIds":  [
+                                              "edc2bc32-5a64-5633-9cb1-5e1d70e79116"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "seizurePadRight",
+                             "assetIds":  [
+                                              "edc2bc32-5a64-5633-9cb1-5e1d70e79116"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "seizurePadBottom",
+                             "assetIds":  [
+                                              "edc2bc32-5a64-5633-9cb1-5e1d70e79116"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "seizurePadTop",
+                             "assetIds":  [
+                                              "edc2bc32-5a64-5633-9cb1-5e1d70e79116"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

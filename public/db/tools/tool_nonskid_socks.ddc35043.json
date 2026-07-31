@@ -1,0 +1,67 @@
+{
+    "id":  "ddc35043-28fb-5856-bd0f-49b073b726ed",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nonskid Socks",
+    "assetKey":  "tool_nonskid_socks",
+    "toolId":  "nonskidSocks1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nonskid_socks.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "shortSocks",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "nonSkidSocks",
+                             "assetIds":  [
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a",
+                                              "097a8976-03cd-576a-8995-28b662ebdb3a"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

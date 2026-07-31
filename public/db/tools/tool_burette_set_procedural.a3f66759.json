@@ -1,0 +1,53 @@
+{
+    "id":  "a3f66759-45ac-5975-940c-25cde7f79d20",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Burette Set Procedural",
+    "assetKey":  "tool_burette_set_procedural",
+    "toolId":  "buretteSetProcedural",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Burette Set/tool_burette_set_procedural.prefab",
+    "metadata":  [
+                     {
+                         "id":  "644addd1-aa1e-5669-841b-d01d77803b2d",
+                         "key":  "bottomClampOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `BottomClampOpen` (`SetActive`). Controls visibility of `BottomClampClosed` (`SetActive`).",
+                         "sourceScripts":  "BuretteSetController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0f1b899f-53d6-55c9-b317-d7573a81cd2f",
+                         "key":  "topClampOpen",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `TopClampOpen` (`SetActive`). Controls visibility of `TopClampClosed` (`SetActive`). Controls visibility of `DripParticleSystem` (`SetActive`).",
+                         "sourceScripts":  "BuretteSetController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

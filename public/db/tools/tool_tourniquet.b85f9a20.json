@@ -1,0 +1,82 @@
+{
+    "id":  "b85f9a20-fa30-5f85-b90d-1617f154759a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tourniquet",
+    "assetKey":  "tool_tourniquet",
+    "toolId":  "tourniquet1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_tourniquet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "tourniquet",
+                             "assetIds":  [
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8",
+                                              "8b65302a-92bd-5720-876d-49d0adaf42f8"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "34857f66-ce21-5d96-9bde-08b029cd259e",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "ae156d9b-ddbe-540e-a31d-55a5967135da",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "d4cd704a-7b54-54ea-b5f0-bd6bf92f99d1",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

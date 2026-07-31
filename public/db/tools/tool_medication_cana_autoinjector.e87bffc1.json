@@ -1,0 +1,54 @@
+{
+    "id":  "e87bffc1-2a5f-5f81-896b-f47d406b9e29",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Cana Autoinjector",
+    "assetKey":  "tool_medication_cana_autoinjector",
+    "toolId":  "canaAutoInjector",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_medication_cana_autoinjector.prefab",
+    "metadata":  [
+                     {
+                         "id":  "630d8172-0d45-579a-b635-8007b4f5517b",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "base",
+                                                "used"
+                                            ],
+                         "defaultValue":  "base",
+                         "examples":  [
+                                          "``base`` / ``used``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ThighOutsideR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ThighOutsideL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

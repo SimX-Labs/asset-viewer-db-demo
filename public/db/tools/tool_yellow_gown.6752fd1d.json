@@ -1,0 +1,31 @@
+{
+    "id":  "6752fd1d-7cb2-589b-bf09-3c1873265bf9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Yellow Gown",
+    "assetKey":  "tool_yellow_gown",
+    "toolId":  "yellowGown1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_yellow_gown.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerYellowGown",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ea6748ce-4d49-502f-824b-b4a8678b3fb9",
+                           "8ce0f4d8-4906-5790-931a-5419377eb94f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

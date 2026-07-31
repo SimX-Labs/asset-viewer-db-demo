@@ -1,0 +1,33 @@
+{
+    "id":  "d988dc06-50d9-5579-b9b3-0570f988fa2b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blood Fluid Warmer Insert",
+    "assetKey":  "tool_blood_fluid_warmer_insert",
+    "toolId":  "bloodFluidWarmerTop",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Blood Fluid Warmer/tool_blood_fluid_warmer_insert.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bloodFluidWarmerBody",
+                             "assetIds":  [
+                                              "4c1eb0f8-26fb-59cd-96f2-0e8b492d6118"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

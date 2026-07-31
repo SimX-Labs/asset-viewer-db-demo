@@ -1,0 +1,37 @@
+{
+    "id":  "0150888a-7538-5724-b685-9b3821bfd767",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hook Knife",
+    "assetKey":  "tool_hook_knife",
+    "toolId":  "tool_hook_knife",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_hook_knife.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LegsLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "AbdomenLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

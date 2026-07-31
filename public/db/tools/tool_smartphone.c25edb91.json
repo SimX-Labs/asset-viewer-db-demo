@@ -1,0 +1,72 @@
+{
+    "id":  "c25edb91-a27d-58f0-9f02-3a1a9ecc6bf0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Smartphone",
+    "assetKey":  "tool_smartphone",
+    "toolId":  "smartphone1",
+    "prefabPath":  "Assets/Lib/SimX/Smartphone/tool_smartphone.prefab",
+    "metadata":  [
+                     {
+                         "id":  "830d1e55-c327-5913-9455-5ec0450966d5",
+                         "key":  "callButton",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `CallButtonText.text` UI label.",
+                         "sourceScripts":  "TelephoneController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "050c3f78-3249-5631-a26d-1527e54899bb",
+                         "key":  "onPickupAudio",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Pickup Audio.",
+                         "sourceScripts":  "TelephoneController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9893d337-1247-5751-bb2d-2509bd1fb274",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "blank",
+                                                "notification",
+                                                "tiktok"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``blank`` / ``notification`` / ``tiktok``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

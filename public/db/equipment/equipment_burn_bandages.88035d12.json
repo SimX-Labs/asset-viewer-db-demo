@@ -1,0 +1,128 @@
+{
+    "id":  "88035d12-67fe-501d-a7a4-e392423669f5",
+    "type":  "equipment",
+    "name":  "Burn Bandages",
+    "assetKey":  "equipment_burn_bandages",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/equipment_burn_bandages.prefab",
+    "primaryMetadata":  {
+                            "id":  "bd6aae83-6d14-59fe-9268-df038f90a567",
+                            "key":  "burnBandagesAbdomen",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "6d16e4a9-a9d0-5e10-9e68-2cee974bf436",
+                         "key":  "burnBandagesAbdomen-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2e10fbec-17be-5dc0-826f-16f8022fd053",
+                         "key":  "burnBandagesAbdomen-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8028a8f1-8eff-5904-89e6-31452504b8d2",
+                         "key":  "burnBandagesAbdomen-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "83b09dc5-95df-581d-a54c-ad475dd4967b",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c51bd31e-2ca2-5ff7-8fe0-e886d48a3bc7",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050"
+                     ]
+}

@@ -1,0 +1,31 @@
+{
+    "id":  "97086d99-2ca2-5671-a582-d5c67d7ec4a9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pfc Bag L Shape",
+    "assetKey":  "tool_pfc_bag_l_shape",
+    "toolId":  "pfcBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_pfc_bag_l_shape.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "VentAnchor",
+                                     "assetIds":  [
+                                                      "2c50a63c-0d93-50e0-8265-58ec279f0ca0",
+                                                      "0293e5bb-9b01-5b4b-a6ac-b4051fefd7cf"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

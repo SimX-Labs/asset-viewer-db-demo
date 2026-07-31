@@ -1,0 +1,38 @@
+{
+    "id":  "5b49b70b-7a81-5769-a15b-5f030f5955dd",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Airway",
+    "assetKey":  "kit_airway",
+    "toolId":  "airwayKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_airway.prefab",
+    "metadata":  [
+                     {
+                         "id":  "feba013d-e0e6-557c-a1d3-f10b7a1249e6",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

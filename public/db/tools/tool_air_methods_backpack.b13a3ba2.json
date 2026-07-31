@@ -1,0 +1,66 @@
+{
+    "id":  "b13a3ba2-e180-597c-ae24-9ebb81fa9c1a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Air Methods Backpack",
+    "assetKey":  "tool_air_methods_backpack",
+    "toolId":  "airMethodsBackpack",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_air_methods_backpack.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1b2a6888-ff20-5941-9de0-8106bc351427",
+                         "key":  "epinephrine",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "global"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``global``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "7834ef6a-5370-5390-8f08-f03d517386dd",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open",
+                                                "medsKitOpen",
+                                                "bleederKitOpen",
+                                                "surgicalKitOpen",
+                                                "airwayKitOpen",
+                                                "transfusionKitOpen",
+                                                "respiratoryKitOpen",
+                                                "circulationKitOpen"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open`` / ``medsKitOpen`` / ``bleederKitOpen`` / ``surgicalKitOpen`` / ``airwayKitOpen`` / ``transfusionKitOpen`` / ``respiratoryKitOpen`` / ``circulationKitOpen``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id":  "1db651b5-096e-51bc-8a0b-258e3264d63f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Surgical Scissors",
+    "assetKey":  "tool_surgical_scissors",
+    "toolId":  "g1-backpack1-tool_needle_holder",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_surgical_scissors.prefab",
+    "metadata":  [
+                     {
+                         "id":  "766e8bcc-c074-5ac4-b7d7-5f83444bb943",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "sutureCurvedNeedle"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``sutureCurvedNeedle``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "a3422f46-64f1-529f-baf1-cd06fd001e76",
+                         "key":  "toolMetaData",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ToolStateInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "sutureCurvedNeedle",
+                             "assetIds":  [
+                                              "c68421ab-c6c8-545a-9ec2-9fd95efcc148"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d5ac96bb-7808-5ca0-8976-499f479ea335"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

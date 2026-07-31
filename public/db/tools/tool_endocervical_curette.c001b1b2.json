@@ -1,0 +1,41 @@
+{
+    "id":  "c001b1b2-4cee-55ad-be06-f6ea8a12b01a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Endocervical Curette",
+    "assetKey":  "tool_endocervical_curette",
+    "toolId":  "endocervicalCurette1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_endocervical_curette.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5300a543-9bf6-5756-be90-2cbb35a6171e",
+                         "key":  "biopsyTissue",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "none",
+                                                "tissue"
+                                            ],
+                         "defaultValue":  "none",
+                         "examples":  [
+                                          "``none`` / ``tissue``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "e96c06aa-f129-5199-bfe4-dbe67384b957"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

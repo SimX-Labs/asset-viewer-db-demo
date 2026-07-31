@@ -1,0 +1,47 @@
+{
+    "id":  "58bc9d99-c4b7-56eb-8646-ee6d988332a3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Labor And Delivery Bowl",
+    "assetKey":  "tool_labor_and_delivery_bowl",
+    "toolId":  "laborAndDeliveryBowl",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_labor_and_delivery_bowl.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0842d8c2-a4f5-5fb1-aaf2-a5c9770300eb",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clean",
+                                                "placenta"
+                                            ],
+                         "defaultValue":  "clean",
+                         "examples":  [
+                                          "``clean`` / ``placenta``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "laborDeliveryBowl",
+                                     "assetIds":  [
+                                                      "ee372cac-dbb0-5dc8-8cbc-bb88b910afda"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "4b85f845-1262-523d-8eff-f3668c9c1bb6"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

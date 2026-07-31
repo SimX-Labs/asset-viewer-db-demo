@@ -1,0 +1,30 @@
+{
+    "id":  "6df9f787-58b0-5714-aa2d-f8381eeadc49",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterilization Tray Lid",
+    "assetKey":  "tool_sterilization_tray_lid",
+    "toolId":  "sterilizationTrayLid1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Sterilization Tray/tool_sterilization_tray_lid.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "sterilizationTrayLid-Placement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

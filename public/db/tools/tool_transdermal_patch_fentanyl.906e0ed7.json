@@ -1,0 +1,89 @@
+{
+    "id":  "906e0ed7-ea4e-5d53-a01a-7489fc368660",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Transdermal Patch Fentanyl",
+    "assetKey":  "tool_transdermal_patch_fentanyl",
+    "toolId":  "transdermalPatchFentanyl",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_transdermal_patch_fentanyl.prefab",
+    "metadata":  [
+                     {
+                         "id":  "416a12ee-0458-5913-b97f-dbba11e89ef8",
+                         "key":  "isScannable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "True"
+                                      ],
+                         "description":  "Update Scannable.",
+                         "sourceScripts":  "ScannableToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "07648c92-1397-5bf2-8b67-e6c6943fa1e3",
+                         "key":  "medId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "11-P_SYR",
+                                          "65-L_IV",
+                                          "C_1000-B_IV"
+                                      ],
+                         "description":  "Set the interaction medication to be the new medication",
+                         "sourceScripts":  "TopicalMedicationController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d3d1cf5a-1abc-5a6b-824f-79c9bfa49715",
+                         "key":  "onMedIdUpdated",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Med Id.",
+                         "sourceScripts":  "MedicationIdController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fentanylPatchNeckL",
+                             "assetIds":  [
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+                                              "1e923070-31c4-5be9-a705-8593efc7b4f1",
+                                              "284ac01a-16a8-5286-b1c3-bfaab07a060c"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

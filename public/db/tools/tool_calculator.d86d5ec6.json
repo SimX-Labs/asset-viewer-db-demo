@@ -1,0 +1,98 @@
+{
+    "id":  "d86d5ec6-52ca-5f96-8567-349b8c8d74b1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Calculator",
+    "assetKey":  "tool_calculator",
+    "toolId":  "calculator1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Calculator/tool_calculator.prefab",
+    "metadata":  [
+                     {
+                         "id":  "539e7296-34a9-50c0-bbc0-a4fcf6b303b4",
+                         "key":  "calculatorDisplayedValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "CalculatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "aae1b06d-f525-5c36-8265-96ebcb3c21a9",
+                         "key":  "calculatorOperatorValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "The below would be for keeping a running total as you add. It doesn\u0027t quite work right and will need to be tweaked a bit. BroadcastResolveOperation();",
+                         "sourceScripts":  "CalculatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "55d1fcf4-5a73-5c72-8f5d-2750dab3ec0a",
+                         "key":  "calculatorPositiveNegative",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "CalculatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "934ed62d-a414-52c5-84a3-427ca3726257",
+                         "key":  "calculatorResolveValue",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "CalculatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1c011792-3605-5ec0-b846-e7cbc30f49c5",
+                         "key":  "calculatorTotalValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "CalculatorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

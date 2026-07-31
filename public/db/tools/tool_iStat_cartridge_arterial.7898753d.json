@@ -1,0 +1,37 @@
+{
+    "id":  "7898753d-2460-56d3-a76c-feb95ec2a104",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Istat Cartridge Arterial",
+    "assetKey":  "tool_iStat_cartridge_arterial",
+    "toolId":  "tool_iStat_cartridge_arterial",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/IStat/tool_iStat_cartridge_arterial.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "cartridge_arterial_blood",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "abgKit",
+                                     "assetIds":  [
+                                                      "8cddc690-d289-59e9-a055-a1f874fa887f"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

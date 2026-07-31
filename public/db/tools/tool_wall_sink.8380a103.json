@@ -1,0 +1,24 @@
+{
+    "id":  "8380a103-8afa-51da-96f3-08d909d292be",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wall Sink",
+    "assetKey":  "tool_wall_sink",
+    "toolId":  "wallSink1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wall_sink.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bf494cd2-786f-4a0c-9675-ef58b9408a91"
+                    ]
+}

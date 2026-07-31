@@ -1,0 +1,75 @@
+{
+    "id":  "1ce919db-c807-5559-b317-4429a4e284a4",
+    "type":  "equipment",
+    "name":  "Parent Procedure Wrist Arterial Line",
+    "assetKey":  "parent_procedure_wrist_arterial_line",
+    "prefabPath":  null,
+    "primaryMetadata":  {
+                            "id":  "4035800d-0043-5734-a3e0-5600686e73a4",
+                            "key":  "parentProcedureWristArterialLine",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c8706d9e-7074-596c-8b94-129338a304ed",
+                         "key":  "parentProcedureWristArterialLine-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4e277132-b6b1-590b-a085-4e8fc7147514",
+                         "key":  "parentProcedureWristArterialLine-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7fda3cbb-2b58-5493-9d96-8bc6c9d5bb0e",
+                         "key":  "parentProcedureWristArterialLine-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

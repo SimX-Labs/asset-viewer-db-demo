@@ -1,0 +1,86 @@
+{
+    "id":  "9edcf4ed-84eb-55ea-b326-9abc1632ffe3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Thermometer Head",
+    "assetKey":  "tool_thermometer_head",
+    "toolId":  "thermometerHead1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_thermometer_head.prefab",
+    "metadata":  [
+                     {
+                         "id":  "2de5a4e1-b25f-5ba2-b5e0-1a4d5ea48833",
+                         "key":  "toggleUnits",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Send update as metadata across network for all connected users Update interface to show new units / \u003c/summary\u003e",
+                         "sourceScripts":  "ThermometerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "97b030a0-084e-5403-ab2e-ffd638c39892",
+                         "key":  "value-doNotLocalize",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "true"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ThermometerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "14701a65-4566-5005-8ef8-54992fb740e6",
+                         "key":  "value-suffix",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "C"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "ThermometerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Forehead",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "a2e799d9-4ed5-5a01-b9bc-4786d4e092c1",
+                           "af723518-1a21-53dc-8212-ed329ef69bd8",
+                           "d4091f95-e569-523e-98f1-e9669537b57e",
+                           "2f092fea-9459-5a53-8d36-6776ce7fe55d",
+                           "ca01a638-512b-52fe-8af6-c6bb5ad267f9",
+                           "c325c989-1f95-5f0d-b438-aab6cb284ebb",
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "c2e9c05a-f7c3-5f0f-9a1d-d36122391d68",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711"
+                    ]
+}

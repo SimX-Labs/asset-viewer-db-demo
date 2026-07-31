@@ -1,0 +1,53 @@
+{
+    "id":  "03470afe-75d4-518d-a2be-1a9724f9c131",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Gas Shut Off Box",
+    "assetKey":  "tool_gas_shut_off_box",
+    "toolId":  "gasShutOffBox1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Gas Shut Off Box/tool_gas_shut_off_box.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ed3e5f70-002b-5f73-b316-eddf1b52fb09",
+                         "key":  "closeValve",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`vacuum`"
+                                      ],
+                         "description":  "Controls visibility of `oxygenTrigger` (`SetActive`). Controls visibility of `airTrigger` (`SetActive`). Controls visibility of `vacuumTrigger` (`SetActive`).",
+                         "sourceScripts":  "GasShutOffBox",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7bd46165-83d6-55f9-b50f-d3ea1aacb462",
+                         "key":  "openDoor",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "GasShutOffBox",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

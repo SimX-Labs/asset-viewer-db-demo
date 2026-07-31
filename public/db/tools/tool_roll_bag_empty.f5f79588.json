@@ -1,0 +1,24 @@
+{
+    "id":  "f5f79588-d320-5e14-9d71-3bf36e0ed93a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Roll Bag Empty",
+    "assetKey":  "tool_roll_bag_empty",
+    "toolId":  "rollBagQuickclot",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_roll_bag_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

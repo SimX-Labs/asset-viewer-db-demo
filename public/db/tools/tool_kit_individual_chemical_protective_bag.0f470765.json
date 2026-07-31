@@ -1,0 +1,41 @@
+{
+    "id":  "0f470765-2c16-50a5-b5f8-8306b0b29d3c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Kit Individual Chemical Protective Bag",
+    "assetKey":  "tool_kit_individual_chemical_protective_bag",
+    "toolId":  "kitIndividualChemicalProtective",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_kit_individual_chemical_protective_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "bcfb8ba3-6d92-5f1e-bae1-f492de456ad1",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

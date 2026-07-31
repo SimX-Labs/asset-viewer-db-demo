@@ -1,0 +1,41 @@
+{
+    "id":  "02544f63-4777-54e2-8ad6-04411e9d6d87",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Dirty Removed Inner Cannula",
+    "assetKey":  "tool_dirty_removed_inner_cannula",
+    "toolId":  "dirtyRemovedInnerCannula",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Tracheostomy/tool_dirty_removed_inner_cannula.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a921e5c1-486b-5c7a-a0d8-c7cfb8af68ea",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clear",
+                                                "blockage"
+                                            ],
+                         "defaultValue":  "clear",
+                         "examples":  [
+                                          "``clear`` / ``blockage``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

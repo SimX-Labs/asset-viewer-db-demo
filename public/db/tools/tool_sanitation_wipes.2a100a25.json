@@ -1,0 +1,24 @@
+{
+    "id":  "2a100a25-4d4b-55b8-9907-5a0bb33739f9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sanitation Wipes",
+    "assetKey":  "tool_sanitation_wipes",
+    "toolId":  "sanitationWipes1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_sanitation_wipes.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

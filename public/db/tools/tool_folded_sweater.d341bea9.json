@@ -1,0 +1,30 @@
+{
+    "id":  "d341bea9-0dc7-5c01-ae41-5f833367467e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Folded Sweater",
+    "assetKey":  "tool_folded_sweater",
+    "toolId":  "blanket1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_folded_sweater.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "foldedSweater",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

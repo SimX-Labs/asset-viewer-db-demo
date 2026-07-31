@@ -1,0 +1,36 @@
+{
+    "id":  "7f94840c-7c7a-5fef-96e0-8e9fe9d008f8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Invisible Custom Hand Interaction Toggle",
+    "assetKey":  "tool_invisible_custom_hand_interaction_toggle",
+    "toolId":  "invisibleCustomHandInteraction",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Invisible Tools/tool_invisible_custom_hand_interaction.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "overrideThisLocation",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "customHandInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,38 @@
+{
+    "id":  "a1277fa0-8044-5eda-bee5-897a217e2e63",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Female Straight Catheter",
+    "assetKey":  "kit_female_straight_catheter",
+    "toolId":  "femaleStraightCatheterKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_female_straight_catheter.prefab",
+    "metadata":  [
+                     {
+                         "id":  "95acf5fe-47d7-57cf-b769-8c7a17a9e594",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "488bbccc-d544-5d07-8ba3-9f221c374f0a"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

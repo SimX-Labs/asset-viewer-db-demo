@@ -1,0 +1,24 @@
+{
+    "id":  "eecc7849-766d-5fb9-bdf2-2edf9d3d5fc3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pacer Tabletop",
+    "assetKey":  "tool_pacer_tabletop",
+    "toolId":  "pacer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Pacer/tool_pacer_tabletop.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

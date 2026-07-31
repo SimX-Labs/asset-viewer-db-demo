@@ -1,0 +1,34 @@
+{
+    "id":  "19709b0f-f3ef-5ef0-85cc-bb2548c3b149",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Take Home Med",
+    "assetKey":  "tool_take_home_med",
+    "toolId":  "levonorgestrel",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_take_home_med.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "takeHomeMed",
+                             "assetIds":  [
+                                              "fbff7042-94a3-5649-8c23-7322d7b117bc",
+                                              "fbff7042-94a3-5649-8c23-7322d7b117bc",
+                                              "fbff7042-94a3-5649-8c23-7322d7b117bc",
+                                              "fbff7042-94a3-5649-8c23-7322d7b117bc",
+                                              "fbff7042-94a3-5649-8c23-7322d7b117bc"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

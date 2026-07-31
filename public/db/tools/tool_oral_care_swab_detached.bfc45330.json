@@ -1,0 +1,38 @@
+{
+    "id":  "bfc45330-3386-51c2-bcfe-d7a2d8440ba6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oral Care Swab Detached",
+    "assetKey":  "tool_oral_care_swab_detached",
+    "toolId":  "oralCareSwabDetached",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_oral_care_swab_detached.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "attachableOralCareSwab",
+                             "assetIds":  [
+                                              "e5016168-f325-5ae4-9543-24e56f3bde64"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

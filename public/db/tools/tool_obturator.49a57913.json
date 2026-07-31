@@ -1,0 +1,55 @@
+{
+    "id":  "49a57913-eeec-5666-a594-4d2db8628ebb",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Obturator",
+    "assetKey":  "tool_obturator",
+    "toolId":  "obturator",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Tracheostomy/tool_obturator.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c4300404-3e84-5525-acba-379c5279504d",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "base",
+                                                "lubricated"
+                                            ],
+                         "defaultValue":  "base",
+                         "examples":  [
+                                          "``base`` / ``lubricated``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "outercannula",
+                             "assetIds":  [
+                                              "89335d8c-ec2e-5da0-822e-741d16b8c6ce"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "lubricantInteraction",
+                                     "assetIds":  [
+                                                      "26014eae-27f5-5e03-8091-5b01ec2825db",
+                                                      "3a9bbcc9-076a-5a65-9fde-4977b08e55b5",
+                                                      "ba954365-eb3b-5718-801b-748583781ba4"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "ff9be45e-079b-5143-93fd-72f118eb82be"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

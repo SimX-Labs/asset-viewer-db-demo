@@ -1,0 +1,24 @@
+{
+    "id":  "a9c9e652-7aef-5058-8591-78c4dbbe76c2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sprayer Decontaminate Bleach",
+    "assetKey":  "tool_sprayer_decontaminate_bleach",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Sprayer Decontaminate Rinse/tool_sprayer_decontaminate_bleach.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

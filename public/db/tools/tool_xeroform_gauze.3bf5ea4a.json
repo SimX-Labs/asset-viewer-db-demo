@@ -1,0 +1,24 @@
+{
+    "id":  "3bf5ea4a-8b37-50fd-a4a1-199c74279837",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Xeroform Gauze",
+    "assetKey":  "tool_xeroform_gauze",
+    "toolId":  "xeroformGauze",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Circulation Tools/tool_xeroform_gauze.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

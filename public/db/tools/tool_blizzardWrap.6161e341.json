@@ -1,0 +1,24 @@
+{
+    "id":  "6161e341-1bb8-521c-a941-aab5333f389f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blizzardwrap",
+    "assetKey":  "tool_blizzardWrap",
+    "toolId":  "o-backpack1-tool_blizzardWrap",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_blizzardWrap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

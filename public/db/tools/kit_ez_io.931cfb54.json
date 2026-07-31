@@ -1,0 +1,43 @@
+{
+    "id":  "931cfb54-4cc1-5be8-b5b0-bb5aa48f1abd",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Ez Io",
+    "assetKey":  "kit_ez_io",
+    "toolId":  "ezIoKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_ez_io.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6f4a3c09-d47c-5432-a33a-e6f213bc32a1",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "f6d82c09-4bb2-59d0-9711-84a2aa1e87fb"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

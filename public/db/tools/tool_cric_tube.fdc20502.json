@@ -1,0 +1,43 @@
+{
+    "id":  "fdc20502-0ae1-5d34-8b23-8a3bfd35d0b2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cric Tube",
+    "assetKey":  "tool_cric_tube",
+    "toolId":  "tool_military_backpack-Group2Parent-Airway-tool_intubation",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_cric_tube.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "cricTube",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "cricTubeBougie",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

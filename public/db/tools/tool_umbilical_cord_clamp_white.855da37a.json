@@ -1,0 +1,30 @@
+{
+    "id":  "855da37a-2c04-5ae0-801f-f3bea05b2f94",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Umbilical Cord Clamp White",
+    "assetKey":  "tool_umbilical_cord_clamp_white",
+    "toolId":  "umbilicalCordClamp1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_umbilical_cord_clamp_white.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "umbilicalCord",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

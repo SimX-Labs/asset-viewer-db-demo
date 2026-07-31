@@ -1,0 +1,24 @@
+{
+    "id":  "2f86ca42-e785-51b8-9a01-bb0c2376fa03",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tmmedica Green Bag",
+    "assetKey":  "tool_tmmedica_green_bag",
+    "toolId":  "greenBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/HomeCareBag/tool_tmmedica_green_bag.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

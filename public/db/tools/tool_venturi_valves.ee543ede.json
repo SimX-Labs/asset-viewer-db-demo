@@ -1,0 +1,24 @@
+{
+    "id":  "ee543ede-3d52-5ae2-8b9e-3674da898ade",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Valves",
+    "assetKey":  "tool_venturi_valves",
+    "toolId":  "VenturiValves2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_valves.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

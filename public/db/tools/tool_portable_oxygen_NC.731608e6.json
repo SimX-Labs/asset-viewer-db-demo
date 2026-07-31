@@ -1,0 +1,24 @@
+{
+    "id":  "731608e6-d848-5446-b6cd-7bc39398cfb9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Oxygen Nc",
+    "assetKey":  "tool_portable_oxygen_NC",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_portable_oxygen_NC.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

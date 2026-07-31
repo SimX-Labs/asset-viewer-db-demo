@@ -1,0 +1,24 @@
+{
+    "id":  "feeb08fd-a89c-5acd-bc33-704bdcdd824e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "March Bag L Shape",
+    "assetKey":  "tool_march_bag_l_shape",
+    "toolId":  "marchBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_march_bag_l_shape.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

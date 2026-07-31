@@ -1,0 +1,30 @@
+{
+    "id":  "63656e6f-fc45-5c37-b126-279cd75b6b9a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Securementadhesive",
+    "assetKey":  "tool_securementAdhesive",
+    "toolId":  "securementAdhesive1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_securementAdhesive.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "piccSecurementAdhesive",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "88e66a6f-b89f-571f-a183-25836bb75951"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

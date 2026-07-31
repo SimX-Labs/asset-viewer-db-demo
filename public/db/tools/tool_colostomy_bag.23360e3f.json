@@ -1,0 +1,36 @@
+{
+    "id":  "23360e3f-da24-566b-b695-3627e03e72e3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Colostomy Bag",
+    "assetKey":  "tool_colostomy_bag",
+    "toolId":  "ColostomyBagTool",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Colostomy/tool_colostomy_bag.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ApplyBag",
+                             "assetIds":  [
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396",
+                                              "ab493b51-d3b7-58fd-b390-5c38ffb1b396"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

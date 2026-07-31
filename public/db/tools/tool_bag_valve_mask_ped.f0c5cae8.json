@@ -1,0 +1,26 @@
+{
+    "id":  "f0c5cae8-3d08-5c19-b5f4-f5349bc5f37f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bag Valve Mask Ped",
+    "assetKey":  "tool_bag_valve_mask_ped",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_bag_valve_mask_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "0ec2843f-89dc-5c1f-83c7-8cb55d746cfe",
+                           "39c8dea1-1e14-5c4b-a423-7ec5463071a0",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,140 @@
+{
+    "id":  "21517967-6d5d-563a-8b0a-523f25776cb5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Collection Cup",
+    "assetKey":  "tool_collection_cup",
+    "toolId":  "collectionCup",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Collection Cup/tool_collection_cup.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d101e8f4-863e-5965-abae-5b87a05a497e",
+                         "key":  "cap",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca16c7c3-ad13-5c17-98f6-6044a5fe1da9",
+                         "key":  "containerDisposedOf",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `UrineCupInBag` (`SetActive`).",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "be0df864-c50e-5040-bb00-2b36d6af3805",
+                         "key":  "fluidColor",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Fluid Color Update.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1a61680d-58e9-55b0-b29b-82820dba74e9",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Empty",
+                                                "Filled"
+                                            ],
+                         "defaultValue":  "Empty",
+                         "examples":  [
+                                          "``Empty`` / ``Filled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "4a8fdee4-b2b2-52d9-b5fa-c9ae028a9b1b",
+                         "key":  "urine",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Delay turning on the urine to account for the time it would take for someone to press the action button down on the controller. Help sell the illusion that the container is filling as the syringe plunger goes down.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "biohazardBag",
+                             "assetIds":  [
+                                              "5535a10e-ad46-5b6c-9909-449b17bbf4bf",
+                                              "61dbb2ba-28fc-5c46-8a5c-5ea4dcc24968",
+                                              "a04ef8fd-b4d8-58a6-9d5a-e7cf497f386e",
+                                              "6902f400-f82a-5e92-8222-c9e44a5127d2",
+                                              "89647925-d41e-58a9-99dd-95c1f3912766",
+                                              "cd50000e-a39b-5be9-a08a-d57ac99e96fe",
+                                              "6145155b-6f93-5a96-852b-6a7a1c3e11b1"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "giveCollectionCup",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "biohazardBag",
+                             "assetIds":  [
+                                              "5535a10e-ad46-5b6c-9909-449b17bbf4bf",
+                                              "61dbb2ba-28fc-5c46-8a5c-5ea4dcc24968",
+                                              "a04ef8fd-b4d8-58a6-9d5a-e7cf497f386e",
+                                              "6902f400-f82a-5e92-8222-c9e44a5127d2",
+                                              "89647925-d41e-58a9-99dd-95c1f3912766",
+                                              "cd50000e-a39b-5be9-a08a-d57ac99e96fe",
+                                              "6145155b-6f93-5a96-852b-6a7a1c3e11b1"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "collectionCup",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "7db89c90-073d-5f20-9ecc-9bc88c185e02",
+                           "8b07dc07-a19c-5f1c-a23b-5e1dfcf39cf8"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

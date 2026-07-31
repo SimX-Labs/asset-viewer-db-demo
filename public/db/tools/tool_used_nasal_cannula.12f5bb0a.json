@@ -1,0 +1,24 @@
+{
+    "id":  "12f5bb0a-0769-533c-a663-a897600cc7bc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Used Nasal Cannula",
+    "assetKey":  "tool_used_nasal_cannula",
+    "toolId":  "usedNasalCannula1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_used_nasal_cannula.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

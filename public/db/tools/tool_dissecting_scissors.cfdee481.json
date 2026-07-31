@@ -1,0 +1,92 @@
+{
+    "id":  "cfdee481-a3f3-530a-8ddf-76d261c69d70",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Dissecting Scissors",
+    "assetKey":  "tool_dissecting_scissors",
+    "toolId":  "g1-backpack1-tool_dissecting_scissors",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_dissecting_scissors.prefab",
+    "metadata":  [
+                     {
+                         "id":  "95dd0adc-c1af-5ece-81b8-338dd449b79b",
+                         "key":  "setToolInteractions",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "ToolInteractionRuntimeOverwrite",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "96102d77-5b07-50cb-a77e-f14401d0d9e8",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "ingrownNail"
+                                            ],
+                         "defaultValue":  "default",
+                         "examples":  [
+                                          "``default`` / ``ingrownNail``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fasciotomyLegCut",
+                             "assetIds":  [
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "4b85f845-1262-523d-8eff-f3668c9c1bb6",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "2a301bf7-cedd-5e4e-9fee-4111e7b24364"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

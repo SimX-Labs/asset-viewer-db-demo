@@ -1,0 +1,62 @@
+{
+    "id":  "84c57dcc-d4a9-585e-9183-e73980bda144",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Emesis Bag",
+    "assetKey":  "tool_emesis_bag",
+    "toolId":  "emesisBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_emesis_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "fc2ac50e-0c71-538c-b5e8-a3a7037a9b8a",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "partial",
+                                                "half",
+                                                "halfYellow"
+                                            ],
+                         "defaultValue":  "empty",
+                         "examples":  [
+                                          "``empty`` / ``partial`` / ``half`` / ``halfYellow``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "emesisBag",
+                             "assetIds":  [
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1",
+                                              "e3cc9268-7dd5-5f51-88be-f54c41d903d1"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "17419c79-b446-5453-be46-ef06b99cbadc"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

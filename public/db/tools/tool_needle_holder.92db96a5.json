@@ -1,0 +1,58 @@
+{
+    "id":  "92db96a5-9062-59e6-b9cb-e745b94f0807",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Needle Holder",
+    "assetKey":  "tool_needle_holder",
+    "toolId":  "g1-backpack1-tool_needle_holder",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_needle_holder.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fasciotomyLegCut",
+                             "assetIds":  [
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "4b85f845-1262-523d-8eff-f3668c9c1bb6"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

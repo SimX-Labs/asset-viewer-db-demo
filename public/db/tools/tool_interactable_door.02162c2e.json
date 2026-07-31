@@ -1,0 +1,24 @@
+{
+    "id":  "02162c2e-d594-5ee4-b64b-d05db0f6e44f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Interactable Door",
+    "assetKey":  "tool_interactable_door",
+    "toolId":  "interactableDoor1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_interactable_door.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

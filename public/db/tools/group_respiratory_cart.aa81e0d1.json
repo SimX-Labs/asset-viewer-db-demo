@@ -1,0 +1,24 @@
+{
+    "id":  "aa81e0d1-1acf-5186-9a0c-13d1ecef12e1",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Respiratory Cart",
+    "assetKey":  "group_respiratory_cart",
+    "toolId":  "airwayCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_respiratory_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

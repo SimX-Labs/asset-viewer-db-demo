@@ -1,0 +1,38 @@
+{
+    "id":  "bda508a4-46f8-526a-877d-fcb0266059e8",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Chest Tube",
+    "assetKey":  "kit_chest_tube",
+    "toolId":  "chestTubeKite",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_chest_tube.prefab",
+    "metadata":  [
+                     {
+                         "id":  "65933e99-95f3-5e7f-aa87-98019af88b5c",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

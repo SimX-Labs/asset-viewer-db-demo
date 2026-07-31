@@ -1,0 +1,24 @@
+{
+    "id":  "ab4c87d9-b462-5782-b3e0-7781d19aa209",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Dirty Chuck",
+    "assetKey":  "tool_dirty_chuck",
+    "toolId":  "dirtyChuck1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Chuck/tool_dirty_chuck.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

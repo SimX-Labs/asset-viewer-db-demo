@@ -1,0 +1,132 @@
+{
+    "id":  "69489655-05dc-57fd-8da5-4e8f7f29506a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Aed",
+    "assetKey":  "tool_aed",
+    "toolId":  "aed",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/AED/tool_aed.prefab",
+    "metadata":  [
+                     {
+                         "id":  "9ea359e8-9b46-50ac-8e70-494eae9ddcf7",
+                         "key":  "event",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3debe2f8-0995-5b33-8fdd-cf97e8dfac88",
+                         "key":  "leftPadPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e722448-5267-5b97-b981-d6eee777ac0c",
+                         "key":  "OnOpen",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event name passed to `SendEntityEvent`; not a metadata key unless consumed as such.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "82ddaaf7-6695-5ab1-bfa0-d8c1792d2a8b",
+                         "key":  "rightPadPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ea6c6629-35ea-50b7-850f-7893e4c3e39c",
+                         "key":  "shockableRhythm",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Shockable Rhythm.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f250bdf9-3390-5fd5-88df-8f0c042e8c7b",
+                         "key":  "shockGiven",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AEDController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9b1dac8d-5f87-5f95-b767-4c5d1edcf3f4",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open",
+                                                "padsReady"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``closed`` / ``open`` / ``padsReady``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

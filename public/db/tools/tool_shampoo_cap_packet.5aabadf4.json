@@ -1,0 +1,30 @@
+{
+    "id":  "5aabadf4-2ccf-589c-96bc-fb91ecc75382",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Shampoo Cap Packet",
+    "assetKey":  "tool_shampoo_cap_packet",
+    "toolId":  "shampooCapPacket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/tool_shampoo_cap_packet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "HeadTop",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

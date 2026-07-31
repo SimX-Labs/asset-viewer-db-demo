@@ -1,0 +1,117 @@
+{
+    "id":  "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+    "type":  "equipment",
+    "name":  "Procedure Left Temporal Scalp Dressing",
+    "assetKey":  "procedure_left_temporal_scalp_dressing",
+    "prefabPath":  "Assets/SimX/AssetBundles/Humanoids/character_child02/Meshes/procedure_left_temporal_scalp_dressing.prefab",
+    "primaryMetadata":  {
+                            "id":  "0d5085a7-63d5-5459-9495-779565146297",
+                            "key":  "leftTemporalScalpDressing",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "disabled",
+                                                   "undressed",
+                                                   "squareGauzeApplied",
+                                                   "rolledGauzeApplied"
+                                               ],
+                            "defaultValue":  "disabled",
+                            "examples":  [
+                                             "disabled, undressed, squareGauzeApplied, rolledGauzeApplied"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `leftTemporalScalpDressing`. Values: `disabled`, `undressed`, `squareGauzeApplied`, `rolledGauzeApplied`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "6c4013e7-64de-5d4b-99c9-45194994817d",
+                         "key":  "leftTemporalScalpDressing-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "81981919-c4ab-5ea3-acc2-d518d6d97c7b",
+                         "key":  "leftTemporalScalpDressing-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fcf02345-23d1-5aa6-853d-fd0a074949bd",
+                         "key":  "leftTemporalScalpDressing-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  [
+                                                         "squareGauzeApplied"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "basicSquareGauze",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  [
+                                                         "undressed"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "chitoGuaze",
+                                     "assetIds":  [
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874",
+                                                      "26df97c9-647e-5b41-b174-48612abe6981",
+                                                      "068799f7-c341-5278-886a-644f397f84ac"
+                                                  ],
+                                     "availableIn":  [
+                                                         "undressed"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "b20c0553-91b0-59e6-869d-8590c0dd4ac9",
+                         "70f1f7ea-8c24-5c1d-9841-99bcb6f7b503",
+                         "a76dac8f-b0b6-507e-8925-05afcaa21cfa",
+                         "3d842f70-0979-516a-a275-e48e831ee682",
+                         "71b2e982-ec98-5838-be07-5e78a9f0cf46",
+                         "c28faa9c-2dd6-58d6-9e78-c37d158eca76",
+                         "358c274f-545b-55b5-be65-b157739fc438"
+                     ]
+}

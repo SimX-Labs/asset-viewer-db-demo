@@ -1,0 +1,24 @@
+{
+    "id":  "beef1eb9-0266-5d2b-833f-088ae7ee9daa",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cart Endoscopy Standing",
+    "assetKey":  "tool_cart_endoscopy_standing",
+    "toolId":  "endoscopyCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_cart_endoscopy_standing.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

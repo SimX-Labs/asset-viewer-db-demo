@@ -1,0 +1,30 @@
+{
+    "id":  "301725a6-182c-5f75-bf1e-5b6e88ba9364",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cordis Wire Hidden",
+    "assetKey":  "tool_cordis_wire_hidden",
+    "toolId":  "hiddenCordisWire",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Cordis/tool_cordis_wire_hidden.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Nose",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,122 @@
+{
+    "id":  "3fcefe84-dda0-59a6-b753-b9b3e3a445d0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oxygen Flowmeter V2 Splinefix",
+    "assetKey":  "tool_oxygen_flowmeter_v2_splinefix",
+    "toolId":  "flowmeter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/OxygenFlowMeter/tool_oxygen_flowmeter_v2_splinefix.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6338efed-3056-55aa-ba64-4af80fc3f72b",
+                         "key":  "oxygenConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Controls visibility of `_oxygenTubing` (`SetActive`). Controls visibility of `_newConnectionInteractionWrapper` (`SetActive`).",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "38b0d4cf-a135-5bb1-a67a-7a2253c4c5d1",
+                         "key":  "oxygenFlowRate",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "clamp that percentage down in case of unexpected numbers _oxygenTubing.SetActive(true); Controls visibility of `_oxygenTubing` (`SetActive`). Updates the `o2LevelLabel.text` UI label. Fires the `oxygen-flowmeter-above-0` interaction event when conditions are met.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1eafbafc-ea54-582a-ba23-1de758d20771",
+                         "key":  "oxygenPowerOn",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Set O2 level text Show O2 level if possible Updates the `o2LevelLabel.text` UI label.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0795f052-c8e5-58e7-a0c4-2824cbf6dbb2",
+                         "key":  "showOxygenTubingWhenConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `_oxygenTubing` (`SetActive`).",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9712f2ea-3b99-5ed8-bdc9-aa5f2c13599f",
+                         "key":  "spo2Override",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7545668a-e2bf-57c2-adca-54f9d78fc0cc",
+                         "key":  "storeConnectedOxygenTubing",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "attachableTubing",
+                                     "assetIds":  [
+                                                      "f72a9006-7559-5360-bb13-43e69082db65",
+                                                      "520e65ad-c4ee-5de0-9cb1-6762a5f364bc",
+                                                      "bc178f8c-ffd6-5435-8b9e-f49b876dc9ce",
+                                                      "80116088-c611-56a3-b119-e51926f2886e"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "42676692-77fa-5496-a1fd-462ee8bc0dec",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blood Box Four Units Casevac",
+    "assetKey":  "tool_blood_box_four_units_casevac",
+    "toolId":  "tool_blood_box_four_units",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_blood_box_four_units_casevac.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,55 @@
+{
+    "id":  "6ccc88a9-1705-5f29-aa27-d2c3d2e16d5a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blood Bag Catheter",
+    "assetKey":  "tool_blood_bag_catheter",
+    "toolId":  "bloodBagCatheterConnector",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Blood Transfusion IV/tool_blood_bag_catheter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "transfusionNeedle",
+                             "assetIds":  [
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b",
+                                              "bf7e608f-6913-5242-93ba-a5665eb18560",
+                                              "483f398b-8ab1-5824-a7ff-bfa31ac2fb8b"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

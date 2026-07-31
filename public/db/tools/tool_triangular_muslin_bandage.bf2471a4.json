@@ -1,0 +1,74 @@
+{
+    "id":  "bf2471a4-9d01-5b76-8495-03e0a8bdfe3b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Triangular Muslin Bandage",
+    "assetKey":  "tool_triangular_muslin_bandage",
+    "toolId":  "triangularMuslinBandage",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_triangular_muslin_bandage.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "triangularMuslinBandage",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "sling",
+                             "assetIds":  [
+                                              "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                                              "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                                              "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                                              "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                                              "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                                              "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                                              "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8",
+                                              "67161d4c-354d-51f2-a56e-617d84ac7ee8"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

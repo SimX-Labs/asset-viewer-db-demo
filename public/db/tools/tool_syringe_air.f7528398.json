@@ -1,0 +1,24 @@
+{
+    "id":  "f7528398-f84c-55b1-83ba-2f260e11cf3b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Syringe Air",
+    "assetKey":  "tool_syringe_air",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/Syringes/tool_syringe_air.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

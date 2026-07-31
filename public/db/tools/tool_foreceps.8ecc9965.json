@@ -1,0 +1,24 @@
+{
+    "id":  "8ecc9965-d8b0-5dbb-958d-c6870c9ba88d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Foreceps",
+    "assetKey":  "tool_foreceps",
+    "toolId":  "foreceps1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_foreceps.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

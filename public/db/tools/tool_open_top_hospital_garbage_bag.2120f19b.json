@@ -1,0 +1,24 @@
+{
+    "id":  "2120f19b-6a6e-5c11-81d7-2996b757c89b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Open Top Hospital Garbage Bag",
+    "assetKey":  "tool_open_top_hospital_garbage_bag",
+    "toolId":  "openTopgarbage1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_open_top_hospital_garbage_bag.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

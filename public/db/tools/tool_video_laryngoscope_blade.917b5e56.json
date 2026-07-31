@@ -1,0 +1,30 @@
+{
+    "id":  "917b5e56-edc2-5951-a1ac-2b11dd1744e3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Video Laryngoscope Blade",
+    "assetKey":  "tool_video_laryngoscope_blade",
+    "toolId":  "video_laryngoscope_blade",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_video_laryngoscope_blade.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "intubationLaryngoscope",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

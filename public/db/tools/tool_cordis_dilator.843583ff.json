@@ -1,0 +1,30 @@
+{
+    "id":  "843583ff-d68b-5be4-b6b1-ffe9c118cca3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cordis Dilator",
+    "assetKey":  "tool_cordis_dilator",
+    "toolId":  "tool_cordis_dilator",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Cordis/tool_cordis_dilator.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "CordisDilatorInsertionSlot",
+                             "assetIds":  [
+                                              "592c27bd-e3d9-5754-ae14-b3f10a7011bc"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "861eaacb-ea10-5068-863d-c9c3343b2854"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

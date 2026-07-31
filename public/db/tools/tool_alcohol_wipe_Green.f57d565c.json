@@ -1,0 +1,24 @@
+{
+    "id":  "f57d565c-7bb0-5775-9cf4-2bc496c3df74",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Alcohol Wipe Green",
+    "assetKey":  "tool_alcohol_wipe_Green",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_alcohol_wipe_Green.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

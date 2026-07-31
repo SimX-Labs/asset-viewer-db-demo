@@ -1,0 +1,48 @@
+{
+    "id":  "2f396570-d93e-5cc5-81f5-109c2647e2b8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Chest Towel 3",
+    "assetKey":  "tool_chest_towel 3",
+    "toolId":  "chestTowel3",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_chest_towel 3.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "chestTowel",
+                             "assetIds":  [
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55",
+                                              "546ab7a0-19e2-53d3-aa54-40362f503a55"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

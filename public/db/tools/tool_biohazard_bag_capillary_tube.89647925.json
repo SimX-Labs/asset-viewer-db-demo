@@ -1,0 +1,53 @@
+{
+    "id":  "89647925-d41e-58a9-99dd-95c1f3912766",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Biohazard Bag Capillary Tube",
+    "assetKey":  "tool_biohazard_bag_capillary_tube",
+    "toolId":  "biohazardBag1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_biohazard_bag_capillary_tube.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d6e055ce-155a-5662-a3c6-5b1c735bc5d3",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "filled"
+                                            ],
+                         "defaultValue":  "empty",
+                         "examples":  [
+                                          "``empty`` / ``filled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "biohazardBag",
+                                     "assetIds":  [
+                                                      "21517967-6d5d-563a-8b0a-523f25776cb5",
+                                                      "642eab0c-50e0-53ea-a87a-afe896537473",
+                                                      "487f56e4-d987-5fdc-8f1f-9ca766ad7089",
+                                                      "bdc5f42c-3305-5b03-a37f-e4e1888f5680",
+                                                      "ece7996c-8a86-5f9c-9499-248632e0392d",
+                                                      "c7f8a3c3-d865-5b5c-b7fd-0eab92d3a3e3",
+                                                      "cbf6c5d8-b096-571a-891b-9a70d101cc71"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,75 @@
+{
+    "id":  "37fec0d4-e0bc-5083-8b82-d4ce9682a992",
+    "type":  "equipment",
+    "name":  "Ezio Tibia Left Zero",
+    "assetKey":  "EQUIPMENT_EZIO_TIBIA_LEFT_Zero",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/EQUIPMENT_EZIO_TIBIA_LEFT_Zero.prefab",
+    "primaryMetadata":  {
+                            "id":  "9f309eb5-4804-5d30-960a-23b19a8a97f1",
+                            "key":  "IOTibiaLeft",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "297fe048-b97d-551e-a7cb-ac9e328ad8ff",
+                         "key":  "IOTibiaLeft-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e3b7ae15-7414-5fb8-86b2-f01505c6ad03",
+                         "key":  "IOTibiaLeft-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b7296a76-4100-53a4-8250-e02fc3e9203e",
+                         "key":  "IOTibiaLeft-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

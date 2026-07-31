@@ -1,0 +1,203 @@
+{
+    "id":  "d20a096b-da5f-5dcf-8fa0-69b3eb18dbf9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pyxis Machine",
+    "assetKey":  "tool_pyxis_machine",
+    "toolId":  "pyxisMachine",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_pyxis_machine.prefab",
+    "metadata":  [
+                     {
+                         "id":  "4cdde46d-fadf-5846-9030-ea7b3df50ea7",
+                         "key":  "availableDrugs",
+                         "valueType":  "array",
+                         "valueShape":  "array",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "see Complex value reference"
+                                      ],
+                         "description":  "This will be a list of strings",
+                         "sourceScripts":  "PyxisScreenInterface",
+                         "complexSchema":  {
+                                               "shape":  "array",
+                                               "spec":  {
+                                                            "kind":  "array",
+                                                            "element":  {
+                                                                            "kind":  "object",
+                                                                            "subKeys":  [
+                                                                                            {
+                                                                                                "name":  "containerType",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "metadataItems",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "object",
+                                                                                                             "subKeys":  [
+                                                                                                                             {
+                                                                                                                                 "name":  "isScannable",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "bool"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "max",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "int"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "medId",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "min",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "int"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "modelName",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "patientDob",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "patientName",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "pillCount",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "int"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "syringeIncrement",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "int"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "syringeMethod",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 "name":  "units",
+                                                                                                                                 "spec":  {
+                                                                                                                                              "kind":  "primitive",
+                                                                                                                                              "display":  "string"
+                                                                                                                                          }
+                                                                                                                             }
+                                                                                                                         ]
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "name",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            }
+                                                                                        ]
+                                                                        }
+                                                        },
+                                               "subKeys":  [
+
+                                                           ],
+                                               "samples":  [
+                                                               "[{\"name\":\"Lorazepam 2mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"modelName\":\"45-TAB\",\"isScannable\":true,\"pillCount\":1}},{\"name\":\"Olanzapine 20mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"modelName\":\"100-TAB\",\"isScannable\":true,\"pillCount\":2}}]",
+                                                               "[{\"name\":\"Acetaminophen 650 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"6-TAB\"}},{\"name\":\"Docusate Sodium 100 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"DocusateSodium\"}},{\"name\":\"Insulin Glargine 100 Units/mL SQ\",\"containerType\":\"Vial\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"InsulinGlargine\",\"syringeMethod\":\"SUBQ\",\"min\":0,\"max\":100,\"syringeIncrement\":1,\"units\":\"Units\"}},{\"name\":\"Metoprolol 50 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"modelName\":\"54-TAB\",\"isScannable\":true}},{\"name\":\"Apixaban 2.5 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"116-U_TAB\"}},{\"name\":\"Oxycodone 5 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"117-TAB\"}},{\"name\":\"Oxycodone 10 mg PO\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"63.5-TAB\"}},{\"name\":\"Ondansetron 4 mg ODT\",\"containerType\":\"PillBottle\",\"metadataItems\":{\"isScannable\":true,\"modelName\":\"62-TAB\"}}]"
+                                                           ]
+                                           },
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ce533f17-e45f-5fa8-bb7c-84a3cc0e49fb",
+                         "key":  "currentSlotIndex",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Data coming in is a dictionary that matches the _currentContainerIndex dictionary",
+                         "sourceScripts":  "PyxisController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "399e9aaf-b9f9-52bf-88d0-d86ed1eafc22",
+                         "key":  "pyxisScrollPosition",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update the button colliders whether they are on screen or not.",
+                         "sourceScripts":  "PyxisScreenInterface",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d08f1766-fcb8-5b01-ab1a-bb0530eb451a",
+                         "key":  "scrollIncrement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "The value coming in is expected to be a float",
+                         "sourceScripts":  "PyxisScreenInterface",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "50b0bb46-c04a-4abb-b73b-68854510c6ad",
+                        "bf494cd2-786f-4a0c-9675-ef58b9408a91",
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b",
+                        "84e9ec28-7402-42ff-85f6-ec7eb0762152",
+                        "b939bc9d-bf54-4775-b232-47e2509aff88"
+                    ]
+}

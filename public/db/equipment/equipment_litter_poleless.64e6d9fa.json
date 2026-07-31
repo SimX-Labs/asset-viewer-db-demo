@@ -1,0 +1,117 @@
+{
+    "id":  "64e6d9fa-b17c-558e-9f2a-179665755f18",
+    "type":  "equipment",
+    "name":  "Litter Poleless",
+    "assetKey":  "equipment_litter_poleless",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_litter_poleless.prefab",
+    "primaryMetadata":  {
+                            "id":  "eebf9c2f-a96d-5d81-88dc-46cbee38970b",
+                            "key":  "litterPoleless",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "52c22197-2936-58f7-8125-2e53cfad600f",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "213e7703-55a0-5fe1-a5e5-89c28b9109a4",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ac003317-bad8-592b-9285-20bfe08a9698",
+                         "key":  "litterPoleless-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4adea220-2d50-581e-b817-f7897dc9cc61",
+                         "key":  "litterPoleless-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "30ae742b-d813-53d8-b4d7-2a46ead49984",
+                         "key":  "litterPoleless-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "litterPoleless",
+                                     "assetIds":  [
+                                                      "06ba570a-8348-57f6-b64a-fe7b78c4d2cf"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "b20c0553-91b0-59e6-869d-8590c0dd4ac9",
+                         "70f1f7ea-8c24-5c1d-9841-99bcb6f7b503",
+                         "a76dac8f-b0b6-507e-8925-05afcaa21cfa",
+                         "3d842f70-0979-516a-a275-e48e831ee682",
+                         "71b2e982-ec98-5838-be07-5e78a9f0cf46",
+                         "c28faa9c-2dd6-58d6-9e78-c37d158eca76",
+                         "358c274f-545b-55b5-be65-b157739fc438"
+                     ]
+}

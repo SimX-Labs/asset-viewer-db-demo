@@ -1,0 +1,30 @@
+{
+    "id":  "0c372f69-e368-5e93-8c1e-d979a6d32b22",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Fluid Label",
+    "assetKey":  "tool_iv_fluid_label",
+    "toolId":  "ivFluidLabel",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_iv_fluid_label.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ivFluidLabel",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

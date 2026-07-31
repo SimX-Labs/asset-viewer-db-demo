@@ -1,0 +1,40 @@
+{
+    "id":  "ca07d0db-fb19-5564-aac9-ed6f4516cd77",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterile White Gloves Normal",
+    "assetKey":  "tool_sterile_white_gloves_normal",
+    "toolId":  "tool_sterile_white_gloves",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_sterile_white_gloves_normal.prefab",
+    "metadata":  [
+                     {
+                         "id":  "3deadc54-0e10-56cf-8442-ca8be5489731",
+                         "key":  "sterileGlovesState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This will be coming from the server so everyone can get updated on the current nano state value",
+                         "sourceScripts":  "ToolSterileGlovesInteractionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "09a21837-f570-5442-ba22-b6c582fd9f48",
+                           "b505abf5-3317-543c-afad-476afef8ef0b",
+                           "3eacc668-74d2-54b9-81c5-652a067f4ede"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

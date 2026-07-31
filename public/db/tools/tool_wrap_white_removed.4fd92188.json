@@ -1,0 +1,24 @@
+{
+    "id":  "4fd92188-625d-525e-81d6-79646b8f9219",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wrap White Removed",
+    "assetKey":  "tool_wrap_white_removed",
+    "toolId":  "whiteWrapRemoved",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Circulation Tools/tool_wrap_white_removed.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "802e9c14-d7ff-5a99-9ace-95e8fa18910b"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

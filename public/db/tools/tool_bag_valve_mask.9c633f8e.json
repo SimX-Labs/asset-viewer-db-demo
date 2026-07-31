@@ -1,0 +1,62 @@
+{
+    "id":  "9c633f8e-ce7b-50bd-a248-185ea6dc3803",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bag Valve Mask",
+    "assetKey":  "tool_bag_valve_mask",
+    "toolId":  "bagValveMask",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_bag_valve_mask.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationBVM",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "cricBVM",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "litterSmeedSlot",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationAdapterBVM",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "0fcda92a-a4cf-5ac8-ba98-9a31764bf45b",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

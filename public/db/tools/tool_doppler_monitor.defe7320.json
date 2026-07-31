@@ -1,0 +1,24 @@
+{
+    "id":  "defe7320-fde1-58af-9208-7f6275ef051e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Doppler Monitor",
+    "assetKey":  "tool_doppler_monitor",
+    "toolId":  "dopplerMonitor",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Doppler/tool_doppler_monitor.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

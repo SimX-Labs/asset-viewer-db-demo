@@ -1,0 +1,24 @@
+{
+    "id":  "8a5a8985-3208-5a83-9530-05b1d2d28bf4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wrist Bpcuff Peds",
+    "assetKey":  "tool_wrist_bpcuff_peds",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wrist_bpcuff_peds.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

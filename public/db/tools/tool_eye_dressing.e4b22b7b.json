@@ -1,0 +1,55 @@
+{
+    "id":  "e4b22b7b-c3d6-53a2-898f-2226b491be45",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Eye Dressing",
+    "assetKey":  "tool_eye_dressing",
+    "toolId":  "eyeDressing",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_eye_dressing.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "eyeDressing",
+                             "assetIds":  [
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371",
+                                              "3f9eddc8-d49e-5241-bcfb-e9094ddbad35",
+                                              "6f96d920-7b25-567c-bafa-043b78c1d371"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

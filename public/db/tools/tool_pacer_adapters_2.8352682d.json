@@ -1,0 +1,30 @@
+{
+    "id":  "8352682d-b1b9-5be2-b103-31c1a9aaad65",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pacer Adapters 2",
+    "assetKey":  "tool_pacer_adapters_2",
+    "toolId":  "PacerAdaptersOnWire",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Pacer/tool_pacer_adapters_2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "RightHandUltrasoundProbeTool",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "3db4bef7-77a5-5ce4-a1f8-456aa00bf52a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Home Care Bag",
+    "assetKey":  "tool_home_care_bag",
+    "toolId":  "HomeCareBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/HomeCareBag/tool_home_care_bag.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

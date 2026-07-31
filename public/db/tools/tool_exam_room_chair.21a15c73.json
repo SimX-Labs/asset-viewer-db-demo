@@ -1,0 +1,24 @@
+{
+    "id":  "21a15c73-2bd7-54ea-a296-a781729502e6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Exam Room Chair",
+    "assetKey":  "tool_exam_room_chair",
+    "toolId":  "ChairOnGround",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_exam_room_chair.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

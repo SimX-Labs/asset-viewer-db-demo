@@ -1,0 +1,104 @@
+{
+    "id":  "1af98753-2249-54de-a5ff-f329939f9be9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Adjustable Exam Table",
+    "assetKey":  "tool_adjustable_exam_table",
+    "toolId":  "adjustableExamTable1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_adjustable_exam_table.prefab",
+    "metadata":  [
+                     {
+                         "id":  "06d90181-ebbe-55d4-9cf6-8e74ae562ab9",
+                         "key":  "allowBedTilt",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AdjustableExamTableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "84a8b447-17ea-56b5-b3d5-985f95f92a36",
+                         "key":  "StartHeightAdjust",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AdjustableExamTableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f3336bf0-feeb-51c6-be53-8b2e069a00b3",
+                         "key":  "stirrupState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "in",
+                                                "out"
+                                            ],
+                         "defaultValue":  "in",
+                         "examples":  [
+                                          "``in`` / ``out``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "44bcf10d-eae7-5588-bf3d-db791c7b777f",
+                         "key":  "StopHeightAdjust",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AdjustableExamTableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8a9f3c6f-4f4a-5e0c-8477-65cb3d8679fc",
+                         "key":  "tiltState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "down",
+                                                "up"
+                                            ],
+                         "defaultValue":  "down",
+                         "examples":  [
+                                          "``down`` / ``up``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

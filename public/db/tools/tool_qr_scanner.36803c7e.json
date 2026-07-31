@@ -1,0 +1,224 @@
+{
+    "id":  "36803c7e-2d0a-53eb-8cdb-4a1457d1863c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Qr Scanner",
+    "assetKey":  "tool_qr_scanner",
+    "toolId":  "qrScanner1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Scanner/tool_qr_scanner.prefab",
+    "metadata":  [
+                     {
+                         "id":  "66a03462-1393-5b4a-bef1-0baac282f471",
+                         "key":  "ActionButtonDown",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Toggle Action Button.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7ef37484-c6da-5f27-863e-6ee13b64babd",
+                         "key":  "ActionButtonUp",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Toggle Action Button.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8de4be9c-bd80-59af-a816-2582fa670a48",
+                         "key":  "alert1Message",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "Alert!\\nThis medication is considered an inaccurate administration, verify the accuracy of the medication prior to administration.",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Alert One Message.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "285766c9-25f7-59fd-808e-2a179a86a79c",
+                         "key":  "alert2Message",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "Alert!\\nThis medication has patient specific order parameters, verify the clinical accuracy prior to administration.",
+                         "examples":  [
+                                          "Dose falls outside safe range for this patient, please confirm calculation with provider."
+                                      ],
+                         "description":  "Update Alert Two Message.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "df709361-5f26-503b-8fbd-7d9e8a949560",
+                         "key":  "alert3Message",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "Select and scan the patient before scanning or administering any medications.",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Alert Three Message.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "49c3556a-cc80-5382-8f47-7edd8e5fedbe",
+                         "key":  "assessmentMonitorToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Paired Assessment Monitor Id.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9b983080-1459-5810-ab8d-38e1121a9e0a",
+                         "key":  "CheckPatientReset",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d68f09d6-6791-501a-a679-e7aa8dd4e35b",
+                         "key":  "CodeScanned",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Check if scanned id is med or patient id / \u003cparam name=\"data\"\u003eThe scanned code as a string.\u003c/param\u003e",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c8d0ff0f-29fb-5298-b6bc-5d83d388cbc1",
+                         "key":  "MedScanned",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003eThe scanned medication ID as a string.\u003c/param\u003e",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "848e6eaa-675d-54a6-88ea-0578a061595b",
+                         "key":  "optionalPairedPatientId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Paired Patient Id.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6502e7ea-b15d-522f-8918-4e3f5d4e15fb",
+                         "key":  "PatientScanned",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Trigger events to update Patient Scanned UI on assessment monitors Set scanned patient\u0027s UI to active on paired assessment monitor / \u003cparam name=\"data\"\u003eThe ID of the scanned patient.\u003c/param\u003e",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ef2c4375-5b35-5723-8f1e-af63c39da808",
+                         "key":  "PlayOnScanAudio",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c827346c-77b4-5c70-81b3-f6625b60ba20",
+                         "key":  "ToggleOnScanObjects",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003eExpected to be a boolean indicating the active state.\u003c/param\u003e",
+                         "sourceScripts":  "QrCodeScannerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Scannable",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

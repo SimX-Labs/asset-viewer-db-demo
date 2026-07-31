@@ -1,0 +1,30 @@
+{
+    "id":  "a9a63c0c-e2c6-5e53-9acc-f2d9cc513bcb",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Flat Paper",
+    "assetKey":  "tool_flat_paper",
+    "toolId":  "straightCatheterFlatPaper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_flat_paper.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "straightCathFlatPaper",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

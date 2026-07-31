@@ -1,0 +1,24 @@
+{
+    "id":  "c2e9c05a-f7c3-5f0f-9a1d-d36122391d68",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Nursing Cart",
+    "assetKey":  "group_nursing_cart",
+    "toolId":  "nursingCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_nursing_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

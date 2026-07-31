@@ -1,0 +1,24 @@
+{
+    "id":  "2ecbb0ce-8306-597f-bc2d-887cb486cdae",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Infocard Jumpstart Card",
+    "assetKey":  "tool_infocard_JUMPSTART_card",
+    "toolId":  "jumpStartCard",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_infocard_JUMPSTART_card.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,53 @@
+{
+    "id":  "9feba907-0484-514b-a4e2-b736f7ad7bb3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Alcohol Wipe",
+    "assetKey":  "tool_alcohol_wipe",
+    "toolId":  "alcoholWipe1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_alcohol_wipe.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "af723518-1a21-53dc-8212-ed329ef69bd8",
+                           "d4091f95-e569-523e-98f1-e9669537b57e",
+                           "c325c989-1f95-5f0d-b438-aab6cb284ebb",
+                           "c89196db-7d85-5c90-87fb-1268ecfe1d64",
+                           "b245f0f2-0ae1-5a8d-914a-c767519169ad",
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "ae156d9b-ddbe-540e-a31d-55a5967135da",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "b2c0023d-faca-5a58-9fe9-c18e85a6adbc",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "d4cd704a-7b54-54ea-b5f0-bd6bf92f99d1",
+                           "7ba2a1a9-9529-55fb-858b-a7f044e2b1d0",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "4777d693-cf66-5208-9fb1-c649e39a2d6a",
+                           "3e819ad8-54e4-5d27-b6ef-c0bf74048e30",
+                           "88e66a6f-b89f-571f-a183-25836bb75951",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "2a301bf7-cedd-5e4e-9fee-4111e7b24364",
+                           "f253272b-d8fe-57e0-8be2-2e60eed26a97"
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "bf494cd2-786f-4a0c-9675-ef58b9408a91"
+                    ]
+}

@@ -1,0 +1,201 @@
+{
+    "id":  "9778d6bb-2014-558f-8feb-83af19994e66",
+    "type":  "equipment",
+    "name":  "Group Bluntheadinjury",
+    "assetKey":  "group_bluntHeadInjury",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/group_bluntHeadInjury.prefab",
+    "primaryMetadata":  {
+                            "id":  "aae92738-c8be-5a00-9887-da6d8b49713f",
+                            "key":  "BluntInjuryBandageWrap_2",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "375678fb-5cdc-5879-a278-afb698829362",
+                         "key":  "bloodSweepInteraction",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6150c210-69dc-5879-ad9a-d1fbb9224957",
+                         "key":  "bloodSweepInteraction-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "276d2d06-a468-547f-ba71-660a3703850b",
+                         "key":  "bloodSweepInteraction-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "30b042de-acde-5057-ac0c-2f7d7ad38012",
+                         "key":  "bloodSweepInteraction-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1d3e655b-ddcd-5b9c-b341-b1e085d93d49",
+                         "key":  "BluntInjuryBandageWrap_2-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8cd0d8c3-80df-5ac0-843f-5c8f414e610b",
+                         "key":  "BluntInjuryBandageWrap_2-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2df01e78-7fc3-5045-a146-f550d7108eaf",
+                         "key":  "BluntInjuryBandageWrap_2-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "818c0fd3-ebbc-59e5-a5b3-bc3bc46c528d",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "14db5374-79de-50c1-85d4-e444a5cf68e8",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "aceWrap",
+                                     "assetIds":  [
+                                                      "7dc4c6dc-5c6a-5a56-ac93-427e6a9fa7b8",
+                                                      "41cef0a5-f78b-5961-8aa6-1dd54bb5011b",
+                                                      "36a8ac69-1a15-5d4d-94ad-b613d4656a34"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "chitoSquare",
+                                     "assetIds":  [
+                                                      "bba6756d-5b1c-522e-b45d-d9ce6dba7736",
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "gauzeSquare",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383"
+                     ]
+}

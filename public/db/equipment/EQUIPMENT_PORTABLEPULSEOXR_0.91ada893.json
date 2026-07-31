@@ -1,0 +1,75 @@
+{
+    "id":  "91ada893-7bf8-55b8-b70b-065a9f76f7c6",
+    "type":  "equipment",
+    "name":  "Portablepulseoxr 0",
+    "assetKey":  "EQUIPMENT_PORTABLEPULSEOXR_0",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Pulse Ox/equipment_portablepulseox.prefab",
+    "primaryMetadata":  {
+                            "id":  "4351a260-e85b-52d2-87e1-06df44487e8f",
+                            "key":  "PortablePulseOxR",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "3e92416a-3423-5079-8a32-208fc8bea84c",
+                         "key":  "PortablePulseOxR-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ce3f833b-48f9-5f2b-84d2-04d6faa9b0b5",
+                         "key":  "PortablePulseOxR-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ec72ac7b-c24a-53e0-93ca-af1ca483655c",
+                         "key":  "PortablePulseOxR-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

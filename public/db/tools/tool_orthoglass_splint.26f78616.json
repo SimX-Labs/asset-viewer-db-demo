@@ -1,0 +1,30 @@
+{
+    "id":  "26f78616-078f-515b-8e4e-aca5fb091ba3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Orthoglass Splint",
+    "assetKey":  "tool_orthoglass_splint",
+    "toolId":  "orthoglassSplint",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_orthoglass_splint.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "orthoglassSplint",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "09a21837-f570-5442-ba22-b6c582fd9f48"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

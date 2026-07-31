@@ -1,0 +1,32 @@
+{
+    "id":  "9ad6d343-5946-5e81-bede-aa5b1fee2941",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Safety Glasses",
+    "assetKey":  "tool_safety_glasses",
+    "toolId":  "safetyGlasses",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_safety_glasses.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerSafetyGlasses",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ea6748ce-4d49-502f-824b-b4a8678b3fb9",
+                           "8ce0f4d8-4906-5790-931a-5419377eb94f",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,47 @@
+{
+    "id":  "09de4efa-1ee1-5f63-8c8a-197ad3d79828",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Mayostand Cover",
+    "assetKey":  "tool_mayostand_cover",
+    "toolId":  "mayoStandDrape",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_mayostand_cover.prefab",
+    "metadata":  [
+                     {
+                         "id":  "c4aefb0d-bd1b-581d-a9d1-7d92beee8fbf",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Default",
+                                                "Grabbed"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``Default`` / ``Grabbed``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandDrapePlacement",
+                             "assetIds":  [
+                                              "6f39f9ba-214e-5bba-9969-31aff73d3bdd"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c847f5e0-925a-5f60-ada7-cb7157999175"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

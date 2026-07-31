@@ -1,0 +1,44 @@
+{
+    "id":  "600d8cc2-bc80-54a6-b533-dc8e61599cd7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Mask Valve Yellow 35",
+    "assetKey":  "tool_venturi_mask_valve_yellow_35",
+    "toolId":  "VenturiValveYellow35",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_mask_valve_yellow_35.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ValveAttachment",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ValveAttachment",
+                             "assetIds":  [
+                                              "2ae0b075-751a-50f7-9f21-d180652f63ec"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ValveSwap",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

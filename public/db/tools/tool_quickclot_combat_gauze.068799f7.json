@@ -1,0 +1,62 @@
+{
+    "id":  "068799f7-c341-5278-886a-644f397f84ac",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Quickclot Combat Gauze",
+    "assetKey":  "tool_quickclot_combat_gauze",
+    "toolId":  "quickclotCombatGauze",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Quickclot Gauze/tool_quickclot_combat_gauze.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "chitoGuaze",
+                             "assetIds":  [
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "2bb79f2e-468d-5f14-b10e-83223859ac18",
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "40590dfc-697f-5fb3-ad9e-fc5aaa057dce",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "e1714ae6-1795-5fa4-8c19-9791fecb1141",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe",
+                                              "f3cc5c1c-6315-57b7-9b16-1ab9161f60fe"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "09a21837-f570-5442-ba22-b6c582fd9f48"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

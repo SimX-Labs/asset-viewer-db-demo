@@ -1,0 +1,24 @@
+{
+    "id":  "ec9e1d37-d1e7-55c7-afb4-b2aa983c76f3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Colostomy Baby",
+    "assetKey":  "tool_colostomy_baby",
+    "toolId":  "ColostomyBaby",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_colostomy_baby.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

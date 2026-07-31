@@ -1,0 +1,44 @@
+{
+    "id":  "16f4369e-7bb5-5481-b973-94310fec9fdd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Grabbable Catheter Kit",
+    "assetKey":  "tool_grabbable_catheter_kit",
+    "toolId":  "trayGrab1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/tool_grabbable_catheter_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "ae6050a4-cff7-5c64-b0da-b5a90f68617c",
+                         "key":  "isPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `PickupTrayTrigger` (`SetActive`). Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "HoldableTrayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "trayPlacement",
+                             "assetIds":  [
+                                              "6f39f9ba-214e-5bba-9969-31aff73d3bdd"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

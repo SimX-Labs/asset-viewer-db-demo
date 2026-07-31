@@ -1,0 +1,38 @@
+{
+    "id":  "9b730b5b-021b-5b67-be6b-bb6cd08d1b68",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Ng Tube",
+    "assetKey":  "kit_ng_tube",
+    "toolId":  "ngTubeKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_ng_tube.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1840d6e6-d5c6-5336-9285-31e8f46a7810",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

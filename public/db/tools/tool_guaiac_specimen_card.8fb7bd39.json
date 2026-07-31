@@ -1,0 +1,37 @@
+{
+    "id":  "8fb7bd39-491c-5732-a1d6-340fb5d40175",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Guaiac Specimen Card",
+    "assetKey":  "tool_guaiac_specimen_card",
+    "toolId":  "guaiacSpecimenCard",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Guaiac Specimen/tool_guaiac_specimen_card.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "guaiacOpen2Interaction",
+                                     "assetIds":  [
+                                                      "9cf1bf57-fbad-5121-85f9-861756906a1b"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "guaiacOpen1Interaction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

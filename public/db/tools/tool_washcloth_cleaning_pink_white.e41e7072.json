@@ -1,0 +1,24 @@
+{
+    "id":  "e41e7072-978c-5849-b1b5-77a485c806be",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Washcloth Cleaning Pink White",
+    "assetKey":  "tool_washcloth_cleaning_pink_white",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_washcloth_cleaning_pink_white.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

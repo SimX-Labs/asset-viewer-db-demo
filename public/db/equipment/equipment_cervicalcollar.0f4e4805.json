@@ -1,0 +1,90 @@
+{
+    "id":  "0f4e4805-e3b5-5a1b-881a-00856c48dfc8",
+    "type":  "equipment",
+    "name":  "Cervicalcollar",
+    "assetKey":  "equipment_cervicalcollar",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_cervicalcollar.prefab",
+    "primaryMetadata":  {
+                            "id":  "e4a4ede1-c3c6-5a97-9ec0-c64d69cdffe4",
+                            "key":  "cervicalCollar",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "97c04e64-8227-5164-bea3-15e9cfe1fa31",
+                         "key":  "cervicalCollar-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2064aeec-fbc8-5e63-8357-1ee7525de6ab",
+                         "key":  "cervicalCollar-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "faa2d718-9cfe-534f-90d6-e960b2087c37",
+                         "key":  "cervicalCollar-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "cervicalCollar",
+                                     "assetIds":  [
+                                                      "b078ca12-fc47-5def-bea9-b8e83716736e",
+                                                      "b50cc0bb-e1e1-5a0e-98a1-58cd59e9f8fb",
+                                                      "e6901e19-72ab-54b9-82cc-71c96c13453f",
+                                                      "65f2129c-1ff5-5fd8-b6be-777d3f66b2a8",
+                                                      "e6ebfd77-dd4f-5196-9bf9-2c24fbd3cd93",
+                                                      "5d13e3ef-7fc5-5f33-89a0-040eb70492f1"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "2b9bdd77-5b7c-570c-b325-d7bb1e3396dd",
+                         "5fc97072-6283-5b88-932f-fe5589cddbaf",
+                         "3edb9b7a-143e-5a94-8861-5083f60d324a",
+                         "f122c692-e03b-50ef-90d7-c8500b517d5d",
+                         "ac72bb3d-8db6-56f5-a064-5e4cb7b03a81"
+                     ]
+}

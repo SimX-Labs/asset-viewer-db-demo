@@ -1,0 +1,75 @@
+{
+    "id":  "5a1ce1fb-109b-5a8a-a6af-a5e6a37aec52",
+    "type":  "equipment",
+    "name":  "Ogtube",
+    "assetKey":  "EQUIPMENT_OGTUBE",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/EQUIPMENT_OGTUBE.prefab",
+    "primaryMetadata":  {
+                            "id":  "6ed3425f-e483-5d67-9b8d-c6da8167f257",
+                            "key":  "OGTube",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "69ef66b2-7ec0-5ba9-9aee-b25fe895221b",
+                         "key":  "OGTube-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "01ed875b-5d53-5205-8198-b897259ee34b",
+                         "key":  "OGTube-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d9ef02fe-f88e-5af8-8456-f6ef1fc71ddb",
+                         "key":  "OGTube-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

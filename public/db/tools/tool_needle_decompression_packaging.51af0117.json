@@ -1,0 +1,30 @@
+{
+    "id":  "51af0117-ed81-5729-920b-56b02b3e7746",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Needle Decompression Packaging",
+    "assetKey":  "tool_needle_decompression_packaging",
+    "toolId":  "needleDecompressionPackaging",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_needle_decompression_packaging.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "needleDecompression",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

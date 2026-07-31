@@ -1,0 +1,55 @@
+{
+    "id":  "47b6afef-3790-55e9-b1d9-5c7d56da5695",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Pulse Ox Ped2",
+    "assetKey":  "tool_portable_pulse_ox_ped2",
+    "toolId":  "portablePulseOx2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_portable_pulse_ox_ped2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "portablePulseOxR",
+                             "assetIds":  [
+                                              "9cf3a5c4-4937-552a-b436-381a493663c0",
+                                              "9cf3a5c4-4937-552a-b436-381a493663c0",
+                                              "9cf3a5c4-4937-552a-b436-381a493663c0",
+                                              "9cf3a5c4-4937-552a-b436-381a493663c0",
+                                              "9cf3a5c4-4937-552a-b436-381a493663c0"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "portablePulseOxL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "portablePulseOxToeL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "portablePulseOxToeR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "193a39d3-6cc3-580e-a262-e1384d8fa057"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "1c890ff5-b908-5154-a349-772b2a8226f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Debakey Forceps",
+    "assetKey":  "tool_debakey_forceps",
+    "toolId":  "debakeyForceps",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_debakey_forceps.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement6",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

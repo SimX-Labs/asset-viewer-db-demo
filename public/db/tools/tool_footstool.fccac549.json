@@ -1,0 +1,24 @@
+{
+    "id":  "fccac549-c1c5-5fe0-87fd-9f100e0b11c3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Footstool",
+    "assetKey":  "tool_footstool",
+    "toolId":  "footStool",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_footstool.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

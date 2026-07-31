@@ -1,0 +1,115 @@
+{
+    "id":  "0fbf30f3-233d-5c28-b159-18ab0fbf40fe",
+    "type":  "equipment",
+    "name":  "Runny Nose",
+    "assetKey":  "equipment_runny_nose",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_runny_nose.prefab",
+    "primaryMetadata":  {
+                            "id":  "d18cd9e7-8088-57c2-850c-9f6aca5faf18",
+                            "key":  "runnyNose",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "6191638d-2020-5ed7-ae00-55382ee229e7",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "627cb041-fc61-5bea-a02c-95059595b1cc",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "85dcca67-ab82-520b-b737-e018672dae2e",
+                         "key":  "runnyNose-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c1cdc3e6-05fe-5d2d-85ec-d6c7feb1f9ea",
+                         "key":  "runnyNose-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5655478a-6c84-5ee9-bab1-1fd420148fba",
+                         "key":  "runnyNose-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "Earplugs",
+                                     "assetIds":  [
+                                                      "1bae2a74-cf47-5a4f-b8eb-910f4a5254d1"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "2b9bdd77-5b7c-570c-b325-d7bb1e3396dd",
+                         "5fc97072-6283-5b88-932f-fe5589cddbaf",
+                         "3edb9b7a-143e-5a94-8861-5083f60d324a",
+                         "f122c692-e03b-50ef-90d7-c8500b517d5d",
+                         "ac72bb3d-8db6-56f5-a064-5e4cb7b03a81"
+                     ]
+}

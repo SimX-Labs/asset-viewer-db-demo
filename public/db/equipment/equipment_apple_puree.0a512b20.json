@@ -1,0 +1,104 @@
+{
+    "id":  "0a512b20-9917-53cd-8a77-ffadd9ef7991",
+    "type":  "equipment",
+    "name":  "Apple Puree",
+    "assetKey":  "equipment_apple_puree",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_apple_puree.prefab",
+    "primaryMetadata":  {
+                            "id":  "9c28c36e-07dd-5364-ac69-c39a0f4af459",
+                            "key":  "applePuree",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "1629b6ca-3ea0-5796-a0ee-84f9aa92569d",
+                         "key":  "applePuree-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5002453c-3b4f-5ed4-ba2d-f3307f7417eb",
+                         "key":  "applePuree-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "73a5ff71-25c5-5631-bb53-4859acde5eb8",
+                         "key":  "applePuree-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "applePuree",
+                                     "assetIds":  [
+                                                      "2d08b04a-0db1-51ac-b949-f1c35fd9d489"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "9da8e866-26b4-5cee-840f-036099c963d6",
+                         "b58409dd-2f59-5679-80e6-5052904efe06",
+                         "9c99db43-6c5f-529d-a565-27438aff3762",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383",
+                         "dbb0101a-e0a5-5cf6-8f28-7dc22f9ed8c9",
+                         "d0147888-7b8d-59a1-800d-666df87edd5b",
+                         "9e498184-659c-580b-a578-ea60c6ccbbe4",
+                         "79e40e45-878f-5b04-a19d-25c821ff09e0",
+                         "c60f9eea-75a7-5755-8895-288c6384a58e",
+                         "a43fef78-3abe-5662-9ae6-9682e3e02d86",
+                         "4485f6f6-6596-5728-843a-fd8548674969",
+                         "cef78cdb-2414-5fe6-a9f0-cd3d3daae537",
+                         "27fd7ea4-3ae5-52b9-a1be-49be1353e112",
+                         "0667773e-f694-59b3-bdae-29fe4ac16ed1",
+                         "901491e9-3303-5e71-8bb3-63b60dff75be",
+                         "95382eda-8dea-52f6-bc99-38810d2bedd2",
+                         "18bfea44-afef-5f05-9cd2-92be359ca613",
+                         "e9055f30-f8e0-5a14-8d81-5a3a221fc663",
+                         "b0c88e0f-337c-5d3e-a419-e59c8a551050"
+                     ]
+}

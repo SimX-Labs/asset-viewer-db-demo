@@ -1,0 +1,50 @@
+{
+    "id":  "0ca3af6b-4277-5721-aa87-8357aeb791f2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Jslist Pile",
+    "assetKey":  "tool_jslist_pile",
+    "toolId":  "jslist_pile",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_jslist_pile.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerJSLIST",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "JSLIST",
+                             "assetIds":  [
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "0c1d7b31-c90f-56fd-a2fa-ec1864e39d6a",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5",
+                                              "cc6155f3-fab6-5db9-9120-5806c5887ec5"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

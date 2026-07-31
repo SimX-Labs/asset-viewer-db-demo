@@ -1,0 +1,65 @@
+{
+    "id":  "79a4c287-e373-594d-842d-5e7b31f2123e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bpcuff Ped2",
+    "assetKey":  "tool_bpcuff_ped2",
+    "toolId":  "bpCuff2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_bpcuff_ped2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bpCuffL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpCuffR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpCuffShinL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpCuffShinR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpcuff",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpcuff",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

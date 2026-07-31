@@ -1,0 +1,24 @@
+{
+    "id":  "230866cb-f1ea-5285-b534-9005a81cc3c1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Transfusion Blood",
+    "assetKey":  "tool_transfusion_blood",
+    "toolId":  "bloodTransfusion1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Transfusion/tool_transfusion_blood.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

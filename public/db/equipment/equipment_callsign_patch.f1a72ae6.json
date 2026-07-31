@@ -1,0 +1,88 @@
+{
+    "id":  "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+    "type":  "equipment",
+    "name":  "Callsign Patch",
+    "assetKey":  "equipment_callsign_patch",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_callsign_patch.prefab",
+    "primaryMetadata":  {
+                            "id":  "9886998f-4a16-5a2f-9beb-01b5f0dc76ea",
+                            "key":  "callsignPatch",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `true` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "ac0d3c54-2674-57ff-8b07-d1f01981a266",
+                         "key":  "callsignPatch-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b612c6f2-e940-5c06-b228-04ec730aede4",
+                         "key":  "callsignPatch-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ee9732db-52ff-54f4-bd6c-2ccd8b5b956a",
+                         "key":  "callsignPatch-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "idctag",
+                                     "assetIds":  [
+                                                      "61dcccae-39fc-57ca-9589-e9ef7d17e361",
+                                                      "32984cd1-fe6d-5254-93c3-8231d5cc5817",
+                                                      "e1d1eded-daaa-5a87-9086-719d083a8b30"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "ee3b2ded-3487-500f-a10e-341ed00de666",
+                         "c46b18ee-2664-5917-ba86-b5265a6d1453",
+                         "3e3294a8-d3af-532e-b933-4915d9165666",
+                         "5bdf6052-cf2b-51a2-8ec6-307b6d0272dc",
+                         "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                         "3c1b0fcd-5621-5872-b223-840df6222383"
+                     ]
+}

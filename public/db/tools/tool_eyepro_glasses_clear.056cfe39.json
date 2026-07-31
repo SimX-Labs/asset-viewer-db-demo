@@ -1,0 +1,25 @@
+{
+    "id":  "056cfe39-f79b-585d-892b-4d12016e2534",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Eyepro Glasses Clear",
+    "assetKey":  "tool_eyepro_glasses_clear",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_eyepro_glasses_clear.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

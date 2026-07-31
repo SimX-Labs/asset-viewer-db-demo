@@ -1,0 +1,119 @@
+{
+    "id":  "5f789180-2545-59cb-a9ca-e4bed4736038",
+    "type":  "equipment",
+    "name":  "Broselow Tape",
+    "assetKey":  "equipment_broselow_tape",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/equipment_broselow_tape.prefab",
+    "primaryMetadata":  {
+                            "id":  "b2c26fec-f227-571f-b3dd-72c313c4f904",
+                            "key":  "BroselowTape",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "73f3fd60-53c5-5361-9de1-4a13ee08fac9",
+                         "key":  "BroselowTape-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "734d921d-d1b0-5370-94bc-2fffd98cde84",
+                         "key":  "BroselowTape-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "91061d48-439c-5b5b-a296-b1952b23280f",
+                         "key":  "BroselowTape-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9d2a4cca-2f8f-5ce4-abf9-8cebbbe4e5eb",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "22e8de52-b098-5a1f-a034-e9dc6f4b9c4d",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "BroselowTape_InteractionLocation",
+                                     "assetIds":  [
+                                                      "605add48-ac98-5c0c-9867-096ab626f877",
+                                                      "4b01628a-db82-5275-9fb6-3420e5c5a942",
+                                                      "2bf2629f-0f70-5840-96fa-0ba5504d6d2e",
+                                                      "31bd418d-6c7b-5267-a3d9-a63e0af6fb22",
+                                                      "c56d860d-5576-5ccc-b6d4-9d73bf4524ce"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "19093a09-9168-52b5-9c54-dee4189bc38e",
+                         "bd700a03-7623-5746-9c60-3d1f9223854c",
+                         "050b0c37-b7a1-5d15-a40a-1b6cf8c7bdd3",
+                         "06797c92-8566-5df4-b261-3caaf2aef31a",
+                         "a86a80b2-08ac-56af-8a80-8da5512db451"
+                     ]
+}

@@ -1,0 +1,152 @@
+{
+    "id":  "2bb79f2e-468d-5f14-b10e-83223859ac18",
+    "type":  "equipment",
+    "name":  "Group Leg Wraps Gauze",
+    "assetKey":  "group_leg_wraps_gauze",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/group_leg_wraps_gauze.prefab",
+    "primaryMetadata":  {
+                            "id":  "6093d66d-1424-5282-a836-4d4de366d764",
+                            "key":  "chitoGauzeCalfR",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c7926c50-cbb5-53f0-832b-3e45ae2b55ef",
+                         "key":  "chitoGauzeCalfR-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f0df20ef-ee2e-59c5-b0db-1b102e2a9d45",
+                         "key":  "chitoGauzeCalfR-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d11c8575-edbd-5599-8570-63e39b780803",
+                         "key":  "chitoGauzeCalfR-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9273458e-7a26-53da-8965-d3c1f979d1c9",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2c28bc57-a6db-5b11-b5eb-bda6387ac1b7",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "aceWrap",
+                                     "assetIds":  [
+                                                      "7dc4c6dc-5c6a-5a56-ac93-427e6a9fa7b8",
+                                                      "41cef0a5-f78b-5961-8aa6-1dd54bb5011b",
+                                                      "36a8ac69-1a15-5d4d-94ad-b613d4656a34"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "bandageWrap",
+                                     "assetIds":  [
+                                                      "3d7625dc-f67c-576a-8806-add55701be2f",
+                                                      "b44196f4-9523-5594-9a64-b74b5bc35d42"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "basicSquareGauze",
+                                     "assetIds":  [
+                                                      "d9a70741-25f8-5eae-9638-8d395f9490a3",
+                                                      "cdadc2df-d82e-5ffb-87c4-c98d51124355",
+                                                      "d9107b99-86bb-5d31-bbfa-feecb51b9eef"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "chestSeal",
+                                     "assetIds":  [
+                                                      "5da18e7f-8eb4-5612-aeb0-a4e599c16811"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "chitoGuaze",
+                                     "assetIds":  [
+                                                      "2acd8d5a-3514-5668-84c4-8852e37a1874",
+                                                      "26df97c9-647e-5b41-b174-48612abe6981",
+                                                      "068799f7-c341-5278-886a-644f397f84ac"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                         "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                         "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                         "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                         "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                         "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                         "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81"
+                     ]
+}

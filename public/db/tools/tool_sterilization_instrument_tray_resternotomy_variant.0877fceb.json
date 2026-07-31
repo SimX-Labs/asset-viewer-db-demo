@@ -1,0 +1,30 @@
+{
+    "id":  "0877fceb-2f82-5970-ba09-968693a514d5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterilization Instrument Tray Resternotomy Variant",
+    "assetKey":  "tool_sterilization_instrument_tray_resternotomy_variant",
+    "toolId":  "sterilizationInstrumentTray1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Sterilization Tray/tool_sterilization_instrument_tray_resternotomy_variant.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "SterilizationIntrumentTrayPlacement",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

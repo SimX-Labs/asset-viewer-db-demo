@@ -1,0 +1,204 @@
+{
+    "id":  "78684726-97fb-5214-8b85-ae4aebdf0d00",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Assessment Monitor Sterile",
+    "assetKey":  "tool_assessment_monitor_sterile",
+    "toolId":  "assessmentmonitor1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Tablet/tool_assessment_monitor_sterile.prefab",
+    "metadata":  [
+                     {
+                         "id":  "452b94cd-8a5a-506c-893b-ddb348627f40",
+                         "key":  "canClearNumberTestPageValues",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Also propagate to additional mirror canvases / \u003cparam name=\"data\"\u003e\u003c/param\u003e Setup listeners for all pages to override value on TestValueCell components when we get the event to clear number test page values",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dd35ec09-862a-5080-8160-aa70d8cedd30",
+                         "key":  "CloseModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "53f4913a-14b0-5b52-acdc-fa056394acbc",
+                         "key":  "currentPage",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "Main Menu"
+                                      ],
+                         "description":  "This will be a string for the current group",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c92b2e31-b7b5-5b4c-9021-5a43860a732a",
+                         "key":  "MirrorCanvasToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Find matching tool ID Extract Canvas transform and add to AdditionalMirrorCanvases",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2abe986c-fc7b-51a5-9a2a-056307973e86",
+                         "key":  "OpenModal",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e36c3c6b-fa83-55c8-bba2-562b6a0c77e4",
+                         "key":  "pages",
+                         "valueType":  "array",
+                         "valueShape":  "array",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "see Complex value reference"
+                                      ],
+                         "description":  "We will get a list of pages We want to go through each item and build out all of our pages and add them to our list of page groups so we can toggle them off and on",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  {
+                                               "shape":  "array",
+                                               "spec":  {
+                                                            "kind":  "array",
+                                                            "element":  {
+                                                                            "kind":  "object",
+                                                                            "subKeys":  [
+                                                                                            {
+                                                                                                "name":  "backButton",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "children",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "array",
+                                                                                                             "element":  {
+                                                                                                                             "kind":  "primitive",
+                                                                                                                             "display":  "string"
+                                                                                                                         }
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "name",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "type",
+                                                                                                "spec":  {
+                                                                                                             "kind":  "primitive",
+                                                                                                             "display":  "string"
+                                                                                                         }
+                                                                                            }
+                                                                                        ]
+                                                                        }
+                                                        },
+                                               "subKeys":  [
+
+                                                           ],
+                                               "samples":  "[{\"name\":\"Main Menu\",\"type\":\"Menu\",\"children\":[\"Patient Information\",\"Start Scenario (Enter Room)\"]},{\"name\":\"Patient Information\",\"type\":\"Imaging\",\"children\":[\"EMR_pg01_EMUCase1_PtOverview\",\"EMR_pg02_EMUCase1_PreventativeScreeningOrders\"],\"backButton\":\"Main Menu\"},{\"name\":\"Start Scenario (Enter Room)\",\"type\":\"Imaging\",\"children\":[\"ScenarioBegin\"],\"backButton\":\"Main Menu\"}]"
+                                           },
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "52383e9f-4da3-5c62-a4eb-4085fde2be18",
+                         "key":  "tabletOrientation",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e545c7ab-572e-56b5-ba2b-1b77ebd2ade4",
+                         "key":  "toolsToCopyMetadataTo",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Declare Clones.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f8c1bd8-df11-524b-985b-f212f99e85cd",
+                         "key":  "VerticalDrag",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AssessmentMonitorController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

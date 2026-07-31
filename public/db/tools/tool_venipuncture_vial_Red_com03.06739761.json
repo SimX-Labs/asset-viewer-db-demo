@@ -1,0 +1,82 @@
+{
+    "id":  "06739761-25bb-53d4-98a8-032f39ffea5f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venipuncture Vial Red Com03",
+    "assetKey":  "tool_venipuncture_vial_Red_com03",
+    "toolId":  "venipunctureVial1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_venipuncture_vial_Red_com03.prefab",
+    "metadata":  [
+                     {
+                         "id":  "585868c1-27f5-52b0-af11-b3989bf4ac51",
+                         "key":  "blood",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "full"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``empty`` / ``full``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "5b6bd7e2-44bf-5150-b649-8b34afc74e5f",
+                         "key":  "color",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "green",
+                                                "purple1",
+                                                "purple2",
+                                                "purple3"
+                                            ],
+                         "defaultValue":  "purple",
+                         "examples":  [
+                                          "``green`` / ``purple1`` / ``purple2`` / ``purple3``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "d4b39b96-5f15-5c97-afe4-53b7de32229b",
+                         "key":  "setToolInteractions",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true`"
+                                      ],
+                         "description":  "Broadcasts boolean `true` to the server via `SetToolMetadata`.",
+                         "sourceScripts":  "ToolInteractionRuntimeOverwrite",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "vacutainerVial",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "f253272b-d8fe-57e0-8be2-2e60eed26a97"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

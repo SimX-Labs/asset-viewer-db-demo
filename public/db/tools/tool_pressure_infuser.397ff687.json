@@ -1,0 +1,46 @@
+{
+    "id":  "397ff687-ba4d-5300-b421-752b18211b2e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pressure Infuser",
+    "assetKey":  "tool_pressure_infuser",
+    "toolId":  "pressureInfuserBackpack",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_pressure_infuser.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "pressureInfuser",
+                             "assetIds":  [
+                                              "486ac92c-8e3d-524a-8a8e-d542c432489a",
+                                              "c836e0c7-7731-5850-85d0-32a5ccda6b77",
+                                              "8c256647-eb2c-5c9c-b32f-da21f1b170fc"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "02638df9-3edd-5509-9b36-3173425d9f57",
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

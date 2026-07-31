@@ -1,0 +1,126 @@
+{
+    "id":  "17e7e7d5-4a14-54de-949b-6abc76995319",
+    "type":  "equipment",
+    "name":  "Trans vaginal probe",
+    "assetKey":  "Trans Vaginal Probe",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Transvaginal Ultrasound Probe/equipment_endocavitary_probe.prefab",
+    "primaryMetadata":  {
+                            "id":  "2d6099bb-784f-5684-92bf-4df043cc3772",
+                            "key":  "endoCavitaryProbe",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "1f3ef349-19ac-5786-8311-b433f0842bf4",
+                         "key":  "CONNECTED_MONITOR",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets connected monitor.",
+                         "sourceScripts":  "EndocavitaryUltrasoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f4882be6-b082-5f84-a849-53be13cef736",
+                         "key":  "endoCavitaryProbe-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8fabff59-00f0-564a-9c13-8ea173799d29",
+                         "key":  "endoCavitaryProbe-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a1bb239a-798c-51a9-a645-b163651a144d",
+                         "key":  "endoCavitaryProbe-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fc3bb0b8-6d5c-5003-a659-5ed7d708f453",
+                         "key":  "StateKey",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If this is null, lets act like we are resetting this thing",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "20cd83cd-9add-5266-b371-e65ce62f94be",
+                         "key":  "TOOL_TO_PICKUP",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets tool to pickup.",
+                         "sourceScripts":  "EndocavitaryUltrasoundController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "VaginalUterus",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "3acc2f84-fc23-5576-9c49-fa540cee044f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Removable Player Watch",
+    "assetKey":  "tool_removable_player_watch",
+    "toolId":  "removablePlayerWatch",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Player Digital Watch/tool_removable_player_watch.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

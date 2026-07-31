@@ -1,0 +1,37 @@
+{
+    "id":  "45ca6480-b2d1-570a-ba2e-16b3953be2c7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hepa Filter",
+    "assetKey":  "tool_hepa_filter",
+    "toolId":  "hepaFilter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Intubation/tool_hepa_filter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "intubationPos1",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationPos2",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

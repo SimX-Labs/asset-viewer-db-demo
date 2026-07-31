@@ -1,0 +1,37 @@
+{
+    "id":  "d7cef733-e54b-56ec-8f86-b134884a733c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Burette Set Grabbable",
+    "assetKey":  "tool_burette_set_grabbable",
+    "toolId":  "buretteSetGrabbable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Burette Set/tool_burette_set_grabbable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ivBagSpike",
+                             "assetIds":  [
+                                              "02638df9-3edd-5509-9b36-3173425d9f57",
+                                              "7b07824b-ebfa-572a-a503-d16f899d5653",
+                                              "77095e2f-a5a7-5c00-9fe1-9ccbe5820bac",
+                                              "94a7b005-2b41-5000-8278-76a0fd008c35",
+                                              "a26bd759-a024-5255-8dc8-9d2651879ba1",
+                                              "c836e0c7-7731-5850-85d0-32a5ccda6b77",
+                                              "8c256647-eb2c-5c9c-b32f-da21f1b170fc"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

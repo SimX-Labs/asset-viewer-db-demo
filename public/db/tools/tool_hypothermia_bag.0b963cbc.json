@@ -1,0 +1,41 @@
+{
+    "id":  "0b963cbc-c824-5055-b45d-16920e8824d0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hypothermia Bag",
+    "assetKey":  "tool_hypothermia_bag",
+    "toolId":  "hypothermiaBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_hypothermia_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5440ff44-dfcc-5de5-a2d9-8452ae1a3ab7",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

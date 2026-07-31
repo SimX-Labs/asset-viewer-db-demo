@@ -1,0 +1,30 @@
+{
+    "id":  "e2cd52c3-594e-5720-98a8-b21ab2d62126",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "M9 Paper",
+    "assetKey":  "tool_M9_paper",
+    "toolId":  "m9Paper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_M9_paper.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "m9Band",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

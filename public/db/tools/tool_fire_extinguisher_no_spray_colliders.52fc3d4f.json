@@ -1,0 +1,24 @@
+{
+    "id":  "52fc3d4f-12f1-5fb1-b7e5-269788d64c99",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Fire Extinguisher No Spray Colliders",
+    "assetKey":  "tool_fire_extinguisher_no_spray_colliders",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_fire_extinguisher_no_spray_colliders.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

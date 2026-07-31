@@ -1,0 +1,100 @@
+{
+    "id":  "4d855783-886a-57d4-af66-858c3ebc032a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Kelly Clamp",
+    "assetKey":  "tool_kelly_clamp",
+    "toolId":  "KellyClamp",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_kelly_clamp.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "checkIncisionLCut",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "checkIncisionRCut",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationKellyClamp",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationKellyClampAdapter",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "intubationKellyClampAdapter-ussf",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "crushLateralCanthus",
+                             "assetIds":  [
+                                              "3c1b0fcd-5621-5872-b223-840df6222383"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fasciotomyLegCut",
+                             "assetIds":  [
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

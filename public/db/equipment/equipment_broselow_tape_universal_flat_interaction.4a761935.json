@@ -1,0 +1,117 @@
+{
+    "id":  "4a761935-61f7-56f8-9b7a-c707d4152ea0",
+    "type":  "equipment",
+    "name":  "Broselow Tape Universal Flat Interaction",
+    "assetKey":  "equipment_broselow_tape_universal_flat_interaction",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_broselow_tape_universal_flat_interaction.prefab",
+    "primaryMetadata":  {
+                            "id":  "d46f7371-d501-56f3-bd0c-e53054db763e",
+                            "key":  "BroselowTapeUniversal_BedFlat",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "9ef9e873-f877-5cdf-b844-7fd055b388cb",
+                         "key":  "BroselowTapeUniversal_BedFlat-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60cbbd3b-cbdc-55c9-8bdf-90f86fdf6fb9",
+                         "key":  "BroselowTapeUniversal_BedFlat-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8f076c40-2e46-55f0-8ed4-5010e2e06731",
+                         "key":  "BroselowTapeUniversal_BedFlat-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "38dae8da-64ee-51a5-8fc8-8a13999786c1",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4d3a0c18-741a-5e9a-bff4-750caf98837a",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "BroselowTapeUniversalFlat",
+                                     "assetIds":  [
+                                                      "31bd418d-6c7b-5267-a3d9-a63e0af6fb22"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "b20c0553-91b0-59e6-869d-8590c0dd4ac9",
+                         "70f1f7ea-8c24-5c1d-9841-99bcb6f7b503",
+                         "a76dac8f-b0b6-507e-8925-05afcaa21cfa",
+                         "3d842f70-0979-516a-a275-e48e831ee682",
+                         "71b2e982-ec98-5838-be07-5e78a9f0cf46",
+                         "c28faa9c-2dd6-58d6-9e78-c37d158eca76",
+                         "358c274f-545b-55b5-be65-b157739fc438"
+                     ]
+}

@@ -1,0 +1,910 @@
+{
+    "id":  "a2c96869-d979-570d-ab52-b95ffd44bbb1",
+    "type":  "equipment",
+    "name":  "Intubation Ped",
+    "assetKey":  "equipment_intubation_ped",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_intubation_ped.prefab",
+    "primaryMetadata":  {
+                            "id":  "63dfdd00-36d5-54ea-a1f7-6bf013b5b2a2",
+                            "key":  "ventilatorETTubeAdapter",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "0a73c255-0fa3-510a-871e-ce3abbf755b3",
+                         "key":  "assignToolIdToPickup",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles assign tool id to pickup.",
+                         "sourceScripts":  "PickupThisToolTriggerRememberManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "10c43c8a-81a8-5c24-b27b-e27125be4b81",
+                         "key":  "attachedToolId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles attached tool id. Often heard as `\u003cprocedureName\u003e-attachedToolId`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "HandHeldSuctionSqueezeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "681858cf-ff1a-5482-80a3-de1b40fa8c2d",
+                         "key":  "bagSqueezeRepeating",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles repeat squeeze. Often heard as `\u003cprocedureName\u003e-bagSqueezeRepeating`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "BagValveSqueezeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "56dbbe53-0545-5203-ba2d-4030d3ded2b5",
+                         "key":  "bagValveIntubation",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3fdbb597-c7ba-5520-b2f3-c9f6608e8391",
+                         "key":  "BagValveMask",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2815ff73-dccb-5484-a861-08967fece118",
+                         "key":  "BagValveMask-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9dc5cc9f-7add-531d-b15f-9a8c5477da0d",
+                         "key":  "BagValveMask-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f9a00f8a-3bc2-57a0-8fb1-53f31c147d66",
+                         "key":  "BagValveMask-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "814f6c39-9df0-5de2-8cf1-3c4f3c515aa1",
+                         "key":  "closedSuctionDevice",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "76c10939-66c7-5483-9648-0cd6c9f2da4a",
+                         "key":  "closedSuctionDeviceIntubationBase",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8546a685-1265-5aeb-991a-71ee86452b8f",
+                         "key":  "closedSuctionDeviceIntubationBase-closedSuctionDeviceRemovable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `RemoveSuctionDeviceWrapper` (`SetActive`).",
+                         "sourceScripts":  "ClosedSuctionProcedureController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "575e1952-19ee-5fbb-aa48-17708f7fd0fb",
+                         "key":  "closedSuctionDeviceIntubationBase-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ef684e9f-14a0-5d1a-acac-479f776d36e1",
+                         "key":  "closedSuctionDeviceIntubationBase-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "728228a5-7ebf-502c-b377-c64e94901a28",
+                         "key":  "disableGrabCollider",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles disable grab collider.",
+                         "sourceScripts":  "PickupThisToolTriggerRememberManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7829ec90-5430-52bf-b473-68217d79ab08",
+                         "key":  "disallowIntubation",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `DisallowIntubationWrapper` (`SetActive`). Controls visibility of `AttemptedAirwayWrapperWhenDisallowed` (`SetActive`).",
+                         "sourceScripts":  "IntubationProcedureController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "554e1e46-2e74-5197-8e7b-26218fb3f732",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d784923b-fdef-55f3-b6c2-5901a658c552",
+                         "key":  "etco2Adapter",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca9a4f88-c80e-5988-a64e-11c5808f99fb",
+                         "key":  "etco2Adapter-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b47cebf6-5616-5488-850a-81c0475dc03c",
+                         "key":  "etco2Adapter-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "27595db0-9fd5-5ec8-8bd6-ffc855a51c33",
+                         "key":  "etco2Adapter-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "76279f4d-58cd-52b3-9b14-0a96a58bb708",
+                         "key":  "etDepth",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "DepthValueText may not be assigned on older characters Updates the `DepthValueText.text` UI label.",
+                         "sourceScripts":  "IntubationProcedureController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "72c6f146-2b0f-511c-9c2a-0fb6c98bbc6a",
+                         "key":  "etDepthVisible",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `DepthDisplay` (`SetActive`).",
+                         "sourceScripts":  "IntubationProcedureController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8da22db7-d735-5f74-8fa3-cd41a2e77a85",
+                         "key":  "etTubeOriGel",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "etTube",
+                                                "iGel"
+                                            ],
+                         "defaultValue":  "etTube",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`etTube`, `iGel`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "905d9659-cfbc-5c20-985e-a0785c0949bc",
+                         "key":  "etTubeOriGel-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0febfc99-b70d-5111-a3aa-5f4b42b23e8d",
+                         "key":  "etTubeOriGel-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0b6f35a8-4ac6-5eef-84b2-295597db704a",
+                         "key":  "fluidLevel",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "e.g. `120`"
+                                      ],
+                         "description":  "Controls visibility of `LiquidObject` (`SetActive`). Often heard as `\u003cprocedureName\u003e-fluidLevel`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "HandHeldSuctionSqueezeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "091f96d7-ef8b-5602-832e-8a44ff119590",
+                         "key":  "handHeldSuction",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "445700e4-cd5f-5e36-ab10-d2cb095190de",
+                         "key":  "handHeldSuction-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "da6f50a8-8b12-5147-b1b2-92dff3aa4123",
+                         "key":  "handHeldSuction-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5622b2a4-81f5-5757-ab68-e57a108302f6",
+                         "key":  "handHeldSuction-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d416e100-ab57-5a97-a9f4-a4e6446f5906",
+                         "key":  "hideArt",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true``"
+                                      ],
+                         "description":  "see if we are hiding the art Controls visibility of `ArtParent` (`SetActive`).",
+                         "sourceScripts":  "ArtDisplayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1e3cc2ad-e55d-5caf-9da0-fcd037260185",
+                         "key":  "intubation",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "base",
+                                                "laryngoscope",
+                                                "bougie",
+                                                "adapter",
+                                                "adapter-ussf",
+                                                "ventilatorAdapter",
+                                                "ventilatorNoAdapter",
+                                                "etTubeNoBougie",
+                                                "etTubePreloadedBougie",
+                                                "etTubePreloadedStylet",
+                                                "etTubeCatheterAirwayExchange",
+                                                "catheterAirwayExchangeOnly",
+                                                "kellyClamp",
+                                                "kellyClampAdapter",
+                                                "kellyClampAdapter-ussf",
+                                                "nebulizerTPiece",
+                                                "nebulizerTPieceAdapter",
+                                                "nebulizerTPieceAdapter-ussf",
+                                                "nebulizerTPieceVentilator",
+                                                "ventilatorAdapter-ussf",
+                                                "nebulizerTPieceAdapterVentilator",
+                                                "nebulizerTPieceAdapter-ussfVentilator"
+                                            ],
+                         "defaultValue":  "base",
+                         "examples":  [
+
+                                      ],
+                         "description":  "return; Only turn on this stuff if its true SimulationEventManager.StartListening($\"EquipCCollar-{_simxPatient.EnvironmentLocation}\", EquipOGTube);",
+                         "sourceScripts":  "PatientAnimationController",
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "52900bab-bb00-5020-a506-d3bad9f80f7c",
+                         "key":  "intubation-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "036f04c5-0a00-5c61-b08b-43f15a49236f",
+                         "key":  "intubationPilotBalloon",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disabled",
+                                                "deflated",
+                                                "inflated"
+                                            ],
+                         "defaultValue":  "disabled",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disabled`, `deflated`, `inflated`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "6b7fec23-435e-5f8f-8c8f-849c5fc37b9b",
+                         "key":  "intubationPilotBalloon-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "42cc6af3-756d-500a-a5ef-bd675b9bb5e1",
+                         "key":  "intubationPilotBalloon-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3d9ab603-32e3-5c4d-bfa3-6df5cf08a5e4",
+                         "key":  "intubation-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "4988d89b-2dbe-536c-8f4c-0753f79ca8e7",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bf03e6a8-4bff-5927-8052-f18932f77710",
+                         "key":  "nebulizerIntubation",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "gone",
+                                                "attachedNotConnected",
+                                                "held",
+                                                "oxygenConnected",
+                                                "oxygenFlowing"
+                                            ],
+                         "defaultValue":  "gone",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`gone`, `attachedNotConnected`, `held`, `oxygenConnected`, `oxygenFlowing`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "97d9f0a3-cbf0-581d-97c3-528527728a68",
+                         "key":  "nebulizerIntubation-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c16b2796-d6f4-5ce3-a519-b18dbb48b0d3",
+                         "key":  "nebulizerIntubation-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9e228151-e31b-5f1e-ac7f-181700408406",
+                         "key":  "PatientStates: []-state",
+                         "valueType":  "string",
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a state listed below",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f0dc93f-6498-596c-b8a1-298cae128897",
+                         "key":  "personalizeTubingIds",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles personalized tubing. Often heard as `\u003cprocedureName\u003e-personalizeTubingIds`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MultiPatientTubingController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9a49c534-bab5-5cf7-8884-cb353f26e500",
+                         "key":  "setArt",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "update with the new ID Controls visibility of `art` (`SetActive`).",
+                         "sourceScripts":  "ArtDisplayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f6d8384a-da45-55c7-aa56-0fbbd1a13ba0",
+                         "key":  "swollenThroat",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "PatientLaryngoscopeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "41f80a39-5b04-54dc-9879-258fc48fbf52",
+                         "key":  "toolIdThisInteractedWithMetadata",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set tool id storage.",
+                         "sourceScripts":  "ToolInteractionStorage",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "405e9fb1-8af1-5e52-9413-6c2a68e4a342",
+                         "key":  "ussf-co2adapter",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "on-breathing",
+                                                "on-solid-yellow",
+                                                "off"
+                                            ],
+                         "defaultValue":  "on-breathing",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`on-breathing`, `on-solid-yellow`, `off`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "ac2442c6-e5af-59bb-98df-cb27e6306f0a",
+                         "key":  "ussf-co2adapter-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "47aa0615-7f84-5096-804e-264c873eb3ea",
+                         "key":  "ussf-co2adapter-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a89e4afc-f3a1-5cdc-9a31-353006e4c020",
+                         "key":  "ventilatorClosedSuction",
+                         "valueType":  null,
+                         "valueShape":  null,
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  null,
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e3b1a7e-e118-5b62-9e40-31e274b498f6",
+                         "key":  "ventilatorClosedSuction-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca6f4c8d-65b8-570e-aa27-7d8fd02c9058",
+                         "key":  "ventilatorClosedSuction-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2f6cd36d-35e4-5278-b58a-469c2fce406b",
+                         "key":  "ventilatorClosedSuction-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "826aec25-bb2b-51b4-8b8e-eb74e3ed0b16",
+                         "key":  "ventilatorETTubeAdapter-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "29d1fd7f-b851-5ea9-9e66-2d6a8085a881",
+                         "key":  "ventilatorETTubeAdapter-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "de4aa099-b384-574f-a37e-9a1fbc1466d5",
+                         "key":  "ventilatorETTubeAdapter-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

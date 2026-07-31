@@ -1,0 +1,24 @@
+{
+    "id":  "59ddbfef-2c3a-55be-b24e-4f5eba3f5c80",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Fillable Cooler",
+    "assetKey":  "tool_fillable_cooler",
+    "toolId":  "cooler",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_fillable_cooler.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

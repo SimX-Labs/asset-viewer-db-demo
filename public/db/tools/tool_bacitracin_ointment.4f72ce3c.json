@@ -1,0 +1,30 @@
+{
+    "id":  "4f72ce3c-cabf-5dfc-ac3d-6a06d3dfe64f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bacitracin Ointment",
+    "assetKey":  "tool_bacitracin_ointment",
+    "toolId":  "bacitracinOintment",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bacitracin_ointment.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LegsLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

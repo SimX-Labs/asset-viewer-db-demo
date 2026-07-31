@@ -1,0 +1,48 @@
+{
+    "id":  "3473f5df-acbd-5490-b79c-c0b4ef9e2561",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hpmk Folded",
+    "assetKey":  "tool_hpmk_folded",
+    "toolId":  "hpmkAdvancedFolded",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_hpmk_folded.prefab",
+    "metadata":  [
+                     {
+                         "id":  "cdea8835-041c-5f80-b8cd-44188ab9330a",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "on"
+                                            ],
+                         "defaultValue":  "off",
+                         "examples":  [
+                                          "``off`` / ``on``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "hpmkAdvanced",
+                                     "assetIds":  [
+                                                      "63d14bc7-093c-5f08-8327-e311b441d97f"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "c0f9505b-7f20-51fd-942e-aaccb9a65d90",
+                           "29d432a1-a6c2-56f7-a445-2bf16ece8b8f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

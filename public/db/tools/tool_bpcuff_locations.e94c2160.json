@@ -1,0 +1,24 @@
+{
+    "id":  "e94c2160-28c5-5f72-9f2c-051e335cf299",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bpcuff Locations",
+    "assetKey":  "tool_bpcuff_locations",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_bpcuff_locations.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

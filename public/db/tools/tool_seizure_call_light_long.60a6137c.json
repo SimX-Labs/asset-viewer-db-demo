@@ -1,0 +1,24 @@
+{
+    "id":  "60a6137c-8074-5d01-8d65-cc0e225181a1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Seizure Call Light Long",
+    "assetKey":  "tool_seizure_call_light_long",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Seizure Call Light/tool_seizure_call_light_long.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

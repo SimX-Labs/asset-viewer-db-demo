@@ -1,0 +1,83 @@
+{
+    "id":  "a363cd84-5360-5aa8-ae85-cf90b110f3f7",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Adjustable Birthing Bed",
+    "assetKey":  "tool_adjustable_birthing_bed",
+    "toolId":  "adjustableBirthingBed1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_adjustable_birthing_bed.prefab",
+    "metadata":  [
+                     {
+                         "id":  "14c79fc1-1d39-5125-8a9a-c4c6145ffdc7",
+                         "key":  "allowBedTilt",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `LeftTiltUpArrow` (`SetActive`). Controls visibility of `LeftTiltDownArrow` (`SetActive`). Controls visibility of `RightTiltDownArrow` (`SetActive`). Controls visibility of `RightTiltUpArrow` (`SetActive`).",
+                         "sourceScripts":  "AdjustableBirthingBedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "166618b0-a1a3-5e3e-8038-e08727f49052",
+                         "key":  "bedTilt",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts the negation of `_bedTilt` (opposite of the current boolean state).",
+                         "sourceScripts":  "AdjustableBirthingBedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "37a24152-d706-56c3-ae31-86320b0f2fa3",
+                         "key":  "footOfBedUp",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `FootOfBed` (`SetActive`). Controls visibility of `StirrupsUpWrapper` (`SetActive`).",
+                         "sourceScripts":  "AdjustableBirthingBedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dbb2b3c3-a3ca-55cd-bf6d-e042b58f7ddf",
+                         "key":  "footOfBedWithStirrupsUp",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `FootOfBed` (`SetActive`). Controls visibility of `StirrupsUpWrapper` (`SetActive`).",
+                         "sourceScripts":  "AdjustableBirthingBedController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "b2d46be3-527b-5a04-a541-8b995c757f83",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Glucose Tablets",
+    "assetKey":  "tool_glucose_tablets",
+    "toolId":  "glucoseTablets1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_glucose_tablets.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "HandR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,48 @@
+{
+    "id":  "be4a0199-a817-5a63-9f5e-1f04872a9ca2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sterile Latex Glove",
+    "assetKey":  "tool_sterile_latex_glove",
+    "toolId":  "sterileLatexGlove1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Latext Gloves/tool_sterile_latex_glove.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a6e61abc-ed87-5ed5-abfb-b6cf2e63d423",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "grabbed",
+                                                "grabbedTwoHands"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``grabbed`` / ``grabbedTwoHands``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "latexgloves",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "41bcbe0b-20c3-5cb7-931c-05fb08d0e614"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

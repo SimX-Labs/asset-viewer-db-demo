@@ -1,0 +1,39 @@
+{
+    "id":  "a0ded8e5-3dd8-519e-9205-4375a3c19626",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tape",
+    "assetKey":  "tool_tape",
+    "toolId":  "tapeRoll1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_tape.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "nasogastricTube_tape",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "02b1311b-ad77-50ae-9fb0-ce4c359622a8",
+                           "9b730b5b-021b-5b67-be6b-bb6cd08d1b68",
+                           "88e66a6f-b89f-571f-a183-25836bb75951",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d",
+                           "8264b2ca-766d-5aad-bc31-620c8662eb9d"
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

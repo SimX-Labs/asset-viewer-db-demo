@@ -1,0 +1,347 @@
+{
+    "id":  "e9dd96c7-c8a0-59f5-b8e2-b5a16d9ea3d8",
+    "type":  "equipment",
+    "name":  "Procedure Catheter Kit Current",
+    "assetKey":  "PROCEDURE_Catheter_Kit_current",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/CatheterKit/PROCEDURE_Catheter_Kit_current.prefab",
+    "primaryMetadata":  {
+                            "id":  "0ffc33fd-ccba-5953-9c7e-6d35325e878c",
+                            "key":  "catheterKit",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "nothing",
+                                                   "catheterPlaced",
+                                                   "catheterSecured",
+                                                   "clean"
+                                               ],
+                            "defaultValue":  "nothing",
+                            "examples":  [
+                                             "nothing, catheterPlaced, catheterSecured, clean"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `catheterKit`. Values: `nothing`, `catheterPlaced`, `catheterSecured`, `clean`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "990f144b-6d79-5e08-a3ce-f3721dbb6f33",
+                         "key":  "catheterKit-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f5c83ac8-5f53-57ff-be28-7849939b60fe",
+                         "key":  "catheterKit-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7096d9f9-59b7-53c2-baeb-4f59329839af",
+                         "key":  "catheterKit-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "60bea0bd-6783-52d6-99e3-b4db0811520a",
+                         "key":  "currentAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set current vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "aaecb9e0-ed5f-5700-94c0-31f3938c6565",
+                         "key":  "ignoreSyringeNeedleOverride",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Ignore Syringe Needle Override.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "87aafe42-0cb9-5db1-9126-35186f760c8c",
+                         "key":  "max",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Max.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3b9cf2c5-e025-5bd2-9e89-a794a9075fe1",
+                         "key":  "maximumAmountInVial",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles set maximum vial amount.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "94f56118-d8c4-5e71-bf60-4f838e54e0e2",
+                         "key":  "medicationTrackingEnabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set allow medication tracking.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8f30312f-bbd8-5a6b-a20c-a16d64aa725e",
+                         "key":  "medName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Current Drug Interactions.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0f124577-6f58-52b3-9240-7658ab1d6d67",
+                         "key":  "min",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Min.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a2d51260-9d71-5cd4-8caf-6bec955b0f56",
+                         "key":  "modelName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "If the medication data is null after trying to set it, then we have an issue and should log an error and return before trying to access the medication data.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5cc5a94c-eae1-5915-9be3-1c328e6caed9",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "This function sets up what the medication is called, this is what will show up when you use the med Its more of a clean name Setup listeners for setting the values for this medication",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "58e5497b-d317-5695-83b0-625ddc053cb3",
+                         "key":  "SetTubingState",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "We can simplify this code to just receive a state name string and include the spline id in the metadata listener Often heard as `\u003cprocedureName\u003e-SetTubingState`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "SplineNodeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ace22b95-ae53-5fa6-bc02-9718b7b9fb3b",
+                         "key":  "showNeedle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Show Needle.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2905e0e2-b9cb-5b52-a2b2-9f0e45b7c7fd",
+                         "key":  "syringeIncrement",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Syringe Increment.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5a803bfd-983e-58f9-88c5-fe68136267cf",
+                         "key":  "syringeMethod",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``Oral``"
+                                      ],
+                         "description":  "Find the method in our available methods If the new method is \"Oral\", turn off all the interactions here",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2a22cb40-d216-57a6-b163-c1dd2e93eb15",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Units.",
+                         "sourceScripts":  "VialController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "catheterGenericInteraction",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "clean",
+                                                         "nothing"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "catheterInsertionSite",
+                                     "assetIds":  [
+                                                      "d85c3b52-07b0-5aca-85d2-a8b68c2f4c95"
+                                                  ],
+                                     "availableIn":  [
+                                                         "clean",
+                                                         "nothing"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "catheterTubeSyringe_current",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "catheterPlaced",
+                                                         "catheterSecured"
+                                                     ]
+                                 },
+                                 {
+                                     "location":  "foleyCatheter_current",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  [
+                                                         "catheterPlaced",
+                                                         "catheterSecured"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bdce27b-57fa-5d31-97df-44a19e07c970",
+                         "16a14a61-a2da-5697-9d2c-c2e6467c014b",
+                         "5ec82e1a-20fb-569c-bb6a-ffa92c615288",
+                         "630b5de5-3700-5c82-ae4f-7434c9421290",
+                         "ace82e89-cbf0-544e-ab8d-4c0267510b04",
+                         "98f5557d-59cc-54cf-b7d7-89cffa4c3c9a",
+                         "a8ad95d2-4d6e-5734-a2fc-8c4e19f5e540",
+                         "d56f6b67-0ac3-55e8-9e4f-b4c3c0915c36",
+                         "bf19aa79-b0b9-57ce-9869-3c04e2513a94",
+                         "94d31fb0-3fc0-5170-94ca-ce5583984c87",
+                         "5db0efb2-efab-5250-a930-a26128f9cd81",
+                         "3b8e7869-c042-5c0a-a6f5-2b65a270f88e",
+                         "90aa5678-263c-51b4-b225-22ab5c28e163",
+                         "1facc457-8ffa-5bc1-8a34-48ee37a9e946",
+                         "668f8145-a212-58db-a87d-59c29b6b2382",
+                         "35724b30-b755-5d70-adea-d6d57e96032e",
+                         "552a3787-b1eb-554d-9a52-fe3ad2aa9de8",
+                         "8a929814-cea0-5802-9580-a9a013aeaa62",
+                         "e06d33cf-aebd-5d0c-a439-ef85a6ea93a2"
+                     ]
+}

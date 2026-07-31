@@ -1,0 +1,24 @@
+{
+    "id":  "5247a9c6-3224-5a58-b6e3-3787515a6960",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bloody Tegaderm",
+    "assetKey":  "tool_bloody_tegaderm",
+    "toolId":  "tergadermBloody",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bloody_tegaderm.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

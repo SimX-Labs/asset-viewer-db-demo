@@ -1,0 +1,45 @@
+{
+    "id":  "55435f13-30a9-5cde-a3e5-9d638f98e2cf",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Grabbable Intubation Kit",
+    "assetKey":  "tool_grabbable_intubation_kit",
+    "toolId":  "trayGrab2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/tool_grabbable_intubation_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5a75ef54-49bc-5dca-aae7-7323b0a768e7",
+                         "key":  "isPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `PickupTrayTrigger` (`SetActive`). Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "HoldableTrayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "TrayPlacement3",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "5be94b75-775e-50b7-a021-5cbefa2dc60b"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

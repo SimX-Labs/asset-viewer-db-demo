@@ -1,0 +1,24 @@
+{
+    "id":  "9cb9aac3-1d91-5574-a982-07beb50d4f8a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Doppler",
+    "assetKey":  "tool_doppler",
+    "toolId":  "doppler",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Doppler/tool_doppler.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

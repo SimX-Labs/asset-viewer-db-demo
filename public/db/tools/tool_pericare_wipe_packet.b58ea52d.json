@@ -1,0 +1,30 @@
+{
+    "id":  "b58ea52d-152c-5eb7-b1b4-baf7771510cd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Pericare Wipe Packet",
+    "assetKey":  "tool_pericare_wipe_packet",
+    "toolId":  "pericareWipePacket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/tool_pericare_wipe_packet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Pelvic",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

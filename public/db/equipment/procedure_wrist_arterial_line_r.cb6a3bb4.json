@@ -1,0 +1,75 @@
+{
+    "id":  "cb6a3bb4-0afa-5eff-aea6-5dd72704ad98",
+    "type":  "equipment",
+    "name":  "Procedure Wrist Arterial Line R",
+    "assetKey":  "procedure_wrist_arterial_line_r",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/procedure_wrist_arterial_line_r.prefab",
+    "primaryMetadata":  {
+                            "id":  "5faa8977-a611-53fa-aad2-5ab0fa7094ab",
+                            "key":  "WristArterialLine",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "4359ab66-f88a-56b8-a0e8-51a4955c1022",
+                         "key":  "WristArterialLine-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "343e6641-2532-502f-b528-4fcd012425bd",
+                         "key":  "WristArterialLine-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "eeacfa78-15ef-5bf0-a925-49ab57f815c8",
+                         "key":  "WristArterialLine-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

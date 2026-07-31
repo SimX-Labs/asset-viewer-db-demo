@@ -1,0 +1,81 @@
+{
+    "id":  "c656abd8-e931-57b7-8a10-1a9bd419c037",
+    "type":  "equipment",
+    "name":  "Apls Thermalguard Applied",
+    "assetKey":  "equipment_APLS_ThermalGuard_Applied",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Space Force/equipment_APLS_ThermalGuard_Applied.prefab",
+    "primaryMetadata":  {
+                            "id":  "fd04a111-c25f-5e57-b2d6-7ef8658a0576",
+                            "key":  "APLS_ThermalGuard",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "0183ec64-c3cc-56ee-a7a3-9a018d6aaf26",
+                         "key":  "APLS_ThermalGuard-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7e7f7b8f-0519-5bf9-b0da-65e28faec1da",
+                         "key":  "APLS_ThermalGuard-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a49469a1-e631-572d-aab3-5d8b31eac404",
+                         "key":  "APLS_ThermalGuard-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "thermalGuard",
+                                     "assetIds":  [
+                                                      "efa730cf-e3ea-53e9-866d-0da5e4e1c589"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

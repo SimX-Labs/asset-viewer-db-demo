@@ -1,0 +1,24 @@
+{
+    "id":  "6690e9e0-f195-5eca-8482-0dced5a7610d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hospital Underwear Bloody Pad",
+    "assetKey":  "tool_hospital_underwear_bloody_pad",
+    "toolId":  "hospitalUnderwearDirty",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_hospital_underwear_bloody_pad.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

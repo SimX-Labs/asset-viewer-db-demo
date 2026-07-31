@@ -1,0 +1,194 @@
+{
+    "id":  "32984cd1-fe6d-5254-93c3-8231d5cc5817",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Batdok Handoff",
+    "assetKey":  "tool_BATDOK_handoff",
+    "toolId":  "batdok",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BATDOK/tool_BATDOK_handoff.prefab",
+    "metadata":  [
+                     {
+                         "id":  "6f5229c6-79e5-5912-b396-de12201b333a",
+                         "key":  "activeMainPage",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a70cbef1-a893-58a7-bd01-93fa353f3ede",
+                         "key":  "activePatient",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d6c7d811-de93-567c-b5d8-09e6491c634d",
+                         "key":  "allowEcg",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `EcgButton` (`SetActive`).",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "171aeef1-a7c8-58ee-804c-fc83e0235ab4",
+                         "key":  "allowEmr",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `EmrButton` (`SetActive`).",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "be598183-cf51-5b71-bbdd-d47cccae51b1",
+                         "key":  "allowSuc",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `EcgButton` (`SetActive`).",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dd3935b4-2817-5e6d-8be9-643100020f0a",
+                         "key":  "scannedPatients",
+                         "valueType":  "array",
+                         "valueShape":  "array",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "see Complex value reference"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  {
+                                               "shape":  "array",
+                                               "spec":  {
+                                                            "kind":  "array",
+                                                            "element":  {
+                                                                            "kind":  "primitive",
+                                                                            "display":  "string"
+                                                                        }
+                                                        },
+                                               "subKeys":  [
+
+                                                           ],
+                                               "samples":  "\"patientA\""
+                                           },
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f0f43bed-96c4-579e-aeb2-57654947e2af",
+                         "key":  "setScanMode",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "BatdokController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "idctag",
+                             "assetIds":  [
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "a36dee50-190d-55e4-bed5-ec48f4d14a9b",
+                                              "f1a72ae6-8749-517f-90de-e9e8cfdbe492",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "1dc9752d-94e4-5be6-a2ad-2393077b59f9",
+                                              "65690f01-2d9d-53c9-a4b9-c68f49c6732a",
+                                              "57a183aa-881d-5993-a328-02886c6515a0",
+                                              "0cc941e4-3ae3-50ea-87d3-20750bebf96c"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_batdok",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "batdokBeam",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "batdokQrCode",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "34857f66-ce21-5d96-9bde-08b029cd259e"
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

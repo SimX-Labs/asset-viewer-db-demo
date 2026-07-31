@@ -1,0 +1,33 @@
+{
+    "id":  "e7031ff6-0361-52fd-bb4f-3e8f0e2ca612",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nasalcannula Etco2",
+    "assetKey":  "tool_nasalcannula_etco2",
+    "toolId":  "nasalCannulaEtco2",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nasalcannula_etco2.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

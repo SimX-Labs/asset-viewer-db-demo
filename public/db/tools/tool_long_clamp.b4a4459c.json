@@ -1,0 +1,67 @@
+{
+    "id":  "b4a4459c-86e8-5328-8238-0a4eadf87cb5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Long Clamp",
+    "assetKey":  "tool_long_clamp",
+    "toolId":  "g1-backpack1-tool_curved_hemostat",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_long_clamp.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerThorocostomy",
+                             "assetIds":  [
+                                              "915dc469-7ea5-5308-a210-ec89552e13f7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fasciotomyLegCut",
+                             "assetIds":  [
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850",
+                                              "64fccf7d-ae84-584d-a933-d068d7c7b850"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "crushLateralCanthus",
+                             "assetIds":  [
+                                              "3c1b0fcd-5621-5872-b223-840df6222383"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "4b85f845-1262-523d-8eff-f3668c9c1bb6",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,68 @@
+{
+    "id":  "ede24e68-8512-5205-abdc-0753af4c5d8d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nasal Swab Completepackage",
+    "assetKey":  "tool_nasal_swab_completepackage",
+    "toolId":  "swab1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/NasalSwab/tool_nasal_swab_completepackage.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1a426f8f-0859-58e8-8325-1f78b713c910",
+                         "key":  "containerInBioBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "return; Controls visibility of `BagContainer` (`SetActive`).",
+                         "sourceScripts":  "NasalSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7cd93ddb-a3b2-5389-9fce-290c3a61778d",
+                         "key":  "patientSwabbed",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "var patientData = new Dictionary\u003cstring, object\u003e(); patientData[$\"nasalSwabMouth\"] = true; Controls visibility of `ContainerCollider` (`SetActive`).",
+                         "sourceScripts":  "NasalSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1f35d456-d32a-5862-998c-4697f63a0f0d",
+                         "key":  "swabInContainer",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "ContainerCap.SetActive(SwabInContainer); I think we pretty much want this to always be turned to true when this metadata updates Controls visibility of `ContainerSwab` (`SetActive`). Controls visibility of `ContainerCap` (`SetActive`). Controls visibility of `BagCollider` (`SetActive`).",
+                         "sourceScripts":  "NasalSwabController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

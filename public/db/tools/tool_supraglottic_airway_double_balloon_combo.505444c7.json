@@ -1,0 +1,24 @@
+{
+    "id":  "505444c7-165b-5b81-8b3a-9f714973c469",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Supraglottic Airway Double Balloon Combo",
+    "assetKey":  "tool_supraglottic_airway_double_balloon_combo",
+    "toolId":  "supraglotticAirwayCombo",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_supraglottic_airway_double_balloon_combo.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

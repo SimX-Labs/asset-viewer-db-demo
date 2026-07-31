@@ -1,0 +1,30 @@
+{
+    "id":  "23b1e5ab-b783-51c7-91e4-1ebf9342e6ca",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Band Aide",
+    "assetKey":  "tool_band_aide",
+    "toolId":  "bandAide1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_band_aide.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bandAide",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711"
+                    ]
+}

@@ -1,0 +1,180 @@
+{
+    "id":  "56adb433-9755-5dbf-af79-95e476406c64",
+    "type":  "equipment",
+    "name":  "Full Caplillary Refill",
+    "assetKey":  "equipment_full_caplillary_refill",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/CapillaryRefill/equipment_full_capillary_refill_procedure.prefab",
+    "primaryMetadata":  {
+                            "id":  "44414627-1b98-585b-93dd-744b86345aef",
+                            "key":  "fullCapillaryRefillProcedure",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c033c0ed-e385-5a4f-ba4a-954212b99268",
+                         "key":  "_procedureId",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "CapillaryRefillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "11e2c95d-a6dc-5580-8f88-fab3d87d658e",
+                         "key":  "capRefillTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles refill time.",
+                         "sourceScripts":  "CapillaryRefillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "fec069b4-0609-5972-aaa0-e733cc4885c9",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "8ccfccf3-f059-5f5b-b3f7-79730f99ca7b",
+                         "key":  "FingerPressed",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles finger pressed value. Often heard as `\u003cprocedureName\u003e-FingerPressed`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "CapillaryRefillInteraction",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a0a63e34-9b33-5fe2-93e7-3fe137a56865",
+                         "key":  "fullCapillaryRefillProcedure-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "adccc857-2b1d-5665-b3c8-e47545dfdb6d",
+                         "key":  "fullCapillaryRefillProcedure-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "71c6f9ae-d628-58a2-8c78-711d33eda540",
+                         "key":  "fullCapillaryRefillProcedure-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "1d78d1ae-3981-58e6-aec4-33a2e5f37501",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "38a1930c-9699-53fa-a811-de3dc23e7f77",
+                         "key":  "toggleInteraction",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "because we DONT want the mesh objects on the patient to be visible if cap refills are not being used Controls visibility of `gameObject` (`SetActive`). Often heard as `\u003cprocedureName\u003e-toggleInteraction`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "CapillaryRefillInteraction",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ca5a2c71-bf37-572a-ae67-d643d770dceb",
+                         "key":  "willRefill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles will refill.",
+                         "sourceScripts":  "CapillaryRefillController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "448a62d5-df88-5aca-9ea6-a9e9fdf041cd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hemacool Fridge Massive Transfusion",
+    "assetKey":  "tool_hemacool_fridge_massive_transfusion",
+    "toolId":  "hemacoolFridge",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_hemacool_fridge_massive_transfusion.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

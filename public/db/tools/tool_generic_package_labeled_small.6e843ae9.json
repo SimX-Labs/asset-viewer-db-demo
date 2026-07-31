@@ -1,0 +1,28 @@
+{
+    "id":  "6e843ae9-0d90-585e-a324-a319b78b6cc4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Generic Package Labeled Small",
+    "assetKey":  "tool_generic_package_labeled_small",
+    "toolId":  "21GNeedle",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_generic_package_labeled_small.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "7ba2a1a9-9529-55fb-858b-a7f044e2b1d0",
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

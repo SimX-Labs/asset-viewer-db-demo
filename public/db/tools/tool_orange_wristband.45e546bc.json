@@ -1,0 +1,30 @@
+{
+    "id":  "45e546bc-7177-51bb-91aa-c167236f69c9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Orange Wristband",
+    "assetKey":  "tool_orange_wristband",
+    "toolId":  "orangeWristband",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/HospitalWristbands/tool_orange_wristband.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "securityBand",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "fdf0cc10-6ec5-5e53-9422-46779ede4c21",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Infocard Clevelandclinic Openchestbadge",
+    "assetKey":  "tool_infocard_ClevelandClinic_openChestBadge",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_infocard_ClevelandClinic_openChestBadge.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

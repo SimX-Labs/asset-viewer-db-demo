@@ -1,0 +1,92 @@
+{
+    "id":  "d25c5b84-3262-5d39-b6cd-028339c6b9c4",
+    "type":  "equipment",
+    "name":  "Stamped Feet L",
+    "assetKey":  "equipment_stamped_feet_L",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Inked Feet/equipment_stamped_feet.prefab",
+    "primaryMetadata":  {
+                            "id":  "2d7648a0-7e34-5681-93be-42d9227db109",
+                            "key":  "inkedFeet",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "38f184d4-fb9a-54dc-8310-a981b2edd331",
+                         "key":  "inkedFeet-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3ad15ae7-5536-54ba-9a5a-bbeac14deb8e",
+                         "key":  "inkedFeet-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f53b314f-8a10-5152-8458-534e90181c91",
+                         "key":  "inkedFeet-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `false` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "leftFootInk",
+                                     "assetIds":  [
+                                                      "3fa96fbc-f0a7-5c31-945c-f2cbd91ca07d"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "rightFootInk",
+                                     "assetIds":  [
+                                                      "3fa96fbc-f0a7-5c31-945c-f2cbd91ca07d"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "19093a09-9168-52b5-9c54-dee4189bc38e",
+                         "bd700a03-7623-5746-9c60-3d1f9223854c",
+                         "050b0c37-b7a1-5d15-a40a-1b6cf8c7bdd3",
+                         "06797c92-8566-5df4-b261-3caaf2aef31a",
+                         "a86a80b2-08ac-56af-8a80-8da5512db451"
+                     ]
+}

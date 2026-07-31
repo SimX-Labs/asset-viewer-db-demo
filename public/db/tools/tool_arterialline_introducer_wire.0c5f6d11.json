@@ -1,0 +1,39 @@
+{
+    "id":  "0c5f6d11-1398-53a2-9b6f-673488a78522",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Arterialline Introducer Wire",
+    "assetKey":  "tool_arterialline_introducer_wire",
+    "toolId":  "ArterialLine_Introducer_Wire",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_arterialline_introducer_wire.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "wrist_arterial_line",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "wrist_arterial_line",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

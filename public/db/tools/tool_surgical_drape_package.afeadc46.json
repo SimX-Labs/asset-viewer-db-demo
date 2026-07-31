@@ -1,0 +1,38 @@
+{
+    "id":  "afeadc46-0945-568c-9d72-57033e917383",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Surgical Drape Package",
+    "assetKey":  "tool_surgical_drape_package",
+    "toolId":  "surgicalDrapePackage1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_surgical_drape_package.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "surgicalDrapePosition",
+                             "assetIds":  [
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973",
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973",
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973",
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973",
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973",
+                                              "afddfc6a-77ce-503e-b27d-03f356cf0973"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "02638df9-3edd-5509-9b36-3173425d9f57",
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "c847f5e0-925a-5f60-ada7-cb7157999175",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

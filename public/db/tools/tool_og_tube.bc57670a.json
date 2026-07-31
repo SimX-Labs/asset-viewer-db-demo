@@ -1,0 +1,91 @@
+{
+    "id":  "bc57670a-c15f-5ae9-b2c6-27a04bb47d13",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Og Tube",
+    "assetKey":  "tool_og_tube",
+    "toolId":  "TraySet1-ToolTray-Airway-1-tool_og_tube",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_og_tube.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0bc3f9b4-d907-5020-aa4a-1f9ff7600636",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "normal",
+                                                "lube"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``normal`` / ``lube``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "oralgastricTube",
+                             "assetIds":  [
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17",
+                                              "ae5e97f7-0f2a-53cd-90cc-2883885e2a17"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "lubricantInteraction",
+                                     "assetIds":  [
+                                                      "26014eae-27f5-5e03-8091-5b01ec2825db",
+                                                      "3a9bbcc9-076a-5a65-9fde-4977b08e55b5",
+                                                      "ba954365-eb3b-5718-801b-748583781ba4"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

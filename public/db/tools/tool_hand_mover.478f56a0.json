@@ -1,0 +1,24 @@
+{
+    "id":  "478f56a0-c487-5bec-928f-ae89802b11fc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hand Mover",
+    "assetKey":  "tool_hand_mover",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_hand_mover.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

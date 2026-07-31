@@ -1,0 +1,24 @@
+{
+    "id":  "e4912eda-ae39-5d5a-992c-c639078a98fc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Folded Shorts",
+    "assetKey":  "tool_folded_shorts",
+    "toolId":  "foldedShorts",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_folded_shorts.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

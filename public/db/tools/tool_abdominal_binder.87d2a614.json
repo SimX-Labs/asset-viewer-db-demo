@@ -1,0 +1,30 @@
+{
+    "id":  "87d2a614-b135-5a32-9d67-cf9dca78a207",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Abdominal Binder",
+    "assetKey":  "tool_abdominal_binder",
+    "toolId":  "abdominalBinder",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_abdominal_binder.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bellyBandage",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

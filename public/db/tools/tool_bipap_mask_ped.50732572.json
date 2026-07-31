@@ -1,0 +1,24 @@
+{
+    "id":  "50732572-44b8-51f0-8a0c-8ff6005ba280",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bipap Mask Ped",
+    "assetKey":  "tool_bipap_mask_ped",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_bipap_mask_ped.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

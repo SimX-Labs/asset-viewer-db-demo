@@ -1,0 +1,47 @@
+{
+    "id":  "a52ab671-6493-5a9a-b83f-1a287988f3c1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Knife 03",
+    "assetKey":  "tool_knife_03",
+    "toolId":  "knife03",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_knife_03.prefab",
+    "metadata":  [
+                     {
+                         "id":  "aa9f3866-e1e0-5553-9243-f0ce0a6de16c",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "blade15"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``blade15``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement1",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id":  "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Roll Procedure Bag",
+    "assetKey":  "group_roll_procedure_bag",
+    "toolId":  "rollBagUsaf",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_roll_procedure_bag.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1a9fe4aa-56e8-509b-8f0a-3b4735f8b472",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "chestTubeOpen",
+                                                "foleyOpen",
+                                                "monitorsOpen",
+                                                "venousArterialOpen"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``chestTubeOpen`` / ``foleyOpen`` / ``monitorsOpen`` / ``venousArterialOpen``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

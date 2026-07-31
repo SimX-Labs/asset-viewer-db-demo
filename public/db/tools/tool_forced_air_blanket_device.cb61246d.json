@@ -1,0 +1,77 @@
+{
+    "id":  "cb61246d-78c1-5d8c-b243-caa5fa068380",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Forced Air Blanket Device",
+    "assetKey":  "tool_forced_air_blanket_device",
+    "toolId":  "forcedAirBlanketDevice",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_forced_air_blanket_device.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a9e9d65f-ca29-56be-9477-783963597d0d",
+                         "key":  "devicePowerStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Check if the state actually needs to change to prevent redundant updates or event loops. Ensure UI is consistent even if state is already set (e.g., after initial setup and first event arrives)",
+                         "sourceScripts":  "ForcedAirBlanketDevice",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e5512d3b-b09a-5a71-b98f-e8c25d0a8514",
+                         "key":  "fan",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "high",
+                                                "low"
+                                            ],
+                         "defaultValue":  "off",
+                         "examples":  [
+                                          "``off`` / ``high`` / ``low``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "339db3c0-a97a-594f-83aa-fcb3e91b1acc",
+                         "key":  "temp",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "high",
+                                                "med",
+                                                "low"
+                                            ],
+                         "defaultValue":  "off",
+                         "examples":  [
+                                          "``off`` / ``high`` / ``med`` / ``low``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

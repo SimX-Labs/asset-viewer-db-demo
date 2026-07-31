@@ -1,0 +1,39 @@
+{
+    "id":  "d31bbcae-517c-5312-b582-928c570af866",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iud Inserter",
+    "assetKey":  "tool_iud_inserter",
+    "toolId":  "iudInserter1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/IUD Inserter/tool_iud_inserter.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "iudinserterWithTenaculum",
+                             "assetIds":  [
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "84755245-4a29-51b9-8244-8f3cf878cb70",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "84755245-4a29-51b9-8244-8f3cf878cb70",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "84755245-4a29-51b9-8244-8f3cf878cb70",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "84755245-4a29-51b9-8244-8f3cf878cb70",
+                                              "a5807777-6e10-55ff-9cd3-332dada52bc3",
+                                              "84755245-4a29-51b9-8244-8f3cf878cb70"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3a20020d-622e-5851-89b8-343891a44e98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

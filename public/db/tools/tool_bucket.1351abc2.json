@@ -1,0 +1,47 @@
+{
+    "id":  "1351abc2-20d5-5758-8572-b48ac95fa189",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bucket",
+    "assetKey":  "tool_bucket",
+    "toolId":  "bucket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bucket.prefab",
+    "metadata":  [
+                     {
+                         "id":  "37632995-a023-5e54-9400-fbae9a722519",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "filled"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``empty`` / ``filled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fillWater",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

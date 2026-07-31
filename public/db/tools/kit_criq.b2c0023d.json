@@ -1,0 +1,49 @@
+{
+    "id":  "b2c0023d-faca-5a58-9fe9-c18e85a6adbc",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Criq",
+    "assetKey":  "kit_criq",
+    "toolId":  "criqKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_criq.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a96ddac5-d5d4-5c94-aaee-394657288a63",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "efc21bec-eb46-5bcf-a380-735970bb594d",
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "f3f553be-f197-5f15-8932-ded57c99c02c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Clothing Street Clothes Bottoms",
+    "assetKey":  "tool_patient_clothing_street_clothes_bottoms",
+    "toolId":  "patientClothingBottom",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_patient_clothing_street_clothes_bottoms.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "streetClothesBottom",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

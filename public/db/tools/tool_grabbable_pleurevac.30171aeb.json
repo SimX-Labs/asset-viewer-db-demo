@@ -1,0 +1,58 @@
+{
+    "id":  "30171aeb-9988-5fd0-9c76-ff98097f9fbd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Grabbable Pleurevac",
+    "assetKey":  "tool_grabbable_pleurevac",
+    "toolId":  "pleurevacTool",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Pleurevac/tool_grabbable_pleurevac.prefab",
+    "metadata":  [
+                     {
+                         "id":  "4f4ad54c-ed97-553c-b980-5aac5d8b6361",
+                         "key":  "TOGGLE_FILL",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "PleurevacGrabbableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "pleurevacPlacement",
+                             "assetIds":  [
+                                              "bea25dc3-56fe-525c-8f3f-3565a0236ba7"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "litterSmeedSlot",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "mount_pleurevac",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

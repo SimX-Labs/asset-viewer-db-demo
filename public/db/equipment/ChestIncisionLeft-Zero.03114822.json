@@ -1,0 +1,79 @@
+{
+    "id":  "03114822-0110-5da3-99b6-5ca57fe3d110",
+    "type":  "equipment",
+    "name":  "Chestincisionleft-zero",
+    "assetKey":  "ChestIncisionLeft-Zero",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Chest Tube/ChestIncisionLeft-Zero.prefab",
+    "primaryMetadata":  {
+                            "id":  "dabc3a47-c73f-57e4-9ee7-1d0fe9f6d9b8",
+                            "key":  "chestIncisionL",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "nothing",
+                                                   "narrowCut",
+                                                   "wideCut"
+                                               ],
+                            "defaultValue":  "nothing",
+                            "examples":  [
+                                             "nothing, narrowCut, wideCut"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `chestIncisionL`. Values: `nothing`, `narrowCut`, `wideCut`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "760b1ed4-3c8a-59ec-b9fb-085dc6209df0",
+                         "key":  "chestIncisionL-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "34f1855f-0daa-59e3-9020-771ac0911d82",
+                         "key":  "chestIncisionL-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "913da50f-cf2c-5061-8e78-7c31dff33c2d",
+                         "key":  "chestIncisionL-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

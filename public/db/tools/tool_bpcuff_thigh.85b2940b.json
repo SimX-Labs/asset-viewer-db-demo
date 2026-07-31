@@ -1,0 +1,51 @@
+{
+    "id":  "85b2940b-dd51-52b6-8510-cc96c88996dc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bpcuff Thigh",
+    "assetKey":  "tool_bpcuff_thigh",
+    "toolId":  "thigh_bp_cuff",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Vitals/tool_bpcuff_thigh.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "bpCuff_LeftThigh",
+                             "assetIds":  [
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4",
+                                              "9f2613ea-51fd-5a83-8fc9-c0e30da635b4"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bpCuff_RightThigh",
+                             "assetIds":  [
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816",
+                                              "59b44d16-71a6-5a2e-ba57-df6e222d3816"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

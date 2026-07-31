@@ -1,0 +1,66 @@
+{
+    "id":  "3ed4777a-16a0-534e-94ef-d947a8352159",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Washcloth Cleaning",
+    "assetKey":  "tool_washcloth_cleaning",
+    "toolId":  "washcloth1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_washcloth_cleaning.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Forehead",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "Abdomen",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ForearmL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ForearmR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ThighFront2L",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ThighFront2R",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "1d89caf3-5f48-5178-b7b7-de07b46d0678"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

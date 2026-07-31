@@ -1,0 +1,24 @@
+{
+    "id":  "349fc318-58da-58ed-8d05-5cfae258659b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Wall Soap",
+    "assetKey":  "tool_wall_soap",
+    "toolId":  "wallSoap1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_wall_soap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

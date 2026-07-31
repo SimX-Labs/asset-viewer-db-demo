@@ -1,0 +1,365 @@
+{
+    "id":  "424d4dc2-d64b-5022-a53b-094010a08930",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Medication Syringe Master",
+    "assetKey":  "tool_medication_syringe_master",
+    "toolId":  "syringeMed1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/Syringes/tool_medication_syringe_master.prefab",
+    "metadata":  [
+                     {
+                         "id":  "e446918d-e2a0-52ba-a7fa-f0ec95c29155",
+                         "key":  "canFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a595ff64-4dc0-5399-bd73-64c51b385871",
+                         "key":  "forceCanDraw",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3c93ea78-4aa3-56cb-9615-adb59760af3a",
+                         "key":  "Given",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d4356b2c-3001-523a-9c43-e51a6671f683",
+                         "key":  "increment",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "0.05",
+                                          "1"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c00e3aca-03b9-503f-bd57-e3a5ea137a48",
+                         "key":  "isScannable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "True"
+                                      ],
+                         "description":  "Update Scannable.",
+                         "sourceScripts":  "ScannableToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6461b666-9231-5175-810f-0c0573013ef6",
+                         "key":  "max",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "5",
+                                          "10",
+                                          "30"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9da85567-fc8f-5bac-a22a-486c8d71751f",
+                         "key":  "min",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "0"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0b3f77b6-6e8a-5bb8-98c3-117764e8ae88",
+                         "key":  "onDrawEvent",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6519ab59-4746-55b5-96c3-d0b73e5050f3",
+                         "key":  "onMedIdUpdated",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Med Id.",
+                         "sourceScripts":  "MedicationIdController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "77a85fdb-12e4-592f-a233-d933a1b0f188",
+                         "key":  "onPushEvent",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e8ad1aa5-610f-5d33-9516-0f36387851ba",
+                         "key":  "onStopEvent",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "10819103-759a-552d-80b0-ae06ca0c6f87",
+                         "key":  "syringeLiquidColor",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a168aada-e097-537c-b6b7-95a4aea5b82f",
+                         "key":  "syringeNeedle",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "False",
+                                          "True"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "31d6a2af-447b-57b3-84d9-a5e2ae934e04",
+                         "key":  "syringeNeedleSize",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ebc35c88-5845-5d5f-aa4c-24fcd45c33f2",
+                         "key":  "syringeType",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "PF1",
+                                                "PF5",
+                                                "PF10",
+                                                "PF20",
+                                                "PF50",
+                                                "GL1",
+                                                "GL5",
+                                                "GL10",
+                                                "GL20",
+                                                "GL50",
+                                                "B1",
+                                                "B5",
+                                                "B10",
+                                                "B20",
+                                                "B50",
+                                                "SP1",
+                                                "SP5",
+                                                "SP10",
+                                                "SP20",
+                                                "SP50"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``PF1`` / ``PF5`` / ``PF10`` / ``PF20`` / ``PF50`` / ``GL1`` / ``GL5`` / ``GL10`` / ``GL20`` / ``GL50`` / ``B1`` / ``B5`` / ``B10`` / ``B20`` / ``B50`` / ``SP1`` / ``SP5`` / ``SP10`` / ``SP20`` / ``SP50``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "12b4e6c5-4d5b-5dfc-88db-191c24324d1a",
+                         "key":  "units",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "mL"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "adfc02e6-5836-5133-84bc-b5a675b1d37b",
+                         "key":  "VialGiven",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "SyringeGenericController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "SyringeVial",
+                             "assetIds":  [
+                                              "3c1b0fcd-5621-5872-b223-840df6222383",
+                                              "573459be-5833-5c06-8c15-fc493d600418",
+                                              "a6fb6161-233d-5615-b499-a9ea5c12b535",
+                                              "8a9e5319-b231-5524-a5d7-980f918755a0",
+                                              "e78cfff9-65bc-557a-9e24-ccc4eb0a79f7",
+                                              "e556e998-e4ac-5722-aa15-43460334a6f6",
+                                              "62ac2237-8765-5e6e-8574-5477e8f9d32a",
+                                              "b19adc49-cf06-58e4-8756-39a8cc45dd00",
+                                              "97df9945-e3a4-5d5c-89e9-0ec23135166a"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "syringeHead",
+                                     "assetIds":  [
+                                                      "3a6e9acb-dd6d-53e8-b66f-d04ff25f7660",
+                                                      "8ac06a40-acf5-50ad-b29c-7798b1d967cb",
+                                                      "e6803469-0984-5538-94cd-fd4ce8d5ecd2",
+                                                      "ebec9f29-1b79-5661-9f4c-0e8cce7db49c",
+                                                      "d8e9781e-01f3-5335-88eb-306ffbdcf9d6"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "efc21bec-eb46-5bcf-a380-735970bb594d",
+                           "ce536846-6068-5e47-8366-af93c052ee3d",
+                           "39c8dea1-1e14-5c4b-a423-7ec5463071a0",
+                           "861eaacb-ea10-5068-863d-c9c3343b2854",
+                           "ca01a638-512b-52fe-8af6-c6bb5ad267f9",
+                           "c89196db-7d85-5c90-87fb-1268ecfe1d64",
+                           "cac83a35-fd6c-5b48-9e1d-eed60f5bf1da",
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "02638df9-3edd-5509-9b36-3173425d9f57",
+                           "7b07824b-ebfa-572a-a503-d16f899d5653",
+                           "3438dce0-ea29-51d3-8783-bcfc377d5a26",
+                           "5be94b75-775e-50b7-a021-5cbefa2dc60b",
+                           "39047cea-9162-52ff-8bee-ac53e1bf7d7c",
+                           "aa81e0d1-1acf-5186-9a0c-13d1ecef12e1",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "3d960b70-8a59-5942-ab4f-da579f1d5975",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "c5abaf93-3215-596c-b8e3-2d6d71b96901",
+                           "71e07ec8-c533-597a-ad1d-93924555f347",
+                           "78589a96-974c-5759-acb3-5dffb9832179",
+                           "08e97a9d-70f1-51d3-884e-23495f30169c",
+                           "d84d41f4-367a-5867-9ae0-29c0bc8cd985",
+                           "7ba2a1a9-9529-55fb-858b-a7f044e2b1d0",
+                           "9b730b5b-021b-5b67-be6b-bb6cd08d1b68",
+                           "3e819ad8-54e4-5d27-b6ef-c0bf74048e30",
+                           "166cc7d8-3fb5-5c69-bf41-cbd004c3c64e",
+                           "88e66a6f-b89f-571f-a183-25836bb75951",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "2a301bf7-cedd-5e4e-9fee-4111e7b24364",
+                           "8264b2ca-766d-5aad-bc31-620c8662eb9d"
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

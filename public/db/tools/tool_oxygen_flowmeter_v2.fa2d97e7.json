@@ -1,0 +1,141 @@
+{
+    "id":  "fa2d97e7-4091-5234-a779-aed5b129ff2f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oxygen Flowmeter V2",
+    "assetKey":  "tool_oxygen_flowmeter_v2",
+    "toolId":  "flowmeter",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/OxygenFlowMeter/tool_oxygen_flowmeter_v2.prefab",
+    "metadata":  [
+                     {
+                         "id":  "80afc849-2a7e-5b35-a4f6-e0b3615c2bba",
+                         "key":  "attachedTubeState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "mediumLengthLeftToRight",
+                                                "mediumLengthRightToLeft"
+                                            ],
+                         "defaultValue":  "medLengthLeftToRight",
+                         "examples":  [
+                                          "``default`` / ``mediumLengthLeftToRight`` / ``mediumLengthRightToLeft``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "5bee0228-ad27-5fc3-8da6-41e25f2495e1",
+                         "key":  "oxygenConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`false`"
+                                      ],
+                         "description":  "Controls visibility of `_oxygenTubing` (`SetActive`). Controls visibility of `_newConnectionInteractionWrapper` (`SetActive`).",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c5f01f74-6989-5d41-b03d-6f979c3887c7",
+                         "key":  "oxygenFlowRate",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "clamp that percentage down in case of unexpected numbers _oxygenTubing.SetActive(true); Controls visibility of `_oxygenTubing` (`SetActive`). Updates the `o2LevelLabel.text` UI label. Fires the `oxygen-flowmeter-above-0` interaction event when conditions are met.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "011f2ee2-8aba-5b70-a1f8-cfa16509afbf",
+                         "key":  "oxygenPowerOn",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Set O2 level text Show O2 level if possible Updates the `o2LevelLabel.text` UI label.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ee9fdc43-4a14-5958-8f49-e47b1db89775",
+                         "key":  "showOxygenTubingWhenConnected",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "/ \u003cparam name=\"data\"\u003e\u003c/param\u003e Controls visibility of `_oxygenTubing` (`SetActive`).",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "33294fee-0946-59c0-a826-cb22e95e696a",
+                         "key":  "spo2Override",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "a5564140-1b6f-5b6f-90b7-ee45c7d74304",
+                         "key":  "storeConnectedOxygenTubing",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "OxygenFlowMeterController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "attachableTubing",
+                                     "assetIds":  [
+                                                      "f72a9006-7559-5360-bb13-43e69082db65",
+                                                      "520e65ad-c4ee-5de0-9cb1-6762a5f364bc",
+                                                      "bc178f8c-ffd6-5435-8b9e-f49b876dc9ce",
+                                                      "80116088-c611-56a3-b119-e51926f2886e"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

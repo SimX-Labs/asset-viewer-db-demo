@@ -1,0 +1,62 @@
+{
+    "id":  "c68421ab-c6c8-545a-9ec2-9fd95efcc148",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suture Curvedneedle",
+    "assetKey":  "tool_suture_CurvedNeedle",
+    "toolId":  "militaryBackpack-surgical-tool_suture",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_suture_CurvedNeedle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b1a05541-6d33-5b9e-a218-e719fff7a620",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "3-0",
+                                                "2-0"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``3-0`` / ``2-0``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "ChestTube_Suture",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "sutureCurvedNeedle",
+                                     "assetIds":  [
+                                                      "446b6e0b-1678-53db-951e-e5ce6235e07a",
+                                                      "1db651b5-096e-51bc-8a0b-258e3264d63f"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "1d89caf3-5f48-5178-b7b7-de07b46d0678",
+                           "d5ac96bb-7808-5ca0-8976-499f479ea335"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

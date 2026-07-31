@@ -1,0 +1,41 @@
+{
+    "id":  "9f018c54-0471-56cf-9cf8-1046165cf379",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "M8 Paper",
+    "assetKey":  "tool_m8_paper",
+    "toolId":  "m8_paper1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/M8 Paper/tool_m8_paper.prefab",
+    "metadata":  [
+                     {
+                         "id":  "f8c5cc7e-b59e-5f40-8d4b-afc1fa44f7d7",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

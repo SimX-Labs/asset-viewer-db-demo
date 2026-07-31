@@ -1,0 +1,37 @@
+{
+    "id":  "ef7de1f4-eb92-54c5-984b-beba8fb80856",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Purple Gloves",
+    "assetKey":  "tool_purple_gloves",
+    "toolId":  "purpleGloves1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_purple_gloves.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PlayerPurpleGloveL",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "PlayerPurpleGloveR",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "17419c79-b446-5453-be46-ef06b99cbadc"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

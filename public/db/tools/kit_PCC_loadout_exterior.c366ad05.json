@@ -1,0 +1,24 @@
+{
+    "id":  "c366ad05-9823-596b-9979-e49ee9b3e353",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Pcc Loadout Exterior",
+    "assetKey":  "kit_PCC_loadout_exterior",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/kit_PCC_loadout_exterior.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

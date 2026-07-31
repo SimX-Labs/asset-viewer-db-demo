@@ -1,0 +1,72 @@
+{
+    "id":  "c59bb088-39d0-5f2e-ab67-fe36566361d6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Radio Field Comm",
+    "assetKey":  "tool_radio_field_comm",
+    "toolId":  "radioFieldCom",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Radios/tool_radio_field_comm.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5962b5cd-6c43-56f6-8098-9cbaa892a489",
+                         "key":  "isSending",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Make sure we stop all channels just in case the call to start playing something hits before the is sending flag",
+                         "sourceScripts":  "VoiceProjectionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cc04099c-f52a-5246-a48e-304908b24641",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "com1",
+                                                "com2"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``com1`` / ``com2``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "c9a7d73a-5ca8-5d53-b9a0-438e01207a00",
+                         "key":  "targetTeam",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Target Team.",
+                         "sourceScripts":  "VoiceProjectionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

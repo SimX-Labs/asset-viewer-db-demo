@@ -1,0 +1,24 @@
+{
+    "id":  "b7cfc4fe-8629-5879-bc7c-c39dfcef43db",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Unworn Sneakers",
+    "assetKey":  "tool_unworn_sneakers",
+    "toolId":  "unwornSneakers",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_unworn_sneakers.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

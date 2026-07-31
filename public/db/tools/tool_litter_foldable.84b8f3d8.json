@@ -1,0 +1,32 @@
+{
+    "id":  "84b8f3d8-900f-5861-ac1f-b0406f51f5f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Litter Foldable",
+    "assetKey":  "tool_litter_foldable",
+    "toolId":  "LitterFoldable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_litter_foldable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "litterFoldable",
+                             "assetIds":  [
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a",
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a",
+                                              "887ce51e-80bb-5e3d-a85d-0e2f73d9559a"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

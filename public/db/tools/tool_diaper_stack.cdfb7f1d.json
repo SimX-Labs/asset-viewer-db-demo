@@ -1,0 +1,30 @@
+{
+    "id":  "cdfb7f1d-508e-5269-bc7e-6bb3f7f097c4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Diaper Stack",
+    "assetKey":  "tool_diaper_stack",
+    "toolId":  "diaperBox1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Diaper/tool_diaper_stack.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "diaper",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

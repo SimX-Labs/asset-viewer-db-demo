@@ -1,0 +1,172 @@
+{
+    "id":  "7fab8dba-fdeb-503a-99a0-f171521d9423",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Glucometer",
+    "assetKey":  "tool_glucometer",
+    "toolId":  "glucometer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_glucometer.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a8238a09-ce63-5f7d-a962-ba9f5a692af9",
+                         "key":  "savedValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "105"
+                                      ],
+                         "description":  "This is used for setting up data from the case file",
+                         "sourceScripts":  "GlucometerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "854ee566-eb89-53d9-adac-d0f055315a3c",
+                         "key":  "value",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Glucometer.",
+                         "sourceScripts":  "GlucometerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "fingerPrick",
+                             "assetIds":  [
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "fingerPrick",
+                             "assetIds":  [
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "4c499f2d-22e8-5342-b977-5365486b2758",
+                                              "7a452ef9-5b9c-5993-b337-bd9d2f06dcaa",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43",
+                                              "6669793d-3d7f-5d8a-8bc5-5d4173cddc43"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "heelPrick",
+                             "assetIds":  [
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "heelPrick",
+                             "assetIds":  [
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6",
+                                              "ed84e8cd-fb2e-5339-8645-2ff576e1c5ff",
+                                              "f076c950-2548-56c3-8e1b-480629fb14d6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "af723518-1a21-53dc-8212-ed329ef69bd8",
+                           "d4091f95-e569-523e-98f1-e9669537b57e",
+                           "c325c989-1f95-5f0d-b438-aab6cb284ebb",
+                           "b245f0f2-0ae1-5a8d-914a-c767519169ad",
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30"
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "bf494cd2-786f-4a0c-9675-ef58b9408a91"
+                    ]
+}

@@ -1,0 +1,36 @@
+{
+    "id":  "9f2c45e7-2c0a-5f87-878a-57f8f6987396",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ez Io Needle Medium",
+    "assetKey":  "tool_ez_io_needle_medium",
+    "toolId":  "ezIoNeedleMedium",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/EZ IO Swappable Needle/tool_ez_io_needle_medium.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ezIoHead",
+                             "assetIds":  [
+                                              "ba8e0a6a-7654-528e-b211-ea81c58ede70"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c89196db-7d85-5c90-87fb-1268ecfe1d64",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

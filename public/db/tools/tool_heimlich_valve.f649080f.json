@@ -1,0 +1,44 @@
+{
+    "id":  "f649080f-3ada-509e-9cd7-c572518f1ebf",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Heimlich Valve",
+    "assetKey":  "tool_heimlich_valve",
+    "toolId":  "tool_heimlich_valve",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_heimlich_valve.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ChestTube_Heimlich",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "SuturedChestTube_Heimlich",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "01e5e335-d517-5c11-b5fa-d87bc9fb941f",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

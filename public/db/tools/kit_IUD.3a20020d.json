@@ -1,0 +1,54 @@
+{
+    "id":  "3a20020d-622e-5851-89b8-343891a44e98",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Iud",
+    "assetKey":  "kit_IUD",
+    "toolId":  "IUDkit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_IUD.prefab",
+    "metadata":  [
+                     {
+                         "id":  "97c7fb39-35ce-5845-bdab-6311bd693597",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2ee04f9d-37e4-58ec-b906-2325646a6385",
+                         "key":  "isPlaced",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Controls visibility of `PickupTrayTrigger` (`SetActive`). Controls visibility of `gameObject` (`SetActive`).",
+                         "sourceScripts":  "HoldableTrayController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "7db89c90-073d-5f20-9ecc-9bc88c185e02",
+                           "8b07dc07-a19c-5f1c-a23b-5e1dfcf39cf8"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

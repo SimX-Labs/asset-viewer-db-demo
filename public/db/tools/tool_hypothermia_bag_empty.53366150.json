@@ -1,0 +1,24 @@
+{
+    "id":  "53366150-c057-595e-915b-dfa11b094c62",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hypothermia Bag Empty",
+    "assetKey":  "tool_hypothermia_bag_empty",
+    "toolId":  "hypothermiaBag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_hypothermia_bag_empty.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

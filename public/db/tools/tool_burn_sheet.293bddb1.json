@@ -1,0 +1,31 @@
+{
+    "id":  "293bddb1-1124-532a-9016-b0609fcd48e1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Burn Sheet",
+    "assetKey":  "tool_burn_sheet",
+    "toolId":  "burnSheet",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_burn_sheet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "attachableBurnSheet",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

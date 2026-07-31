@@ -1,0 +1,30 @@
+{
+    "id":  "28449d2b-bee1-5c65-8552-e09071b04352",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Mens Comb",
+    "assetKey":  "tool_mens_comb",
+    "toolId":  "menscomb",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VeteranBelongings/tool_mens_comb.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "HeadTop",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "81170d69-4ccb-586d-bbea-61128d67034b"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

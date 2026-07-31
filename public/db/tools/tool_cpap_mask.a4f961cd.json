@@ -1,0 +1,31 @@
+{
+    "id":  "a4f961cd-10f1-57cb-826f-6a12732247a3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cpap Mask",
+    "assetKey":  "tool_cpap_mask",
+    "toolId":  "cpapMask1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_cpap_mask.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

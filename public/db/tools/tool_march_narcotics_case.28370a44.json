@@ -1,0 +1,41 @@
+{
+    "id":  "28370a44-e71e-535f-8ae3-b266337f994e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "March Narcotics Case",
+    "assetKey":  "tool_march_narcotics_case",
+    "toolId":  "marchNarcoticsCase",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/tool_march_narcotics_case.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b4df600b-816f-5e35-93fd-bc05eaf61da0",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

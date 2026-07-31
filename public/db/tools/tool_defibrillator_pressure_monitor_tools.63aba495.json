@@ -1,0 +1,30 @@
+{
+    "id":  "63aba495-4beb-5ec7-a6e9-0f0b540ccf75",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Defibrillator Pressure Monitor Tools",
+    "assetKey":  "tool_defibrillator_pressure_monitor_tools",
+    "toolId":  "defibMonitorBundle",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Defibrilator/tool_defibrillator_pressure_monitor_tools.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mount_defib",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

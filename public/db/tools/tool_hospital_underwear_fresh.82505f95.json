@@ -1,0 +1,30 @@
+{
+    "id":  "82505f95-e328-5f61-8f4d-7982c9aa6d7d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hospital Underwear Fresh",
+    "assetKey":  "tool_hospital_underwear_fresh",
+    "toolId":  "hospitalUnderwearPackaged",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_hospital_underwear_fresh.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "hospitalUnderwear",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

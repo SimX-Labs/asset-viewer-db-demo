@@ -1,0 +1,37 @@
+{
+    "id":  "e806d051-f984-53fe-8bdf-57ff979b25b9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Motorcycle Helmet",
+    "assetKey":  "tool_motorcycle_helmet",
+    "toolId":  "motorcycleHelmet1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_motorcycle_helmet.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "motorcycleHelmet",
+                             "assetIds":  [
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639",
+                                              "b40902b0-7771-5089-828c-d57b582e9639"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

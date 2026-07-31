@@ -1,0 +1,24 @@
+{
+    "id":  "4b8ee91f-4fcb-5ba0-bc72-7e834bc63839",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ruler",
+    "assetKey":  "tool_ruler",
+    "toolId":  "ruler",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ruler.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "c2e9c05a-f7c3-5f0f-9a1d-d36122391d68"
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "d187ab94-403d-5b65-b3ce-8053e5494a34",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oral Salts",
+    "assetKey":  "tool_oral_salts",
+    "toolId":  "oral_salts",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_oral_salts.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "waterForSalt",
+                             "assetIds":  [
+                                              "000e3647-8a21-5448-9e8d-9df0e95c87ba"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "29d432a1-a6c2-56f7-a445-2bf16ece8b8f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

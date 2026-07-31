@@ -1,0 +1,24 @@
+{
+    "id":  "575e60b5-d02f-5b4e-9103-edd7b8d35ce3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suction Container Baby Warmer",
+    "assetKey":  "tool_suction_container_baby_warmer",
+    "toolId":  "suctionContainerBabyWarmer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_suction_container_baby_warmer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

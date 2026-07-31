@@ -1,0 +1,31 @@
+{
+    "id":  "adb3e58d-5934-5ff2-9657-d52b5a421608",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inhaler Spacer Separated",
+    "assetKey":  "tool_inhaler_spacer_separated",
+    "toolId":  "inhalerSpacerSeparated",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_inhaler_spacer_separated.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "inhalerSpacerSeparated",
+                             "assetIds":  [
+                                              "1c0e25dd-2e11-502f-bc8c-5c96ac6c642b"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3e819ad8-54e4-5d27-b6ef-c0bf74048e30",
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

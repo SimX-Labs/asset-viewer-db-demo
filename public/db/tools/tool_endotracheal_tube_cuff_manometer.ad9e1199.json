@@ -1,0 +1,75 @@
+{
+    "id":  "ad9e1199-330e-50d8-b4cb-9dbcf9cfe448",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Endotracheal Tube Cuff Manometer",
+    "assetKey":  "tool_endotracheal_tube_cuff_manometer",
+    "toolId":  "endotrachealTubeCuffManometer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_endotracheal_tube_cuff_manometer.prefab",
+    "metadata":  [
+                     {
+                         "id":  "7fe3dbff-7df9-5034-b127-ede4b85388e9",
+                         "key":  "needlePosition",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "EndotrachealTubeCuffManometerManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6f0a56cd-b2e9-5c96-a36f-cc524fa81c64",
+                         "key":  "pressureValue",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles set pressure value.",
+                         "sourceScripts":  "EndotrachealTubeCuffManometerManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "10fd9e65-d3a6-52f1-bf74-46bc710a5065",
+                         "key":  "resetNeedlePosition",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "EndotrachealTubeCuffManometerManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "etCuffManometer",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3bfe4ec3-f5c8-5fcf-a874-b01645b9e583",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

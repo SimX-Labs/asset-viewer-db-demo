@@ -1,0 +1,37 @@
+{
+    "id":  "9a5fa757-b761-58f9-8403-d94a9496e1b4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Deodorant Rollon",
+    "assetKey":  "tool_deodorant_rollon",
+    "toolId":  "deodorantRollOn",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bath Basin/tool_deodorant_rollon.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Armpit_L",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "Armpit_R",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "81170d69-4ccb-586d-bbea-61128d67034b"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

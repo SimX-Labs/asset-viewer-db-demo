@@ -1,0 +1,98 @@
+{
+    "id":  "8eed26e7-2196-5323-af53-762fad46b12b",
+    "type":  "equipment",
+    "name":  "Dermatome Interactions",
+    "assetKey":  "Dermatome_Interactions",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Dermatomes/Dermatome_Interactions.prefab",
+    "primaryMetadata":  {
+                            "id":  "b1b31e5e-4ab9-55c2-9b1f-52c2ef487c1d",
+                            "key":  "dermatomesExam",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+
+                                               ],
+                            "defaultValue":  null,
+                            "examples":  [
+
+                                         ],
+                            "description":  "String; must match a procedure step listed below",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "c490d8e3-d963-59de-ad03-852818814150",
+                         "key":  "dermatomeDecreasedLocations",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Dermatome Audio Methods Dermatome Audio Listeners",
+                         "sourceScripts":  "PatientDermatomesManager",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c192568c-8fb9-590d-8280-62c0bf37d1ae",
+                         "key":  "dermatomesExam-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ccad49e8-7a55-5a23-9fd2-9991e861c76b",
+                         "key":  "dermatomesExam-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5372c79b-942e-5a88-ac74-f9bdfe62a64d",
+                         "key":  "dermatomesExam-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "dermatome",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,294 @@
+{
+    "id":  "77095e2f-a5a7-5c00-9fe1-9ccbe5820bac",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Bag Generic",
+    "assetKey":  "tool_iv_bag_generic",
+    "toolId":  "ivBagCombo",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/IVs/tool_iv_bag_generic.prefab",
+    "metadata":  [
+                     {
+                         "id":  "2c496e87-db56-58e5-b9d4-8e0cddd43713",
+                         "key":  "bagState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "hung",
+                                                "spiked",
+                                                "burette",
+                                                "iv"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``hung`` / ``spiked`` / ``burette`` / ``iv``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "c05536f1-56da-5aef-be23-c4f988a0f63e",
+                         "key":  "isScannable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "True"
+                                      ],
+                         "description":  "Update Scannable.",
+                         "sourceScripts":  "ScannableToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "69f4ddc6-8f30-549b-a1b1-24edf014e2e3",
+                         "key":  "ivBagType",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "50",
+                                                "100",
+                                                "250",
+                                                "500",
+                                                "1000",
+                                                "Bottle"
+                                            ],
+                         "defaultValue":  "Medium",
+                         "examples":  [
+                                          "``50`` / ``100`` / ``250`` / ``500`` / ``1000`` / ``Bottle``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "52c742b5-ad47-5e79-a925-59bc0bcdc645",
+                         "key":  "ivFluidColor",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Clear | Red | Blue | Yellow | Brown | White | Pink because we subscribe to this tool\u0027s metadata event, if this tools has a metadata event of this signature come through, we will call the handler with it",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9055b790-0109-5bc8-98cd-95f91a14c239",
+                         "key":  "ivPortState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "on"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``off`` / ``on``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "069b44ed-0f71-5134-8708-0e6818c1e65c",
+                         "key":  "medId",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+                                          "11-P_SYR",
+                                          "65-L_IV",
+                                          "C_1000-B_IV"
+                                      ],
+                         "description":  "This will cause duplicate trigger events here",
+                         "sourceScripts":  "GenericIVBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5b46657e-4126-58fa-b52f-c28be027a431",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Med Name.",
+                         "sourceScripts":  "GenericIVBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7edf1001-a297-5017-8f7a-bc88173f8ef1",
+                         "key":  "onMedIdUpdated",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "\"\"",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Med Id.",
+                         "sourceScripts":  "MedicationIdController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7669cc2f-1612-5344-94fc-9be3eb6f5df5",
+                         "key":  "onPickupNotGenerator",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Setup listeners for setting the values for this medication",
+                         "sourceScripts":  "GenericIVBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2fdabe7d-7f70-5860-aee5-e0a6b5b8190d",
+                         "key":  "patientDob",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Patient Dob.",
+                         "sourceScripts":  "GenericIVBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "54de94b0-b0ca-586b-ac5c-39f93d7a6081",
+                         "key":  "patientName",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Patient Name.",
+                         "sourceScripts":  "GenericIVBagController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "08ac94dd-3712-5bff-b255-c6dd4cef70a9",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Powder",
+                                                "Reconsituted"
+                                            ],
+                         "defaultValue":  "Powder",
+                         "examples":  [
+                                          "``Powder`` / ``Reconsituted``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IVBag",
+                             "assetIds":  [
+                                              "a597a960-897b-5110-bcd4-ec451a70f0fc",
+                                              "6751d70d-e2b7-56b0-88a7-536b7f620c18",
+                                              "03324c7b-a6b9-582b-8e70-bf9a0e9b6710",
+                                              "bc0e253e-bd4c-5ffa-a88f-a90facd29346",
+                                              "850bcd6a-54e2-5dcc-9253-609ed19e0bc1",
+                                              "ecb0907e-cf59-514c-bf1a-7298cac95d13",
+                                              "63030996-2f4e-55db-bc02-89d781d3c529",
+                                              "e98fcfe6-345b-5598-b7da-29930dd45015",
+                                              "21be4d43-844e-5c2a-bf00-085ca9fd00e3",
+                                              "a0a0e73c-b009-51fe-8cc6-b360652c81b9",
+                                              "4e3787a4-be65-5076-9c7b-475a52625de3",
+                                              "c836e0c7-7731-5850-85d0-32a5ccda6b77",
+                                              "8c256647-eb2c-5c9c-b32f-da21f1b170fc",
+                                              "911223a5-fcd0-5580-99a1-adcccb2a7292",
+                                              "d1653bfc-0a9b-5857-a8f3-011ada1ddb12"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "IVPort",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ivBagSpike",
+                                     "assetIds":  [
+                                                      "d7cef733-e54b-56ec-8f86-b134884a733c",
+                                                      "6203421c-e582-5625-8fca-19ebe7bba560",
+                                                      "60807b64-2c5d-5409-a1e9-225b43e87766",
+                                                      "52b61d14-6cfe-5372-b0e7-0492921e48db"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "SyringeVialReconstitute",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "af723518-1a21-53dc-8212-ed329ef69bd8",
+                           "d4091f95-e569-523e-98f1-e9669537b57e",
+                           "ca01a638-512b-52fe-8af6-c6bb5ad267f9",
+                           "b245f0f2-0ae1-5a8d-914a-c767519169ad",
+                           "c7689dec-effd-5a76-8231-6e8fd4b97e55",
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "3438dce0-ea29-51d3-8783-bcfc377d5a26",
+                           "aa81e0d1-1acf-5186-9a0c-13d1ecef12e1",
+                           "f6c2b729-3df6-5c6c-9f23-02abbefd5748",
+                           "875d5f21-3e90-5554-b890-cf56e98261ba",
+                           "18781e7d-4124-59a1-b5e6-1977bebcbde0",
+                           "afaaf958-aa60-50f4-a304-2d8365a3b9c8",
+                           "d56a6e0b-772a-5306-a159-adc194e3a87b",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "5bf7a938-ca30-57b5-bcfc-1a06604efac3",
+                           "339c3b74-a6b5-50bb-bfea-71b25a328485",
+                           "1e382796-a316-5c67-8095-83c9fa845285",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "c5abaf93-3215-596c-b8e3-2d6d71b96901",
+                           "71e07ec8-c533-597a-ad1d-93924555f347",
+                           "7ba2a1a9-9529-55fb-858b-a7f044e2b1d0",
+                           "36e5f1d8-ced0-50ca-a49d-c2512ce8ba30",
+                           "3e819ad8-54e4-5d27-b6ef-c0bf74048e30",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe",
+                           "636993e4-d88a-5083-8b68-ddfc8a34920d",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

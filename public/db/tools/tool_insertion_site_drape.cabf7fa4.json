@@ -1,0 +1,30 @@
+{
+    "id":  "cabf7fa4-60b6-5f0c-ba7d-bfccb54058f5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Insertion Site Drape",
+    "assetKey":  "tool_insertion_site_drape",
+    "toolId":  "tool_insertion_site_drape",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_insertion_site_drape.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "surgicalDrape",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

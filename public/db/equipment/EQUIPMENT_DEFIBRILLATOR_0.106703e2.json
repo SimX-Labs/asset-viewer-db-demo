@@ -1,0 +1,75 @@
+{
+    "id":  "106703e2-92aa-506f-91cc-c3481ff558c1",
+    "type":  "equipment",
+    "name":  "Defibrillator 0",
+    "assetKey":  "EQUIPMENT_DEFIBRILLATOR_0",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/Defib/equipment_defibrilatorpad1.prefab",
+    "primaryMetadata":  {
+                            "id":  "3b0a3f68-1814-57c8-a338-121662f412cc",
+                            "key":  "Defibrillator",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "01d91aa5-e0f6-5dfd-b70e-158252acfc92",
+                         "key":  "Defibrillator-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e7426e0d-78be-5330-bf7b-09108c609c9e",
+                         "key":  "Defibrillator-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ce8c9cfb-834b-5e0e-bd29-6fdf7b040729",
+                         "key":  "Defibrillator-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

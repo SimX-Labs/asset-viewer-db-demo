@@ -1,0 +1,40 @@
+{
+    "id":  "2403e569-cc8c-5c51-9e81-25dc6660e63d",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Coldpack",
+    "assetKey":  "tool_coldpack",
+    "toolId":  "coldpack1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_coldpack.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "coldPack",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "bellyIcePack",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "ca01a638-512b-52fe-8af6-c6bb5ad267f9",
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

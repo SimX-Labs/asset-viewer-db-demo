@@ -1,0 +1,24 @@
+{
+    "id":  "88a6ef35-b6f9-5c38-acb1-d84cc70b0d81",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Satalite Radio",
+    "assetKey":  "tool_satalite_radio",
+    "toolId":  "radio1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Radios/tool_satalite_radio.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

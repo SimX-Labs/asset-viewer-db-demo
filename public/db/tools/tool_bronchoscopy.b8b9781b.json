@@ -1,0 +1,24 @@
+{
+    "id":  "b8b9781b-d0f3-52eb-bbd1-918407ec68b6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bronchoscopy",
+    "assetKey":  "tool_bronchoscopy",
+    "toolId":  "bronchoscopyParent",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bronchoscopy.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

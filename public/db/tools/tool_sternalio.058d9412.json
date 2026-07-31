@@ -1,0 +1,30 @@
+{
+    "id":  "058d9412-4888-5f47-b6f8-2880760fba99",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sternalio",
+    "assetKey":  "tool_sternalio",
+    "toolId":  "sternalIO1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_sternalio.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "SternalIO",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "70a6fa0d-77dc-5423-9fe0-c130d2fe2cec",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Gown Tag",
+    "assetKey":  "tool_gown_tag",
+    "toolId":  "gownTag",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Gown/tool_gown_tag.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "grabGownTag",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

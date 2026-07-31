@@ -1,0 +1,39 @@
+{
+    "id":  "78589a96-974c-5759-acb3-5dffb9832179",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Foley Catheter Current",
+    "assetKey":  "kit_foley_catheter_current",
+    "toolId":  "cathKit_current",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_foley_catheter_current.prefab",
+    "metadata":  [
+                     {
+                         "id":  "0662d4bf-8421-5160-9e3a-099a419bfcbf",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "18951214-7c97-5bba-a925-bcbb2c9a4f0e",
+                           "6c3249f8-105b-5a33-869b-5635e5b953b3"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

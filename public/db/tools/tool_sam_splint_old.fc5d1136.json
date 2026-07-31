@@ -1,0 +1,39 @@
+{
+    "id":  "fc5d1136-5e68-55ab-b486-274dcf011f2b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Sam Splint Old",
+    "assetKey":  "tool_sam_splint_old",
+    "toolId":  "o-backpack1-tool_sam_splint",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_sam_splint_old.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "AnkleR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "cd24272d-d226-5c4c-b76a-322eb6fed8c0"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "AnkleL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "cd24272d-d226-5c4c-b76a-322eb6fed8c0"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

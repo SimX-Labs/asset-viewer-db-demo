@@ -1,0 +1,30 @@
+{
+    "id":  "b04f95c7-aa3a-586f-8cd9-2eff51110fe3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lma",
+    "assetKey":  "tool_lma",
+    "toolId":  "lmaTool1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_lma.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LMAToolMouth",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "37e0ed98-b006-5495-b283-605052d92596",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Pump Stand Single",
+    "assetKey":  "tool_iv_pump_stand_single",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/IVs/tool_iv_pump_stand_single.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

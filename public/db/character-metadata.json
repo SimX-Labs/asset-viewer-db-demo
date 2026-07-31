@@ -1,0 +1,796 @@
+[
+    {
+        "id":  "5dcc3bc0-1429-5ea6-9ddd-168f20697db9",
+        "type":  "characterMetadata",
+        "key":  "abnormalEyeFollow",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles abnormal eye follow movement.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "afacbcab-6b7f-5324-8297-5199a18cdafb",
+        "type":  "characterMetadata",
+        "key":  "allowedInteractions",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Allowed Interactions.",
+        "sourceScripts":  "PatientDisableInteractions",
+        "complexSchema":  null
+    },
+    {
+        "id":  "6be9b9d7-e8df-5ac7-a8eb-584b43ec6709",
+        "type":  "characterMetadata",
+        "key":  "CacheCurrentMaterialsFromRenderers",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Cache Current Materials_.",
+        "sourceScripts":  "MaterialAttributeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "7d239376-21ab-5c74-b1e3-622b976339e7",
+        "type":  "characterMetadata",
+        "key":  "cantLookDown",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles look down.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "f65bace0-5895-5a1a-a641-5710819a1d39",
+        "type":  "characterMetadata",
+        "key":  "cantLookLeft",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles look left.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "ba90f657-cd92-5981-b22e-af7d529d616c",
+        "type":  "characterMetadata",
+        "key":  "cantLookRight",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles look right.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "ba85f935-8ef8-5c09-941f-a7ced3aca5c8",
+        "type":  "characterMetadata",
+        "key":  "cantLookUp",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles look up.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "cfbc5ed4-3d72-56c0-a4bd-3d5cb9ca9735",
+        "type":  "characterMetadata",
+        "key":  "changeClothingTexture",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Get all guids Supports having multiple pieces of clothing have their textures changed at the same time",
+        "sourceScripts":  "CharacterClothingController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "fcd072db-fa90-5abb-9818-4e272bf87306",
+        "type":  "characterMetadata",
+        "key":  "changeOptionalMask",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Swap Optional Alpha Mask_.",
+        "sourceScripts":  "PatientOutfitController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "781ed124-0103-5a1a-a28b-01ee800a6a2e",
+        "type":  "characterMetadata",
+        "key":  "characterInfo",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "PatientInfo info = new PatientInfo(data);",
+        "sourceScripts":  "PatientInfoListener",
+        "complexSchema":  null
+    },
+    {
+        "id":  "b479aebf-c168-5494-8872-d02f1f677ee5",
+        "type":  "characterMetadata",
+        "key":  "CharacterLOD",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Sets character lod.",
+        "sourceScripts":  "SimXCharacterLOD",
+        "complexSchema":  null
+    },
+    {
+        "id":  "798c2a92-7841-50fb-8203-5d005850c0a0",
+        "type":  "characterMetadata",
+        "key":  "clearIkTargetsAll",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Clear Targets All.",
+        "sourceScripts":  "CharacterIkController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "5dfe88e1-7786-5c36-b70c-deb9b5aa90d2",
+        "type":  "characterMetadata",
+        "key":  "clothing",
+        "valueType":  "object",
+        "valueShape":  "object",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "see Complex value reference"
+                     ],
+        "description":  "Controls visibility of `gameObject` (`SetActive`).",
+        "sourceScripts":  "PatientOutfitController",
+        "complexSchema":  {
+                              "shape":  "object",
+                              "spec":  {
+                                           "kind":  "object",
+                                           "subKeys":  [
+                                                           {
+                                                               "name":  "Coverall",
+                                                               "spec":  {
+                                                                            "kind":  "primitive",
+                                                                            "display":  "bool"
+                                                                        }
+                                                           },
+                                                           {
+                                                               "name":  "Hat",
+                                                               "spec":  {
+                                                                            "kind":  "primitive",
+                                                                            "display":  "bool"
+                                                                        }
+                                                           }
+                                                       ]
+                                       },
+                              "subKeys":  [
+
+                                          ],
+                              "samples":  [
+                                              "{\"Coverall\":true}",
+                                              "{\"Hat\":false}"
+                                          ]
+                          }
+    },
+    {
+        "id":  "15a5bb73-0088-5cf9-aac6-bf7737124451",
+        "type":  "characterMetadata",
+        "key":  "constrictPupils",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles pupil restrict.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "2799eb91-83be-54b7-9ea5-cda5569525e8",
+        "type":  "characterMetadata",
+        "key":  "CPRCompressions",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "For the one doing the compressions",
+        "sourceScripts":  "PatientAnimationController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "6da4a6d4-9e5f-5c3a-9fa7-1e529a004adf",
+        "type":  "characterMetadata",
+        "key":  "CPRReceive",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "For receiving CPR Start cpr animation",
+        "sourceScripts":  "PatientAnimationController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "a1a69c96-527f-54f3-be53-c831094c53ac",
+        "type":  "characterMetadata",
+        "key":  "disableAllInteractions",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Disable All Interactions.",
+        "sourceScripts":  "PatientDisableInteractions",
+        "complexSchema":  null
+    },
+    {
+        "id":  "77af59a7-da6a-537c-a9c7-492ffb0f1c64",
+        "type":  "characterMetadata",
+        "key":  "enlargePupils",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Handles pupil enlarge. (Listener method body not resolved in doc scan; open controller.)",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "04250e3c-c80c-5ef6-a40e-4b5d752bc349",
+        "type":  "characterMetadata",
+        "key":  "faceProximityBlink",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "true",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles finger in face blink.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "b0ebe62f-bf43-52cc-9628-e04eee6b3b69",
+        "type":  "characterMetadata",
+        "key":  "ikCommand",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Receive Ik Command.",
+        "sourceScripts":  "CharacterIkController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "eb146587-626e-572b-9d2f-c2fda70c8f8a",
+        "type":  "characterMetadata",
+        "key":  "intubation",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+
+                     ],
+        "description":  "return; Only turn on this stuff if its true SimulationEventManager.StartListening($\"EquipCCollar-{_simxPatient.EnvironmentLocation}\", EquipOGTube);",
+        "sourceScripts":  "PatientAnimationController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "b555f15a-88fc-5c99-b4e0-d28d5a760852",
+        "type":  "characterMetadata",
+        "key":  "loadClothing",
+        "valueType":  "array",
+        "valueShape":  "array",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "see Complex value reference"
+                     ],
+        "description":  "Get all guids Used for seeing if a piece of clothing should be loaded but not worn by the patient at the start of the case",
+        "sourceScripts":  "CharacterClothingController",
+        "complexSchema":  {
+                              "shape":  "array",
+                              "spec":  {
+                                           "kind":  "array",
+                                           "element":  {
+                                                           "kind":  "object",
+                                                           "subKeys":  [
+                                                                           {
+                                                                               "name":  "guid",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           },
+                                                                           {
+                                                                               "name":  "name",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           }
+                                                                       ]
+                                                       }
+                                       },
+                              "subKeys":  [
+
+                                          ],
+                              "samples":  [
+                                              "[{\"name\":\"Scrub_Pants\",\"guid\":\"fb4b82b1-6056-4f5b-b657-a7dd7a32e853\"},{\"name\":\"Scrubs_Shirt\",\"guid\":\"51856ba2-d8dc-4dec-aa83-b51e7d983195\"},{\"name\":\"Sneakers\",\"guid\":\"c8e0a734-101c-4e81-8f4f-0ab70d795a41\"}]",
+                                              "[{\"name\":\"Sneakers\",\"guid\":\"c8e0a734-101c-4e81-8f4f-0ab70d795a41\"},{\"name\":\"LongSleevedShirt\",\"guid\":\"a5ab9f35-fd03-4734-a174-a484db17166b\"},{\"name\":\"Jeans\",\"guid\":\"13d38ace-b87f-4323-ab76-33de303b6601\"}]"
+                                          ]
+                          }
+    },
+    {
+        "id":  "746abe5a-cda8-5ad3-abf5-a79383c1d4a6",
+        "type":  "characterMetadata",
+        "key":  "loadEquipment",
+        "valueType":  "array",
+        "valueShape":  "array",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "see Complex value reference"
+                     ],
+        "description":  "Get all guids Validate requested GUIDs and log errors for missing ones",
+        "sourceScripts":  "CharacterEquipmentController",
+        "complexSchema":  {
+                              "shape":  "array",
+                              "spec":  {
+                                           "kind":  "array",
+                                           "element":  {
+                                                           "kind":  "object",
+                                                           "subKeys":  [
+                                                                           {
+                                                                               "name":  "guid",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           },
+                                                                           {
+                                                                               "name":  "name",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           }
+                                                                       ]
+                                                       }
+                                       },
+                              "subKeys":  [
+
+                                          ],
+                              "samples":  [
+                                              "{\"name\":\"equipment_hair_slicked_back_adult03\",\"guid\":\"df39c773-cc3b-43ca-95ec-0b43bccaa210\"}",
+                                              "{\"name\":\"equipment_hair_full_adult05\",\"guid\":\"9ccfa2ef-4286-470a-82f8-ada6287915e6\"}"
+                                          ]
+                          }
+    },
+    {
+        "id":  "541f42da-5ebf-5487-8c65-4908cfdd2d7f",
+        "type":  "characterMetadata",
+        "key":  "loopingAudio",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Dont do this if its already null",
+        "sourceScripts":  "PatientAudioController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "5611c18b-21e8-5f09-b0f4-1fc0b7323cdf",
+        "type":  "characterMetadata",
+        "key":  "MOIData",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Handles moi data.",
+        "sourceScripts":  "MOIDataContainer",
+        "complexSchema":  null
+    },
+    {
+        "id":  "6918bed2-f039-5edc-b9f9-811714374724",
+        "type":  "characterMetadata",
+        "key":  "pupilSizeLeft",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  ".4",
+        "examples":  [
+
+                     ],
+        "description":  "Handles pupil size left.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "221113a7-1e87-5c81-a28c-b564f4543b5f",
+        "type":  "characterMetadata",
+        "key":  "pupilSizeRight",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  ".4",
+        "examples":  [
+
+                     ],
+        "description":  "Handles pupil size right.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "291c5942-868b-52ef-b2d0-49f364369a1e",
+        "type":  "characterMetadata",
+        "key":  "pupilsSlowResponse",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles pupils slow response.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "c59db406-6e27-5932-81e0-9e0db9a183b7",
+        "type":  "characterMetadata",
+        "key":  "resetCharacterInfo",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Reset Character Info.",
+        "sourceScripts":  "PatientInfoListener",
+        "complexSchema":  null
+    },
+    {
+        "id":  "83c97fb9-a11c-50ac-91fb-70c68588d12d",
+        "type":  "characterMetadata",
+        "key":  "restrictLeftEyeDilation",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Restrict Left Dilation.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "60aaef6e-f7d7-51ba-91ff-37a6622edd47",
+        "type":  "characterMetadata",
+        "key":  "restrictRightEyeDilation",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Restrict Right Dilation.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "65e5dee3-1554-5ebf-b550-5de25f904508",
+        "type":  "characterMetadata",
+        "key":  "setIkTargetAllChildren",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "Nose"
+                     ],
+        "description":  "Sets targets all.",
+        "sourceScripts":  "CharacterIkController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "90ce6b91-de5b-5adb-a075-704ebe3051ca",
+        "type":  "characterMetadata",
+        "key":  "ShowInjuryType",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Receive Show Injury Type.",
+        "sourceScripts":  "MOIDataContainer",
+        "complexSchema":  null
+    },
+    {
+        "id":  "0b695c91-e5d9-5a0d-b155-7fdcfed7242c",
+        "type":  "characterMetadata",
+        "key":  "spatialize",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "If this is the moderator, we dont want to turn on the spatialization",
+        "sourceScripts":  "PatientAudioController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "847edbc6-05e2-5c72-88ae-25ec155f9373",
+        "type":  "characterMetadata",
+        "key":  "spatializeAll",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Sets spatialize all.",
+        "sourceScripts":  "PatientAudioController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "977d8c68-4620-5a57-b86d-dcd46d54927a",
+        "type":  "characterMetadata",
+        "key":  "supraglotticAirway",
+        "valueType":  "string",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+
+                     ],
+        "description":  "Only turn on this stuff if its true",
+        "sourceScripts":  "PatientAnimationController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "a5fa8213-f0e1-5b8f-8581-5ab6114bb862",
+        "type":  "characterMetadata",
+        "key":  "toggleEquipmentValidation",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "If no data provided, just toggle the current state If data is provided, set to the specified value",
+        "sourceScripts":  "CharacterEquipmentController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "55565e90-d527-578e-a481-8884962e0291",
+        "type":  "characterMetadata",
+        "key":  "toggleMaterialChangeWhileBreathing",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Toggle.",
+        "sourceScripts":  "FollowBreathingMaterialController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "9d5d7105-8672-5067-bc00-0a82b0a4e50b",
+        "type":  "characterMetadata",
+        "key":  "tourniquetRequirement",
+        "valueType":  "UNKNOWN",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+
+                     ],
+        "description":  "Handles tourniquet requirement.",
+        "sourceScripts":  "PatientPulseController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "41072ceb-0afe-52a0-8d2f-c35c127d0808",
+        "type":  "characterMetadata",
+        "key":  "unloadClothing",
+        "valueType":  "array",
+        "valueShape":  "array",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "see Complex value reference"
+                     ],
+        "description":  "Get all guids",
+        "sourceScripts":  "CharacterClothingController",
+        "complexSchema":  {
+                              "shape":  "array",
+                              "spec":  {
+                                           "kind":  "array",
+                                           "element":  {
+                                                           "kind":  "object",
+                                                           "subKeys":  [
+                                                                           {
+                                                                               "name":  "guid",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           },
+                                                                           {
+                                                                               "name":  "name",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           }
+                                                                       ]
+                                                       }
+                                       },
+                              "subKeys":  [
+
+                                          ],
+                              "samples":  [
+                                              "{\"name\":\"Gown\",\"guid\":\"cc21bf5d-c672-47bd-a7be-943d12ae60d4\"}",
+                                              "{\"guid\":\"cc21bf5d-c672-47bd-a7be-943d12ae60d4\",\"name\":\"Gown\"}"
+                                          ]
+                          }
+    },
+    {
+        "id":  "ef9ca309-6963-5d4a-b9e1-6f17ef738197",
+        "type":  "characterMetadata",
+        "key":  "unloadEquipment",
+        "valueType":  "array",
+        "valueShape":  "array",
+        "possibleValues":  null,
+        "defaultValue":  "",
+        "examples":  [
+                         "see Complex value reference"
+                     ],
+        "description":  "Unload Equipment.",
+        "sourceScripts":  "CharacterEquipmentController",
+        "complexSchema":  {
+                              "shape":  "array",
+                              "spec":  {
+                                           "kind":  "array",
+                                           "element":  {
+                                                           "kind":  "object",
+                                                           "subKeys":  [
+                                                                           {
+                                                                               "name":  "guid",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           },
+                                                                           {
+                                                                               "name":  "name",
+                                                                               "spec":  {
+                                                                                            "kind":  "primitive",
+                                                                                            "display":  "string"
+                                                                                        }
+                                                                           }
+                                                                       ]
+                                                       }
+                                       },
+                              "subKeys":  [
+
+                                          ],
+                              "samples":  "{\"name\":\"equipment_identification_band_L\",\"guid\":\"5ef99deb-2cea-4794-9e64-9793db118855\"}"
+                          }
+    },
+    {
+        "id":  "573f5f05-be25-54fc-af05-92d469f567e3",
+        "type":  "characterMetadata",
+        "key":  "useCustomNormalEyeSizeLeft",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles use custom normal eye size left.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    },
+    {
+        "id":  "14f71ce0-2235-5ca8-8645-6206c9956c0f",
+        "type":  "characterMetadata",
+        "key":  "useCustomNormalEyeSizeRight",
+        "valueType":  "bool",
+        "valueShape":  "primitive",
+        "possibleValues":  null,
+        "defaultValue":  "false",
+        "examples":  [
+                         "true` / `false"
+                     ],
+        "description":  "Handles use custom normal eye size right.",
+        "sourceScripts":  "PatientEyeController",
+        "complexSchema":  null
+    }
+]

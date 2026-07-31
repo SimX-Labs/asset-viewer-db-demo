@@ -1,0 +1,24 @@
+{
+    "id":  "3aa68f61-dec7-5118-acf1-13249315164a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Oxygen Flowmeter V3 Removable",
+    "assetKey":  "tool_oxygen_flowmeter_v3_removable",
+    "toolId":  "flowmeter_removable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/OxygenFlowMeter/tool_oxygen_flowmeter_v3_removable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

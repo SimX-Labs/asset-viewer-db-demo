@@ -1,0 +1,52 @@
+{
+    "id":  "8e49ea33-6fb3-5d1a-8573-ecbbe12f27a9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Collection Cup Lid",
+    "assetKey":  "tool_collection_cup_lid",
+    "toolId":  "collectionCupLid1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Collection Cup/tool_collection_cup_lid.prefab",
+    "metadata":  [
+                     {
+                         "id":  "3cd3d97e-798b-5124-871b-89891e34b5a0",
+                         "key":  "LidAnchored",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "CollectionCupLidController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "collectionCupLidAnchor",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "collectionCupLid",
+                             "assetIds":  [
+                                              "642eab0c-50e0-53ea-a87a-afe896537473",
+                                              "487f56e4-d987-5fdc-8f1f-9ca766ad7089"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "7db89c90-073d-5f20-9ecc-9bc88c185e02"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

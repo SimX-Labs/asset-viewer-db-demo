@@ -1,0 +1,30 @@
+{
+    "id":  "551253a9-4b69-5b2b-9ea1-4a262498a46c",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Chem Light Red",
+    "assetKey":  "tool_chem_light_red",
+    "toolId":  "chemLightRed",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Chem Lights/tool_chem_light_red.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "chemLightYellow",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

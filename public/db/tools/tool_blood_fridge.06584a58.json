@@ -1,0 +1,38 @@
+{
+    "id":  "06584a58-dcd0-59e1-9e38-64248c6c4eb2",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blood Fridge",
+    "assetKey":  "tool_blood_fridge",
+    "toolId":  "miniFridge",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_blood_fridge.prefab",
+    "metadata":  [
+                     {
+                         "id":  "db056559-3426-5d28-9b0f-efcc14a70ac7",
+                         "key":  "fridgeOpenStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `FridgeOpen` (`SetActive`). Controls visibility of `FridgeClosed` (`SetActive`).",
+                         "sourceScripts":  "BloodFridgeController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

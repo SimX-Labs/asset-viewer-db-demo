@@ -1,0 +1,41 @@
+{
+    "id":  "1d88fe36-cfe4-562e-a475-b87c1f74abea",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Nrp Card",
+    "assetKey":  "tool_nrp_card",
+    "toolId":  "nrpCard",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_nrp_card.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d1167628-1f2e-5371-84c7-9aa14b3d0cb0",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "simxNrp",
+                                                "airMethodsNrp"
+                                            ],
+                         "defaultValue":  "simxNrp",
+                         "examples":  [
+                                          "``simxNrp`` / ``airMethodsNrp``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,39 @@
+{
+    "id":  "0f461d66-29f6-5e04-a95f-1ce2b6f1e204",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ink Pad",
+    "assetKey":  "tool_ink_pad",
+    "toolId":  "inkPad",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ink_pad.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "FootTipL",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "cd24272d-d226-5c4c-b76a-322eb6fed8c0"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "FootTipR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6",
+                                              "cd24272d-d226-5c4c-b76a-322eb6fed8c0"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

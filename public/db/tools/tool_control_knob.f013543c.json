@@ -1,0 +1,24 @@
+{
+    "id":  "f013543c-5e5d-5703-be37-0ec1582a60c6",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Control Knob",
+    "assetKey":  "tool_control_knob",
+    "toolId":  "controlKnob",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/ControlKnob/tool_control_knob.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "38c1ad05-d0c9-56ad-bda5-c9438ed10120",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Meal Tray Ticket",
+    "assetKey":  "tool_meal_tray_ticket",
+    "toolId":  "mealTrayTicket",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Meal Tray/tool_meal_tray_ticket.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,38 @@
+{
+    "id":  "3eacc668-74d2-54b9-81c5-652a067f4ede",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Straight Cath",
+    "assetKey":  "kit_straight_cath",
+    "toolId":  "straightCathKit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_straight_cath.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b5962cc9-16aa-5511-8017-30ca72d95a02",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

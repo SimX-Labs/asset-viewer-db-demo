@@ -1,0 +1,30 @@
+{
+    "id":  "bd7e405a-573e-5197-92f4-01ae5eff27a5",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Allis Tissue Forceps",
+    "assetKey":  "tool_allis_tissue_forceps",
+    "toolId":  "allisTissueForceps",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Surgical Tools/tool_allis_tissue_forceps.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mayoStandToolPlacement7",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

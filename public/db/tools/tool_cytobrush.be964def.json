@@ -1,0 +1,41 @@
+{
+    "id":  "be964def-8b85-5a35-bf0c-1c0fa0e00bb3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cytobrush",
+    "assetKey":  "tool_cytobrush",
+    "toolId":  "cytobrush1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_cytobrush.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d1c11178-d2db-521f-8021-b276b17f3404",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "clean",
+                                                "bloody"
+                                            ],
+                         "defaultValue":  "clean",
+                         "examples":  [
+                                          "``clean`` / ``bloody``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "e96c06aa-f129-5199-bfe4-dbe67384b957"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

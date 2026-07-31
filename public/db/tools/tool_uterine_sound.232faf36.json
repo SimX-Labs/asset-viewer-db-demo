@@ -1,0 +1,24 @@
+{
+    "id":  "232faf36-630d-52c5-a459-13426b7d0912",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Uterine Sound",
+    "assetKey":  "tool_uterine_sound",
+    "toolId":  "uterineSound1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Uterine Sound/tool_uterine_sound.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "3a20020d-622e-5851-89b8-343891a44e98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

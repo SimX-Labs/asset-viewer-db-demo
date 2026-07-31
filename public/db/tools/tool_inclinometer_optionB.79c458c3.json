@@ -1,0 +1,37 @@
+{
+    "id":  "79c458c3-b1b3-5089-8abb-9d2351994e2b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inclinometer Optionb",
+    "assetKey":  "tool_inclinometer_optionB",
+    "toolId":  "inclinometer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Chiropractic/tool_inclinometer_optionB.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "inclinometerPerpendicular",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "inclinometerParallel",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,39 @@
+{
+    "id":  "6f5bca0f-f7ec-50df-ae06-609258d0a958",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Spray Bottle",
+    "assetKey":  "tool_spray_bottle",
+    "toolId":  "sprayBottle1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_spray_bottle.prefab",
+    "metadata":  [
+                     {
+                         "id":  "9821fbe6-f614-553b-9007-23b23fa00067",
+                         "key":  "toolColliderActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(boolean state variable)*"
+                                      ],
+                         "description":  "Broadcasts boolean state from variable `status` (toggle / flag).",
+                         "sourceScripts":  "SprayBottleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "74d94e58-b834-5753-8356-f6e408fb2db4",
+                           "2a301bf7-cedd-5e4e-9fee-4111e7b24364"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

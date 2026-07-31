@@ -1,0 +1,92 @@
+{
+    "id":  "74ffe3fd-e81b-5cd8-b460-43965eb9aaba",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Umbilical Cord",
+    "assetKey":  "tool_umbilical_cord",
+    "toolId":  "umbilicalCord1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Placenta Delivery/tool_umbilical_cord.prefab",
+    "metadata":  [
+                     {
+                         "id":  "44224a6a-8630-5e7a-9009-d2dbf66df001",
+                         "key":  "axisToMoveOn",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Handles axis to move on.",
+                         "sourceScripts":  "UmbilicalCordPullController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "52a03e8a-917d-581e-a0a0-d76ef18d2f34",
+                         "key":  "heldPosition",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+
+                                      ],
+                         "description":  "If the cord is moved far enough away from the patient, remove the placenta",
+                         "sourceScripts":  "UmbilicalCordPullController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6fe7b05e-c2c4-5a78-a63b-d1ec168bd191",
+                         "key":  "pullThreshold",
+                         "valueType":  "float",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "0",
+                         "examples":  [
+                                          "*(numeric string)*"
+                                      ],
+                         "description":  "Handles pull threshold.",
+                         "sourceScripts":  "UmbilicalCordPullController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "47692853-3513-5270-a490-ba9124cf79b9",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "kellyClampPlaced",
+                                                "kellyClampRemoved"
+                                            ],
+                         "defaultValue":  "kellyClampPlaced",
+                         "examples":  [
+                                          "``kellyClampPlaced`` / ``kellyClampRemoved``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "kellyClamp",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id":  "78eaafde-af74-57c0-bd6c-dd0e836de4ae",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Grounding Pad Plug",
+    "assetKey":  "tool_grounding_pad_plug",
+    "toolId":  "groundingPadPlug",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_grounding_pad_plug.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "groundingPadPlug",
+                             "assetIds":  [
+                                              "f2441397-b2f4-54d6-8fac-b551ecc6af0a"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "4be08506-36fb-5b2e-afb4-40bc5747295f"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

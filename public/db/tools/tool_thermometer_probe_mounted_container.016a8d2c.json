@@ -1,0 +1,24 @@
+{
+    "id":  "016a8d2c-b757-5d1c-9855-f75fd89878d3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Thermometer Probe Mounted Container",
+    "assetKey":  "tool_thermometer_probe_mounted_container",
+    "toolId":  "thermometerMountedContainer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_thermometer_probe_mounted_container.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

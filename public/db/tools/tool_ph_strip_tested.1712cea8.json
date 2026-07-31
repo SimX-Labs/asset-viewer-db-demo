@@ -1,0 +1,24 @@
+{
+    "id":  "1712cea8-8037-5e59-b7de-3506e1f05159",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ph Strip Tested",
+    "assetKey":  "tool_ph_strip_tested",
+    "toolId":  "phStripTested",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/PHTestStrips/tool_ph_strip_tested.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

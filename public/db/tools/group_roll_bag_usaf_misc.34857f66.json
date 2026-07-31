@@ -1,0 +1,24 @@
+{
+    "id":  "34857f66-ce21-5d96-9bde-08b029cd259e",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Roll Bag Usaf Misc",
+    "assetKey":  "group_roll_bag_usaf_misc",
+    "toolId":  "rollBagUsafMisc",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_roll_bag_usaf_misc.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

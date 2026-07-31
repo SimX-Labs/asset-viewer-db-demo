@@ -1,0 +1,30 @@
+{
+    "id":  "9cf1bf57-fbad-5121-85f9-861756906a1b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Guaiac Developer",
+    "assetKey":  "tool_guaiac_developer",
+    "toolId":  "guaiacDeveloper",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Guaiac Specimen/tool_guaiac_developer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "guaiacOpen2Interaction",
+                             "assetIds":  [
+                                              "8fb7bd39-491c-5732-a1d6-340fb5d40175"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

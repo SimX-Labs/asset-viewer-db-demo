@@ -1,0 +1,30 @@
+{
+    "id":  "e034d163-0723-5799-a76d-85921288e7b9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ulcer Barrier Ointment",
+    "assetKey":  "tool_ulcer_barrier_ointment",
+    "toolId":  "ulcerBarrierOintment1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ulcer_barrier_ointment.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "LegsLarge",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

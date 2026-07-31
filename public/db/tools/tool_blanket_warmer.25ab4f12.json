@@ -1,0 +1,51 @@
+{
+    "id":  "25ab4f12-ed48-5ac0-bffa-e1e742a3f74b",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Blanket Warmer",
+    "assetKey":  "tool_blanket_warmer",
+    "toolId":  "blanketWarmer",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_blanket_warmer.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b9f9c078-4116-51c0-8748-5f9fb9e9e4a3",
+                         "key":  "toggleStatus",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(boolean expression)*"
+                                      ],
+                         "description":  "Controls visibility of `ToggleOptionFalse` (`SetActive`). Controls visibility of `ToggleOptionTrue` (`SetActive`).",
+                         "sourceScripts":  "ToolGenericToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "BottomBlanket",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "TopBlanket",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

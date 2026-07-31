@@ -1,0 +1,24 @@
+{
+    "id":  "18781e7d-4124-59a1-b5e6-1977bebcbde0",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Standard Table Broselow",
+    "assetKey":  "group_standard_table_broselow",
+    "toolId":  "standardTableNoTools",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_standard_table_broselow.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

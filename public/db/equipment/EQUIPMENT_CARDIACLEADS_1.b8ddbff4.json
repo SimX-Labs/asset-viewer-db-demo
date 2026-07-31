@@ -1,0 +1,75 @@
+{
+    "id":  "b8ddbff4-6de9-5538-a551-0c6f61689aaf",
+    "type":  "equipment",
+    "name":  "Cardiacleads 1",
+    "assetKey":  "EQUIPMENT_CARDIACLEADS_1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_cardiac_lead_1.prefab",
+    "primaryMetadata":  {
+                            "id":  "de475976-0598-5089-8340-3b063918b2c2",
+                            "key":  "CardiacLeads",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "9098271e-ee8e-5433-8824-936833eb49bb",
+                         "key":  "CardiacLeads-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "82356062-8389-578c-99e2-b2e8514c818b",
+                         "key":  "CardiacLeads-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e3430c3-46d2-53e9-a0d3-acb02c11c913",
+                         "key":  "CardiacLeads-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

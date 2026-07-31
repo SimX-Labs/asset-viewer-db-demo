@@ -1,0 +1,45 @@
+{
+    "id":  "fb3c28b9-2c7a-5fca-9f23-e0a7dac03dd3",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Food Turkey Sausage Slices",
+    "assetKey":  "tool_food_turkey_sausage_slices",
+    "toolId":  "foodTurkeySausageSlices",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Meal Tray/tool_food_turkey_sausage_slices.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "Mouth",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "forkHand",
+                             "assetIds":  [
+                                              "25189511-baaf-58b5-ad76-02c0e6b34452",
+                                              "25189511-baaf-58b5-ad76-02c0e6b34452",
+                                              "25189511-baaf-58b5-ad76-02c0e6b34452"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "food",
+                                     "assetIds":  [
+                                                      "90cc79ae-e937-52c9-8595-2d73feec2472"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "f60ee0b0-c7ce-5973-bb53-de38e2292b69",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Tv Tooltips Stripped Temp",
+    "assetKey":  "tool_tv_tooltips_stripped_temp",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/TV ToolTips/tool_tv_tooltips_stripped_temp.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

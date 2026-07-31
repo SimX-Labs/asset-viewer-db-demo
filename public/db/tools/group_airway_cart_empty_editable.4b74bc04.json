@@ -1,0 +1,24 @@
+{
+    "id":  "4b74bc04-fdaa-5f9b-8cc8-3a5f639c2f5a",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Airway Cart Empty Editable",
+    "assetKey":  "group_airway_cart_empty_editable",
+    "toolId":  "airwayCartTrauma",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_airway_cart_empty_editable.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

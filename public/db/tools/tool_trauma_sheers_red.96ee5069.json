@@ -1,0 +1,28 @@
+{
+    "id":  "96ee5069-14cd-566c-98bb-95f2833133f4",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Trauma Sheers Red",
+    "assetKey":  "tool_trauma_sheers_red",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/BackpackTools/tool_trauma_sheers_red.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "69f6a4f3-8deb-5ee3-a636-c5c47d1784a4",
+                           "17419c79-b446-5453-be46-ef06b99cbadc",
+                           "07c60d8b-5d54-5b8c-800c-2f7e48606d62",
+                           "cf09426c-e232-5a0f-8bbc-8f76990a0c3c",
+                           "435f595e-89fe-5ec0-857b-974a8a1bfabe"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

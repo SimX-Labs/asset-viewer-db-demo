@@ -1,0 +1,30 @@
+{
+    "id":  "da9fb59f-2d39-5903-96f4-03dadc75977f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Hospital Underwear Ice Pack",
+    "assetKey":  "tool_hospital_underwear_ice_pack",
+    "toolId":  "hospitalUnderwearDirty",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_hospital_underwear_ice_pack.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "hospitalUnderwearIcePack",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

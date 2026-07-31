@@ -1,0 +1,75 @@
+{
+    "id":  "3b2ccb7b-c442-5b80-ae3f-714beca2c487",
+    "type":  "equipment",
+    "name":  "Cervicalcollar Blue Yellow",
+    "assetKey":  "equipment_cervicalcollar_blue_yellow",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_cervicalcollar_blue_yellow.prefab",
+    "primaryMetadata":  {
+                            "id":  "9e802a23-ad97-5b17-8c33-0c7983dfbf24",
+                            "key":  "cervicalCollar",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "2bb2e905-3f4b-5952-bca6-8899fabb7d57",
+                         "key":  "cervicalCollar-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6b0308e2-a7fc-5744-b95c-15334f0f4e0b",
+                         "key":  "cervicalCollar-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c84acbac-7f55-5fac-a6fe-de5403b59039",
+                         "key":  "cervicalCollar-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

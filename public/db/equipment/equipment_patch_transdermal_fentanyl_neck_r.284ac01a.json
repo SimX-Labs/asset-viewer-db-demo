@@ -1,0 +1,231 @@
+{
+    "id":  "284ac01a-16a8-5286-b1c3-bfaab07a060c",
+    "type":  "equipment",
+    "name":  "Patch Transdermal Fentanyl Neck R",
+    "assetKey":  "equipment_patch_transdermal_fentanyl_neck_r",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_patch_transdermal_fentanyl_neck_r.prefab",
+    "primaryMetadata":  {
+                            "id":  "cc0f5a5f-e98d-5330-944a-b9eedc915fc1",
+                            "key":  "fentanylPatchNeckR",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "1438db0a-6f73-52a7-bac2-a16683de3dc8",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "adf4d11e-79a4-5ebb-a1a2-60a33a1ab99e",
+                         "key":  "fentanylPatchNeckR-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b662153e-74dc-55ac-970a-c69eafa49e6e",
+                         "key":  "fentanylPatchNeckR-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "5e972b40-a338-5f1a-9ba0-1395a47ac4ff",
+                         "key":  "fentanylPatchNeckRProcedure",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+
+                                            ],
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a procedure step listed below",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "503dae3e-a279-5413-accb-f63149b0014a",
+                         "key":  "fentanylPatchNeckRProcedure-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "c46f2de7-94a5-5d16-8e50-07e7876b534a",
+                         "key":  "fentanylPatchNeckRProcedure-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7b0e5b53-2ccb-5ddd-a590-692b0c4a81af",
+                         "key":  "fentanylPatchNeckRProcedure-SetActiveLabelText",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `_labelTextObject` (`SetActive`).",
+                         "sourceScripts":  "FentanylPatchLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0735d75c-3f76-5127-888a-ca6756751812",
+                         "key":  "fentanylPatchNeckRProcedure-SetLabelTextDate",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `_labelTextDate.text` UI label.",
+                         "sourceScripts":  "FentanylPatchLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "541a48d4-c42d-5bfc-9747-4ba42417f74e",
+                         "key":  "fentanylPatchNeckRProcedure-SetLabelTextInitials",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `_labelTextInitials.text` UI label.",
+                         "sourceScripts":  "FentanylPatchLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0d84ebaa-1932-50fc-b6ff-aeb603173b7b",
+                         "key":  "fentanylPatchNeckRProcedure-SetLabelTextTime",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `_labelTextTime.text` UI label.",
+                         "sourceScripts":  "FentanylPatchLabelController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d0dfa678-4c0f-5cdb-ba82-687ff096f560",
+                         "key":  "fentanylPatchNeckR-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "15727f47-fec7-57c8-bfc4-3ecb857070c0",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "fentanylPatchNeckL",
+                                     "assetIds":  [
+                                                      "906e0ed7-ea4e-5d53-a01a-7489fc368660"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "marker",
+                                     "assetIds":  [
+                                                      "b0d0a66a-1e58-5c4c-9935-87410d376012"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "characterIds":  [
+                         "7bcb02cf-a39e-5ab8-9771-8282fede3d95",
+                         "8d0e1747-921a-5d36-8c4c-75ec116e6c63",
+                         "301ca8c9-6ed3-5fd8-a030-43b5e1c78c39",
+                         "95380dfa-fadb-52f9-99d8-791d1236ad5b",
+                         "fe0b67f9-b488-5ac4-b03e-946f12b973f3",
+                         "f6a6b7a0-a23d-5f0e-8db9-33d552012c49",
+                         "0c4a3cfb-a3e5-5fdf-89cd-04f3a8378b81"
+                     ]
+}

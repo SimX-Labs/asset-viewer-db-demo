@@ -1,0 +1,24 @@
+{
+    "id":  "70ea5a5b-7eaf-5680-a49d-f211a9d67da8",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Walkie Talkie",
+    "assetKey":  "tool_walkie_talkie",
+    "toolId":  "walkieTalkie1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_walkie_talkie.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

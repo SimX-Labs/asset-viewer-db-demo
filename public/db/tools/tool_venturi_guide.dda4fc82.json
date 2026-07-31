@@ -1,0 +1,24 @@
+{
+    "id":  "dda4fc82-63f1-51ff-8e4a-c8fa5c5f907a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Guide",
+    "assetKey":  "tool_venturi_guide",
+    "toolId":  "venturiGuide",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_guide.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

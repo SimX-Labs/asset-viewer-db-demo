@@ -1,0 +1,73 @@
+{
+    "id":  "db879bcf-957e-5dbd-b9f8-6e4fe78a5256",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Radio Transport",
+    "assetKey":  "tool_radio_transport",
+    "toolId":  "radioTransport",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Radios/tool_radio_transport.prefab",
+    "metadata":  [
+                     {
+                         "id":  "7b932195-4360-5938-8c2f-40b5faa6f6b6",
+                         "key":  "isSending",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Make sure we stop all channels just in case the call to start playing something hits before the is sending flag",
+                         "sourceScripts":  "VoiceProjectionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d1c5fd62-b367-5240-943a-9e4f42440dae",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "default",
+                                                "com1",
+                                                "com3",
+                                                "com4"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``default`` / ``com1`` / ``com3`` / ``com4``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "8536afb8-839d-555f-a537-90498c417fcf",
+                         "key":  "targetTeam",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Target Team.",
+                         "sourceScripts":  "VoiceProjectionController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

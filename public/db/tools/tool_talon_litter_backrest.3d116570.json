@@ -1,0 +1,30 @@
+{
+    "id":  "3d116570-1202-531d-92f6-52163c53bca0",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Talon Litter Backrest",
+    "assetKey":  "tool_talon_litter_backrest",
+    "toolId":  "talonLitterBackrest",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_talon_litter_backrest.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "mountBackrest",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

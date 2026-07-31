@@ -1,0 +1,30 @@
+{
+    "id":  "b13e61ce-623b-5c6e-8b73-34a38c85141a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Patient Clothing Street Clothes Top",
+    "assetKey":  "tool_patient_clothing_street_clothes_top",
+    "toolId":  "patientClothingTop1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Clothing/tool_patient_clothing_street_clothes_top.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "streetClothesTop",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

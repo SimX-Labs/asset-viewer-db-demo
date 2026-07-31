@@ -1,0 +1,167 @@
+{
+    "id":  "bdc5f42c-3305-5b03-a37f-e4e1888f5680",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Collection Cup Urinalysis",
+    "assetKey":  "tool_collection_cup_urinalysis",
+    "toolId":  "collectionCupUrinalysis",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Collection Cup/tool_collection_cup_urinalysis.prefab",
+    "metadata":  [
+                     {
+                         "id":  "5d3d271f-8169-5626-b8d9-a0f4ce819e75",
+                         "key":  "cap",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "*(runtime expression)*"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "503fadb9-724d-5bfc-811e-8c3a6962471b",
+                         "key":  "capState",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Capped",
+                                                "Uncapped"
+                                            ],
+                         "defaultValue":  "Capped",
+                         "examples":  [
+                                          "``Capped`` / ``Uncapped``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "86b27212-9746-50bc-8236-926316aebf40",
+                         "key":  "containerDisposedOf",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Controls visibility of `UrineCupInBag` (`SetActive`).",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ece0b71b-41c3-51ff-8f4d-8b7732fb5faf",
+                         "key":  "fluidColor",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Fluid Color Update.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2a6e5215-1253-51a8-9b92-8a15169dec25",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "Empty",
+                                                "Filled"
+                                            ],
+                         "defaultValue":  "Filled",
+                         "examples":  [
+                                          "``Empty`` / ``Filled``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     },
+                     {
+                         "id":  "e6d6c19e-f38d-59b9-a049-609ab60ebd19",
+                         "key":  "urine",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Delay turning on the urine to account for the time it would take for someone to press the action button down on the controller. Help sell the illusion that the container is filling as the syringe plunger goes down.",
+                         "sourceScripts":  "CollectionCupController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "biohazardBag",
+                             "assetIds":  [
+                                              "5535a10e-ad46-5b6c-9909-449b17bbf4bf",
+                                              "61dbb2ba-28fc-5c46-8a5c-5ea4dcc24968",
+                                              "a04ef8fd-b4d8-58a6-9d5a-e7cf497f386e",
+                                              "6902f400-f82a-5e92-8222-c9e44a5127d2",
+                                              "89647925-d41e-58a9-99dd-95c1f3912766",
+                                              "cd50000e-a39b-5be9-a08a-d57ac99e96fe",
+                                              "6145155b-6f93-5a96-852b-6a7a1c3e11b1"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "giveCollectionCup",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "biohazardBag",
+                             "assetIds":  [
+                                              "5535a10e-ad46-5b6c-9909-449b17bbf4bf",
+                                              "61dbb2ba-28fc-5c46-8a5c-5ea4dcc24968",
+                                              "a04ef8fd-b4d8-58a6-9d5a-e7cf497f386e",
+                                              "6902f400-f82a-5e92-8222-c9e44a5127d2",
+                                              "89647925-d41e-58a9-99dd-95c1f3912766",
+                                              "cd50000e-a39b-5be9-a08a-d57ac99e96fe",
+                                              "6145155b-6f93-5a96-852b-6a7a1c3e11b1"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "collectionCupSample",
+                             "assetIds":  [
+                                              "bdc5f42c-3305-5b03-a37f-e4e1888f5680"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "collectionCupSample",
+                                     "assetIds":  [
+                                                      "642eab0c-50e0-53ea-a87a-afe896537473",
+                                                      "487f56e4-d987-5fdc-8f1f-9ca766ad7089",
+                                                      "3cb21ea0-3966-5fbe-8575-3d372d06c38b",
+                                                      "cd64beba-4165-55bc-8b38-4d0c34b88ab0"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

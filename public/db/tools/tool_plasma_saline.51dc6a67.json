@@ -1,0 +1,30 @@
+{
+    "id":  "51dc6a67-2ebb-529a-8fa6-3b16b567abb1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Plasma Saline",
+    "assetKey":  "tool_plasma_saline",
+    "toolId":  "plasmaSaline",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_plasma_saline.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "FreezeDriedPlasma",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

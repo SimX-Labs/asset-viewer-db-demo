@@ -1,0 +1,30 @@
+{
+    "id":  "966c6f99-ec48-5699-87c2-7bb1c0d0751f",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Shoulder Roll",
+    "assetKey":  "tool_shoulder_roll",
+    "toolId":  "shoulderRoll1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_shoulder_roll.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "shoulderRoll",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

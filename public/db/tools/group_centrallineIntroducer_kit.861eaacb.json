@@ -1,0 +1,44 @@
+{
+    "id":  "861eaacb-ea10-5068-863d-c9c3343b2854",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Centrallineintroducer Kit",
+    "assetKey":  "group_centrallineIntroducer_kit",
+    "toolId":  "group_centralLineIntroducer_kit",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/group_centrallineIntroducer_kit.prefab",
+    "metadata":  [
+                     {
+                         "id":  "499300c4-330d-57aa-85aa-9bf9a4010f4d",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "closed",
+                                                "open"
+                                            ],
+                         "defaultValue":  "closed",
+                         "examples":  [
+                                          "``closed`` / ``open``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "18951214-7c97-5bba-a925-bcbb2c9a4f0e",
+                           "9f1ef383-6b02-52d9-9ff8-85f2927e7dab",
+                           "5bcc2d9c-314c-59d6-9696-fd4993440d6e",
+                           "46f8a243-2cf5-5401-9273-bc9c3442aa98"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

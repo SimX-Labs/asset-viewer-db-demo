@@ -1,0 +1,68 @@
+{
+    "id":  "69cc28e1-cf51-5b9c-8599-37c035515fdd",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Lumbar Drainage",
+    "assetKey":  "tool_lumbar_drainage",
+    "toolId":  "lumbarDrain1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Lumbar Drain/tool_lumbar_drainage.prefab",
+    "metadata":  [
+                     {
+                         "id":  "577521a4-e398-5940-9ea2-363cb4c2c195",
+                         "key":  "currentDripChamber",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "50",
+                         "examples":  [
+
+                                      ],
+                         "description":  "This will be coming from the server so everyone can get updated on the current nano state value Some number out of 100",
+                         "sourceScripts":  "LumbarDrainageToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "81cec5d9-35d7-573c-8ef2-cfd7efb67981",
+                         "key":  "currentPressure",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "10",
+                         "examples":  [
+
+                                      ],
+                         "description":  "float totalPossiblePressure = pressureReadingMax.localPosition.y - pressureReadingMin.localPosition.y; Get the percentage of the new pressure value",
+                         "sourceScripts":  "LumbarDrainageToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "dfe32e8f-1ccd-5c33-b07a-a920d02ff548",
+                         "key":  "lumbarDrainStopcock",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "When the stopcock is turned on, we begin filling the drip chamber for everyone The drip chamber fills locally",
+                         "sourceScripts":  "LumbarDrainageToolController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

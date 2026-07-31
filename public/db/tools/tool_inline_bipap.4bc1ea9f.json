@@ -1,0 +1,30 @@
+{
+    "id":  "4bc1ea9f-24b9-5b8e-babb-c9a27c85b9e9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Inline Bipap",
+    "assetKey":  "tool_inline_bipap",
+    "toolId":  "InlineBipap1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_inline_bipap.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "InlineMask",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

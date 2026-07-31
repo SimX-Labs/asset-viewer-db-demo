@@ -1,0 +1,24 @@
+{
+    "id":  "74d94e58-b834-5753-8356-f6e408fb2db4",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Military Tent Cart",
+    "assetKey":  "group_military_tent_cart",
+    "toolId":  "codeCart",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_military_tent_cart.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

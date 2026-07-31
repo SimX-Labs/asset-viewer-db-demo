@@ -1,0 +1,24 @@
+{
+    "id":  "ec495c9c-a28c-5cf7-9ba9-572a9975275e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Clipboard Poster",
+    "assetKey":  "tool_clipboard_poster",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_clipboard_poster.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

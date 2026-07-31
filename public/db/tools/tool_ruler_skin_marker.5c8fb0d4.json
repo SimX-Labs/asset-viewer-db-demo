@@ -1,0 +1,41 @@
+{
+    "id":  "5c8fb0d4-797e-5d5a-853e-d71a41c29e4e",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ruler Skin Marker",
+    "assetKey":  "tool_ruler_skin_marker",
+    "toolId":  "surgicalRulerPen",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_ruler_skin_marker.prefab",
+    "metadata":  [
+                     {
+                         "id":  "7ddcc37d-4755-5821-893a-2b93f54435d3",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "02b1311b-ad77-50ae-9fb0-ce4c359622a8",
+                           "88e66a6f-b89f-571f-a183-25836bb75951",
+                           "4bbb534a-b926-550a-a755-ce8aee86eb58",
+                           "8264b2ca-766d-5aad-bc31-620c8662eb9d"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "ff5eda6f-df7d-570e-a044-7592f3cd2297",
+    "type":  "tool",
+    "kind":  "group",
+    "name":  "Standard Table",
+    "assetKey":  "group_standard_table",
+    "toolId":  "standardTable",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/group_standard_table.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "18781e7d-4124-59a1-b5e6-1977bebcbde0"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

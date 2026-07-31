@@ -1,0 +1,24 @@
+{
+    "id":  "7385d116-c602-5d64-b512-1f596f007080",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Garbage Bin Biohazard",
+    "assetKey":  "tool_garbage_bin_biohazard",
+    "toolId":  "",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_garbage_bin_biohazard.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b"
+                    ]
+}

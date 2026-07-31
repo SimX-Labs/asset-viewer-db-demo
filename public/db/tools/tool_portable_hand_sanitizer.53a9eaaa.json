@@ -1,0 +1,33 @@
+{
+    "id":  "53a9eaaa-d27a-57d2-b5ea-460e900ddbea",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Portable Hand Sanitizer",
+    "assetKey":  "tool_portable_hand_sanitizer",
+    "toolId":  "portableHandSanitizer1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Portable Hand Sanitizer/tool_portable_hand_sanitizer.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "portableHandSani",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "ff5eda6f-df7d-570e-a044-7592f3cd2297",
+                           "adbcbc5a-1dbf-5f77-97b8-5436c4333625"
+                       ],
+    "scenarioIds":  [
+                        "2e951703-653e-43f1-896b-5c539f283711",
+                        "f3d83fa5-2eb8-4336-b678-d6669e378b7b",
+                        "bb248956-9e5d-4ded-a760-9d78e2a9f387"
+                    ]
+}

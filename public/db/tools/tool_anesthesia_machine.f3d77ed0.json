@@ -1,0 +1,323 @@
+{
+    "id":  "f3d77ed0-59bc-5e00-88db-a3bfee96cf05",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Anesthesia Machine",
+    "assetKey":  "tool_anesthesia_machine",
+    "toolId":  "anesthesiaMachine1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_anesthesia_machine.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1bd6c482-04f3-54b8-9df5-2b7fa651c10e",
+                         "key":  "air",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Air.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "07a304ea-4f45-5f43-adcf-c6e28fd3d825",
+                         "key":  "anesthesiaSqueezeBag",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Squeeze Bag.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "b91d5349-308a-5b17-89d9-dc8f7d99e232",
+                         "key":  "bagSqueezed",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Client event (`SendEntityEvent`) using const suffix; inspect controller.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "886c8fe5-0664-5e49-acba-48f3245cb2a7",
+                         "key":  "bellowsActive",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "true",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Bellows Active.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "2d2c3c66-b0b8-521b-b0cc-e1b7366babef",
+                         "key":  "muteAudio",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Mute Audio.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6058e03c-f1ef-5303-80bf-6b18c0db44aa",
+                         "key":  "n2o",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update N2o.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "741a2c83-5da3-50fb-a566-bbbf3cc08b6d",
+                         "key":  "o2",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update O2.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "9e39a872-9937-5807-b519-a688565d557c",
+                         "key":  "rrOverride",
+                         "valueType":  "int",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`0`"
+                                      ],
+                         "description":  "Broadcasts a value built from simulation state; see the assignment in the controller.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "eac3d842-e94c-5b79-8993-13c443fab071",
+                         "key":  "sevoflurane",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Sevoflurane.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "30012f92-c1f2-5ea0-9060-b6cbd3fa21ac",
+                         "key":  "topTwistObject1",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Top Twist1.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "25477041-9a47-5926-95a8-271763184b63",
+                         "key":  "topTwistObject2",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Update Top Twist2.",
+                         "sourceScripts":  "AnesthesiaMachineController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "140ed56f-858f-5270-ad3f-f05f9a6a7298",
+                         "key":  "ventBreathRate",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets rate.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "06298371-e89b-539b-b768-5d4b0502366c",
+                         "key":  "ventControl",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "Assist/Ctrl",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets control.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "26d98c1d-4b36-575e-a389-db5a6e8aaabe",
+                         "key":  "ventInspiratoryTime",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets inspiratory time.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "264a010a-f838-5110-9136-5e988367dadb",
+                         "key":  "ventMode",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "Volume",
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets mode.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cd1b5a7a-ad98-5167-af92-bc4def749b69",
+                         "key":  "ventO2",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets o2.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "46d3f1d0-9a32-585e-8031-406bfe5d8093",
+                         "key":  "ventOnOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "TODO: These can probably all be turned into the same function somehow",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3b613dc1-d854-53eb-b861-ba9a481f61a6",
+                         "key":  "ventPeep",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets peep.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "169f4b8f-fc54-5010-88c4-7a6ecabf8981",
+                         "key":  "ventPressure",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets pressure.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "0de08836-4ab0-5efe-bdd9-5128b48147de",
+                         "key":  "ventTidalVolume",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Sets tidal volume.",
+                         "sourceScripts":  "VentilatorPortableController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

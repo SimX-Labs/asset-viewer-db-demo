@@ -1,0 +1,79 @@
+{
+    "id":  "382d6ad9-e44c-56b4-aa11-68d9f871d301",
+    "type":  "equipment",
+    "name":  "Group Evd Monitoring System",
+    "assetKey":  "group_evd_monitoring_system",
+    "prefabPath":  "Assets/SimX/Scripts/Patient/CharacterEquipmentManager/Prefabs/WoundsAndBandages/group_evd_monitoring_system.prefab",
+    "primaryMetadata":  {
+                            "id":  "321b375a-5b65-5b5c-a336-a70a794dc0fa",
+                            "key":  "evdMonitoringSystem",
+                            "valueType":  "enum",
+                            "valueShape":  "enum",
+                            "possibleValues":  [
+                                                   "nothing",
+                                                   "tubingPlaced",
+                                                   "bandaged"
+                                               ],
+                            "defaultValue":  "nothing",
+                            "examples":  [
+                                             "nothing, tubingPlaced, bandaged"
+                                         ],
+                            "description":  "Primary control (matches documentation hint): ProcedureController step strings `evdMonitoringSystem`. Values: `nothing`, `tubingPlaced`, `bandaged`.",
+                            "sourceScripts":  "ProcedureController",
+                            "complexSchema":  null,
+                            "controllerType":  "ProcedureController"
+                        },
+    "metadata":  [
+                     {
+                         "id":  "bfc41da8-440b-5470-9274-641fb1add65f",
+                         "key":  "evdMonitoringSystem-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cf766a90-d351-5980-9107-91397a46c6e6",
+                         "key":  "evdMonitoringSystem-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "cdfffa57-a6b3-52f9-9143-6e73007161fc",
+                         "key":  "evdMonitoringSystem-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+
+                             ],
+    "characterIds":  [
+
+                     ]
+}

@@ -1,0 +1,223 @@
+{
+    "id":  "c3314960-fe1a-582e-bd26-91cdb6c1c464",
+    "type":  "equipment",
+    "name":  "Clothes Cutting Simple",
+    "assetKey":  "equipment_clothes_cutting_simple",
+    "prefabPath":  "Assets/SimX/AssetBundles/Equipment/equipment_clothes_cutting_simple.prefab",
+    "primaryMetadata":  {
+                            "id":  "b3da8452-191a-5052-a9e1-1698ecfa1ed9",
+                            "key":  "clothesCuttingSimple",
+                            "valueType":  "bool",
+                            "valueShape":  "primitive",
+                            "possibleValues":  null,
+                            "defaultValue":  null,
+                            "examples":  [
+                                             "``true`` / ``false``"
+                                         ],
+                            "description":  "On/off toggle; key matches the metadata name (e.g. `false` (`defaultOn`))",
+                            "sourceScripts":  null,
+                            "complexSchema":  null,
+                            "controllerType":  null
+                        },
+    "metadata":  [
+                     {
+                         "id":  "9148bf06-18df-5549-b680-d4050b68f41a",
+                         "key":  "clothesCuttingSimpleBottom",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disabled",
+                                                "uncut",
+                                                "cutLeft",
+                                                "cutRight",
+                                                "cut",
+                                                "removed"
+                                            ],
+                         "defaultValue":  "disabled",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disabled`, `uncut`, `cutLeft`, `cutRight`, `cut`, `removed`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "08c01417-c1e2-5f73-8f81-177d7a81fddd",
+                         "key":  "clothesCuttingSimpleBottom-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "f0e07ea6-d133-58d9-af07-d6d503344570",
+                         "key":  "clothesCuttingSimpleBottom-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e39cbaee-ab9c-52f9-8603-d5da8aa44408",
+                         "key":  "clothesCuttingSimple-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (e.g. `false` (`startDisabled`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3ccb3220-a6a4-53e5-a70b-24f2e3c50ae9",
+                         "key":  "clothesCuttingSimple-isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; enables placeable placement (e.g. `false` (`placeable`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "6cbf70f9-01dc-55c4-86e6-f88a1fa6349f",
+                         "key":  "clothesCuttingSimple-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (e.g. `true` (`removableDefault`))",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "d16ce7e6-25ee-5e6f-84ec-1db8d62fd1d5",
+                         "key":  "clothesCuttingSimpleTop",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "disabled",
+                                                "uncut",
+                                                "cut",
+                                                "removed"
+                                            ],
+                         "defaultValue":  "disabled",
+                         "examples":  [
+
+                                      ],
+                         "description":  "String; must match a ProcedureController step (`disabled`, `uncut`, `cut`, `removed`).",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  "ProcedureController"
+                     },
+                     {
+                         "id":  "cabdebb1-0e1f-5a7c-83ad-0e3297227215",
+                         "key":  "clothesCuttingSimpleTop-Disabled",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean; equipment or step disabled (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "921b3618-0f3a-587c-a7c9-bb822f788e78",
+                         "key":  "clothesCuttingSimpleTop-Removable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "``true`` / ``false``"
+                                      ],
+                         "description":  "Boolean (values `true` / `false`)",
+                         "sourceScripts":  null,
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "ab995ba8-a735-544a-be48-4cdc0ab96e07",
+                         "key":  "EquipmentMetadata",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Try to parse the data to a bool. If it fails, log a warning and default to false. Useful for catching cases where the metadata is being set to something that is not a bool, which would cause issues Controls visibility of `EquipmentModel` (`SetActive`).",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "aeeb1b91-c577-5d6b-a0c4-ddcf75a97987",
+                         "key":  "isPlaceable",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Controls visibility of `PlaceableInteractionWrapper` (`SetActive`). Often heard as `\u003cprocedureName\u003e-isPlaceable`; align with **ProcedureController.ProcedureName** on this equipment prefab.",
+                         "sourceScripts":  "MetadataEquipmentController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "clothingCut",
+                                     "assetIds":  [
+                                                      "72043dae-0600-5a5c-8dc4-c3540f627e52"
+                                                  ],
+                                     "availableIn":  [
+                                                         "cutLeft",
+                                                         "cutRight",
+                                                         "uncut"
+                                                     ]
+                                 }
+                             ],
+    "characterIds":  [
+                         "b20c0553-91b0-59e6-869d-8590c0dd4ac9",
+                         "70f1f7ea-8c24-5c1d-9841-99bcb6f7b503",
+                         "a76dac8f-b0b6-507e-8925-05afcaa21cfa",
+                         "3d842f70-0979-516a-a275-e48e831ee682",
+                         "71b2e982-ec98-5838-be07-5e78a9f0cf46",
+                         "c28faa9c-2dd6-58d6-9e78-c37d158eca76",
+                         "358c274f-545b-55b5-be65-b157739fc438"
+                     ]
+}

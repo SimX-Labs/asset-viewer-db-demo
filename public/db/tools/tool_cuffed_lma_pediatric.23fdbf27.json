@@ -1,0 +1,31 @@
+{
+    "id":  "23fdbf27-ec65-53d2-9adf-f7c27ae55978",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Cuffed Lma Pediatric",
+    "assetKey":  "tool_cuffed_lma_pediatric",
+    "toolId":  "lmaPediatric",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Airway Tools/tool_cuffed_lma_pediatric.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "lmaPediatric",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+                           "efc21bec-eb46-5bcf-a380-735970bb594d",
+                           "b3451aef-8e16-59ca-b72f-43a63b763537"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

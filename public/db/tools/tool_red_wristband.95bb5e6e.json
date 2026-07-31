@@ -1,0 +1,104 @@
+{
+    "id":  "95bb5e6e-50e3-5a15-a00c-f3d70bd25b23",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Red Wristband",
+    "assetKey":  "tool_red_wristband",
+    "toolId":  "redWristband",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/HospitalWristbands/tool_red_wristband.prefab",
+    "metadata":  [
+                     {
+                         "id":  "b9960f0f-b91c-5a6e-a422-ec7058da6a80",
+                         "key":  "Color",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Band Color. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "WristbandControllerTool",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3f440139-6ab9-52a1-aaaa-1ff2c51d7029",
+                         "key":  "color",
+                         "valueType":  "UNKNOWN",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Update Band Color. (Listener method body not resolved in doc scan; open controller.)",
+                         "sourceScripts":  "WristbandControllerTool",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "3d8b6e3e-a2d4-5cac-b76f-3619c4718f64",
+                         "key":  "Info",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `PatientInformation.text` UI label.",
+                         "sourceScripts":  "WristbandControllerTool",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "7d93ef21-6950-558b-b574-61856149508c",
+                         "key":  "Name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `PatientName.text` UI label.",
+                         "sourceScripts":  "WristbandControllerTool",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "bdbf6abf-3fdb-52c4-8b55-800e15a89705",
+                         "key":  "name",
+                         "valueType":  "string",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+
+                                      ],
+                         "description":  "Updates the `PatientName.text` UI label.",
+                         "sourceScripts":  "WristbandControllerTool",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "allergyBand",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

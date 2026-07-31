@@ -1,0 +1,30 @@
+{
+    "id":  "9eeee4ce-1d00-5854-b621-70b11e0469cc",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Call Light Held",
+    "assetKey":  "tool_call_light_held",
+    "toolId":  "callLightHeld",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Bed Call Light/tool_call_light_held.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "callLight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

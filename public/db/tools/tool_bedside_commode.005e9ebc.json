@@ -1,0 +1,62 @@
+{
+    "id":  "005e9ebc-3cd7-5834-8611-0cd2fba72ade",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Bedside Commode",
+    "assetKey":  "tool_bedside_commode",
+    "toolId":  "bedsideCommode",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_bedside_commode.prefab",
+    "metadata":  [
+                     {
+                         "id":  "a8b84602-f9ec-5f98-bd2e-790fe0ec8269",
+                         "key":  "state",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "empty",
+                                                "stool",
+                                                "measuingUrineEmpty",
+                                                "measuringUrineFull"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``empty`` / ``stool`` / ``measuingUrineEmpty`` / ``measuringUrineFull``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "ToolAnchor",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "commodeStool",
+                                     "assetIds":  [
+                                                      "e623a81d-5715-5c76-a259-fc4dea37b310"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "commodeLid",
+                                     "assetIds":  [
+                                                      "b1dce23c-d3b3-581a-8e64-b50b1005bfe2"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

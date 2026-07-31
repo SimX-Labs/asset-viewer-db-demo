@@ -1,0 +1,69 @@
+{
+    "id":  "e4bcea10-eb9f-5c02-81fc-802e693e6a05",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Iv Saline Lock Post Insertion",
+    "assetKey":  "tool_iv_saline_lock_post_insertion",
+    "toolId":  "salineLockIvUsed",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Medications/tool_iv_saline_lock_post_insertion.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "IVHandRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVHandLeft",
+                             "assetIds":  [
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0",
+                                              "b0fbf385-032d-5f7f-9d29-7f4c1f7ffac0"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVForearmRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVForearmLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitRight",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "IVElbowPitLeft",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

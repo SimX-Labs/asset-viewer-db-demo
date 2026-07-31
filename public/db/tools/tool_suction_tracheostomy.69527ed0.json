@@ -1,0 +1,55 @@
+{
+    "id":  "69527ed0-1ddd-5a2b-adb8-6bbc05e1b31a",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Suction Tracheostomy",
+    "assetKey":  "tool_suction_tracheostomy",
+    "toolId":  "suctionTracheostomy",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Suction/tool_suction_tracheostomy.prefab",
+    "metadata":  [
+                     {
+                         "id":  "fdcd65a7-1cb5-5062-879a-2c0e2bc4e6a7",
+                         "key":  "SetSuctionRequiresActionButtonToFill",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  "false",
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Handles set requires action button.",
+                         "sourceScripts":  "ToolYankauerController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "trachSuction",
+                             "assetIds":  [
+                                              "fa0e2264-4926-532d-a3a8-a7e27532379f",
+                                              "187f1e80-a1bf-57b1-9596-7a736ffd564c",
+                                              "fa0e2264-4926-532d-a3a8-a7e27532379f",
+                                              "187f1e80-a1bf-57b1-9596-7a736ffd564c",
+                                              "fa0e2264-4926-532d-a3a8-a7e27532379f",
+                                              "187f1e80-a1bf-57b1-9596-7a736ffd564c"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "lukensCatheter",
+                                     "assetIds":  [
+                                                      "ece7996c-8a86-5f9c-9499-248632e0392d"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+                           "67c2e6bb-50df-538c-9884-8528b647fa94"
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

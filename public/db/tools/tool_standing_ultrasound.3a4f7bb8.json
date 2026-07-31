@@ -1,0 +1,24 @@
+{
+    "id":  "3a4f7bb8-4f23-5596-bcc4-fd370c0b06ef",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Standing Ultrasound",
+    "assetKey":  "tool_standing_ultrasound",
+    "toolId":  "standingUltrasound1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/tool_standing_ultrasound.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

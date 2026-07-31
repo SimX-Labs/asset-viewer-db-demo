@@ -1,0 +1,56 @@
+{
+    "id":  "08e97a9d-70f1-51d3-884e-23495f30169c",
+    "type":  "tool",
+    "kind":  "kit",
+    "name":  "Foley Catheter Nursing Essentials",
+    "assetKey":  "kit_foley_catheter_nursing_essentials",
+    "toolId":  "cathKit_current_nursing_essentials",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/_Tool Groups/Kits/kit_foley_catheter_nursing_essentials.prefab",
+    "metadata":  [
+                     {
+                         "id":  "1a62993f-3b0e-5ed1-9c75-8ece9c7edb34",
+                         "key":  "grabToggleToolOff",
+                         "valueType":  "bool",
+                         "valueShape":  "primitive",
+                         "possibleValues":  null,
+                         "defaultValue":  null,
+                         "examples":  [
+                                          "`true` / `false`"
+                                      ],
+                         "description":  "Network On Grab.",
+                         "sourceScripts":  "GrabToggleController",
+                         "complexSchema":  null,
+                         "controllerType":  null
+                     },
+                     {
+                         "id":  "e06e1339-cf87-5b8e-b4f1-158aa36607cf",
+                         "key":  "invisiblePlungerControls",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "off",
+                                                "on"
+                                            ],
+                         "defaultValue":  "StateKey:",
+                         "examples":  [
+                                          "``off`` / ``on``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id":  "7f074d7c-5607-598e-aeab-cfba5e606bd9",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Water Pitcher Pour Target",
+    "assetKey":  "tool_water_pitcher_pour_target",
+    "toolId":  "waterPitcherTarget1",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Water Pitcher/tool_water_pitcher_pour_target.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

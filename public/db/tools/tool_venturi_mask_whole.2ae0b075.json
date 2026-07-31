@@ -1,0 +1,132 @@
+{
+    "id":  "2ae0b075-751a-50f7-9f21-d180652f63ec",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Venturi Mask Whole",
+    "assetKey":  "tool_venturi_mask_whole",
+    "toolId":  "VenturiMaskWhole",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/VenturiMask/tool_venturi_mask_whole.prefab",
+    "metadata":  [
+                     {
+                         "id":  "d14535d3-13a5-5f08-a3ce-1d0377601d29",
+                         "key":  "MaskWhole",
+                         "valueType":  "enum",
+                         "valueShape":  "enum",
+                         "possibleValues":  [
+                                                "BaseMask",
+                                                "CorrugatedTubing",
+                                                "ValveAttachment",
+                                                "RegularTubing",
+                                                "PlasticCup",
+                                                "AllCombined"
+                                            ],
+                         "defaultValue":  "PlasticCup",
+                         "examples":  [
+                                          "``BaseMask`` / ``CorrugatedTubing`` / ``ValveAttachment`` / ``RegularTubing`` / ``PlasticCup`` / ``AllCombined``"
+                                      ],
+                         "description":  "Discrete tool state from `ToolStateController` (prefab); drives visible child objects / interactions for this state.",
+                         "sourceScripts":  "ToolStateController",
+                         "complexSchema":  null,
+                         "controllerType":  "ToolStateController"
+                     }
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "PatientOxygen",
+                             "assetIds":  [
+
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+                                 {
+                                     "location":  "ValveAttachment_Yellow35",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment",
+                                     "assetIds":  [
+                                                      "c35081b7-4824-5e92-9f6d-0096b028dcf6",
+                                                      "c580046f-5105-5a98-af1e-1b9088860240",
+                                                      "80513cb7-81d6-5707-9f6d-85ac470e193d",
+                                                      "f1cf7844-0179-5f11-8bfb-74e1c663528f",
+                                                      "44d095e5-73c2-531b-9cb1-5cc63fc235f3",
+                                                      "600d8cc2-bc80-54a6-b533-dc8e61599cd7"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "BaseMask",
+                                     "assetIds":  [
+                                                      "f61649d1-33db-56bb-b600-9099532ff4d8"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment_blue24",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment_Biege28",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment_Red40",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment_Orange31",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "ValveAttachment_Green60",
+                                     "assetIds":  [
+
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "AllCombined",
+                                     "assetIds":  [
+                                                      "dafc896b-2088-53ab-997e-b4f9a0bf563b"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "RegularTubing",
+                                     "assetIds":  [
+                                                      "dafc896b-2088-53ab-997e-b4f9a0bf563b"
+                                                  ],
+                                     "availableIn":  null
+                                 },
+                                 {
+                                     "location":  "PlasticCup",
+                                     "assetIds":  [
+                                                      "df1e3924-d500-5bc1-975b-35a82220410b"
+                                                  ],
+                                     "availableIn":  null
+                                 }
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}

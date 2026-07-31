@@ -1,0 +1,44 @@
+{
+    "id":  "5b876360-197b-57a9-b2f9-34b7c223d2c1",
+    "type":  "tool",
+    "kind":  "tool",
+    "name":  "Ultrasound Probe With Sterile Sheath",
+    "assetKey":  "tool_ultrasound_probe_with_sterile_sheath",
+    "toolId":  "ultrasoundProbeWithSterileSheath",
+    "prefabPath":  "Assets/SimX/AssetBundles/Tools/Ultrasound/_UltrasoundProbeWithSterileSheathTool/tool_ultrasound_probe_with_sterile_sheath.prefab",
+    "metadata":  [
+
+                 ],
+    "interactions":  [
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         },
+                         {
+                             "location":  "NeckR",
+                             "assetIds":  [
+                                              "e42e1b9c-ee1c-5f63-b0bc-1f761081a6f6"
+                                          ],
+                             "availableIn":  null
+                         }
+                     ],
+    "interactionLocations":  [
+
+                             ],
+    "usedInGroupIds":  [
+
+                       ],
+    "scenarioIds":  [
+
+                    ]
+}
