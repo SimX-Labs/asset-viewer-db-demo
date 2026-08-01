@@ -115,7 +115,11 @@
           @for (interaction of equipmentInteractions(); track $index) {
             <div class="interaction-group">
               <div class="interaction-head">
-                <span class="interaction-loc">{{ interaction.Location || 'Unnamed interaction' }}</span>
+                @if (interaction.Interaction) {
+                  <app-value-renderer [value]="interaction.Interaction" />
+                } @else {
+                  <span class="interaction-loc">{{ interaction.Location || 'Unnamed interaction' }}</span>
+                }
                 @if (interaction.AvailableIn?.length) {
                   <span class="interaction-states">
                     @for (s of interaction.AvailableIn; track s) {

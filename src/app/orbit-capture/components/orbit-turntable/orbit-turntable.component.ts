@@ -50,9 +50,9 @@ type ViewMode = 'orbit' | 'model';
     </div>
     }
     <div class="viewport-shell">
-      @if (mode() === 'model' || showExpandButton) {
+      @if ((mode() === 'model' && showSpinControls) || showExpandButton) {
         <div class="viewer-controls" (pointerdown)="$event.stopPropagation()">
-          @if (mode() === 'model') {
+          @if (mode() === 'model' && showSpinControls) {
             <input
               type="range"
               class="spin-slider"
@@ -232,6 +232,8 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   @Input() preferModel = false;
   /** Hide the mode toolbar (compact embeds). */
   @Input() showToolbar = true;
+  /** Show spin-speed / pause-play overlay controls (model mode). */
+  @Input() showSpinControls = true;
   /** Show a fullscreen/expand control in the overlay (inline embeds). */
   @Input() showExpandButton = false;
   /** Whether the inline viewer is currently expanded within the detail panel. */

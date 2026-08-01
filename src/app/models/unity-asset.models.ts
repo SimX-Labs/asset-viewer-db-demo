@@ -6,27 +6,59 @@
 // See gitbooks/data/db/schemas/*.md in the source repo for the authoritative schema.
 //
 // Interaction fields (current schema):
-//   character / equipment → interactionLocations[]  (places tools can interact; assetIds → tools)
-//   tool.interactions[]                             (outbound ToolInteractions; assetIds → mixed)
-//   tool.interactionLocations[]                     (inbound InteractionTriggers; assetIds → tools)
+//   interactions/* rows                       (standalone location-keyed interactions + options)
+//   character / equipment → interactionLocations[]  (interactionId + assetIds → tools)
+//   tool.interactions[]                             (outbound; interactionId + assetIds → mixed)
+//   tool.interactionLocations[]                     (inbound; interactionId + assetIds → tools)
 //
 // Legacy aliases still accepted by the loader:
 //   character / equipment.interactions  → interactionLocations
 //   tool.interactionTargets             → tool.interactions (outbound)
+//   relationship entries with `location` (pre-standalone) → resolved via location string
 
 export type UnityRowType =
   | 'character'
   | 'equipment'
   | 'tool'
   | 'clothing'
+  | 'interaction'
   | 'characterMetadata'
   | 'toolMetadata';
 
-export interface UnityInteraction {
+/** Authored option triple on a standalone interaction row. */
+export interface UnityInteractionOption {
+  interactionType: 'Patient' | 'Other' | string;
+  info: string | null;
+  metadata: string | null;
+}
+
+/** Standalone interaction catalog row (db/interactions/*). */
+export interface UnityInteractionRow {
+  id: string;
+  type: 'interaction';
+  name: string;
   location: string;
+  options: UnityInteractionOption[];
+  /** Tools that declare this interaction as an outbound sender. */
+  canSendAssetIds: string[];
+  /** Characters, equipment, and tools that expose this interaction as a location. */
+  canReceiveAssetIds: string[];
+}
+
+/**
+ * Relationship entry on character / equipment / tool rows.
+ * New shape uses interactionId; legacy shape used location.
+ */
+export interface UnityInteractionRef {
+  interactionId?: string;
+  /** @deprecated Prefer interactionId; kept for older scrapes */
+  location?: string;
   assetIds: string[];
   availableIn: string[] | null;
 }
+
+/** @deprecated Use UnityInteractionRef */
+export type UnityInteraction = UnityInteractionRef;
 
 export interface UnityMetadataObject {
   id: string;
@@ -52,9 +84,9 @@ export interface UnityCharacter {
   isPrimaryInGroup: boolean;
   groupFolder: string;
   prefabPath: string;
-  interactionLocations: UnityInteraction[];
+  interactionLocations: UnityInteractionRef[];
   /** @deprecated Prefer interactionLocations */
-  interactions?: UnityInteraction[];
+  interactions?: UnityInteractionRef[];
   availableEquipment: string[];
   availableClothing: string[];
 }
@@ -67,9 +99,9 @@ export interface UnityEquipment {
   prefabPath: string;
   primaryMetadata?: UnityMetadataObject | null;
   metadata: UnityMetadataObject[];
-  interactionLocations: UnityInteraction[];
+  interactionLocations: UnityInteractionRef[];
   /** @deprecated Prefer interactionLocations */
-  interactions?: UnityInteraction[];
+  interactions?: UnityInteractionRef[];
   characterIds: string[];
 }
 
@@ -83,11 +115,11 @@ export interface UnityTool {
   prefabPath: string;
   metadata: UnityMetadataObject[];
   /** Outbound actions (ToolInteractions). */
-  interactions: UnityInteraction[];
+  interactions: UnityInteractionRef[];
   /** Inbound trigger locations on this tool. */
-  interactionLocations: UnityInteraction[];
+  interactionLocations: UnityInteractionRef[];
   /** @deprecated Legacy outbound field; prefer interactions */
-  interactionTargets?: UnityInteraction[];
+  interactionTargets?: UnityInteractionRef[];
   usedInGroupIds: string[];
   scenarioIds: string[];
 }
@@ -117,6 +149,7 @@ export interface UnityDbBundle {
   characters: UnityCharacter[];
   equipment: UnityEquipment[];
   tools: UnityTool[];
+  interactions: UnityInteractionRow[];
   clothing: UnityClothing[];
   characterMetadata: UnityCharacterMetadata[];
   toolMetadata: UnityToolMetadata[];
@@ -132,6 +165,7 @@ export interface UnityDbIndex {
   characters: string[];
   equipment: string[];
   tools: string[];
+  interactions: string[];
   clothing: string;
   characterMetadata: string;
   toolMetadata: string;

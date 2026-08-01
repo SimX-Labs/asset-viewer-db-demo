@@ -12,7 +12,8 @@ import { OrbitViewerService } from '../../orbit-capture/services/orbit-viewer.se
 import { OrbitInlineViewerComponent } from '../../orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
 
 interface EquipmentInteraction {
-  Location: string;
+  Interaction?: { AssetId: string };
+  Location?: string;
   AvailableIn?: string[];
   Assets?: { AssetId: string }[];
 }

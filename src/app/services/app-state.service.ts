@@ -62,8 +62,12 @@ export class AppStateService {
     return history?.[history.length - 1] ?? null;
   });
 
-  async loadDefaults(): Promise<void> {
-    this.dataMode.set(this.readStoredMode());
+  /**
+   * @param opts.preferUnity Force Unity Asset DB mode (used by `?embed=1`
+   *   deep links from scenario-creator, which reference Unity export ids).
+   */
+  async loadDefaults(opts?: { preferUnity?: boolean }): Promise<void> {
+    this.dataMode.set(opts?.preferUnity ? 'unity' : this.readStoredMode());
     await this.loadForCurrentMode();
   }
 

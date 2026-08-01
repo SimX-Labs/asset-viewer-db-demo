@@ -12,7 +12,8 @@ import {
   UnityDbBundle,
   UnityDbIndex,
   UnityEquipment,
-  UnityInteraction,
+  UnityInteractionRef,
+  UnityInteractionRow,
   UnityMetadataObject,
   UnityTool,
 } from '../models/unity-asset.models';
@@ -27,6 +28,7 @@ const CATEGORY_ORDER = [
   'Groups',
   'Vessels',
   'Scenes',
+  'Interactions',
   'Character Metadata',
   'Tool Metadata',
 ];
@@ -40,6 +42,8 @@ interface ReverseIndex {
   /** tool id → equipment ids whose interactionLocations list that tool */
   equipmentByTool: Record<string, string[]>;
   charByAssetKey: Record<string, UnityCharacter>;
+  interactionById: Record<string, UnityInteractionRow>;
+  interactionByLocation: Record<string, UnityInteractionRow>;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -56,11 +60,12 @@ export class UnityDataService {
       throw new Error(`Invalid Unity asset DB index at ${base}/${UNITY_DB_INDEX_FILE}`);
     }
 
-    const [characters, equipment, tools, clothing, characterMetadata, toolMetadata] =
+    const [characters, equipment, tools, interactions, clothing, characterMetadata, toolMetadata] =
       await Promise.all([
         this.fetchJsonFiles<UnityCharacter>(base, index.characters),
         this.fetchJsonFiles<UnityEquipment>(base, index.equipment),
         this.fetchJsonFiles<UnityTool>(base, index.tools),
+        this.fetchJsonFiles<UnityInteractionRow>(base, index.interactions ?? []),
         firstValueFrom(this.http.get<UnityClothing[]>(`${base}/${index.clothing}`)),
         firstValueFrom(
           this.http.get<UnityMetadataObject[]>(`${base}/${index.characterMetadata}`)
@@ -80,6 +85,7 @@ export class UnityDataService {
           characters: characters.length,
           equipment: equipment.length,
           tools: tools.length,
+          interactions: interactions.length,
           clothing: Array.isArray(clothing) ? clothing.length : 0,
           characterMetadata: Array.isArray(characterMetadata) ? characterMetadata.length : 0,
           toolMetadata: Array.isArray(toolMetadata) ? toolMetadata.length : 0,
@@ -88,6 +94,7 @@ export class UnityDataService {
       characters,
       equipment,
       tools,
+      interactions,
       clothing: Array.isArray(clothing) ? clothing : [],
       characterMetadata: (Array.isArray(characterMetadata) ? characterMetadata : []) as UnityDbBundle['characterMetadata'],
       toolMetadata: (Array.isArray(toolMetadata) ? toolMetadata : []) as UnityDbBundle['toolMetadata'],
@@ -153,6 +160,7 @@ export class UnityDataService {
       characters: await readDir<UnityCharacter>('characters'),
       equipment: await readDir<UnityEquipment>('equipment'),
       tools: await readDir<UnityTool>('tools'),
+      interactions: await readDir<UnityInteractionRow>('interactions'),
       clothing: Array.isArray(clothing) ? clothing : [],
       characterMetadata: Array.isArray(characterMetadata) ? characterMetadata : [],
       toolMetadata: Array.isArray(toolMetadata) ? toolMetadata : [],
@@ -204,13 +212,16 @@ export class UnityDataService {
       push('Characters', this.adaptCharacter(c, reverse));
     }
     for (const e of bundle.equipment ?? []) {
-      push('Equipment', this.adaptEquipment(e));
+      push('Equipment', this.adaptEquipment(e, reverse));
     }
     for (const cl of bundle.clothing ?? []) {
       push('Clothing', this.adaptClothing(cl, reverse));
     }
     for (const t of bundle.tools ?? []) {
       push(this.toolCategory(t.kind), this.adaptTool(t, reverse));
+    }
+    for (const i of bundle.interactions ?? []) {
+      push('Interactions', this.adaptInteractionRow(i));
     }
     for (const m of bundle.characterMetadata ?? []) {
       push('Character Metadata', this.adaptMetadata(m, 'Character Metadata', reverse));
@@ -249,8 +260,8 @@ export class UnityDataService {
 
   /** Character/equipment locations — new field, with legacy `interactions` fallback. */
   private hostLocations(
-    row: { interactionLocations?: UnityInteraction[]; interactions?: UnityInteraction[] }
-  ): UnityInteraction[] {
+    row: { interactionLocations?: UnityInteractionRef[]; interactions?: UnityInteractionRef[] }
+  ): UnityInteractionRef[] {
     return row.interactionLocations ?? row.interactions ?? [];
   }
 
@@ -259,12 +270,12 @@ export class UnityDataService {
    * New: interactions = outbound, interactionLocations = inbound.
    * Legacy: interactionTargets = outbound, interactions = inbound.
    */
-  private toolOutbound(t: UnityTool): UnityInteraction[] {
+  private toolOutbound(t: UnityTool): UnityInteractionRef[] {
     if (Array.isArray(t.interactionTargets)) return t.interactionTargets;
     return t.interactions ?? [];
   }
 
-  private toolInbound(t: UnityTool): UnityInteraction[] {
+  private toolInbound(t: UnityTool): UnityInteractionRef[] {
     if (Array.isArray(t.interactionTargets)) return t.interactions ?? [];
     return t.interactionLocations ?? [];
   }
@@ -275,6 +286,13 @@ export class UnityDataService {
     const metadataUsedBy: Record<string, string[]> = {};
     const equipmentByTool: Record<string, string[]> = {};
     const charByAssetKey: Record<string, UnityCharacter> = {};
+    const interactionById: Record<string, UnityInteractionRow> = {};
+    const interactionByLocation: Record<string, UnityInteractionRow> = {};
+
+    for (const i of bundle.interactions ?? []) {
+      interactionById[i.id] = i;
+      if (i.location) interactionByLocation[i.location] = i;
+    }
 
     for (const c of bundle.characters ?? []) {
       charByAssetKey[c.assetKey] = c;
@@ -307,7 +325,15 @@ export class UnityDataService {
       }
     }
 
-    return { clothingWornBy, containedTools, metadataUsedBy, equipmentByTool, charByAssetKey };
+    return {
+      clothingWornBy,
+      containedTools,
+      metadataUsedBy,
+      equipmentByTool,
+      charByAssetKey,
+      interactionById,
+      interactionByLocation,
+    };
   }
 
   private toolCategory(kind: string): string {
@@ -329,13 +355,53 @@ export class UnityDataService {
     return (ids ?? []).map((id) => ({ AssetId: id }));
   }
 
-  private adaptInteractions(list: UnityInteraction[] | undefined): unknown[] {
+  private adaptInteractions(
+    list: UnityInteractionRef[] | undefined,
+    reverse: ReverseIndex
+  ): unknown[] {
     return (list ?? []).map((it) => {
-      const out: Record<string, unknown> = { Location: it.location };
+      const row =
+        (it.interactionId ? reverse.interactionById[it.interactionId] : undefined) ??
+        (it.location ? reverse.interactionByLocation[it.location] : undefined);
+      const out: Record<string, unknown> = {};
+      if (it.interactionId || row?.id) {
+        out['Interaction'] = { AssetId: it.interactionId ?? row!.id };
+      }
+      const loc = row?.location ?? it.location;
+      if (loc) out['Location'] = loc;
       if (it.availableIn && it.availableIn.length) out['AvailableIn'] = it.availableIn;
       out['Assets'] = this.toRefs(it.assetIds);
       return out;
     });
+  }
+
+  private adaptInteractionRow(i: UnityInteractionRow): DboAsset {
+    const data: Record<string, unknown> = {
+      Location: i.location,
+    };
+    if (i.options?.length) {
+      data['Options'] = i.options.map((o) => {
+        const opt: Record<string, unknown> = { InteractionType: o.interactionType };
+        if (o.info != null && o.info !== '') opt['Info'] = o.info;
+        if (o.metadata != null && o.metadata !== '') opt['Metadata'] = o.metadata;
+        return opt;
+      });
+    }
+    if (i.canSendAssetIds?.length) {
+      data['Can Send'] = this.toRefs(i.canSendAssetIds);
+    }
+    if (i.canReceiveAssetIds?.length) {
+      data['Can Receive'] = this.toRefs(i.canReceiveAssetIds);
+    }
+
+    return {
+      AssetId: i.id,
+      AssetName: i.name || i.location,
+      AssetType: 'Interaction',
+      Data: data,
+      _Category: 'Interactions',
+      _File: UNITY_VIRTUAL_FILE,
+    };
   }
 
   private compactMetadata(m: UnityMetadataObject): Record<string, unknown> {
@@ -373,7 +439,7 @@ export class UnityDataService {
     if (variants.length) data['Variants'] = variants;
 
     const locations = this.hostLocations(c);
-    if (locations.length) data['Interactions'] = this.adaptInteractions(locations);
+    if (locations.length) data['Interactions'] = this.adaptInteractions(locations, reverse);
     data['AvailableEquipment'] = this.toRefs(c.availableEquipment);
     data['AvailableClothing'] = this.toRefs(c.availableClothing);
 
@@ -387,7 +453,7 @@ export class UnityDataService {
     };
   }
 
-  private adaptEquipment(e: UnityEquipment): DboAsset {
+  private adaptEquipment(e: UnityEquipment, reverse: ReverseIndex): DboAsset {
     const data: Record<string, unknown> = {
       AssetKey: e.assetKey,
       PrefabPath: e.prefabPath,
@@ -395,7 +461,7 @@ export class UnityDataService {
     if (e.primaryMetadata) data['PrimaryMetadata'] = this.compactMetadata(e.primaryMetadata);
     if (e.metadata?.length) data['Metadata'] = e.metadata.map((m) => this.compactMetadata(m));
     const locations = this.hostLocations(e);
-    if (locations.length) data['Interactions'] = this.adaptInteractions(locations);
+    if (locations.length) data['Interactions'] = this.adaptInteractions(locations, reverse);
     data['CompatibleCharacters'] = this.toRefs(e.characterIds);
 
     return {
@@ -433,8 +499,8 @@ export class UnityDataService {
 
     const outbound = this.toolOutbound(t);
     const inbound = this.toolInbound(t);
-    if (outbound.length) data['InteractionSenders'] = this.adaptInteractions(outbound);
-    if (inbound.length) data['InteractionLocations'] = this.adaptInteractions(inbound);
+    if (outbound.length) data['InteractionSenders'] = this.adaptInteractions(outbound, reverse);
+    if (inbound.length) data['InteractionLocations'] = this.adaptInteractions(inbound, reverse);
 
     if (t.usedInGroupIds?.length) data['UsedInGroups'] = this.toRefs(t.usedInGroupIds);
 

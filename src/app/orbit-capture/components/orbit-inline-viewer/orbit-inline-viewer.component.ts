@@ -13,6 +13,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { OrbitCaptureBundle } from '../../models/orbit-manifest';
 import { OrbitViewerService } from '../../services/orbit-viewer.service';
+import { OrbitHttpCaptureService } from '../../services/orbit-http-capture.service';
 import { OrbitSessionState } from '../../services/orbit-session-state';
 import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.component';
 
@@ -30,7 +31,7 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
   standalone: true,
   imports: [CommonModule, OrbitTurntableComponent],
   template: `
-    @if (status() !== 'none') {
+    @if (status() !== 'none' || diagnostic) {
       <figure
         class="model-infobox"
         [class.expanded]="expanded()"
@@ -41,7 +42,8 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
             [bundle]="bundle()!"
             [preferModel]="true"
             [showToolbar]="false"
-            [showExpandButton]="true"
+            [showSpinControls]="showControls"
+            [showExpandButton]="showControls"
             [expanded]="expanded()"
             (expand)="toggleExpanded()"
           />
@@ -49,8 +51,18 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
           <div class="infobox-note">Loading 3D model…</div>
         } @else if (status() === 'blocked') {
           <div class="infobox-note">
-            <button type="button" class="infobox-btn" (click)="grant()">Load 3D model</button>
-            <span class="infobox-hint">Grant access to the models folder.</span>
+            <button type="button" class="infobox-btn" (click)="grant()">
+              Load 3D model
+            </button>
+            <span class="infobox-hint">{{
+              reason() || 'Grant access to the models folder.'
+            }}</span>
+          </div>
+        } @else if (diagnostic) {
+          <div class="infobox-note">
+            <span class="infobox-hint">{{
+              reason() || 'No 3D model available.'
+            }}</span>
           </div>
         }
       </figure>
@@ -127,12 +139,22 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
 })
 export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   @Input({ required: true }) addressable!: string;
+  /** Show why no model rendered instead of hiding silently (embeds/pickers). */
+  @Input() diagnostic = false;
+  /**
+   * Overlay chrome (spin speed, pause/play, expand). Off for compact
+   * scenario-creator thumbnails; on for the full detail-panel infobox.
+   */
+  @Input() showControls = true;
 
   private readonly viewer = inject(OrbitViewerService);
+  private readonly http = inject(OrbitHttpCaptureService);
   private readonly session = inject(OrbitSessionState);
   private readonly host = inject(ElementRef<HTMLElement>);
 
   readonly status = signal<InlineStatus>('idle');
+  /** Why the viewer is not showing a model; surfaced when `diagnostic` is set. */
+  readonly reason = signal<string>('');
   readonly bundle = signal<OrbitCaptureBundle | null>(null);
   readonly expanded = this.session.panelExpanded;
   readonly expandedStyle = signal<Record<string, string> | null>(null);
@@ -162,8 +184,19 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   async grant(): Promise<void> {
-    if (await this.viewer.requestRootAccess()) {
-      await this.load();
+    try {
+      if (await this.viewer.requestRootAccess()) {
+        await this.load();
+        return;
+      }
+      this.reason.set('Access to the models folder was denied.');
+    } catch (e) {
+      // Cross-origin iframes cannot prompt for file system access.
+      this.reason.set(
+        e instanceof Error
+          ? e.message
+          : 'Could not request folder access here.',
+      );
     }
   }
 
@@ -180,31 +213,53 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   private async resolve(): Promise<void> {
-    if (!this.addressable || !this.viewer.supported || !this.viewer.hasRoot) {
-      this.status.set('none');
-      this.exitExpandedIfNeeded();
+    if (!this.addressable) {
+      this.fail('This asset has no addressable key to look up.');
       return;
     }
-    if (await this.viewer.isRootReadable()) {
-      await this.load();
-    } else {
-      // Folder set but not yet readable this session — offer a one-click grant.
-      this.status.set('blocked');
+
+    // A locally linked folder wins when it is already readable; otherwise fall
+    // back to HTTP, which is the only option inside cross-origin iframes.
+    const localReady =
+      this.viewer.supported &&
+      this.viewer.hasRoot &&
+      (await this.viewer.isRootReadable());
+
+    if (localReady) {
+      await this.load('local');
+      return;
     }
+
+    if (this.http.configured) {
+      await this.load('http');
+      return;
+    }
+
+    if (this.viewer.hasRoot) {
+      // Folder set but not yet readable this session — offer a one-click grant.
+      this.reason.set('Grant access to the models folder.');
+      this.status.set('blocked');
+      return;
+    }
+
+    this.fail('No models folder or models server is configured.');
   }
 
-  private async load(): Promise<void> {
+  private async load(source: 'local' | 'http' = 'local'): Promise<void> {
     this.status.set('loading');
     try {
-      const bundle = await this.viewer.loadEntry(this.addressable);
+      const bundle =
+        source === 'http'
+          ? await this.http.loadBundle(this.addressable)
+          : await this.viewer.loadEntry(this.addressable);
       // Infobox is GLB-focused: hide when the capture has no model.
       if (!bundle.modelUrl) {
         bundle.revoke();
-        this.status.set('none');
-        this.exitExpandedIfNeeded();
+        this.fail(`Capture "${this.addressable}" has no .glb model.`);
         return;
       }
       this.bundle.set(bundle);
+      this.reason.set('');
       this.status.set('ready');
       if (this.expanded()) {
         // Recreated after asset switch while still expanded — reattach bounds.
@@ -213,16 +268,27 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
           this.observeDetailPanel();
         });
       }
-    } catch {
+    } catch (e) {
       // No matching folder / manifest — just don't show an infobox.
-      this.status.set('none');
-      this.exitExpandedIfNeeded();
+      this.fail(
+        e instanceof Error
+          ? e.message
+          : `No capture folder named "${this.addressable}".`,
+      );
     }
+  }
+
+  /** Record why nothing rendered, then collapse to the hidden/diagnostic state. */
+  private fail(reason: string): void {
+    this.reason.set(reason);
+    this.status.set('none');
+    this.exitExpandedIfNeeded();
   }
 
   private reset(): void {
     this.bundle()?.revoke();
     this.bundle.set(null);
+    this.reason.set('');
     this.status.set('idle');
   }
 
