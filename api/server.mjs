@@ -1,15 +1,19 @@
 /**
- * Asset Database PoC API — Library-compatible HTTP surface over public/db/.
+ * Asset Database PoC API — Library-compatible HTTP surface over the Unity
+ * asset DB folder (UNITY_ASSET_DB_DIR, else unity-asset-documentation/db).
  *
  * Endpoints (mirrors Asset Library contract used by scenario-creator):
  *   POST /assets
- *   GET  /tags                  → []
- *   GET  /tag-categories        → []
+ *   GET  /tags                  → curated taxonomy tags (legacy shape)
+ *   POST/PATCH/DELETE /tags…
+ *   GET  /tag-categories        → curated categories
+ *   POST/PATCH/DELETE /tag-categories…
+ *   GET/PUT /tag-taxonomy       → full taxonomy file
  *   GET  /asset-image/:id       → 501
  *   GET  /system/health
  *
  * Supported assetType values: "tool" (Unity kind===tool), "equipment",
- * "interaction".
+ * "interaction", "medication", "waveform", "scenario".
  */
 
 import cors from 'cors';
@@ -18,21 +22,37 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadUnityDbFromDir } from './load-unity-db.mjs';
+import { createTagTaxonomyStore } from './tag-taxonomy.mjs';
 import {
   SUPPORTED_LIBRARY_TYPES,
+  collectUniqueTags,
   listUnityEquipment,
   listUnityInteractions,
+  listUnityMedications,
+  listUnityScenarios,
   listUnityTools,
+  listUnityWaveforms,
   mapUnityEquipmentToLibraryAsset,
   mapUnityInteractionToLibraryAsset,
+  mapUnityMedicationToLibraryAsset,
+  mapUnityScenarioToLibraryAsset,
   mapUnityToolToLibraryAsset,
+  mapUnityWaveformToLibraryAsset,
   unsupportedTypeMessage,
 } from './unity-mapper.mjs';
+import {
+  DEFAULT_UNITY_ASSET_DB_DIR,
+  resolveDbRoot,
+} from '../scripts/resolve-db-root.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4301);
-const DB_DIR =
-  process.env.UNITY_ASSET_DB_DIR || path.resolve(__dirname, '../public/db');
+const DB_DIR = resolveDbRoot();
+if (!process.env.UNITY_ASSET_DB_DIR) {
+  console.log(
+    `UNITY_ASSET_DB_DIR unset; using default ${DEFAULT_UNITY_ASSET_DB_DIR}`,
+  );
+}
 /**
  * Orbit Capture exports: one subfolder per addressable key, each holding
  * manifest.json + model.glb. Served over HTTP so embedded viewers (iframes)
@@ -46,12 +66,20 @@ const bundle = loadUnityDbFromDir(DB_DIR);
 const tools = listUnityTools(bundle);
 const equipment = listUnityEquipment(bundle);
 const interactions = listUnityInteractions(bundle);
+const medications = listUnityMedications(bundle);
+const waveforms = listUnityWaveforms(bundle);
+const scenarios = listUnityScenarios(bundle);
 /** All tool-catalog rows (tool/kit/group/vessel) for interaction FK resolution. */
 const toolCatalog = (bundle.tools ?? []).filter((t) => t?.id);
 console.log(
-  `Loaded ${tools.length} tools (kind=tool), ${equipment.length} equipment, ${interactions.length} interactions.`,
+  `Loaded ${tools.length} tools (kind=tool), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios.`,
 );
 console.table(bundle.meta?.counts ?? {});
+
+const tagStore = createTagTaxonomyStore(DB_DIR);
+console.log(
+  `Tag taxonomy: ${tagStore.listTags().length} tags, ${tagStore.listCategories().length} categories.`,
+);
 
 /**
  * @param {string} dir
@@ -107,11 +135,88 @@ app.use(
 );
 
 app.get('/tags', (_req, res) => {
-  res.json([]);
+  // Prefer curated taxonomy (legacy Asset Library shape). Fall back to
+  // asset-derived label strings when the taxonomy is empty.
+  const curated = tagStore.listTags();
+  if (curated.length > 0) {
+    return res.json(curated);
+  }
+  res.json(
+    collectUniqueTags(
+      tools,
+      equipment,
+      interactions,
+      medications,
+      waveforms,
+      scenarios,
+    ),
+  );
+});
+
+app.post('/tags', (req, res) => {
+  const created = tagStore.createTag(req.body ?? {});
+  res.status(201).json(created);
+});
+
+app.get('/tags/:dataId', (req, res) => {
+  const tag = tagStore.listTags().find((t) => t.dataId === req.params.dataId);
+  if (!tag) return res.status(404).json({ message: 'Tag not found.' });
+  res.json(tag);
+});
+
+app.patch('/tags/:dataId', (req, res) => {
+  const updated = tagStore.updateTag(req.params.dataId, req.body ?? {});
+  if (!updated) return res.status(404).json({ message: 'Tag not found.' });
+  res.json(updated);
+});
+
+app.delete('/tags/:dataId', (req, res) => {
+  if (!tagStore.deleteTag(req.params.dataId)) {
+    return res.status(404).json({ message: 'Tag not found.' });
+  }
+  res.status(200).send();
 });
 
 app.get('/tag-categories', (_req, res) => {
-  res.json([]);
+  res.json(tagStore.listCategories());
+});
+
+app.post('/tag-categories', (req, res) => {
+  const created = tagStore.createCategory(req.body ?? {});
+  res.status(201).json(created);
+});
+
+app.get('/tag-categories/:dataId', (req, res) => {
+  const category = tagStore
+    .listCategories()
+    .find((c) => c.dataId === req.params.dataId);
+  if (!category) {
+    return res.status(404).json({ message: 'Tag category not found.' });
+  }
+  res.json(category);
+});
+
+app.patch('/tag-categories/:dataId', (req, res) => {
+  const updated = tagStore.updateCategory(req.params.dataId, req.body ?? {});
+  if (!updated) {
+    return res.status(404).json({ message: 'Tag category not found.' });
+  }
+  res.json(updated);
+});
+
+app.delete('/tag-categories/:dataId', (req, res) => {
+  if (!tagStore.deleteCategory(req.params.dataId)) {
+    return res.status(404).json({ message: 'Tag category not found.' });
+  }
+  res.status(200).send();
+});
+
+app.get('/tag-taxonomy', (_req, res) => {
+  res.json(tagStore.getTaxonomy());
+});
+
+app.put('/tag-taxonomy', (req, res) => {
+  res.json(tagStore.replaceTaxonomy(req.body ?? {}));
 });
 
 app.get('/asset-image/:id', (_req, res) => {
@@ -183,6 +288,9 @@ app.post('/assets', (req, res) => {
       ...tools.map((t) => mapUnityToolToLibraryAsset(t, mapOpts)),
       ...equipment.map((e) => mapUnityEquipmentToLibraryAsset(e, mapOpts)),
       ...interactions.map((i) => mapUnityInteractionToLibraryAsset(i, mapOpts)),
+      ...medications.map((m) => mapUnityMedicationToLibraryAsset(m, mapOpts)),
+      ...waveforms.map((w) => mapUnityWaveformToLibraryAsset(w, mapOpts)),
+      ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
     ];
   } else {
     if (assetTypes.includes('tool')) {
@@ -198,6 +306,21 @@ app.post('/assets', (req, res) => {
         ...interactions.map((i) =>
           mapUnityInteractionToLibraryAsset(i, mapOpts),
         ),
+      );
+    }
+    if (assetTypes.includes('medication')) {
+      results.push(
+        ...medications.map((m) => mapUnityMedicationToLibraryAsset(m, mapOpts)),
+      );
+    }
+    if (assetTypes.includes('waveform')) {
+      results.push(
+        ...waveforms.map((w) => mapUnityWaveformToLibraryAsset(w, mapOpts)),
+      );
+    }
+    if (assetTypes.includes('scenario')) {
+      results.push(
+        ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
       );
     }
   }
@@ -221,13 +344,18 @@ app.post('/assets', (req, res) => {
       'dataId',
       'description',
       'prefabName',
+      'tags',
     ]);
     if (allowed.has(col)) {
-      results = results.filter((a) =>
-        String(a[col] ?? '')
+      results = results.filter((a) => {
+        if (col === 'tags') {
+          const tags = Array.isArray(a.tags) ? a.tags : [];
+          return tags.some((t) => String(t).toLowerCase().includes(needle));
+        }
+        return String(a[col] ?? '')
           .toLowerCase()
-          .includes(needle),
-      );
+          .includes(needle);
+      });
     }
   }
 

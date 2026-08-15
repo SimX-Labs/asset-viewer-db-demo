@@ -1,6 +1,6 @@
 /**
  * Load the Unity asset DB from a per-file folder (same layout as
- * unity-asset-documentation/db and public/db).
+ * unity-asset-documentation/db).
  */
 
 import fs from 'node:fs';
@@ -50,6 +50,9 @@ export function loadUnityDbFromDir(dbRoot) {
     tools: readDir('tools'),
     interactions: readDir('interactions'),
     clothing: readArray('clothing.json'),
+    medications: readArray('medications.json'),
+    waveforms: readArray('waveforms.json'),
+    scenarios: readArray('scenarios.json'),
     characterMetadata: readArray('character-metadata.json'),
     toolMetadata: readArray('tool-metadata.json'),
   };
@@ -60,6 +63,9 @@ export function loadUnityDbFromDir(dbRoot) {
     tools: bundle.tools.length,
     interactions: bundle.interactions.length,
     clothing: bundle.clothing.length,
+    medications: bundle.medications.length,
+    waveforms: bundle.waveforms.length,
+    scenarios: bundle.scenarios.length,
     characterMetadata: bundle.characterMetadata.length,
     toolMetadata: bundle.toolMetadata.length,
   };

@@ -52,6 +52,26 @@
   flex-wrap: wrap;
 }
 
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: calc(var(--space-5) * -1) 0 var(--space-5);
+}
+
+.asset-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-graphic);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  color: var(--simx-content-heavy);
+  background: var(--simx-content-lightest);
+  border: 1px solid var(--simx-content-lighter);
+  border-radius: var(--radius-default);
+}
+
 .action-btn {
   display: inline-flex;
   align-items: center;

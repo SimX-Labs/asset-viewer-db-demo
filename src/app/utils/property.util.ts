@@ -77,9 +77,11 @@ export function matchesFilter(item: DboAsset, query: string): boolean {
   }
 
   const lowerQ = trimmed.toLowerCase();
+  const tags = item.Tags ?? [];
   return (
     item.AssetName.toLowerCase().includes(lowerQ) ||
-    item.AssetId.toLowerCase().includes(lowerQ)
+    item.AssetId.toLowerCase().includes(lowerQ) ||
+    tags.some((t) => t.toLowerCase().includes(lowerQ))
   );
 }
 

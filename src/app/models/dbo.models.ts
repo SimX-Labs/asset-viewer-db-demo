@@ -9,6 +9,8 @@ export interface DboAsset {
   AssetName: string;
   AssetType: string;
   Data: Record<string, unknown>;
+  /** Free-form labels from Unity export; used for sorting / filtering. */
+  Tags?: string[];
   _Category?: string;
   _File?: string;
   ToolHierarchyData?: ToolHierarchy;

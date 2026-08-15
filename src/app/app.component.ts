@@ -6,7 +6,9 @@ import { AssetListComponent } from './components/asset-list/asset-list.component
 import { DetailPanelComponent } from './components/detail-panel/detail-panel.component';
 import { OrbitViewerHostComponent } from './orbit-capture/components/orbit-viewer-host/orbit-viewer-host.component';
 import { OrbitInlineViewerComponent } from './orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
+import { TagsModalComponent } from './components/tags-modal/tags-modal.component';
 import { AppStateService } from './services/app-state.service';
+import { TagTaxonomyService } from './services/tag-taxonomy.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,7 @@ import { AppStateService } from './services/app-state.service';
     DetailPanelComponent,
     OrbitViewerHostComponent,
     OrbitInlineViewerComponent,
+    TagsModalComponent,
   ],
   template: `
     @if (modelOnlyMode()) {
@@ -60,6 +63,9 @@ import { AppStateService } from './services/app-state.service';
         <app-detail-panel [embedMode]="embedMode()" />
       </main>
       <app-orbit-viewer-host />
+      @if (!embedMode() && tagTaxonomy.modalOpen()) {
+        <app-tags-modal />
+      }
     }
   `,
   styleUrl: './app.component.scss',
@@ -69,6 +75,7 @@ import { AppStateService } from './services/app-state.service';
 })
 export class AppComponent implements OnInit {
   readonly state = inject(AppStateService);
+  readonly tagTaxonomy = inject(TagTaxonomyService);
   /** Compact detail-only layout for iframe embeds (scenario-creator tool picker). */
   readonly embedMode = signal(false);
   /** Model-only thumbnail layout for picker header embeds. */

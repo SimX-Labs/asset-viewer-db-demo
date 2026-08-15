@@ -20,7 +20,7 @@ export class AppStateService {
   private readonly unityData = inject(UnityDataService);
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly dataMode = signal<DataMode>('dbo');
+  readonly dataMode = signal<DataMode>('unity');
 
   readonly loaded = signal(false);
   readonly statusMessage = signal('');
@@ -115,7 +115,8 @@ export class AppStateService {
 
   private readStoredMode(): DataMode {
     if (!isPlatformBrowser(this.platformId)) return this.dataMode();
-    return localStorage.getItem(DATA_MODE_KEY) === 'unity' ? 'unity' : 'dbo';
+    // Default is Unity Asset DB. DBO remains available for comparison until removed.
+    return localStorage.getItem(DATA_MODE_KEY) === 'dbo' ? 'dbo' : 'unity';
   }
 
   private persistMode(mode: DataMode): void {
@@ -377,7 +378,7 @@ export class AppStateService {
       return;
     }
 
-    const headers = ['AssetId', 'AssetName', 'AssetType', 'AssetAddress', 'HasWebGLView'];
+    const headers = ['AssetId', 'AssetName', 'AssetType', 'Tags', 'AssetAddress', 'HasWebGLView'];
     const sample = items[0];
     if (sample.Data?.['ContainedTools']) {
       headers.push('ContainedTools_Count', 'ContainedTools_List');
@@ -392,6 +393,7 @@ export class AppStateService {
         `"${item.AssetId ?? ''}"`,
         `"${item.AssetName ?? ''}"`,
         `"${item.AssetType ?? ''}"`,
+        `"${(item.Tags ?? []).join(';')}"`,
         `"${(item.Data?.['AssetAddress'] as string) ?? ''}"`,
         Boolean(item.Data?.['HasWebGLView']),
       ];

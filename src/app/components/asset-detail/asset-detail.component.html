@@ -34,6 +34,14 @@
       }
     </div>
 
+    @if (asset.Tags?.length) {
+      <div class="tags-row">
+        @for (tag of asset.Tags; track tag) {
+          <span class="asset-tag">{{ tag }}</span>
+        }
+      </div>
+    }
+
     @if (asset.Data['HasWebGLView'] === true) {
       <button class="btn-webgl simx-btn simx-btn--primary" (click)="openWebGL()">
         <i class="pi pi-play" aria-hidden="true"></i> View Asset
@@ -54,6 +62,13 @@
 </div>
 
 <div class="simx-section-divider" role="separator"></div>
+
+@if (isWaveform()) {
+  <div class="special-section">
+    <div class="simx-section-heading">Waveform Preview</div>
+    <app-waveform-chart [dataPoints]="waveformDataPoints()" />
+  </div>
+}
 
 @if (asset.AssetType === 'Procedure' && asset.Data['StateMap']) {
   <div class="special-section">

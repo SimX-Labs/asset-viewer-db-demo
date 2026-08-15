@@ -1,12 +1,94 @@
-# SimX DBO Explorer
+# SimX Asset Database Viewer
 
-Angular app for browsing SimX DBO (database object) asset exports with WebGL preview support.
+Angular app for browsing SimX Unity Asset DB exports with WebGL preview support. The classic DBO format remains available for comparison but will be removed in a future release.
 
 **Live demo:** https://simx-labs.github.io/asset-viewer-db-demo/
 
-## DBO content files
+## Local development
 
-DBO JSON exports (`DBO_*.json`) are **not** included in this repository. Share them separately and load them in the app via **Settings → Load DBO File(s)...**
+```bash
+npm install
+npm start
+```
+
+Open http://localhost:4300
+
+On startup the viewer loads the **Unity Asset DB** via `public/db` (a junction/symlink to an external folder — see below). Switch to DBO (legacy) under **Settings → Data Source** if you need a side-by-side comparison.
+
+## Unity Asset DB (external folder)
+
+The JSON tree is **not** stored in this repo. Locally it comes from `unity-asset-documentation/db` (same layout that will later live on S3):
+
+| Role | Setting |
+|------|---------|
+| Filesystem (API, import scripts, `npm run db:link`) | `UNITY_ASSET_DB_DIR` — default `../../unity-asset-documentation/db` |
+| Browser URL (`UNITY_DB_ROOT` in the app) | `db` today (served through the link); replace with an S3/HTTPS URL later |
+
+```bash
+# optional override (PowerShell)
+$env:UNITY_ASSET_DB_DIR="C:\SimX\unity-asset-documentation\db"
+npm start
+```
+
+`npm start` / `npm run build` run `db:link` then regenerate `index.json` in that folder.
+
+Layout:
+
+```
+db/
+  characters/<assetKey>.<8hex>.json
+  equipment/<assetKey>.<8hex>.json
+  tools/<assetKey>.<8hex>.json
+  interactions/<location>.<8hex>.json
+  clothing.json
+  medications.json          # from Unity MedicationDatabase export (not scraped)
+  waveforms.json            # from scenario-creator case waveforms[] (not Unity scrape)
+  scenarios.json            # from scenario-creator case files (summary rows)
+  tag-taxonomy.json         # curated tag categories + tags (editable in viewer/API)
+  character-metadata.json
+  tool-metadata.json
+  index.json                 # generated; browser needs a file list
+```
+
+Refresh the manifest:
+
+```bash
+npm run db:index
+```
+
+Re-import medications from a Unity `medicationDatabase.json` export:
+
+```bash
+npm run db:import-medications -- path/to/medicationDatabase.json
+```
+
+Re-import waveforms from scenario-creator case files:
+
+```bash
+npm run db:import-waveforms -- C:/SimX/scenario-creator-cases/scenarios
+```
+
+Re-import scenarios from scenario-creator case files:
+
+```bash
+npm run db:import-scenarios -- C:/SimX/scenario-creator-cases/scenarios
+```
+
+Imports write into `UNITY_ASSET_DB_DIR` (not into this repo).
+
+You can also load a different `db/` folder at runtime via **Settings → Load Unity DB folder...**.
+
+### Switching to S3 later
+
+1. Host the same folder layout (including `index.json`) on the bucket.
+2. Change `UNITY_DB_ROOT` in `src/app/models/unity-asset.models.ts` to the public HTTPS base URL (or wire it via environment config).
+3. Point the API’s `UNITY_ASSET_DB_DIR` at a local sync/cache of that bucket, or teach the API to fetch remotely.
+
+## DBO content files (legacy)
+
+> **Deprecation notice:** DBO parsing is kept temporarily for comparison with the Unity Asset DB. It will be removed in a future release. Prefer the Unity Asset DB for all new work.
+
+DBO JSON exports (`DBO_*.json`) are **not** included in this repository. Share them separately and load them in the app via **Settings → Data Source → DBO → Load DBO File(s)...**
 
 Expected filenames:
 
@@ -20,47 +102,9 @@ Expected filenames:
 
 Place files in `public/` for local development, or use the in-app file picker when using the hosted demo.
 
-## Local development
-
-```bash
-npm install
-npm start
-```
-
-Open http://localhost:4300
-
-## Unity Asset DB (`public/db`)
-
-The viewer loads the per-file Unity asset graph from `public/db/` (same layout as `unity-asset-documentation/db`):
-
-```
-public/db/
-  characters/<assetKey>.<8hex>.json
-  equipment/<assetKey>.<8hex>.json
-  tools/<assetKey>.<8hex>.json
-  interactions/<location>.<8hex>.json
-  clothing.json
-  character-metadata.json
-  tool-metadata.json
-  index.json                 # generated; browser needs a file list
-```
-
-Refresh the manifest after copying a new scrape:
-
-```bash
-npm run db:index
-```
-
-`npm start` / `npm run build` regenerate `index.json` automatically. Point `UNITY_DB_ROOT` (app constant) at a remote host later — keep the same folder layout and ship an `index.json` beside it.
-
-Interaction rows live under `interactions/` (location-keyed, with authored options). Their
-`canSendAssetIds` identify tools with outbound interactions, while `canReceiveAssetIds` identify
-characters, equipment, and tools exposing matching interaction locations. Asset rows reference
-the interaction via `interactionId` on `interactionLocations` / `interactions` entries.
-
 ## Asset Database API (scenario-creator Next)
 
-PoC HTTP layer over **`public/db/`** so scenario-creator can use header **Asset DB → Next** for tool / equipment / interaction pickers. DBO is not used by this API.
+PoC HTTP layer over the Unity asset DB folder so scenario-creator can use header **Asset DB → Next** for tool / equipment / interaction pickers. DBO is not used by this API.
 
 ```bash
 npm run api:install
@@ -71,14 +115,18 @@ Override the folder with `UNITY_ASSET_DB_DIR`. Listens on **http://localhost:430
 
 | Method | Path | Notes |
 |--------|------|--------|
-| POST | `/assets` | Library-compatible query; **tool** (`kind === tool`), **equipment**, and **interaction** |
-| GET | `/tags`, `/tag-categories` | Empty arrays (no taxonomy yet) |
+| POST | `/assets` | Library-compatible query; **tool**, **equipment**, **interaction**, **medication**, **waveform**, and **scenario** |
+| GET | `/tags` | Curated taxonomy tags (`{ dataId, label, categories }`); falls back to asset label strings if empty |
+| POST / PATCH / DELETE | `/tags`, `/tags/:dataId` | Create / update / delete curated tags |
+| GET | `/tag-categories` | Curated categories (`{ dataId, label, tags }`) |
+| POST / PATCH / DELETE | `/tag-categories`, `/tag-categories/:dataId` | Create / update / delete categories |
+| GET / PUT | `/tag-taxonomy` | Full taxonomy dump / replace (persists `tag-taxonomy.json`) |
 | GET | `/asset-image/:id` | 501 — no image store |
 | GET | `/models/<key>/model.glb` | Orbit Capture GLB (see below) |
 | GET | `/models-index` | `{ count, keys }` of published captures |
 | GET | `/system/health` | `{ status: "ok" }` |
 
-Unsupported Asset Library types (`character`, `environment`, `settings`, `waveform`) return **501** with a clear message. Point scenario-creator `NG_APP_ASSET_LIBRARY_NEXT_API_URL` at `http://localhost:4301`.
+Unsupported Asset Library types (`character`, `environment`, `settings`) return **501** with a clear message. Point scenario-creator `NG_APP_ASSET_LIBRARY_NEXT_API_URL` at `http://localhost:4301`.
 
 ### Serving Orbit Captures over HTTP
 
@@ -118,6 +166,8 @@ Tool `/assets` responses include Unity extras under `data` (`assetKey`, `toolId`
 npm run build          # production build
 npm run build:pages    # GitHub Pages build (base href /asset-viewer-db-demo/)
 ```
+
+GitHub Pages CI builds without the sibling `unity-asset-documentation` checkout (empty DB stub). Once S3 is ready, point `UNITY_DB_ROOT` at the bucket so the hosted demo loads live data.
 
 ## Deployment
 

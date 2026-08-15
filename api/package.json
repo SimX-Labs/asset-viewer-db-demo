@@ -2,7 +2,7 @@
   "name": "asset-database-api-compat",
   "version": "0.1.0",
   "private": true,
-  "description": "PoC Asset Database HTTP layer over public/db (Library-compatible)",
+  "description": "PoC Asset Database HTTP layer over UNITY_ASSET_DB_DIR (Library-compatible)",
   "main": "server.mjs",
   "scripts": {
     "start": "node server.mjs"

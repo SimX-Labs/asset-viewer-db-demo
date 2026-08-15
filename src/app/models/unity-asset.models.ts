@@ -21,6 +21,9 @@ export type UnityRowType =
   | 'equipment'
   | 'tool'
   | 'clothing'
+  | 'medication'
+  | 'waveform'
+  | 'scenario'
   | 'interaction'
   | 'characterMetadata'
   | 'toolMetadata';
@@ -39,6 +42,8 @@ export interface UnityInteractionRow {
   name: string;
   location: string;
   options: UnityInteractionOption[];
+  /** Free-form labels for sorting / filtering. */
+  tags?: string[];
   /** Tools that declare this interaction as an outbound sender. */
   canSendAssetIds: string[];
   /** Characters, equipment, and tools that expose this interaction as a location. */
@@ -84,6 +89,8 @@ export interface UnityCharacter {
   isPrimaryInGroup: boolean;
   groupFolder: string;
   prefabPath: string;
+  /** Free-form labels for sorting / filtering. */
+  tags?: string[];
   interactionLocations: UnityInteractionRef[];
   /** @deprecated Prefer interactionLocations */
   interactions?: UnityInteractionRef[];
@@ -97,6 +104,8 @@ export interface UnityEquipment {
   name: string;
   assetKey: string;
   prefabPath: string;
+  /** Free-form labels for sorting / filtering. */
+  tags?: string[];
   primaryMetadata?: UnityMetadataObject | null;
   metadata: UnityMetadataObject[];
   interactionLocations: UnityInteractionRef[];
@@ -113,6 +122,8 @@ export interface UnityTool {
   assetKey: string;
   toolId: string;
   prefabPath: string;
+  /** Free-form labels for sorting / filtering. */
+  tags?: string[];
   metadata: UnityMetadataObject[];
   /** Outbound actions (ToolInteractions). */
   interactions: UnityInteractionRef[];
@@ -129,6 +140,113 @@ export interface UnityClothing {
   type: 'clothing';
   name: string;
   assetKey: string;
+  /** Free-form labels for sorting / filtering. */
+  tags?: string[];
+}
+
+/** Medication catalog row (from Unity MedicationDatabase export, camelCase). */
+export interface UnityMedication {
+  id: string;
+  type: 'medication';
+  name: string;
+  medId: string;
+  medContainer: string;
+  legacyIds?: string[] | null;
+  displayStrings?: {
+    pyxisName?: string | null;
+    pumpName?: string | null;
+    labelTitle?: string | null;
+    labelSubTitle?: string | null;
+    labelSubDose?: string | null;
+  } | null;
+  textureInfo?: {
+    labelTexture: { filepath: string; isNormalMap: boolean };
+    boxTexture?: { filepath: string; isNormalMap: boolean } | null;
+  } | null;
+  liquidInfo?: { liquidColorOverride: string | null } | null;
+  pillInfo?: { pillCount: number } | null;
+  ivBagInfo?: { bagSize: string } | null;
+  syringeInfo?: {
+    syringeType: string | null;
+    syringeMethod: string | null;
+  } | null;
+  vialInfo?: {
+    isPowder: boolean;
+    vialLiquidColorOverride?: string | null;
+  } | null;
+  /** DB-only fields; omitted from Unity interchange export. */
+  additional?: {
+    defaultIvPumpUnits?: string | null;
+    defaultIvPumpIncrements?: string | null;
+    syringeSize?: string | null;
+  } | null;
+  /** Free-form labels for sorting / filtering (often includes medContainer). */
+  tags?: string[];
+}
+
+/**
+ * Waveform catalog row (scraped from scenario-creator case `waveforms[]`).
+ * Maps runtime `value` → `dataPoints`. Physiologic type lives in `waveformType`
+ * so it does not collide with the row `type: 'waveform'`.
+ */
+export interface UnityWaveform {
+  id: string;
+  type: 'waveform';
+  name: string;
+  dataPoints: number[];
+  waveCount: number;
+  description?: string | null;
+  maxHr?: number | null;
+  maxRr?: number | null;
+  pacer?: string | null;
+  pvcs?: string | null;
+  /** Inferred physiologic kind (ECG, PLETH, RESP, …). */
+  waveformType?: string | null;
+  /** Other case-instance ids that shared this exact name + dataPoints. */
+  alternateIds?: string[];
+  /** Scenario ids that embed this waveform library entry. */
+  scenarioIds?: string[];
+  scenarioNames?: string[];
+  tags?: string[];
+}
+
+/** Scenario catalog row (summary scraped from scenario-creator case JSON). */
+export interface UnityScenario {
+  id: string;
+  type: 'scenario';
+  name: string;
+  scenarioCreatorId?: string | null;
+  author?: string | null;
+  createdBy?: string | null;
+  createdAt?: string | null;
+  description?: string | null;
+  learnerDescription?: string | null;
+  roleBased?: boolean;
+  startingState?: string | null;
+  thumbnail?: string | null;
+  sourceFile?: string | null;
+  counts?: {
+    patients: number;
+    npcs: number;
+    states: number;
+    actions: number;
+    actionGroups: number;
+    waveforms: number;
+    environments: number;
+    assetBundles: number;
+  };
+  patients?: { id: string | null; name: string | null; model: string | null }[];
+  npcs?: { id: string | null; name: string | null; model: string | null }[];
+  environments?: {
+    id: string | null;
+    name: string | null;
+    model: string | null;
+    settings: string | null;
+  }[];
+  characterModels?: string[];
+  environmentModels?: string[];
+  assetBundlesByType?: Record<string, string[]>;
+  tags?: string[];
 }
 
 export interface UnityCharacterMetadata extends UnityMetadataObject {
@@ -151,6 +269,9 @@ export interface UnityDbBundle {
   tools: UnityTool[];
   interactions: UnityInteractionRow[];
   clothing: UnityClothing[];
+  medications: UnityMedication[];
+  waveforms: UnityWaveform[];
+  scenarios: UnityScenario[];
   characterMetadata: UnityCharacterMetadata[];
   toolMetadata: UnityToolMetadata[];
 }
@@ -167,11 +288,16 @@ export interface UnityDbIndex {
   tools: string[];
   interactions: string[];
   clothing: string;
+  medications: string;
+  waveforms: string;
+  scenarios: string;
   characterMetadata: string;
   toolMetadata: string;
 }
 
-/** Root URL path (or absolute URL) of the db folder. Override later for a remote host. */
+/** Root URL path (or absolute URL) of the db folder.
+ * Locally served via public/db → UNITY_ASSET_DB_DIR junction.
+ * Point this at an S3/HTTPS URL once the bucket is ready. */
 export const UNITY_DB_ROOT = 'db';
 export const UNITY_DB_INDEX_FILE = 'index.json';
 export const UNITY_VIRTUAL_FILE = 'Unity Asset DB';

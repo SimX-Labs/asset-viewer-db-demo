@@ -2,7 +2,7 @@
  * Maps Unity Asset Export rows → Asset Library response shapes used by
  * scenario-creator (AssetLibrary*Interface).
  *
- * Supported today: tools (kind === 'tool'), equipment, and interactions.
+ * Supported today: tools (kind === 'tool'), equipment, interactions, and medications.
  */
 
 /** Asset types the Asset Database PoC can serve today. */
@@ -10,6 +10,9 @@ export const SUPPORTED_LIBRARY_TYPES = Object.freeze([
   'tool',
   'equipment',
   'interaction',
+  'medication',
+  'waveform',
+  'scenario',
 ]);
 
 const UNSUPPORTED_REASONS = Object.freeze({
@@ -19,8 +22,6 @@ const UNSUPPORTED_REASONS = Object.freeze({
     'Unity Asset Export has no environment assets equivalent to Asset Library "environment".',
   settings:
     'Unity Asset Export has no settings/environment-configuration assets.',
-  waveform:
-    'Unity Asset Export has no waveform assets.',
 });
 
 /**
@@ -114,6 +115,16 @@ function interactionColumnsForRow(row, assetType, opts = {}) {
 }
 
 /**
+ * Normalize a Unity row's tags field to a string array.
+ * @param {unknown} tags
+ * @returns {string[]}
+ */
+function normalizeTags(tags) {
+  if (!Array.isArray(tags)) return [];
+  return tags.filter((t) => typeof t === 'string' && t.length > 0);
+}
+
+/**
  * @param {object} row Unity tool or equipment row
  * @param {'tool' | 'equipment'} assetType
  * @param {{ includeData?: boolean, includeImages?: boolean, interactionById?: Map<string, object>, interactionByLocation?: Map<string, object> }} opts
@@ -130,7 +141,7 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
     dataId: row.id,
     description: '',
     prefabName: prefabNameFromPath(row.prefabPath, row.assetKey || row.id),
-    tags: [],
+    tags: normalizeTags(row.tags),
   };
 
   if (includeData) {
@@ -203,7 +214,7 @@ export function mapUnityInteractionToLibraryAsset(interaction, opts = {}) {
     dataId: interaction.id,
     description: '',
     prefabName: interaction.location || displayName,
-    tags: [],
+    tags: normalizeTags(interaction.tags),
   };
 
   if (includeData) {
@@ -226,6 +237,110 @@ export function mapUnityInteractionToLibraryAsset(interaction, opts = {}) {
   }
 
   return asset;
+}
+
+/**
+ * Map a medication catalog row → Asset Library shape.
+ * @param {object} med
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityMedicationToLibraryAsset(med, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: med.id,
+    assetName: med.name || med.medId || med.id,
+    assetType: 'medication',
+    dataId: med.id,
+    description: '',
+    prefabName: null,
+    tags: normalizeTags(med.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      medId: med.medId ?? null,
+      name: med.name ?? null,
+      medContainer: med.medContainer ?? null,
+      legacyIds: med.legacyIds ?? null,
+      displayStrings: med.displayStrings ?? null,
+      textureInfo: med.textureInfo ?? null,
+      liquidInfo: med.liquidInfo ?? null,
+      pillInfo: med.pillInfo ?? null,
+      ivBagInfo: med.ivBagInfo ?? null,
+      syringeInfo: med.syringeInfo ?? null,
+      vialInfo: med.vialInfo ?? null,
+      additional: med.additional ?? null,
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * Map a waveform catalog row → Asset Library shape.
+ * @param {object} wave
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityWaveformToLibraryAsset(wave, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: wave.id,
+    assetName: wave.name || wave.id,
+    assetType: 'waveform',
+    dataId: wave.id,
+    description: wave.description ?? '',
+    prefabName: null,
+    tags: normalizeTags(wave.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      dataPoints: wave.dataPoints ?? [],
+      waveCount: wave.waveCount ?? 1,
+      name: wave.name ?? null,
+      description: wave.description ?? null,
+      maxHr: wave.maxHr ?? null,
+      maxRr: wave.maxRr ?? null,
+      pacer: wave.pacer ?? null,
+      pvcs: wave.pvcs ?? null,
+      type: wave.waveformType ?? null,
+      alternateIds: wave.alternateIds ?? [],
+      scenarioIds: wave.scenarioIds ?? [],
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * Collect unique tag strings across Unity rows (sorted).
+ * @param {...object[]} rowLists
+ * @returns {string[]}
+ */
+export function collectUniqueTags(...rowLists) {
+  const set = new Set();
+  for (const list of rowLists) {
+    for (const row of list ?? []) {
+      for (const tag of normalizeTags(row?.tags)) {
+        set.add(tag);
+      }
+    }
+  }
+  return [...set].sort((a, b) => a.localeCompare(b));
 }
 
 /**
@@ -273,4 +388,76 @@ export function listUnityInteractions(bundle) {
   return (bundle.interactions ?? []).filter(
     (i) => i && i.id && i.type === 'interaction',
   );
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityMedications(bundle) {
+  return (bundle.medications ?? []).filter((m) => m && m.id);
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityWaveforms(bundle) {
+  return (bundle.waveforms ?? []).filter((w) => w && w.id);
+}
+
+/**
+ * Map a scenario catalog row → Asset Library shape.
+ * @param {object} scenario
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityScenarioToLibraryAsset(scenario, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: scenario.id,
+    assetName: scenario.name || scenario.id,
+    assetType: 'scenario',
+    dataId: scenario.id,
+    description: scenario.description ?? '',
+    prefabName: null,
+    tags: normalizeTags(scenario.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      scenarioCreatorId: scenario.scenarioCreatorId ?? null,
+      author: scenario.author ?? null,
+      createdBy: scenario.createdBy ?? null,
+      createdAt: scenario.createdAt ?? null,
+      learnerDescription: scenario.learnerDescription ?? null,
+      roleBased: !!scenario.roleBased,
+      startingState: scenario.startingState ?? null,
+      thumbnail: scenario.thumbnail ?? null,
+      sourceFile: scenario.sourceFile ?? null,
+      counts: scenario.counts ?? null,
+      patients: scenario.patients ?? [],
+      npcs: scenario.npcs ?? [],
+      environments: scenario.environments ?? [],
+      characterModels: scenario.characterModels ?? [],
+      environmentModels: scenario.environmentModels ?? [],
+      assetBundlesByType: scenario.assetBundlesByType ?? {},
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityScenarios(bundle) {
+  return (bundle.scenarios ?? []).filter((s) => s && s.id);
 }

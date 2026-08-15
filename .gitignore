@@ -45,5 +45,9 @@ Thumbs.db
 # DBO content (distributed separately; load via Settings in the app)
 /public/DBO_*.json
 
-# Legacy consolidated Unity bundle (replaced by public/db/)
+# Unity asset DB — linked at runtime to unity-asset-documentation/db
+# (or UNITY_ASSET_DB_DIR). Never commit the JSON tree; S3 later.
+/public/db
+
+# Legacy consolidated Unity bundle (replaced by linked db/)
 /public/unity-asset-db.json

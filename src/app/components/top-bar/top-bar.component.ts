@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { ThemeService } from '../../services/theme.service';
+import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
 import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-open-button/orbit-open-button.component';
 
 @Component({
@@ -56,23 +57,24 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
                 <input
                   type="radio"
                   name="dataMode"
-                  [checked]="state.dataMode() === 'dbo'"
-                  (change)="state.setDataMode('dbo')"
+                  [checked]="state.dataMode() === 'unity'"
+                  (change)="state.setDataMode('unity')"
                 />
-                DBO (Classic)
+                Unity Asset DB (default)
               </label>
               <label class="setting-option">
                 <input
                   type="radio"
                   name="dataMode"
-                  [checked]="state.dataMode() === 'unity'"
-                  (change)="state.setDataMode('unity')"
+                  [checked]="state.dataMode() === 'dbo'"
+                  (change)="state.setDataMode('dbo')"
                 />
-                Unity Asset DB
+                DBO (legacy, for comparison)
               </label>
               <p class="dropdown-hint">
-                Switches how JSON is parsed. Unity Asset DB reads the FK-linked graph
-                (characters, equipment, tools, clothing).
+                Unity Asset DB is the default format and reads the FK-linked graph
+                (characters, equipment, tools, clothing). DBO parsing will be removed
+                in a future release; keep it available for now to compare results.
               </p>
               <hr />
               <div class="dropdown-title">File</div>
@@ -80,12 +82,24 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
                 <button class="dropdown-action" (click)="folderInput.click()">Load Unity DB folder...</button>
                 <p class="dropdown-hint">
                   Select a <code>db/</code> folder (<code>characters/</code>, <code>equipment/</code>,
-                  <code>tools/</code>). Defaults to <code>public/db</code> on startup.
+                  <code>tools/</code>). Defaults to the linked Unity asset DB on startup.
                 </p>
               } @else {
                 <button class="dropdown-action" (click)="fileInput.click()">Load DBO File(s)...</button>
                 <p class="dropdown-hint">Hold Shift to add files without clearing existing data.</p>
               }
+              <hr />
+              <div class="dropdown-title">Tags</div>
+              <button
+                class="dropdown-action"
+                (click)="openTags(); showSettings.set(false)"
+              >
+                Manage tags &amp; categories…
+              </button>
+              <p class="dropdown-hint">
+                Create and edit the shared tag taxonomy. Assigning tags to assets
+                is not wired yet.
+              </p>
               <hr />
               <div class="dropdown-title">Theme</div>
               <label class="setting-option">
@@ -162,8 +176,13 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
 export class TopBarComponent {
   readonly state = inject(AppStateService);
   readonly theme = inject(ThemeService);
+  readonly tagTaxonomy = inject(TagTaxonomyService);
   readonly showSettings = signal(false);
   readonly showFiles = signal(false);
+
+  openTags(): void {
+    this.tagTaxonomy.openModal();
+  }
 
   async onFilesSelected(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
