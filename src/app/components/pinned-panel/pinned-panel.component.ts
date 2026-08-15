@@ -13,7 +13,9 @@ import { AppStateService } from '../../services/app-state.service';
         @for (id of state.pinnedAssetIds(); track id) {
           <div class="pinned-item" (click)="state.openAssetTab(id, true)">
             <span>{{ label(id) }}</span>
-            <button class="unpin-btn" (click)="unpin($event, id)">×</button>
+            <button class="unpin-btn" (click)="unpin($event, id)" title="Unpin">
+              <i class="pi pi-times" aria-hidden="true"></i>
+            </button>
           </div>
         }
       </aside>

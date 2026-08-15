@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
@@ -9,22 +9,28 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
   standalone: true,
   imports: [CommonModule, AssetDetailComponent, WebglSidebarComponent],
   template: `
-    <section class="detail-panel">
-      <div class="tab-strip">
-        <button class="close-all-btn" (click)="state.closeAllTabs()">× Close All</button>
-        <div class="tab-bar">
-          @for (tabId of state.openTabIds(); track tabId) {
-            <button
-              class="tab-header"
-              [class.active]="state.activeTabId() === tabId"
-              (click)="state.activateTab(tabId)"
-            >
-              <span class="tab-title" [title]="tabLabel(tabId)">{{ tabLabel(tabId) }}</span>
-              <span class="tab-close" (click)="closeTab($event, tabId)">×</span>
-            </button>
-          }
+    <section class="detail-panel" [class.embed-mode]="embedMode">
+      @if (!embedMode) {
+        <div class="tab-strip">
+          <button class="close-all-btn" (click)="state.closeAllTabs()">
+            <i class="pi pi-times" aria-hidden="true"></i> Close All
+          </button>
+          <div class="tab-bar">
+            @for (tabId of state.openTabIds(); track tabId) {
+              <button
+                class="tab-header"
+                [class.active]="state.activeTabId() === tabId"
+                (click)="state.activateTab(tabId)"
+              >
+                <span class="tab-title" [title]="tabLabel(tabId)">{{ tabLabel(tabId) }}</span>
+                <span class="tab-close" (click)="closeTab($event, tabId)" title="Close tab">
+                  <i class="pi pi-times" aria-hidden="true"></i>
+                </span>
+              </button>
+            }
+          </div>
         </div>
-      </div>
+      }
       <div class="tab-content-container">
         @if (state.openTabIds().length === 0) {
           <div class="empty-state">Select an asset to view details</div>
@@ -32,23 +38,30 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
         @for (tabId of state.openTabIds(); track tabId) {
           @if (state.activeTabId() === tabId) {
             <div class="tab-pane active">
-              <nav class="breadcrumb-bar">
-                @for (histId of state.tabHistory()[tabId]; track histId; let i = $index; let last = $last) {
-                  @if (i > 0) {
-                    <span class="crumb-separator">></span>
+              @if (!embedMode) {
+                <nav class="breadcrumb-bar">
+                  @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
+                    @if (i > 0) {
+                      <i class="pi pi-angle-right crumb-separator" aria-hidden="true"></i>
+                    }
+                    @if (last) {
+                      <span class="crumb current">{{ tabLabel(histId) }}</span>
+                    } @else {
+                      <button class="crumb" (click)="state.navigateBreadcrumb(tabId, i)">
+                        {{ tabLabel(histId) }}
+                      </button>
+                    }
                   }
-                  @if (last) {
-                    <span class="crumb current">{{ tabLabel(histId) }}</span>
-                  } @else {
-                    <button class="crumb" (click)="state.navigateBreadcrumb(tabId, i)">
-                      {{ tabLabel(histId) }}
-                    </button>
-                  }
-                }
-              </nav>
+                </nav>
+              }
               <div class="tab-scroll-area">
                 @if (state.getTabAsset(tabId); as asset) {
-                  <app-asset-detail [asset]="asset" />
+                  <!-- Recreate the detail view per asset so accordion/search
+                       local state and reused child renderers cannot go stale
+                       when navigating within a tab's breadcrumb history. -->
+                  @for (_ of [asset.AssetId]; track _) {
+                    <app-asset-detail [asset]="asset" />
+                  }
                 }
               </div>
             </div>
@@ -56,11 +69,16 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
         }
       </div>
     </section>
-    <app-webgl-sidebar />
+    @if (!embedMode) {
+      <app-webgl-sidebar />
+    }
   `,
   styleUrl: './detail-panel.component.scss',
 })
 export class DetailPanelComponent {
+  /** When true, hide chrome (tabs / breadcrumb / WebGL sidebar) for iframe embeds. */
+  @Input() embedMode = false;
+
   readonly state = inject(AppStateService);
 
   tabLabel(id: string): string {

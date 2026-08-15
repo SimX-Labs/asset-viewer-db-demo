@@ -17,7 +17,12 @@ import { AppStateService } from '../../services/app-state.service';
             (click)="state.toggleFileAccordion(fileName)"
           >
             <span>{{ cleanFileName(fileName) }}</span>
-            <span class="accordion-arrow" [class.collapsed]="!state.expandedFiles()[fileName]">▼</span>
+            <i
+              class="pi accordion-arrow"
+              [class.pi-chevron-down]="state.expandedFiles()[fileName]"
+              [class.pi-chevron-right]="!state.expandedFiles()[fileName]"
+              aria-hidden="true"
+            ></i>
           </button>
           @if (state.expandedFiles()[fileName]) {
             <div class="accordion-content">

@@ -7,7 +7,7 @@
 .webgl-sidebar {
   width: 600px;
   max-width: 50vw;
-  background: var(--black-dusk);
+  background: var(--simx-content-heaviest);
   border-left: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -20,36 +20,39 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-3) var(--space-4);
-  background: var(--midnight-scrub);
-  border-bottom: 2px solid var(--vital-red);
+  background: var(--simx-content-heavy);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 }
 
 .webgl-title {
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--sterile-white);
+  color: var(--text-on-dark);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .webgl-close {
-  background: var(--vital-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--simx-red);
   border: none;
-  color: var(--sterile-white);
+  color: var(--simx-white);
   cursor: pointer;
   font-size: 12px;
-  font-weight: 700;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-default);
   flex-shrink: 0;
-  transition: background 0.15s;
+  transition: background 0.2s;
 
   &:hover {
-    background: #c91a28;
+    background: var(--simx-red-dark);
   }
 }
 
@@ -71,18 +74,19 @@
 .message-log {
   height: 200px;
   overflow-y: auto;
-  background: #0d1117;
+  background: var(--simx-slate);
   padding: var(--space-3);
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
   font-size: var(--text-caption);
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.75);
   flex-shrink: 0;
 }
 
 .log-title {
-  color: var(--sterile-white);
-  font-weight: 700;
+  color: var(--text-on-dark);
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -96,10 +100,10 @@
   textarea {
     width: 100%;
     box-sizing: border-box;
-    background: #1a2332;
+    background: var(--simx-content-heavy);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    color: var(--sterile-white);
+    color: var(--text-on-dark);
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     margin-bottom: var(--space-2);
@@ -107,24 +111,24 @@
 
     &:focus {
       outline: none;
-      border-color: var(--accent);
+      border-color: var(--simx-content-light);
     }
   }
 
   button {
     width: 100%;
-    padding: var(--space-2);
+    padding: 8px 12px;
     background: var(--accent);
     border: none;
-    color: var(--sterile-white);
-    font-weight: 700;
+    color: var(--text-on-dark);
+    font-family: var(--font-graphic);
+    font-weight: 500;
     font-size: var(--text-caption);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     cursor: pointer;
-    font-family: var(--font-body);
-    border-radius: var(--radius-sm);
-    transition: background 0.15s;
+    border-radius: var(--radius-default);
+    transition: background 0.2s;
 
     &:hover {
       background: var(--accent-hover);
@@ -134,7 +138,7 @@
 
 :host ::ng-deep {
   .muted {
-    color: #888;
+    color: var(--text-muted);
   }
   .success {
     color: var(--success);
@@ -143,7 +147,7 @@
     color: var(--error);
   }
   .warn {
-    color: #f39c12;
+    color: var(--simx-warning);
   }
   pre {
     margin: var(--space-1) 0;

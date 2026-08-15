@@ -20,7 +20,8 @@
   z-index: 2;
   flex-shrink: 0;
   padding: var(--space-4) var(--space-4) var(--space-3);
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -52,10 +53,13 @@
 }
 
 .unpin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
   cursor: pointer;
   padding: 0 var(--space-1);

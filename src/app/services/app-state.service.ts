@@ -7,12 +7,20 @@ import {
   ToolNode,
 } from '../models/dbo.models';
 import { DboDataService, DboLoadResult } from './dbo-data.service';
+import { UnityDataService } from './unity-data.service';
 import { matchesFilter } from '../utils/property.util';
+
+export type DataMode = 'dbo' | 'unity';
+const DATA_MODE_KEY = 'assetViewer.dataMode';
+const COLLAPSED_PROPS_KEY = 'assetViewer.collapsedProps';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
   private readonly dboData = inject(DboDataService);
+  private readonly unityData = inject(UnityDataService);
   private readonly platformId = inject(PLATFORM_ID);
+
+  readonly dataMode = signal<DataMode>('unity');
 
   readonly loaded = signal(false);
   readonly statusMessage = signal('');
@@ -34,6 +42,10 @@ export class AppStateService {
   readonly currentWebGLAssetId = signal<string | null>(null);
   readonly expandedFiles = signal<Record<string, boolean>>({});
 
+  // Collapsed detail-property sections, keyed by property name so the state
+  // persists as the user switches between assets (and across reloads).
+  readonly collapsedPropKeys = signal<Record<string, boolean>>(this.loadCollapsedPropKeys());
+
   readonly filteredListItems = computed(() => {
     const cat = this.currentCategory();
     const file = this.currentFile();
@@ -50,11 +62,27 @@ export class AppStateService {
     return history?.[history.length - 1] ?? null;
   });
 
-  async loadDefaults(): Promise<void> {
+  /**
+   * @param opts.preferUnity Force Unity Asset DB mode (used by `?embed=1`
+   *   deep links from scenario-creator, which reference Unity export ids).
+   */
+  async loadDefaults(opts?: { preferUnity?: boolean }): Promise<void> {
+    this.dataMode.set(opts?.preferUnity ? 'unity' : this.readStoredMode());
+    await this.loadForCurrentMode();
+  }
+
+  private async loadForCurrentMode(): Promise<void> {
     try {
-      const result = await this.dboData.loadDefaultFiles();
+      const mode = this.dataMode();
+      const result =
+        mode === 'unity'
+          ? await this.unityData.loadDb()
+          : await this.dboData.loadDefaultFiles();
       this.applyLoadResult(result);
-      this.statusMessage.set(`Loaded ${result.loadedFileNames.length} files.`);
+      const label = mode === 'unity' ? 'Unity asset DB' : 'DBO files';
+      this.statusMessage.set(
+        `Loaded ${label} (${Object.keys(result.assetMap).length} assets).`
+      );
       this.statusError.set(false);
       this.loaded.set(true);
       this.handleInitialNavigation();
@@ -62,6 +90,38 @@ export class AppStateService {
       this.statusMessage.set(`Error: ${(err as Error).message}`);
       this.statusError.set(true);
     }
+  }
+
+  async setDataMode(mode: DataMode): Promise<void> {
+    if (mode === this.dataMode()) return;
+    this.dataMode.set(mode);
+    this.persistMode(mode);
+    this.resetForModeSwitch();
+    this.loaded.set(false);
+    await this.loadForCurrentMode();
+  }
+
+  private resetForModeSwitch(): void {
+    this.openTabIds.set([]);
+    this.activeTabId.set(null);
+    this.tabHistory.set({});
+    this.pinnedAssetIds.set([]);
+    this.currentCategory.set(null);
+    this.currentFile.set(null);
+    this.searchQuery.set('');
+    this.currentWebGLAssetId.set(null);
+    this.setUrlHash('');
+  }
+
+  private readStoredMode(): DataMode {
+    if (!isPlatformBrowser(this.platformId)) return this.dataMode();
+    // Default is Unity Asset DB. DBO remains available for comparison until removed.
+    return localStorage.getItem(DATA_MODE_KEY) === 'dbo' ? 'dbo' : 'unity';
+  }
+
+  private persistMode(mode: DataMode): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    localStorage.setItem(DATA_MODE_KEY, mode);
   }
 
   applyLoadResult(result: DboLoadResult): void {
@@ -103,6 +163,33 @@ export class AppStateService {
     this.expandedFiles.set({ ...current, [fileName]: !current[fileName] });
   }
 
+  isPropCollapsed(key: string): boolean {
+    return this.collapsedPropKeys()[key] === true;
+  }
+
+  togglePropKey(key: string): void {
+    const current = { ...this.collapsedPropKeys() };
+    if (current[key]) delete current[key];
+    else current[key] = true;
+    this.collapsedPropKeys.set(current);
+    this.persistCollapsedPropKeys(current);
+  }
+
+  private loadCollapsedPropKeys(): Record<string, boolean> {
+    if (!isPlatformBrowser(this.platformId)) return {};
+    try {
+      const raw = localStorage.getItem(COLLAPSED_PROPS_KEY);
+      return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  private persistCollapsedPropKeys(value: Record<string, boolean>): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    localStorage.setItem(COLLAPSED_PROPS_KEY, JSON.stringify(value));
+  }
+
   togglePin(assetId: string): void {
     const pins = [...this.pinnedAssetIds()];
     const idx = pins.indexOf(assetId);
@@ -121,8 +208,21 @@ export class AppStateService {
 
     if (!isRoot && this.activeTabId()) {
       const tabId = this.activeTabId()!;
+      const current = this.tabHistory()[tabId] ?? [];
+      // Already viewing this asset — just sync the URL, don't grow the trail.
+      if (current[current.length - 1] === assetId) {
+        this.setUrlHash(assetId);
+        return;
+      }
+      // Revisiting an asset already in the trail: jump back to it instead of
+      // appending a duplicate. Duplicate ids in the breadcrumb produce
+      // duplicate @for track keys (NG0955), which corrupts view rendering.
+      const existingIdx = current.indexOf(assetId);
       const history = { ...this.tabHistory() };
-      history[tabId] = [...(history[tabId] ?? []), assetId];
+      history[tabId] =
+        existingIdx === -1
+          ? [...current, assetId]
+          : current.slice(0, existingIdx + 1);
       this.tabHistory.set(history);
       this.setUrlHash(assetId);
       return;
@@ -235,6 +335,23 @@ export class AppStateService {
     this.openAssetTab(id, true);
   }
 
+  async loadUnityDbFolder(files: FileList): Promise<void> {
+    try {
+      const result = await this.unityData.buildFromFolderFiles(Array.from(files));
+      this.resetForModeSwitch();
+      this.applyLoadResult(result);
+      this.statusMessage.set(
+        `Loaded Unity asset DB (${Object.keys(result.assetMap).length} assets).`
+      );
+      this.statusError.set(false);
+      this.loaded.set(true);
+      this.handleInitialNavigation();
+    } catch (err) {
+      this.statusMessage.set(`Error: ${(err as Error).message}`);
+      this.statusError.set(true);
+    }
+  }
+
   async loadFilesFromInput(files: FileList, shiftKey: boolean): Promise<void> {
     const results: { name: string; data: Record<string, DboAsset[]> }[] = [];
     for (const file of Array.from(files)) {
@@ -261,7 +378,7 @@ export class AppStateService {
       return;
     }
 
-    const headers = ['AssetId', 'AssetName', 'AssetType', 'AssetAddress', 'HasWebGLView'];
+    const headers = ['AssetId', 'AssetName', 'AssetType', 'Tags', 'AssetAddress', 'HasWebGLView'];
     const sample = items[0];
     if (sample.Data?.['ContainedTools']) {
       headers.push('ContainedTools_Count', 'ContainedTools_List');
@@ -276,6 +393,7 @@ export class AppStateService {
         `"${item.AssetId ?? ''}"`,
         `"${item.AssetName ?? ''}"`,
         `"${item.AssetType ?? ''}"`,
+        `"${(item.Tags ?? []).join(';')}"`,
         `"${(item.Data?.['AssetAddress'] as string) ?? ''}"`,
         Boolean(item.Data?.['HasWebGLView']),
       ];

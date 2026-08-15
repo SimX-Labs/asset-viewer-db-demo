@@ -1,10 +1,11 @@
 import {
   Component,
-  Input,
   Output,
   EventEmitter,
   inject,
   computed,
+  input,
+  signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
@@ -24,8 +25,8 @@ import { AssetRef } from '../../models/dbo.models';
             type="text"
             class="link-group-search"
             placeholder="Filter {{ linkItems().length }} items..."
-            [value]="linkFilter"
-            (input)="linkFilter = $any($event.target).value"
+            [value]="linkFilter()"
+            (input)="linkFilter.set($any($event.target).value)"
           />
         }
         <div class="link-group-list">
@@ -41,7 +42,7 @@ import { AssetRef } from '../../models/dbo.models';
               @if (item.AssociationData && objectKeys(item.AssociationData).length) {
                 <div class="link-meta">
                   Data:
-                  <app-value-renderer [value]="item.AssociationData" [depth]="depth + 1" />
+                  <app-value-renderer [value]="item.AssociationData" [depth]="depth() + 1" />
                 </div>
               }
             </div>
@@ -56,7 +57,7 @@ import { AssetRef } from '../../models/dbo.models';
         @if (linkObject()!.AssociationData && objectKeys(linkObject()!.AssociationData!).length) {
           <div class="assoc-meta">
             Data:
-            <app-value-renderer [value]="linkObject()!.AssociationData" [depth]="depth + 1" />
+            <app-value-renderer [value]="linkObject()!.AssociationData" [depth]="depth() + 1" />
           </div>
         }
       </div>
@@ -80,7 +81,7 @@ import { AssetRef } from '../../models/dbo.models';
         <div class="clean-list">
           @for (item of arrayValue(); track $index) {
             <div class="clean-item">
-              <app-value-renderer [value]="item" [depth]="depth + 1" />
+              <app-value-renderer [value]="item" [depth]="depth() + 1" />
             </div>
           }
         </div>
@@ -94,7 +95,7 @@ import { AssetRef } from '../../models/dbo.models';
             <div class="clean-row">
               <span class="clean-key">{{ key }}:</span>
               <span class="clean-val">
-                <app-value-renderer [value]="objectValue()[key]" [depth]="depth + 1" />
+                <app-value-renderer [value]="objectValue()[key]" [depth]="depth() + 1" />
               </span>
             </div>
           }
@@ -106,26 +107,31 @@ import { AssetRef } from '../../models/dbo.models';
   `,
 })
 export class ValueRendererComponent {
-  @Input() value: unknown;
-  @Input() propertyKey = '';
-  @Input() depth = 0;
+  // Signal inputs so nested computeds invalidate when the parent rebinds a
+  // reused renderer (e.g. AssetKey row kept across equipment → tool navigation).
+  readonly value = input<unknown>(undefined);
+  readonly propertyKey = input('');
+  readonly depth = input(0);
   @Output() linkClick = new EventEmitter<string>();
 
   private readonly state = inject(AppStateService);
-  linkFilter = '';
+  readonly linkFilter = signal('');
 
   readonly objectKeys = Object.keys;
 
-  isNull = computed(() => this.value === null || this.value === undefined);
+  isNull = computed(() => {
+    const v = this.value();
+    return v === null || v === undefined;
+  });
 
-  isArray = computed(() => Array.isArray(this.value));
-  arrayValue = computed(() => (this.value ?? []) as unknown[]);
+  isArray = computed(() => Array.isArray(this.value()));
+  arrayValue = computed(() => (this.value() ?? []) as unknown[]);
 
   isObject = computed(() => {
-    const v = this.value;
+    const v = this.value();
     return v !== null && typeof v === 'object' && !Array.isArray(v);
   });
-  objectValue = computed(() => (this.value ?? {}) as Record<string, unknown>);
+  objectValue = computed(() => (this.value() ?? {}) as Record<string, unknown>);
 
   isLinkGroup = computed(() => {
     const arr = this.arrayValue();
@@ -135,7 +141,7 @@ export class ValueRendererComponent {
   linkItems = computed(() => this.arrayValue() as AssetRef[]);
 
   filteredLinkItems = computed(() => {
-    const filter = this.linkFilter.toLowerCase();
+    const filter = this.linkFilter().toLowerCase();
     if (!filter) return this.linkItems();
     return this.linkItems().filter((item) => {
       const label = this.linkLabel(item.AssetId).toLowerCase();
@@ -144,17 +150,17 @@ export class ValueRendererComponent {
   });
 
   isSingleLink = computed(() => this.isObject() && 'AssetId' in this.objectValue());
-  linkObject = computed(() => (this.isSingleLink() ? (this.value as AssetRef) : null));
+  linkObject = computed(() => (this.isSingleLink() ? (this.value() as AssetRef) : null));
 
   isCustomization = computed(
-    () => this.propertyKey === 'Customizations' && this.isArray()
+    () => this.propertyKey() === 'Customizations' && this.isArray()
   );
 
   customizationItems = computed(
     () => this.arrayValue() as Record<string, unknown>[]
   );
 
-  primitiveValue = computed(() => String(this.value ?? ''));
+  primitiveValue = computed(() => String(this.value() ?? ''));
 
   private isAssetRef(val: unknown): val is AssetRef {
     return !!val && typeof val === 'object' && 'AssetId' in (val as object);

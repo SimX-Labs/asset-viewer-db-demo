@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "startCommand": "npm start",
+  "baseUrl": "http://localhost:4300",
+  "outputDirectory": "feature-shots/screenshots",
+  "shotsDirectory": "feature-shots/shots",
+  "model": "composer-2.5",
+  "serverReadyTimeoutMs": 120000,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  }
+}

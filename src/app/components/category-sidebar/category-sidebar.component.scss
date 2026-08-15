@@ -7,7 +7,7 @@
 
 .sidebar {
   width: 100%;
-  background: var(--bg-panel);
+  background: var(--bg-nav);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -17,13 +17,14 @@
 
 .panel-header {
   padding: var(--space-4) var(--space-4) var(--space-3);
-  font-weight: 700;
-  font-size: var(--text-caption);
+  font-family: var(--font-graphic);
+  font-weight: 600;
+  font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--text-label);
   border-bottom: 1px solid var(--border);
-  background: var(--bg-panel);
+  background: var(--bg-nav);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -34,13 +35,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-3) var(--space-4);
+  padding: 10px 15px;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--border-light);
   color: var(--text-main);
   cursor: pointer;
-  font-weight: 700;
+  font-family: var(--font-graphic);
+  font-weight: 600;
   font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -52,37 +54,65 @@
 }
 
 .accordion-arrow {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--text-muted);
-  transition: transform 0.2s;
-
-  &.collapsed {
-    transform: rotate(-90deg);
-  }
 }
 
 .category-item {
+  position: relative;
   width: 100%;
   text-align: left;
-  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
+  padding: 13px 10px 13px 15px;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   color: var(--text-main);
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.2s, padding 0.2s;
 
-  &:hover {
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    height: calc(100% - 23px);
+    width: 5px;
+    background: var(--active-bar);
+    border-radius: var(--radius-default);
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.2s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: -2px;
+  }
+
+  &:hover:not(.active) {
     background: var(--bg-hover);
   }
 
   &.active {
     background: var(--bg-selected);
-    color: var(--sterile-white);
-    border-left: 4px solid var(--procedure-blue);
+    color: var(--text-main);
+    cursor: default;
+    padding-left: 21px;
+
+    &::before {
+      opacity: 1;
+    }
 
     .cat-count {
-      color: rgba(255, 255, 255, 0.75);
+      color: var(--text-muted);
+    }
+
+    .cat-name {
+      font-weight: 600;
     }
   }
 }
@@ -90,6 +120,7 @@
 .cat-name {
   font-size: var(--text-copy);
   font-weight: 400;
+  font-family: var(--font-body);
 }
 
 .cat-count {

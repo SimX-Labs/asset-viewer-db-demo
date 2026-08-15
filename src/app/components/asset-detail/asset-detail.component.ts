@@ -8,6 +8,16 @@ import { copyToClipboard } from '../../utils/property.util';
 import { ValueRendererComponent } from '../value-renderer/value-renderer.component';
 import { ProcedureGraphComponent } from '../procedure-graph/procedure-graph.component';
 import { ToolVisualizationComponent } from '../tool-visualization/tool-visualization.component';
+import { OrbitViewerService } from '../../orbit-capture/services/orbit-viewer.service';
+import { OrbitInlineViewerComponent } from '../../orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
+import { WaveformChartComponent } from '../waveform-chart/waveform-chart.component';
+
+interface EquipmentInteraction {
+  Interaction?: { AssetId: string };
+  Location?: string;
+  AvailableIn?: string[];
+  Assets?: { AssetId: string }[];
+}
 
 @Component({
   selector: 'app-asset-detail',
@@ -18,6 +28,8 @@ import { ToolVisualizationComponent } from '../tool-visualization/tool-visualiza
     ValueRendererComponent,
     ProcedureGraphComponent,
     ToolVisualizationComponent,
+    OrbitInlineViewerComponent,
+    WaveformChartComponent,
   ],
   templateUrl: './asset-detail.component.html',
   styleUrl: './asset-detail.component.scss',
@@ -26,6 +38,7 @@ export class AssetDetailComponent {
   @Input({ required: true }) asset!: DboAsset;
 
   readonly state = inject(AppStateService);
+  readonly orbitViewer = inject(OrbitViewerService);
   private readonly dboData = inject(DboDataService);
 
   readonly metaSearch = signal('');
@@ -59,11 +72,61 @@ export class AssetDetailComponent {
 
   dataKeys(): string[] {
     if (!this.asset.Data) return [];
+    const isEquip = this.isEquipment();
+    const isToolLike = this.isToolLike();
+    const isWave = this.isWaveform();
     return Object.keys(this.asset.Data).filter(
       (k) =>
         !(this.asset.AssetType === 'Procedure' && k === 'StateMap') &&
-        k !== 'MetadataObjects'
+        k !== 'MetadataObjects' &&
+        // Chart section renders the point array; keep the table free of a huge list.
+        !(isWave && k === 'DataPoints') &&
+        // Equipment renders these in dedicated Compatible Characters / Compatible Tools sections.
+        !(isEquip && (k === 'CompatibleCharacters' || k === 'Interactions')) &&
+        // Tools render Compatible Equipment in a dedicated section.
+        !(isToolLike && k === 'CompatibleEquipment')
     );
+  }
+
+  isEquipment(): boolean {
+    return this.asset.AssetType === 'Equipment';
+  }
+
+  isWaveform(): boolean {
+    return (
+      this.asset._Category === 'Waveforms' ||
+      this.asset.AssetType === 'Waveform' ||
+      (typeof this.asset.AssetType === 'string' &&
+        this.asset.AssetType.startsWith('Waveform'))
+    );
+  }
+
+  waveformDataPoints(): number[] {
+    const pts = this.asset.Data?.['DataPoints'];
+    return Array.isArray(pts)
+      ? pts.filter((n): n is number => typeof n === 'number' && Number.isFinite(n))
+      : [];
+  }
+
+  isToolLike(): boolean {
+    return ['Tool', 'Kit', 'Group', 'Vessel', 'Scene'].includes(this.asset.AssetType);
+  }
+
+  compatibleCharacters(): { AssetId: string }[] {
+    const chars = this.asset.Data?.['CompatibleCharacters'];
+    return Array.isArray(chars) ? (chars as { AssetId: string }[]) : [];
+  }
+
+  compatibleEquipment(): { AssetId: string }[] {
+    const list = this.asset.Data?.['CompatibleEquipment'];
+    return Array.isArray(list) ? (list as { AssetId: string }[]) : [];
+  }
+
+  // Each received interaction carries the tools that provide it (assetIds -> Assets),
+  // so the cross-reference of "Compatible Tools" is a list per interaction.
+  equipmentInteractions(): EquipmentInteraction[] {
+    const list = this.asset.Data?.['Interactions'];
+    return Array.isArray(list) ? (list as EquipmentInteraction[]) : [];
   }
 
   globalTransitions(): { ResultingStateId: string; ValidMessageTriggers?: string[] }[] {
@@ -162,6 +225,26 @@ export class AssetDetailComponent {
 
   openWebGL(): void {
     this.state.openWebGLView(this.asset.AssetId);
+  }
+
+  /** The tool's addressable, used to locate its orbit-capture subfolder. */
+  orbitAddressable(): string | null {
+    // DBO mode stores it as AssetAddress; Unity mode maps it to AssetKey.
+    const addr = this.asset.Data?.['AssetAddress'] ?? this.asset.Data?.['AssetKey'];
+    return typeof addr === 'string' && addr.trim() ? addr.trim() : null;
+  }
+
+  canViewOrbit(): boolean {
+    return this.isToolLike() && !!this.orbitAddressable();
+  }
+
+  /** Inline (Wikipedia-style) GLB embed shown for Unity tool assets. */
+  showInlineModel(): boolean {
+    return this.state.dataMode() === 'unity' && this.canViewOrbit();
+  }
+
+  async openOrbit(): Promise<void> {
+    await this.orbitViewer.openByAddressable(this.orbitAddressable());
   }
 
   isMediaKey(key: string): boolean {
