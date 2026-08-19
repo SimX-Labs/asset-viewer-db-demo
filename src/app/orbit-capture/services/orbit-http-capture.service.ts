@@ -4,6 +4,21 @@ import {
   OrbitCaptureBundle,
   OrbitCaptureManifest,
 } from '../models/orbit-manifest';
+import {
+  BirdsEyeManifest,
+  BirdsEyeProjection,
+  parseBirdsEyeProjection,
+} from '../models/birdseye-projection';
+
+/** A published authored-environment bird's-eye: the PNG plus its world-space projection. */
+export interface BirdsEyeCapture {
+  imageUrl: string;
+  projection: BirdsEyeProjection;
+  manifest: BirdsEyeManifest;
+}
+
+const BIRDS_EYE_MANIFEST = 'birdseye.json';
+const BIRDS_EYE_IMAGE = 'birdseye.png';
 
 /**
  * Loads orbit captures over HTTP instead of from a local folder.
@@ -60,6 +75,34 @@ export class OrbitHttpCaptureService {
       modelUrl,
       // Plain https/http URLs — nothing to revoke.
       revoke: () => undefined,
+    };
+  }
+
+  /**
+   * Fetch an authored environment's bird's-eye capture. Returns null when nothing is published for
+   * the key or the sidecar cannot describe a projection, so callers can fall back silently.
+   */
+  async loadBirdsEye(captureKey: string): Promise<BirdsEyeCapture | null> {
+    const key = captureKey.trim();
+    if (!this.base || !key) return null;
+
+    const folder = `${this.base}/models/${encodeURIComponent(key)}`;
+    let manifest: BirdsEyeManifest;
+    try {
+      const response = await fetch(`${folder}/${BIRDS_EYE_MANIFEST}`);
+      if (!response.ok) return null;
+      manifest = (await response.json()) as BirdsEyeManifest;
+    } catch {
+      return null;
+    }
+
+    const projection = parseBirdsEyeProjection(manifest);
+    if (!projection) return null;
+
+    return {
+      imageUrl: `${folder}/${encodeURIComponent(manifest.image || BIRDS_EYE_IMAGE)}`,
+      projection,
+      manifest,
     };
   }
 

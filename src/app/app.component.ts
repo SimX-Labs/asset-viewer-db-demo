@@ -6,7 +6,8 @@ import { AssetListComponent } from './components/asset-list/asset-list.component
 import { DetailPanelComponent } from './components/detail-panel/detail-panel.component';
 import { OrbitViewerHostComponent } from './orbit-capture/components/orbit-viewer-host/orbit-viewer-host.component';
 import { OrbitInlineViewerComponent } from './orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
-import { TagsModalComponent } from './components/tags-modal/tags-modal.component';
+import { TagsPageComponent } from './components/tags-page/tags-page.component';
+import { LoadingCoverageComponent } from './components/loading-coverage/loading-coverage.component';
 import { AppStateService } from './services/app-state.service';
 import { TagTaxonomyService } from './services/tag-taxonomy.service';
 
@@ -21,7 +22,8 @@ import { TagTaxonomyService } from './services/tag-taxonomy.service';
     DetailPanelComponent,
     OrbitViewerHostComponent,
     OrbitInlineViewerComponent,
-    TagsModalComponent,
+    TagsPageComponent,
+    LoadingCoverageComponent,
   ],
   template: `
     @if (modelOnlyMode()) {
@@ -36,35 +38,40 @@ import { TagTaxonomyService } from './services/tag-taxonomy.service';
             [diagnostic]="true"
             [showControls]="false"
           />
-        } @else {
+        } @else if (state.loaded()) {
           <div class="model-preview-note">
-            @if (state.loaded()) {
-              Asset not found in the Unity Asset DB.
-            } @else {
-              Loading…
-            }
+            Asset not found in the Unity Asset DB.
           </div>
+        }
+        @if (!state.loaded() && !state.statusError()) {
+          <app-loading-coverage label="Loading assets…" [dark]="true" />
         }
       </main>
     } @else {
       @if (!embedMode()) {
         <app-top-bar />
       }
-      <main
-        class="main-container"
-        [class.loaded]="state.loaded()"
-        [class.embed-mode]="embedMode()"
-      >
-        @if (!embedMode()) {
-          <app-category-sidebar />
-          <app-pinned-panel />
-          <app-asset-list />
-        }
-        <app-detail-panel [embedMode]="embedMode()" />
-      </main>
-      <app-orbit-viewer-host />
-      @if (!embedMode() && tagTaxonomy.modalOpen()) {
-        <app-tags-modal />
+      @if (!embedMode() && tagTaxonomy.pageOpen()) {
+        <app-tags-page />
+      } @else {
+        <div class="main-shell">
+          <main
+            class="main-container"
+            [class.loaded]="state.loaded()"
+            [class.embed-mode]="embedMode()"
+          >
+            @if (!embedMode()) {
+              <app-category-sidebar />
+              <app-pinned-panel />
+              <app-asset-list />
+            }
+            <app-detail-panel [embedMode]="embedMode()" />
+          </main>
+          @if (!state.loaded() && !state.statusError()) {
+            <app-loading-coverage label="Loading assets…" />
+          }
+        </div>
+        <app-orbit-viewer-host />
       }
     }
   `,
@@ -90,6 +97,7 @@ export class AppComponent implements OnInit {
     this.embedMode.set(embed || modelOnly);
     this.modelOnlyMode.set(modelOnly);
     void this.state.loadDefaults(preferUnity ? { preferUnity: true } : undefined);
+    void this.tagTaxonomy.ensureLoaded();
   }
 
   modelAddressable(): string | null {

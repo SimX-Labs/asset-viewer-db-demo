@@ -106,6 +106,10 @@
     background: rgba(var(--simx-white-rgb), 0.2);
   }
 
+  &.active {
+    background: rgba(var(--simx-white-rgb), 0.16);
+  }
+
   &.icon-only {
     padding: 8px 12px;
     min-width: 41px;

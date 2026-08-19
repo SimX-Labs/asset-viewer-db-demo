@@ -48,6 +48,10 @@ const index = {
   equipment: listJson('equipment'),
   tools: listJson('tools'),
   interactions: listJson('interactions'),
+  environments: listJson('environments'),
+  authoredEnvironments: listJson('authored-environments'),
+  audio: listJson('audio'),
+  videos: listJson('videos'),
   clothing: requireFile('clothing.json'),
   medications: requireFile('medications.json'),
   waveforms: requireFile('waveforms.json'),
@@ -62,6 +66,10 @@ index.meta.counts = {
   equipment: index.equipment.length,
   tools: index.tools.length,
   interactions: index.interactions.length,
+  environments: index.environments.length,
+  authoredEnvironments: index.authoredEnvironments.length,
+  audio: index.audio.length,
+  videos: index.videos.length,
 };
 
 const outPath = join(dbRoot, 'index.json');

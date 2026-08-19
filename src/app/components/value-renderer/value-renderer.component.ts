@@ -10,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { AssetRef } from '../../models/dbo.models';
+import { formatDateTime, isDateTimeString } from '../../utils/datetime.util';
 
 @Component({
   selector: 'app-value-renderer',
@@ -101,6 +102,8 @@ import { AssetRef } from '../../models/dbo.models';
           }
         </div>
       }
+    } @else if (isDateTime()) {
+      <span class="datetime-value" [title]="rawText()">{{ primitiveValue() }}</span>
     } @else {
       {{ primitiveValue() }}
     }
@@ -160,7 +163,13 @@ export class ValueRendererComponent {
     () => this.arrayValue() as Record<string, unknown>[]
   );
 
-  primitiveValue = computed(() => String(this.value() ?? ''));
+  isDateTime = computed(() => isDateTimeString(this.value()));
+  rawText = computed(() => String(this.value() ?? ''));
+
+  primitiveValue = computed(() => {
+    const v = this.value();
+    return isDateTimeString(v) ? formatDateTime(v) : String(v ?? '');
+  });
 
   private isAssetRef(val: unknown): val is AssetRef {
     return !!val && typeof val === 'object' && 'AssetId' in (val as object);

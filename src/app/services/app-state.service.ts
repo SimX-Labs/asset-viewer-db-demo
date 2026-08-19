@@ -6,13 +6,15 @@ import {
   TabState,
   ToolNode,
 } from '../models/dbo.models';
+import { UNITY_SUBCATEGORY_DEFS } from '../models/unity-asset.models';
+import { dataSourceLabel } from '../models/data-source';
 import { DboDataService, DboLoadResult } from './dbo-data.service';
 import { UnityDataService } from './unity-data.service';
 import { matchesFilter } from '../utils/property.util';
+import { assetMatchesTags, TagMatchMode } from '../utils/tag-filter.util';
 
 export type DataMode = 'dbo' | 'unity';
 const DATA_MODE_KEY = 'assetViewer.dataMode';
-const COLLAPSED_PROPS_KEY = 'assetViewer.collapsedProps';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
@@ -32,27 +34,53 @@ export class AppStateService {
 
   readonly currentCategory = signal<string | null>(null);
   readonly currentFile = signal<string | null>(null);
+  // Optional second-level filter within a category (Unity mode), keyed by the
+  // value of that category's UNITY_SUBCATEGORY_DEFS field.
+  readonly currentSubCategory = signal<string | null>(null);
   readonly searchQuery = signal('');
+  /** Tag labels; scoped to the current category in the list UI. */
+  readonly selectedTagLabels = signal<string[]>([]);
+  /** How selected tags combine. Default AND matches existing list behavior. */
+  readonly tagMatchMode = signal<TagMatchMode>('and');
 
   readonly pinnedAssetIds = signal<string[]>([]);
   readonly openTabIds = signal<string[]>([]);
+  /** List-cell preview that is not yet a persistent tab. */
+  readonly previewTabId = signal<string | null>(null);
   readonly activeTabId = signal<string | null>(null);
   readonly tabHistory = signal<Record<string, string[]>>({});
   readonly messageMode = signal<MessageMode>('package');
   readonly currentWebGLAssetId = signal<string | null>(null);
   readonly expandedFiles = signal<Record<string, boolean>>({});
+  // Expanded state for Unity-mode categories that have subcategories (Tooling, Vessels, Audio, Videos).
+  readonly expandedCategories = signal<Record<string, boolean>>({});
 
-  // Collapsed detail-property sections, keyed by property name so the state
-  // persists as the user switches between assets (and across reloads).
-  readonly collapsedPropKeys = signal<Record<string, boolean>>(this.loadCollapsedPropKeys());
-
-  readonly filteredListItems = computed(() => {
+  /** Current category (and subcategory) before search / tag filters. */
+  readonly categoryListItems = computed(() => {
     const cat = this.currentCategory();
     const file = this.currentFile();
-    const query = this.searchQuery();
+    const sub = this.currentSubCategory();
     const data = this.rawData();
     if (!cat || !file || !data[file]?.[cat]) return [];
-    return data[file][cat].filter((item) => matchesFilter(item, query));
+    let items = data[file][cat];
+    if (sub) {
+      const def = UNITY_SUBCATEGORY_DEFS[cat];
+      if (def) {
+        items = items.filter(
+          (item) => ((item.Data?.[def.field] as string) ?? def.fallback) === sub,
+        );
+      }
+    }
+    return items;
+  });
+
+  readonly filteredListItems = computed(() => {
+    const query = this.searchQuery();
+    const tags = this.selectedTagLabels();
+    const mode = this.tagMatchMode();
+    return this.categoryListItems().filter(
+      (item) => matchesFilter(item, query) && assetMatchesTags(item, tags, mode),
+    );
   });
 
   readonly activeAssetId = computed(() => {
@@ -103,12 +131,17 @@ export class AppStateService {
 
   private resetForModeSwitch(): void {
     this.openTabIds.set([]);
+    this.previewTabId.set(null);
     this.activeTabId.set(null);
     this.tabHistory.set({});
     this.pinnedAssetIds.set([]);
     this.currentCategory.set(null);
     this.currentFile.set(null);
+    this.currentSubCategory.set(null);
+    this.expandedCategories.set({});
     this.searchQuery.set('');
+    this.selectedTagLabels.set([]);
+    this.tagMatchMode.set('and');
     this.currentWebGLAssetId.set(null);
     this.setUrlHash('');
   }
@@ -152,10 +185,49 @@ export class AppStateService {
     }
   }
 
-  selectCategory(cat: string, file: string): void {
+  selectCategory(cat: string, file: string, subCategory: string | null = null): void {
+    const prevCat = this.currentCategory();
     this.currentCategory.set(cat);
     this.currentFile.set(file);
+    this.currentSubCategory.set(subCategory);
     this.searchQuery.set('');
+    if (prevCat !== cat) this.pruneSelectedTags();
+    // Keep a category's accordion open when it (or one of its subcategories) is
+    // the active selection, so linking straight to a vessel reveals the tree.
+    if (subCategory) {
+      this.expandedCategories.set({ ...this.expandedCategories(), [cat]: true });
+    }
+  }
+
+  toggleTagFilter(label: string): void {
+    const trimmed = label.trim();
+    if (!trimmed) return;
+    const lower = trimmed.toLowerCase();
+    this.selectedTagLabels.update((list) => {
+      const exists = list.some((t) => t.toLowerCase() === lower);
+      return exists
+        ? list.filter((t) => t.toLowerCase() !== lower)
+        : [...list, trimmed];
+    });
+  }
+
+  clearTagFilters(): void {
+    this.selectedTagLabels.set([]);
+  }
+
+  setTagMatchMode(mode: TagMatchMode): void {
+    this.tagMatchMode.set(mode);
+  }
+
+  private pruneSelectedTags(): void {
+    const present = new Set(
+      this.categoryListItems().flatMap((item) =>
+        (item.Tags ?? []).map((tag) => tag.toLowerCase()),
+      ),
+    );
+    this.selectedTagLabels.update((list) =>
+      list.filter((label) => present.has(label.toLowerCase())),
+    );
   }
 
   toggleFileAccordion(fileName: string): void {
@@ -163,31 +235,9 @@ export class AppStateService {
     this.expandedFiles.set({ ...current, [fileName]: !current[fileName] });
   }
 
-  isPropCollapsed(key: string): boolean {
-    return this.collapsedPropKeys()[key] === true;
-  }
-
-  togglePropKey(key: string): void {
-    const current = { ...this.collapsedPropKeys() };
-    if (current[key]) delete current[key];
-    else current[key] = true;
-    this.collapsedPropKeys.set(current);
-    this.persistCollapsedPropKeys(current);
-  }
-
-  private loadCollapsedPropKeys(): Record<string, boolean> {
-    if (!isPlatformBrowser(this.platformId)) return {};
-    try {
-      const raw = localStorage.getItem(COLLAPSED_PROPS_KEY);
-      return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
-    } catch {
-      return {};
-    }
-  }
-
-  private persistCollapsedPropKeys(value: Record<string, boolean>): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-    localStorage.setItem(COLLAPSED_PROPS_KEY, JSON.stringify(value));
+  toggleCategoryAccordion(cat: string): void {
+    const current = this.expandedCategories();
+    this.expandedCategories.set({ ...current, [cat]: !current[cat] });
   }
 
   togglePin(assetId: string): void {
@@ -196,15 +246,80 @@ export class AppStateService {
     if (idx === -1) pins.push(assetId);
     else pins.splice(idx, 1);
     this.pinnedAssetIds.set(pins);
+    this.commitPreviewTab();
   }
 
   isPinned(assetId: string): boolean {
     return this.pinnedAssetIds().includes(assetId);
   }
 
+  /**
+   * Show an asset from a list-cell click without creating a persistent tab.
+   * An existing committed tab is reused. A previous uncommitted preview is discarded.
+   */
+  previewAsset(assetId: string): void {
+    const asset = this.assetMap()[assetId];
+    if (!asset) return;
+
+    if (this.openTabIds().includes(assetId)) {
+      this.discardPreview();
+      this.activateTab(assetId);
+      return;
+    }
+
+    if (this.previewTabId() === assetId && this.activeTabId() === assetId) {
+      this.setUrlHash(assetId);
+      return;
+    }
+
+    this.discardPreview();
+    const history = { ...this.tabHistory() };
+    history[assetId] = [assetId];
+    this.tabHistory.set(history);
+    this.previewTabId.set(assetId);
+    this.activeTabId.set(assetId);
+    this.setUrlHash(assetId);
+  }
+
+  /** Promote the current list preview into a real tab after the user interacts with the page. */
+  commitPreviewTab(): void {
+    const previewId = this.previewTabId();
+    if (!previewId) return;
+    const tabs = [...this.openTabIds()];
+    if (!tabs.includes(previewId)) {
+      tabs.push(previewId);
+      this.openTabIds.set(tabs);
+    }
+    if (!this.tabHistory()[previewId]?.length) {
+      const history = { ...this.tabHistory() };
+      history[previewId] = [previewId];
+      this.tabHistory.set(history);
+    }
+    this.previewTabId.set(null);
+    this.activateTab(previewId);
+  }
+
+  private discardPreview(): void {
+    const previewId = this.previewTabId();
+    if (!previewId) return;
+    if (!this.openTabIds().includes(previewId)) {
+      const history = { ...this.tabHistory() };
+      delete history[previewId];
+      this.tabHistory.set(history);
+    }
+    this.previewTabId.set(null);
+  }
+
   openAssetTab(assetId: string, isRoot = false): void {
     const asset = this.assetMap()[assetId];
     if (!asset) return;
+
+    const previewId = this.previewTabId();
+    if (previewId && (previewId === assetId || !isRoot)) {
+      this.commitPreviewTab();
+    } else if (previewId) {
+      this.discardPreview();
+    }
 
     if (!isRoot && this.activeTabId()) {
       const tabId = this.activeTabId()!;
@@ -240,6 +355,9 @@ export class AppStateService {
   }
 
   activateTab(tabId: string): void {
+    if (this.previewTabId() && this.previewTabId() !== tabId) {
+      this.discardPreview();
+    }
     this.activeTabId.set(tabId);
     const history = this.tabHistory()[tabId];
     if (history?.length) this.setUrlHash(history[history.length - 1]);
@@ -255,6 +373,7 @@ export class AppStateService {
 
   closeTab(assetId: string): void {
     if (this.currentWebGLAssetId() === assetId) this.closeWebGLView();
+    if (this.previewTabId() === assetId) this.previewTabId.set(null);
     const prevTabs = this.openTabIds();
     const idx = prevTabs.indexOf(assetId);
     const tabs = prevTabs.filter((id) => id !== assetId);
@@ -275,6 +394,7 @@ export class AppStateService {
   closeAllTabs(): void {
     this.closeWebGLView();
     this.openTabIds.set([]);
+    this.previewTabId.set(null);
     this.activeTabId.set(null);
     this.tabHistory.set({});
     this.setUrlHash('');
@@ -378,7 +498,15 @@ export class AppStateService {
       return;
     }
 
-    const headers = ['AssetId', 'AssetName', 'AssetType', 'Tags', 'AssetAddress', 'HasWebGLView'];
+    const headers = [
+      'AssetId',
+      'AssetName',
+      'AssetType',
+      'Source',
+      'Tags',
+      'AssetAddress',
+      'HasWebGLView',
+    ];
     const sample = items[0];
     if (sample.Data?.['ContainedTools']) {
       headers.push('ContainedTools_Count', 'ContainedTools_List');
@@ -393,6 +521,7 @@ export class AppStateService {
         `"${item.AssetId ?? ''}"`,
         `"${item.AssetName ?? ''}"`,
         `"${item.AssetType ?? ''}"`,
+        `"${item._Source ? dataSourceLabel(item._Source) : ''}"`,
         `"${(item.Tags ?? []).join(';')}"`,
         `"${(item.Data?.['AssetAddress'] as string) ?? ''}"`,
         Boolean(item.Data?.['HasWebGLView']),

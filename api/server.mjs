@@ -13,7 +13,8 @@
  *   GET  /system/health
  *
  * Supported assetType values: "tool" (Unity kind===tool), "equipment",
- * "interaction", "medication", "waveform", "scenario".
+ * "interaction", "medication", "waveform", "scenario", "environment",
+ * "authored-environment", "audio", "video".
  */
 
 import cors from 'cors';
@@ -26,12 +27,20 @@ import { createTagTaxonomyStore } from './tag-taxonomy.mjs';
 import {
   SUPPORTED_LIBRARY_TYPES,
   collectUniqueTags,
+  listUnityAudio,
+  listUnityVideos,
+  listUnityAuthoredEnvironments,
+  listUnityEnvironments,
   listUnityEquipment,
   listUnityInteractions,
   listUnityMedications,
   listUnityScenarios,
   listUnityTools,
   listUnityWaveforms,
+  mapUnityAudioToLibraryAsset,
+  mapUnityVideoToLibraryAsset,
+  mapUnityAuthoredEnvironmentToLibraryAsset,
+  mapUnityEnvironmentToLibraryAsset,
   mapUnityEquipmentToLibraryAsset,
   mapUnityInteractionToLibraryAsset,
   mapUnityMedicationToLibraryAsset,
@@ -69,10 +78,14 @@ const interactions = listUnityInteractions(bundle);
 const medications = listUnityMedications(bundle);
 const waveforms = listUnityWaveforms(bundle);
 const scenarios = listUnityScenarios(bundle);
+const environments = listUnityEnvironments(bundle);
+const authoredEnvironments = listUnityAuthoredEnvironments(bundle);
+const audio = listUnityAudio(bundle);
+const videos = listUnityVideos(bundle);
 /** All tool-catalog rows (tool/kit/group/vessel) for interaction FK resolution. */
 const toolCatalog = (bundle.tools ?? []).filter((t) => t?.id);
 console.log(
-  `Loaded ${tools.length} tools (kind=tool), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios.`,
+  `Loaded ${tools.length} tools (kind=tool|vessel), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios, ${environments.length} environments, ${authoredEnvironments.length} authored environments, ${audio.length} audio clips, ${videos.length} videos.`,
 );
 console.table(bundle.meta?.counts ?? {});
 
@@ -149,6 +162,9 @@ app.get('/tags', (_req, res) => {
       medications,
       waveforms,
       scenarios,
+      environments,
+      authoredEnvironments,
+      audio,
     ),
   );
 });
@@ -291,6 +307,12 @@ app.post('/assets', (req, res) => {
       ...medications.map((m) => mapUnityMedicationToLibraryAsset(m, mapOpts)),
       ...waveforms.map((w) => mapUnityWaveformToLibraryAsset(w, mapOpts)),
       ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
+      ...environments.map((e) => mapUnityEnvironmentToLibraryAsset(e, mapOpts)),
+      ...authoredEnvironments.map((e) =>
+        mapUnityAuthoredEnvironmentToLibraryAsset(e, mapOpts),
+      ),
+      ...audio.map((a) => mapUnityAudioToLibraryAsset(a, mapOpts)),
+      ...videos.map((v) => mapUnityVideoToLibraryAsset(v, mapOpts)),
     ];
   } else {
     if (assetTypes.includes('tool')) {
@@ -322,6 +344,26 @@ app.post('/assets', (req, res) => {
       results.push(
         ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
       );
+    }
+    if (assetTypes.includes('environment')) {
+      results.push(
+        ...environments.map((e) =>
+          mapUnityEnvironmentToLibraryAsset(e, mapOpts),
+        ),
+      );
+    }
+    if (assetTypes.includes('authored-environment')) {
+      results.push(
+        ...authoredEnvironments.map((e) =>
+          mapUnityAuthoredEnvironmentToLibraryAsset(e, mapOpts),
+        ),
+      );
+    }
+    if (assetTypes.includes('audio')) {
+      results.push(...audio.map((a) => mapUnityAudioToLibraryAsset(a, mapOpts)));
+    }
+    if (assetTypes.includes('video')) {
+      results.push(...videos.map((v) => mapUnityVideoToLibraryAsset(v, mapOpts)));
     }
   }
 

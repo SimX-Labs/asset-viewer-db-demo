@@ -105,7 +105,12 @@ export class DboDataService {
       const fileData = rawData[fileName];
       for (const cat of Object.keys(fileData)) {
         for (const item of fileData[cat]) {
-          assetMap[item.AssetId] = { ...item, _Category: cat, _File: fileName };
+          assetMap[item.AssetId] = {
+            ...item,
+            _Category: cat,
+            _File: fileName,
+            _Source: item._Source ?? 'unknown',
+          };
         }
       }
     }

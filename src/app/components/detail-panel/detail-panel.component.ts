@@ -32,40 +32,43 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
         </div>
       }
       <div class="tab-content-container">
-        @if (state.openTabIds().length === 0) {
-          <div class="empty-state">Select an asset to view details</div>
-        }
-        @for (tabId of state.openTabIds(); track tabId) {
-          @if (state.activeTabId() === tabId) {
-            <div class="tab-pane active">
-              @if (!embedMode) {
-                <nav class="breadcrumb-bar">
-                  @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
-                    @if (i > 0) {
-                      <i class="pi pi-angle-right crumb-separator" aria-hidden="true"></i>
-                    }
-                    @if (last) {
-                      <span class="crumb current">{{ tabLabel(histId) }}</span>
-                    } @else {
-                      <button class="crumb" (click)="state.navigateBreadcrumb(tabId, i)">
-                        {{ tabLabel(histId) }}
-                      </button>
-                    }
+        @if (state.activeTabId(); as tabId) {
+          <div
+            class="tab-pane active"
+            (scroll)="onDetailInteract()"
+            (click)="onDetailInteract()"
+            (pointerdown)="onDetailInteract()"
+            (keydown)="onDetailInteract()"
+          >
+            @if (!embedMode) {
+              <nav class="breadcrumb-bar">
+                @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
+                  @if (i > 0) {
+                    <i class="pi pi-angle-right crumb-separator" aria-hidden="true"></i>
                   }
-                </nav>
-              }
-              <div class="tab-scroll-area">
-                @if (state.getTabAsset(tabId); as asset) {
-                  <!-- Recreate the detail view per asset so accordion/search
-                       local state and reused child renderers cannot go stale
-                       when navigating within a tab's breadcrumb history. -->
-                  @for (_ of [asset.AssetId]; track _) {
-                    <app-asset-detail [asset]="asset" />
+                  @if (last) {
+                    <span class="crumb current">{{ tabLabel(histId) }}</span>
+                  } @else {
+                    <button class="crumb" (click)="state.navigateBreadcrumb(tabId, i)">
+                      {{ tabLabel(histId) }}
+                    </button>
                   }
                 }
-              </div>
+              </nav>
+            }
+            <div class="tab-scroll-area" (scroll)="onDetailInteract()">
+              @if (state.getTabAsset(tabId); as asset) {
+                <!-- Recreate the detail view per asset so accordion/search
+                     local state and reused child renderers cannot go stale
+                     when navigating within a tab's breadcrumb history. -->
+                @for (_ of [asset.AssetId]; track _) {
+                  <app-asset-detail [asset]="asset" />
+                }
+              }
             </div>
-          }
+          </div>
+        } @else {
+          <div class="empty-state">Select an asset to view details</div>
         }
       </div>
     </section>
@@ -88,5 +91,10 @@ export class DetailPanelComponent {
   closeTab(event: Event, tabId: string): void {
     event.stopPropagation();
     this.state.closeTab(tabId);
+  }
+
+  /** Scroll, click, or keyboard use on the detail page commits a list preview into a tab. */
+  onDetailInteract(): void {
+    this.state.commitPreviewTab();
   }
 }

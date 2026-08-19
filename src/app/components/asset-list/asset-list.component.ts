@@ -2,7 +2,9 @@ import {
   Component,
   DestroyRef,
   ElementRef,
+  HostListener,
   afterNextRender,
+  computed,
   inject,
   signal,
   viewChild,
@@ -10,6 +12,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppStateService } from '../../services/app-state.service';
+import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
+import {
+  buildContextualTagFilters,
+  tagFilterSuggestions,
+} from '../../utils/tag-filter.util';
 
 const DRAG_THRESHOLD_PX = 5;
 const MOMENTUM_FRICTION = 0.0025;
@@ -23,23 +30,89 @@ const LETTER_HIDE_DELAY_MS = 450;
   template: `
     <section class="list-panel">
       <div class="list-header">
-        <div class="search-wrapper">
-          <input
-            type="text"
-            placeholder="Search by asset name..."
-            [ngModel]="state.searchQuery()"
-            (ngModelChange)="state.searchQuery.set($event)"
-          />
-          @if (state.searchQuery()) {
-            <button class="search-clear" (click)="state.searchQuery.set('')" title="Clear search">
-              <i class="pi pi-times" aria-hidden="true"></i>
-            </button>
-          }
+        <div class="search-row">
+          <div class="search-wrapper">
+            <input
+              type="text"
+              placeholder="Search names, IDs, or tags…"
+              [ngModel]="state.searchQuery()"
+              (ngModelChange)="onSearchChange($event)"
+              (focus)="suggestOpen.set(true)"
+              (blur)="onSearchBlur()"
+              (keydown)="onSearchKeydown($event)"
+            />
+            @if (state.searchQuery()) {
+              <button class="search-clear" (click)="state.searchQuery.set('')" title="Clear search">
+                <i class="pi pi-times" aria-hidden="true"></i>
+              </button>
+            }
+            @if (suggestOpen() && tagSuggestions().length) {
+              <ul class="tag-suggest" role="listbox">
+                @for (opt of tagSuggestions(); track opt.label; let i = $index) {
+                  <li role="presentation">
+                    <button
+                      type="button"
+                      role="option"
+                      class="tag-suggest-item"
+                      [class.active]="i === suggestIndex()"
+                      (mousedown)="applyTagSuggestion(opt.label, $event)"
+                    >
+                      <i class="pi pi-tag" aria-hidden="true"></i>
+                      <span>Filter by {{ opt.label }}</span>
+                      <span class="tag-count">{{ opt.count }}</span>
+                    </button>
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+          <button class="export-btn simx-btn simx-btn--small" title="Export filtered list to CSV" (click)="state.exportCsv()">
+            <i class="pi pi-download" aria-hidden="true"></i>
+            Export
+          </button>
         </div>
-        <button class="export-btn simx-btn simx-btn--small" title="Export filtered list to CSV" (click)="state.exportCsv()">
-          <i class="pi pi-download" aria-hidden="true"></i>
-          Export
-        </button>
+        @if (tagFilters().length || state.selectedTagLabels().length) {
+          <div class="tag-filters" aria-label="Filter by tag">
+            <button
+              type="button"
+              class="tag-picker-btn"
+              [class.open]="pickerOpen()"
+              [attr.aria-expanded]="pickerOpen()"
+              aria-haspopup="dialog"
+              title="Choose tags to filter"
+              (click)="openPicker()"
+            >
+              <i class="pi pi-tags" aria-hidden="true"></i>
+              Tags
+              @if (state.selectedTagLabels().length) {
+                <span class="tag-count">{{ state.selectedTagLabels().length }}</span>
+              }
+              <span class="tag-mode">{{ state.tagMatchMode() === 'or' ? 'OR' : 'AND' }}</span>
+            </button>
+            @for (opt of selectedTagFilters(); track opt.label) {
+              <button
+                type="button"
+                class="tag-filter active"
+                aria-pressed="true"
+                title="Remove tag filter"
+                (click)="state.toggleTagFilter(opt.label)"
+              >
+                {{ opt.label }}
+                <span class="tag-count">{{ opt.count }}</span>
+              </button>
+            }
+            @if (state.selectedTagLabels().length) {
+              <button
+                type="button"
+                class="tag-clear"
+                title="Clear tag filters"
+                (click)="state.clearTagFilters()"
+              >
+                Clear
+              </button>
+            }
+          </div>
+        }
       </div>
       <div class="list-columns">
         <span>Name</span>
@@ -64,7 +137,13 @@ const LETTER_HIDE_DELAY_MS = 450;
               </span>
             </button>
           } @empty {
-            <div class="empty-list">No assets in this category.</div>
+            <div class="empty-list">
+              @if (state.searchQuery() || state.selectedTagLabels().length) {
+                No assets match this search.
+              } @else {
+                No assets in this category.
+              }
+            </div>
           }
         </div>
         @if (showLetter()) {
@@ -72,14 +151,144 @@ const LETTER_HIDE_DELAY_MS = 450;
         }
       </div>
     </section>
+    @if (pickerOpen()) {
+      <div class="tag-picker-backdrop" (click)="closePicker()">
+        <div
+          class="tag-picker"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="tag-picker-title"
+          (click)="$event.stopPropagation()"
+        >
+          <header class="tag-picker-head">
+            <h2 id="tag-picker-title" class="tag-picker-title">Filter by tags</h2>
+            <button
+              type="button"
+              class="tag-picker-close"
+              title="Close (Esc)"
+              (click)="closePicker()"
+            >
+              <i class="pi pi-times" aria-hidden="true"></i>
+            </button>
+          </header>
+          <div class="tag-picker-toolbar">
+            <input
+              #pickerSearch
+              type="text"
+              class="tag-picker-search"
+              placeholder="Search tags…"
+              [ngModel]="pickerQuery()"
+              (ngModelChange)="pickerQuery.set($event)"
+            />
+            <div class="match-toggle" role="group" aria-label="Tag match mode">
+              <button
+                type="button"
+                data-mode="and"
+                [class.active]="state.tagMatchMode() === 'and'"
+                [attr.aria-pressed]="state.tagMatchMode() === 'and'"
+                title="Assets must have all selected tags"
+                (click)="state.setTagMatchMode('and')"
+              >
+                AND
+              </button>
+              <button
+                type="button"
+                data-mode="or"
+                [class.active]="state.tagMatchMode() === 'or'"
+                [attr.aria-pressed]="state.tagMatchMode() === 'or'"
+                title="Assets that have any of the selected tags"
+                (click)="state.setTagMatchMode('or')"
+              >
+                OR
+              </button>
+            </div>
+          </div>
+          <p class="tag-picker-hint">
+            @if (state.tagMatchMode() === 'or') {
+              Show assets that have any of the selected tags.
+            } @else {
+              Show assets that have all selected tags.
+            }
+          </p>
+          @if (selectedTagFilters().length) {
+            <div class="tag-picker-selected" aria-label="Selected tags">
+              @for (opt of selectedTagFilters(); track opt.label) {
+                <button
+                  type="button"
+                  class="tag-filter active"
+                  title="Remove tag filter"
+                  (click)="state.toggleTagFilter(opt.label)"
+                >
+                  {{ opt.label }}
+                  <span class="tag-count">{{ opt.count }}</span>
+                </button>
+              }
+              <button type="button" class="tag-clear" (click)="state.clearTagFilters()">
+                Clear
+              </button>
+            </div>
+          }
+          <ul class="tag-picker-list" role="listbox" aria-multiselectable="true">
+            @for (opt of pickerTagFilters(); track opt.label) {
+              <li>
+                <label class="tag-picker-option" [class.selected]="opt.selected">
+                  <input
+                    type="checkbox"
+                    [checked]="opt.selected"
+                    (change)="state.toggleTagFilter(opt.label)"
+                  />
+                  <span class="tag-picker-label">{{ opt.label }}</span>
+                  <span class="tag-count">{{ opt.count }}</span>
+                </label>
+              </li>
+            } @empty {
+              <li class="tag-picker-empty">No tags match.</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
   `,
   styleUrl: './asset-list.component.scss',
 })
 export class AssetListComponent {
   readonly state = inject(AppStateService);
+  private readonly tags = inject(TagTaxonomyService);
   private readonly destroyRef = inject(DestroyRef);
 
+  readonly suggestOpen = signal(false);
+  readonly suggestIndex = signal(0);
+  readonly pickerOpen = signal(false);
+  readonly pickerQuery = signal('');
+
+  readonly tagFilters = computed(() => {
+    const cat = this.state.currentCategory();
+    return buildContextualTagFilters({
+      items: this.state.categoryListItems(),
+      selectedLabels: this.state.selectedTagLabels(),
+      query: this.state.searchQuery(),
+      taxonomyTags: cat ? this.tags.tagsAvailableForAssetType(cat) : [],
+      matchMode: this.state.tagMatchMode(),
+    });
+  });
+
+  readonly selectedTagFilters = computed(() =>
+    this.tagFilters().filter((opt) => opt.selected),
+  );
+
+  readonly pickerTagFilters = computed(() => {
+    const q = this.pickerQuery().trim().toLowerCase();
+    const options = this.tagFilters();
+    if (!q) return options;
+    return options.filter((opt) => opt.label.toLowerCase().includes(q));
+  });
+
+  readonly tagSuggestions = computed(() =>
+    tagFilterSuggestions(this.tagFilters(), this.state.searchQuery()),
+  );
+
   private readonly listScroll = viewChild<ElementRef<HTMLDivElement>>('listScroll');
+  private readonly pickerSearch = viewChild<ElementRef<HTMLInputElement>>('pickerSearch');
 
   readonly isDragging = signal(false);
   readonly showLetter = signal(false);
@@ -109,7 +318,71 @@ export class AssetListComponent {
   private readonly onScroll = () => this.handleScroll();
 
   constructor() {
+    void this.tags.ensureLoaded();
     afterNextRender(() => this.bindScrollInteractions());
+  }
+
+  onSearchChange(value: string): void {
+    this.state.searchQuery.set(value);
+    this.suggestOpen.set(true);
+    this.suggestIndex.set(0);
+  }
+
+  onSearchBlur(): void {
+    window.setTimeout(() => this.suggestOpen.set(false), 120);
+  }
+
+  onSearchKeydown(event: KeyboardEvent): void {
+    const suggestions = this.tagSuggestions();
+    if (!suggestions.length) return;
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      this.suggestOpen.set(true);
+      this.suggestIndex.update((i) => (i + 1) % suggestions.length);
+      return;
+    }
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      this.suggestOpen.set(true);
+      this.suggestIndex.update((i) =>
+        i <= 0 ? suggestions.length - 1 : i - 1,
+      );
+      return;
+    }
+    if (event.key === 'Enter') {
+      const choice = suggestions[this.suggestIndex()] ?? suggestions[0];
+      if (!choice) return;
+      event.preventDefault();
+      this.applyTagSuggestion(choice.label);
+      return;
+    }
+    if (event.key === 'Escape') {
+      this.suggestOpen.set(false);
+    }
+  }
+
+  applyTagSuggestion(label: string, event?: Event): void {
+    event?.preventDefault();
+    this.state.toggleTagFilter(label);
+    this.state.searchQuery.set('');
+    this.suggestOpen.set(false);
+  }
+
+  openPicker(): void {
+    this.pickerOpen.set(true);
+    this.pickerQuery.set('');
+    window.setTimeout(() => this.pickerSearch()?.nativeElement.focus(), 0);
+  }
+
+  closePicker(): void {
+    this.pickerOpen.set(false);
+    this.pickerQuery.set('');
+  }
+
+  @HostListener('document:keydown.escape')
+  onPickerEscape(): void {
+    if (this.pickerOpen()) this.closePicker();
   }
 
   onItemClick(event: MouseEvent, assetId: string): void {
@@ -119,7 +392,7 @@ export class AssetListComponent {
       this.suppressClick = false;
       return;
     }
-    this.state.openAssetTab(assetId, true);
+    this.state.previewAsset(assetId);
   }
 
   private bindScrollInteractions(): void {

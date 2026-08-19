@@ -15,6 +15,8 @@ Open http://localhost:4300
 
 On startup the viewer loads the **Unity Asset DB** via `public/db` (a junction/symlink to an external folder — see below). Switch to DBO (legacy) under **Settings → Data Source** if you need a side-by-side comparison.
 
+**Tags** (header button, or Settings) opens a dedicated page for the global tag list (accepted on any asset type) plus per-type tags. Edits stay local until you leave that page, so writing `tag-taxonomy.json` does not live-reload the viewer on every change.
+
 ## Unity Asset DB (external folder)
 
 The JSON tree is **not** stored in this repo. Locally it comes from `unity-asset-documentation/db` (same layout that will later live on S3):
@@ -40,11 +42,13 @@ db/
   equipment/<assetKey>.<8hex>.json
   tools/<assetKey>.<8hex>.json
   interactions/<location>.<8hex>.json
+  audio/<assetKey>.<8hex>.json
+  videos/<assetKey>.<8hex>.json   # Ultrasound clips; MP4s in videos/media/
   clothing.json
   medications.json          # from Unity MedicationDatabase export (not scraped)
   waveforms.json            # from scenario-creator case waveforms[] (not Unity scrape)
   scenarios.json            # from scenario-creator case files (summary rows)
-  tag-taxonomy.json         # curated tag categories + tags (editable in viewer/API)
+  tag-taxonomy.json         # global + per-type tags (Tags page; written on leave)
   character-metadata.json
   tool-metadata.json
   index.json                 # generated; browser needs a file list
@@ -115,7 +119,7 @@ Override the folder with `UNITY_ASSET_DB_DIR`. Listens on **http://localhost:430
 
 | Method | Path | Notes |
 |--------|------|--------|
-| POST | `/assets` | Library-compatible query; **tool**, **equipment**, **interaction**, **medication**, **waveform**, and **scenario** |
+| POST | `/assets` | Library-compatible query; **tool**, **equipment**, **interaction**, **medication**, **waveform**, **scenario**, **environment**, **authored-environment**, **audio**, and **video** |
 | GET | `/tags` | Curated taxonomy tags (`{ dataId, label, categories }`); falls back to asset label strings if empty |
 | POST / PATCH / DELETE | `/tags`, `/tags/:dataId` | Create / update / delete curated tags |
 | GET | `/tag-categories` | Curated categories (`{ dataId, label, tags }`) |

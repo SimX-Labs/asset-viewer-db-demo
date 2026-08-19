@@ -95,7 +95,7 @@
   --view-toolbar-height: 69px;
   --content-gutter: 30px;
   --toolbar-compact-breakpoint: 1200px;
-  --sidebar-width: 240px;
+  --sidebar-width: 268px;
   --list-width: 320px;
   --pinned-width: 220px;
   --z-header: 1000;
@@ -159,6 +159,14 @@
   --shadow-dialog: 0 0 0 1px var(--simx-midnight-scrub), 0 0 50px 25px rgba(0, 0, 0, 0.25);
   --overlay: rgba(0, 0, 0, 0.6);
   --active-bar: var(--simx-content);
+
+  /* Sidebar: expandable group header vs. leaf category rows */
+  --bg-group-header: var(--simx-content-lightest);
+  --bg-group-header-hover: var(--simx-content-lighter);
+  --bg-group-header-expanded: rgba(var(--simx-procedure-blue-rgb), 0.12);
+  --text-group-header: var(--simx-content-heavy);
+  --border-group: var(--simx-content-light);
+  --bg-group-children: rgba(var(--simx-procedure-blue-rgb), 0.03);
 }
 
 /* Dark theme — matches Scenario Creator dark mode (navy + cyan) */
@@ -227,6 +235,14 @@ html.simx-dark {
   --shadow-dialog: 0 0 0 1px var(--simx-midnight-scrub), 0 0 50px 25px rgba(0, 0, 0, 0.5);
   --overlay: rgba(0, 0, 0, 0.65);
   --active-bar: var(--simx-procedure-blue);
+
+  /* Sidebar: expandable group header vs. leaf category rows */
+  --bg-group-header: rgb(38, 45, 59);
+  --bg-group-header-hover: rgb(48, 57, 74);
+  --bg-group-header-expanded: rgb(32, 52, 76);
+  --text-group-header: var(--simx-content-heavy);
+  --border-group: rgb(84, 100, 124);
+  --bg-group-children: rgba(var(--simx-white-rgb), 0.025);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────────────── */
@@ -453,22 +469,22 @@ strong {
 .simx-section-heading {
   font-family: var(--font-graphic);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.2;
   text-transform: uppercase;
   color: var(--text-label);
-  margin: 1.5em 0;
-  padding-top: 0.75em;
+  margin: 0 0 var(--space-3);
+  padding: 0 0 6px;
   position: relative;
 
   &::before {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 5px;
+    height: 3px;
     border-radius: var(--radius-default);
     background: var(--simx-content-lighter);
   }

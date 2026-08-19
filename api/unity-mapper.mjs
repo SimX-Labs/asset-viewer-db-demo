@@ -2,7 +2,7 @@
  * Maps Unity Asset Export rows → Asset Library response shapes used by
  * scenario-creator (AssetLibrary*Interface).
  *
- * Supported today: tools (kind === 'tool'), equipment, interactions, and medications.
+ * Supported today: tools (kind 'tool' or 'vessel'), equipment, interactions, and medications.
  */
 
 /** Asset types the Asset Database PoC can serve today. */
@@ -13,13 +13,15 @@ export const SUPPORTED_LIBRARY_TYPES = Object.freeze([
   'medication',
   'waveform',
   'scenario',
+  'environment',
+  'authored-environment',
+  'audio',
+  'video',
 ]);
 
 const UNSUPPORTED_REASONS = Object.freeze({
   character:
     'Character options are not part of the Asset Database PoC yet.',
-  environment:
-    'Unity Asset Export has no environment assets equivalent to Asset Library "environment".',
   settings:
     'Unity Asset Export has no settings/environment-configuration assets.',
 });
@@ -125,6 +127,75 @@ function normalizeTags(tags) {
 }
 
 /**
+ * Flat orbit-capture folder key for a custom vessel (`custom_vessel_<authoringId>`).
+ * Matches Unity export layout; DB assetKey remains `custom_vessel/<authoringId>`.
+ * @param {string | null | undefined} authoringId
+ * @returns {string}
+ */
+export function customVesselOrbitCaptureKey(authoringId) {
+  const id = typeof authoringId === 'string' ? authoringId.trim() : '';
+  return id ? `custom_vessel_${id}` : '';
+}
+
+/**
+ * Custom / empty vessel fields for library-asset `data` (scenario-creator pickers).
+ * @param {object} row Unity tool row
+ * @returns {Record<string, unknown>}
+ */
+export function vesselFieldsForLibraryAsset(row) {
+  /** @type {Record<string, unknown>} */
+  const out = {};
+  if (!row || row.kind !== 'vessel') return out;
+
+  if (row.vesselType === 'custom') {
+    if (row.authoringId) {
+      out.authoringId = row.authoringId;
+      const orbitKey = customVesselOrbitCaptureKey(row.authoringId);
+      if (orbitKey) out.orbitCaptureKey = orbitKey;
+    }
+    if (row.sourceFile) out.sourceFile = row.sourceFile;
+    if (row.lastSaved) out.lastSaved = row.lastSaved;
+    if (row.emptyVesselId) out.emptyVesselId = row.emptyVesselId;
+    if (row.emptyVesselAssetKey) out.emptyVesselAssetKey = row.emptyVesselAssetKey;
+    if (Array.isArray(row.containedToolIds) && row.containedToolIds.length) {
+      out.containedToolIds = row.containedToolIds;
+    }
+    if (Array.isArray(row.containedToolAssetKeys) && row.containedToolAssetKeys.length) {
+      out.containedToolAssetKeys = row.containedToolAssetKeys;
+    }
+    if (Array.isArray(row.containers) && row.containers.length) {
+      out.containers = row.containers;
+    }
+    if (Array.isArray(row.packets) && row.packets.length) {
+      out.packets = row.packets;
+      out.customization = row.packets;
+    }
+    if (
+      Array.isArray(row.usedInAuthoredEnvironmentIds) &&
+      row.usedInAuthoredEnvironmentIds.length
+    ) {
+      out.usedInAuthoredEnvironmentIds = row.usedInAuthoredEnvironmentIds;
+    }
+    if (
+      Array.isArray(row.usedInAuthoredEnvironmentKeys) &&
+      row.usedInAuthoredEnvironmentKeys.length
+    ) {
+      out.usedInAuthoredEnvironmentKeys = row.usedInAuthoredEnvironmentKeys;
+    }
+  }
+
+  if (
+    row.vesselType === 'empty' &&
+    Array.isArray(row.customVesselIds) &&
+    row.customVesselIds.length
+  ) {
+    out.customVesselIds = row.customVesselIds;
+  }
+
+  return out;
+}
+
+/**
  * @param {object} row Unity tool or equipment row
  * @param {'tool' | 'equipment'} assetType
  * @param {{ includeData?: boolean, includeImages?: boolean, interactionById?: Map<string, object>, interactionByLocation?: Map<string, object> }} opts
@@ -152,12 +223,14 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
     const metadata = metadataSource.map(mapMetadata).filter(Boolean);
     const columns = interactionColumnsForRow(row, assetType, opts);
     // Extra Unity fields for richer pickers (scenario-creator Asset DB mode).
-    asset.data = {
+    /** @type {Record<string, unknown>} */
+    const data = {
       metadata,
       assetKey: row.assetKey ?? null,
       toolId: row.toolId ?? null,
       prefabPath: row.prefabPath ?? null,
       kind: row.kind ?? assetType,
+      vesselType: row.vesselType ?? null,
       interactionSenders: columns.interactionSenders,
       interactionLocations: columns.interactionLocations,
       interactionCount: columns.interactionSenders.length,
@@ -166,6 +239,8 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
         ? row.usedInGroupIds.length
         : 0,
     };
+    Object.assign(data, vesselFieldsForLibraryAsset(row));
+    asset.data = data;
   }
 
   if (includeImages) {
@@ -369,7 +444,12 @@ function resolveAssetRefs(ids, byId) {
  * @returns {object[]}
  */
 export function listUnityTools(bundle) {
-  return (bundle.tools ?? []).filter((t) => t && t.kind === 'tool');
+  // Empty vessels are spawnable prefabs that happen to carry the client's `vessel` label, so they
+  // stay in the tool asset type (legacy asset-database has no vessel type). Clients tell them apart
+  // via data.kind / data.vesselType. Kits and groups remain excluded.
+  return (bundle.tools ?? []).filter(
+    (t) => t && (t.kind === 'tool' || t.kind === 'vessel'),
+  );
 }
 
 /**
@@ -460,4 +540,206 @@ export function mapUnityScenarioToLibraryAsset(scenario, opts = {}) {
  */
 export function listUnityScenarios(bundle) {
   return (bundle.scenarios ?? []).filter((s) => s && s.id);
+}
+
+/**
+ * Map a Unity environment scene row → Asset Library shape.
+ * @param {object} env
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityEnvironmentToLibraryAsset(env, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: env.assetKey || env.id,
+    assetName: env.name || env.assetKey || env.id,
+    assetType: 'environment',
+    dataId: env.id,
+    description: '',
+    prefabName: null,
+    tags: normalizeTags(env.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      assetKey: env.assetKey ?? null,
+      guid: env.guid ?? null,
+      addressableGroup: env.addressableGroup ?? null,
+      addressableLabels: env.addressableLabels ?? [],
+      scenePath: env.scenePath ?? null,
+      authoredEnvironmentIds: env.authoredEnvironmentIds ?? [],
+      authoredEnvironmentKeys: env.authoredEnvironmentKeys ?? [],
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * Map an authored environment (env-authoring layout) → Asset Library shape.
+ * @param {object} env
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityAuthoredEnvironmentToLibraryAsset(env, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: env.assetKey || env.id,
+    assetName: env.name || env.assetKey || env.id,
+    assetType: 'authored-environment',
+    dataId: env.id,
+    description: env.description ?? '',
+    prefabName: null,
+    tags: normalizeTags(env.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      assetKey: env.assetKey ?? null,
+      authoringId: env.authoringId ?? null,
+      environmentId: env.environmentId ?? null,
+      environmentAssetKey: env.environmentAssetKey ?? null,
+      sourceFile: env.sourceFile ?? null,
+      lastSaved: env.lastSaved ?? null,
+      authoringToolVersion: env.authoringToolVersion ?? null,
+      rootToolEntryCount: env.rootToolEntryCount ?? 0,
+      toolIds: env.toolIds ?? [],
+      toolAssetKeys: env.toolAssetKeys ?? [],
+      toolPlacements: env.toolPlacements ?? [],
+      emptyVesselIds: env.emptyVesselIds ?? [],
+      emptyVesselAssetKeys: env.emptyVesselAssetKeys ?? [],
+      customVesselIds: env.customVesselIds ?? [],
+      customVesselKeys: env.customVesselKeys ?? [],
+      unresolvedVesselSnapshotIds: env.unresolvedVesselSnapshotIds ?? [],
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * Map an audio clip row → Asset Library shape.
+ * @param {object} clip
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityAudioToLibraryAsset(clip, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: clip.assetKey || clip.id,
+    assetName: clip.name || clip.assetKey || clip.id,
+    assetType: 'audio',
+    dataId: clip.id,
+    description: '',
+    prefabName: null,
+    tags: normalizeTags(clip.tags),
+  };
+
+  if (includeData) {
+    asset.data = {
+      assetKey: clip.assetKey ?? null,
+      audioKind: clip.audioKind ?? null,
+      guid: clip.guid ?? null,
+      addressableGroup: clip.addressableGroup ?? null,
+      addressableLabels: clip.addressableLabels ?? [],
+      clipPath: clip.clipPath ?? null,
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityEnvironments(bundle) {
+  return (bundle.environments ?? []).filter((e) => e && e.id);
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityAuthoredEnvironments(bundle) {
+  return (bundle.authoredEnvironments ?? []).filter((e) => e && e.id);
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityAudio(bundle) {
+  return (bundle.audio ?? []).filter((a) => a && a.id);
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityVideos(bundle) {
+  return (bundle.videos ?? []).filter((v) => v && v.id);
+}
+
+/**
+ * Map a video row → Asset Library shape.
+ * @param {object} clip
+ * @param {{ includeData?: boolean, includeImages?: boolean }} opts
+ */
+export function mapUnityVideoToLibraryAsset(clip, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: clip.assetKey || clip.id,
+    assetName: clip.name || clip.assetKey || clip.id,
+    assetType: 'video',
+    dataId: clip.id,
+    description: '',
+    prefabName: null,
+    tags: normalizeTags(clip.tags ?? clip.addressableLabels),
+  };
+
+  if (includeData) {
+    asset.data = {
+      assetKey: clip.assetKey ?? null,
+      videoKind: clip.videoKind ?? null,
+      guid: clip.guid ?? null,
+      addressableGroup: clip.addressableGroup ?? null,
+      addressableLabels: clip.addressableLabels ?? [],
+      animPath: clip.animPath ?? null,
+      duration: clip.duration ?? null,
+      fps: clip.fps ?? null,
+      loop: !!clip.loop,
+      frameCount: clip.frameCount ?? null,
+      videoPath: clip.videoPath ?? null,
+      posterPath: clip.posterPath ?? null,
+      encodeStatus: clip.encodeStatus ?? null,
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
 }

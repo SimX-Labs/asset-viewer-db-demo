@@ -180,7 +180,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
 
   @HostListener('window:keydown.escape')
   onEscape(): void {
-    if (this.expanded()) this.session.panelExpanded.set(false);
+    this.collapse();
   }
 
   async grant(): Promise<void> {
@@ -201,15 +201,25 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   toggleExpanded(): void {
-    const next = !this.expanded();
-    this.session.panelExpanded.set(next);
-    if (next) {
-      this.syncExpandedBounds();
-      this.observeDetailPanel();
-    } else {
-      this.expandedStyle.set(null);
-      this.teardownPanelObserver();
+    if (this.expanded()) {
+      this.collapse();
+      return;
     }
+    this.session.panelExpanded.set(true);
+    this.syncExpandedBounds();
+    this.observeDetailPanel();
+  }
+
+  /**
+   * Single exit path for expanded mode. The fixed-position bounds are inline
+   * styles, so clearing the flag without clearing them leaves the infobox
+   * pinned over the panel.
+   */
+  private collapse(): void {
+    if (!this.expanded()) return;
+    this.session.panelExpanded.set(false);
+    this.expandedStyle.set(null);
+    this.teardownPanelObserver();
   }
 
   private async resolve(): Promise<void> {
@@ -293,10 +303,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   private exitExpandedIfNeeded(): void {
-    if (!this.expanded()) return;
-    this.session.panelExpanded.set(false);
-    this.expandedStyle.set(null);
-    this.teardownPanelObserver();
+    this.collapse();
   }
 
   private detailPanelEl(): HTMLElement | null {
@@ -304,6 +311,10 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   private syncExpandedBounds(): void {
+    if (!this.expanded()) {
+      this.expandedStyle.set(null);
+      return;
+    }
     const panel = this.detailPanelEl();
     if (!panel) {
       this.expandedStyle.set(null);

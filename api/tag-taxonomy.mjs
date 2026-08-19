@@ -9,7 +9,7 @@ import { randomUUID } from 'node:crypto';
 
 /**
  * @typedef {{ dataId: string, label: string, categories: string[] }} TagRecord
- * @typedef {{ dataId: string, label: string, tags: string[] }} TagCategoryRecord
+ * @typedef {{ dataId: string, label: string, tags: string[], scope: 'global' | 'type', assetType?: string }} TagCategoryRecord
  * @typedef {{ categories: TagCategoryRecord[], tags: TagRecord[] }} TagTaxonomy
  */
 
@@ -47,13 +47,23 @@ export function createTagTaxonomyStore(dbRoot) {
     return {
       categories: categories
         .filter((c) => c && typeof c.dataId === 'string')
-        .map((c) => ({
-          dataId: c.dataId,
-          label: String(c.label ?? ''),
-          tags: Array.isArray(c.tags)
-            ? c.tags.filter((t) => typeof t === 'string')
-            : [],
-        })),
+        .map((c) => {
+          const isGlobal =
+            c.scope === 'global' || c.dataId === 'global';
+          return {
+            dataId: c.dataId,
+            label: String(c.label ?? ''),
+            tags: Array.isArray(c.tags)
+              ? c.tags.filter((t) => typeof t === 'string')
+              : [],
+            scope: isGlobal ? 'global' : 'type',
+            assetType: isGlobal
+              ? undefined
+              : typeof c.assetType === 'string' && c.assetType
+                ? c.assetType
+                : String(c.label ?? ''),
+          };
+        }),
       tags: tags
         .filter((t) => t && typeof t.dataId === 'string')
         .map((t) => ({
@@ -62,6 +72,10 @@ export function createTagTaxonomyStore(dbRoot) {
           categories: Array.isArray(t.categories)
             ? t.categories.filter((c) => typeof c === 'string')
             : [],
+          source:
+            t.source === 'scraped' || String(t.dataId).startsWith('scraped:')
+              ? 'scraped'
+              : 'authored',
         })),
     };
   }
@@ -116,7 +130,7 @@ export function createTagTaxonomyStore(dbRoot) {
             taxonomy.categories.some((c) => c.dataId === id),
           )
         : [];
-      const tag = { dataId: randomUUID(), label, categories };
+      const tag = { dataId: randomUUID(), label, categories, source: 'authored' };
       taxonomy.tags.push(tag);
       return write(syncRelations(taxonomy)).tags.find(
         (t) => t.dataId === tag.dataId,
@@ -127,8 +141,12 @@ export function createTagTaxonomyStore(dbRoot) {
       const taxonomy = read();
       const tag = taxonomy.tags.find((t) => t.dataId === dataId);
       if (!tag) return null;
-      if (typeof body?.label === 'string') tag.label = body.label.trim() || tag.label;
-      if (Array.isArray(body?.categories)) {
+      const scraped =
+        tag.source === 'scraped' || String(tag.dataId).startsWith('scraped:');
+      if (!scraped && typeof body?.label === 'string') {
+        tag.label = body.label.trim() || tag.label;
+      }
+      if (!scraped && Array.isArray(body?.categories)) {
         // Clear old category memberships first.
         for (const cat of taxonomy.categories) {
           cat.tags = cat.tags.filter((id) => id !== dataId);
@@ -141,6 +159,7 @@ export function createTagTaxonomyStore(dbRoot) {
     },
     /** @param {string} dataId */
     deleteTag(dataId) {
+      if (String(dataId).startsWith('scraped:')) return false;
       const taxonomy = read();
       const before = taxonomy.tags.length;
       taxonomy.tags = taxonomy.tags.filter((t) => t.dataId !== dataId);
@@ -158,7 +177,13 @@ export function createTagTaxonomyStore(dbRoot) {
       const tags = Array.isArray(body?.tags)
         ? body.tags.filter((id) => taxonomy.tags.some((t) => t.dataId === id))
         : [];
-      const category = { dataId: randomUUID(), label, tags };
+      const category = {
+        dataId: randomUUID(),
+        label,
+        tags,
+        scope: 'type',
+        assetType: label,
+      };
       taxonomy.categories.push(category);
       return write(syncRelations(taxonomy)).categories.find(
         (c) => c.dataId === category.dataId,
@@ -186,6 +211,9 @@ export function createTagTaxonomyStore(dbRoot) {
     },
     /** @param {string} dataId */
     deleteCategory(dataId) {
+      if (dataId === 'global' || String(dataId).startsWith('type:')) {
+        return false;
+      }
       const taxonomy = read();
       const before = taxonomy.categories.length;
       taxonomy.categories = taxonomy.categories.filter(

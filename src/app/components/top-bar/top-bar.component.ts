@@ -24,6 +24,15 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
       </div>
       <div class="top-bar-actions">
         <app-orbit-open-button />
+        <button
+          class="header-btn"
+          [class.active]="tagTaxonomy.pageOpen()"
+          title="Manage global and type-specific tags"
+          (click)="openTags()"
+        >
+          <i class="pi pi-tags btn-icon" aria-hidden="true"></i>
+          <span class="btn-label">Tags</span>
+        </button>
         <button class="header-btn" (click)="theme.toggle()" [title]="theme.themeLabel()">
           @if (theme.resolvedTheme() === 'dark') {
             <i class="pi pi-sun btn-icon" aria-hidden="true"></i><span class="btn-label">Light</span>
@@ -94,11 +103,13 @@ import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-o
                 class="dropdown-action"
                 (click)="openTags(); showSettings.set(false)"
               >
-                Manage tags &amp; categories…
+                Manage global and type tags…
               </button>
               <p class="dropdown-hint">
-                Create and edit the shared tag taxonomy. Assigning tags to assets
-                is not wired yet.
+                Opens a dedicated page for global tags (any asset type) and
+                tags specific to each type. Edits stay local until you leave,
+                so the viewer does not reload on every change. Assigning tags
+                to assets is not wired yet.
               </p>
               <hr />
               <div class="dropdown-title">Theme</div>
@@ -181,7 +192,11 @@ export class TopBarComponent {
   readonly showFiles = signal(false);
 
   openTags(): void {
-    this.tagTaxonomy.openModal();
+    if (this.tagTaxonomy.pageOpen()) {
+      void this.tagTaxonomy.closePage();
+      return;
+    }
+    this.tagTaxonomy.openPage();
   }
 
   async onFilesSelected(event: Event): Promise<void> {
