@@ -5,17 +5,12 @@ import {
   OrbitCaptureManifest,
 } from '../models/orbit-manifest';
 import {
+  BirdsEyeCapture,
   BirdsEyeManifest,
-  BirdsEyeProjection,
   parseBirdsEyeProjection,
 } from '../models/birdseye-projection';
 
-/** A published authored-environment bird's-eye: the PNG plus its world-space projection. */
-export interface BirdsEyeCapture {
-  imageUrl: string;
-  projection: BirdsEyeProjection;
-  manifest: BirdsEyeManifest;
-}
+export type { BirdsEyeCapture };
 
 const BIRDS_EYE_MANIFEST = 'birdseye.json';
 const BIRDS_EYE_IMAGE = 'birdseye.png';
@@ -109,7 +104,13 @@ export class OrbitHttpCaptureService {
   private resolveBaseUrl(): string {
     if (typeof window === 'undefined') return '';
     const fromQuery = new URLSearchParams(window.location.search).get('models');
-    const raw = fromQuery ?? 'http://localhost:4301';
-    return raw.replace(/\/+$/, '');
+    if (fromQuery != null && fromQuery !== '') {
+      return fromQuery.replace(/\/+$/, '');
+    }
+    const origin = window.location.origin;
+    if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin)) {
+      return 'http://localhost:4301';
+    }
+    return '';
   }
 }

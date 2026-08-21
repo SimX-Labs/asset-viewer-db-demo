@@ -1,6 +1,11 @@
 // services/orbit-viewer.service.ts
 import { Injectable, inject, signal } from '@angular/core';
 import { OrbitCaptureBundle } from '../models/orbit-manifest';
+import {
+  BirdsEyeCapture,
+  BirdsEyeManifest,
+  parseBirdsEyeProjection,
+} from '../models/birdseye-projection';
 import { OrbitCaptureLoaderService } from './orbit-capture-loader.service';
 
 const IDB_NAME = 'orbit-viewer';
@@ -55,16 +60,26 @@ export class OrbitViewerService {
     this.error.set(null);
     try {
       const dir = await this.loader.showDirectoryPicker();
-      this.rootHandle = dir;
-      this.rootName.set(dir.name);
-      await this.persistRoot(dir);
-      await this.scanRoot();
-      // Open the library window so the user can browse what was just linked.
-      this.browserOpen.set(true);
+      await this.applyRootHandle(dir, { openBrowser: true });
     } catch (e) {
       if ((e as DOMException)?.name === 'AbortError') return;
       this.handleError(e);
     }
+  }
+
+  /**
+   * Use an already-picked models root (e.g. the `assets/` folder from View Local Data).
+   * Skips the library browser unless `openBrowser` is set.
+   */
+  async applyRootHandle(
+    dir: FileSystemDirectoryHandle,
+    options?: { openBrowser?: boolean },
+  ): Promise<void> {
+    this.rootHandle = dir;
+    this.rootName.set(dir.name);
+    await this.persistRoot(dir);
+    await this.scanRoot();
+    if (options?.openBrowser) this.browserOpen.set(true);
   }
 
   clearRootFolder(): void {
@@ -112,6 +127,54 @@ export class OrbitViewerService {
   requestRootAccess(): Promise<boolean> {
     if (!this.rootHandle) return Promise.resolve(false);
     return this.ensurePermission(this.rootHandle);
+  }
+
+  /**
+   * Bird's-eye PNG + projection from the local assets folder. Returns null when
+   * the capture is unpublished or the root is not readable.
+   */
+  async loadBirdsEye(captureKey: string): Promise<BirdsEyeCapture | null> {
+    const key = captureKey.trim();
+    if (!this.rootHandle || !key) return null;
+    if (!(await this.isRootReadable())) return null;
+    try {
+      const sub = await this.childDirectory(this.rootHandle, key);
+      if (!sub) return null;
+      const manifestFile = await (
+        await sub.getFileHandle('birdseye.json')
+      ).getFile();
+      const manifest = JSON.parse(await manifestFile.text()) as BirdsEyeManifest;
+      const projection = parseBirdsEyeProjection(manifest);
+      if (!projection) return null;
+      const imageName = manifest.image || 'birdseye.png';
+      const imageFile = await (await sub.getFileHandle(imageName)).getFile();
+      return {
+        imageUrl: URL.createObjectURL(imageFile),
+        projection,
+        manifest,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  private async childDirectory(
+    root: FileSystemDirectoryHandle,
+    name: string,
+  ): Promise<FileSystemDirectoryHandle | null> {
+    try {
+      return await root.getDirectoryHandle(name);
+    } catch {
+      const wanted = name.toLowerCase();
+      for await (const [entryName, handle] of (root as unknown as {
+        entries: () => AsyncIterableIterator<[string, FileSystemHandle]>;
+      }).entries()) {
+        if (handle.kind === 'directory' && entryName.toLowerCase() === wanted) {
+          return handle as FileSystemDirectoryHandle;
+        }
+      }
+    }
+    return null;
   }
 
   /** Enumerate the subdirectories of the root folder (sorted). */

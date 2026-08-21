@@ -53,6 +53,13 @@ export interface Point2 {
   y: number;
 }
 
+/** A published authored-environment bird's-eye: the PNG plus its world-space projection. */
+export interface BirdsEyeCapture {
+  imageUrl: string;
+  projection: BirdsEyeProjection;
+  manifest: BirdsEyeManifest;
+}
+
 function positive(value: unknown): number | null {
   return typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : null;
 }

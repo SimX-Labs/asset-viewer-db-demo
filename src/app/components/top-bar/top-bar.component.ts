@@ -6,6 +6,7 @@ import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { AssetMetaService } from '../../services/asset-meta.service';
 import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-open-button/orbit-open-button.component';
+import { OrbitCaptureLoaderService } from '../../orbit-capture/services/orbit-capture-loader.service';
 import { environment } from '../../environment';
 
 @Component({
@@ -85,11 +86,28 @@ import { environment } from '../../environment';
           </button>
           @if (showSettings()) {
             <div class="dropdown-panel dropdown-panel--wide dropdown-panel--scroll">
-              <div class="dropdown-title">File</div>
-              <button class="dropdown-action" (click)="folderInput.click()">Load Unity DB folder...</button>
+              <div class="dropdown-title">Local data</div>
+              <button
+                type="button"
+                class="dropdown-action"
+                (click)="viewLocalData()"
+              >
+                View Local Data…
+              </button>
               <p class="dropdown-hint">
-                Select a <code>db/</code> folder (<code>characters/</code>, <code>equipment/</code>,
-                <code>tools/</code>). Defaults to the linked Unity asset DB on startup.
+                Select the unzipped folder that contains <code>db/</code> and
+                <code>assets/</code>. Chrome or Edge required.
+              </p>
+              <button
+                type="button"
+                class="dropdown-action dropdown-action--secondary"
+                (click)="folderInput.click()"
+              >
+                Load db folder only…
+              </button>
+              <p class="dropdown-hint">
+                Catalog without 3D captures. Defaults to the linked Unity asset
+                DB on local startup.
               </p>
               <hr />
               <div class="dropdown-title">Tags</div>
@@ -193,6 +211,7 @@ export class TopBarComponent {
   readonly tagTaxonomy = inject(TagTaxonomyService);
   readonly auth = inject(AuthenticationService);
   readonly meta = inject(AssetMetaService);
+  private readonly orbitLoader = inject(OrbitCaptureLoaderService);
   readonly showSettings = signal(false);
   readonly showFiles = signal(false);
   readonly authEnabled = environment.authEnabled;
@@ -203,6 +222,28 @@ export class TopBarComponent {
       return;
     }
     this.tagTaxonomy.openPage();
+  }
+
+  async viewLocalData(): Promise<void> {
+    if (!this.orbitLoader.supportsDirectoryPicker) {
+      this.state.statusMessage.set(
+        'View Local Data needs Chrome or Edge (folder picker).',
+      );
+      this.state.statusError.set(true);
+      this.showSettings.set(false);
+      return;
+    }
+    try {
+      const dir = await this.orbitLoader.showDirectoryPicker();
+      await this.state.loadLocalDataPack(dir);
+      this.showSettings.set(false);
+    } catch (err) {
+      if ((err as DOMException)?.name === 'AbortError') return;
+      this.state.statusMessage.set(
+        `Error: ${err instanceof Error ? err.message : 'Failed to open folder.'}`,
+      );
+      this.state.statusError.set(true);
+    }
   }
 
   async onFolderSelected(event: Event): Promise<void> {

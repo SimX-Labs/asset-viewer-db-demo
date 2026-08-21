@@ -107,7 +107,25 @@ npm run db:import-scenarios -- C:/SimX/scenario-creator-cases/scenarios
 
 Imports write into `UNITY_ASSET_DB_DIR` (not into this repo).
 
-You can also load a different `db/` folder at runtime via **Settings → Load Unity DB folder...**.
+You can also load a different `db/` folder at runtime via **Settings → Load db folder only…**.
+On the hosted empty viewer, use **Settings → View Local Data…** (see below).
+
+### Sharing a local preview (zip)
+
+The GitHub Pages demo stays an **empty viewer** — no catalog or GLBs are hosted. To share a
+snapshot, zip two folders and send the file:
+
+```
+preview/
+  db/        # copy of unity-asset-documentation/db
+  assets/    # copy of OrbitCaptures/EXPORT (one subfolder per addressable)
+```
+
+Recipient: unzip, open the hosted viewer, **Settings → View Local Data…**, and pick the
+`preview` folder (the one that contains both `db` and `assets`). Chrome or Edge is required
+because the folder picker reads 3D files lazily instead of uploading the zip.
+
+Writes (comments, tag edits) stay local to that session; they are not written back into the zip.
 
 ### Switching to S3 later
 
@@ -188,7 +206,10 @@ npm run build          # production build
 npm run build:pages    # GitHub Pages build (base href /asset-viewer-db-demo/)
 ```
 
-GitHub Pages CI builds without the sibling `unity-asset-documentation` checkout (empty DB stub). Once S3 is ready, point `UNITY_DB_ROOT` at the bucket so the hosted demo loads live data.
+GitHub Pages CI builds without the sibling `unity-asset-documentation` checkout (empty DB stub).
+The hosted demo is an empty viewer; recipients load a local `db/` + `assets/` zip via
+**Settings → View Local Data…**. Once S3 is ready, point `UNITY_DB_ROOT` at the bucket so the
+hosted demo can load live data if you choose to.
 
 ## Deployment
 

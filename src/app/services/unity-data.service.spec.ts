@@ -316,6 +316,42 @@ describe('UnityDataService audio', () => {
     expect(asset.Tags).toContain('Ambient');
     expect(result.rawData['Unity Asset DB']['Audio'].length).toBe(1);
   });
+
+  it('uses blob URLs for media when loading a local db folder', async () => {
+    const jsonFile = (rel: string, body: unknown) => {
+      const file = new File([JSON.stringify(body)], rel.split('/').pop()!, {
+        type: 'application/json',
+      });
+      Object.defineProperty(file, 'webkitRelativePath', {
+        value: `pack/db/${rel}`,
+      });
+      return file;
+    };
+    const ogg = new File(['bytes'], 'loop.ogg', { type: 'audio/ogg' });
+    Object.defineProperty(ogg, 'webkitRelativePath', {
+      value: 'pack/db/audio/media/loop.ogg',
+    });
+
+    const result = await service.buildFromFolderFiles([
+      jsonFile('tools/tool-1.json', {
+        id: 'tool-1',
+        type: 'tool',
+        kind: 'tool',
+        name: 'Gauze',
+        assetKey: 'tool_gauze',
+      }),
+      jsonFile('audio/audio-1.json', {
+        id: 'audio-1',
+        type: 'audio',
+        audioKind: 'music',
+        name: 'Loop',
+        audioPath: 'audio/media/loop.ogg',
+      }),
+      ogg,
+    ]);
+
+    expect(result.assetMap['audio-1'].Data['AudioUrl']).toMatch(/^blob:/);
+  });
 });
 
 describe('UnityDataService git authorship', () => {

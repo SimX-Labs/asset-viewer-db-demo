@@ -212,4 +212,18 @@ describe('AssetMetaService clear overlay', () => {
     expect(meta.recordFor('asset-1')).toBeNull();
     expect(meta.recordFor('asset-2')).toBeNull();
   });
+
+  it('serves overlay media from a local db folder pick', () => {
+    meta.records.set({
+      'asset-1': {
+        ...emptyAssetMetaRecord('asset-1'),
+        media: [{ id: 'img-1', filename: 'shot.png', contentType: 'image/png' }],
+      },
+    });
+    const file = new File(['x'], 'shot.png', { type: 'image/png' });
+    meta.setLocalMediaFiles(
+      new Map([['meta/asset-1/media/shot.png', file]]),
+    );
+    expect(meta.mediaSrc('asset-1', 'img-1')).toMatch(/^blob:/);
+  });
 });

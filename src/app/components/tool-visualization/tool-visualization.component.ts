@@ -16,6 +16,7 @@ import { Network, DataSet } from 'vis-network/standalone';
 import { DboAsset, ToolNode } from '../../models/dbo.models';
 import { AppStateService } from '../../services/app-state.service';
 import { authoredEnvironmentBirdsEyeKey } from '../../models/authored-environment.util';
+import { OrbitViewerService } from '../../orbit-capture/services/orbit-viewer.service';
 import {
   BirdsEyeCapture,
   OrbitHttpCaptureService,
@@ -623,6 +624,7 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly state = inject(AppStateService);
   private readonly orbitHttp = inject(OrbitHttpCaptureService);
+  private readonly orbitViewer = inject(OrbitViewerService);
   private network: Network | null = null;
   private nodesDataSet: DataSet<any> | null = null;
   private zoomDebounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -964,7 +966,9 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     this.outsideCaptureCount.set(0);
     if (!key) return;
 
-    const capture = await this.orbitHttp.loadBirdsEye(key);
+    const capture =
+      (await this.orbitViewer.loadBirdsEye(key)) ??
+      (await this.orbitHttp.loadBirdsEye(key));
     if (!capture || this.birdsEyeRequestKey !== key) return;
 
     const image = await this.loadImage(capture.imageUrl);

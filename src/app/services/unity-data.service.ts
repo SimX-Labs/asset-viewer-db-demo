@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { DboAsset, ToolNode } from '../models/dbo.models';
 import { DboLoadResult } from './dbo-data.service';
 import { AssetMetaService } from './asset-meta.service';
+import { TagTaxonomyService } from './tag-taxonomy.service';
 import {
   UNITY_CATEGORY_ORDER,
   UNITY_DB_INDEX_FILE,
@@ -29,10 +30,15 @@ import {
   UnityVideo,
   UnityWaveform,
 } from '../models/unity-asset.models';
+import { TAG_TAXONOMY_FILE } from '../models/tag.models';
 import { adaptVesselToolFields } from '../models/custom-vessel.util';
 import { sourceForUnityAsset } from '../models/data-source';
 import { formatGitIdentity } from '../utils/git-identity.util';
 import { normalizeAssetMetaRecord } from '../models/asset-meta.models';
+import {
+  collectDirectoryFiles,
+  indexDbFiles,
+} from '../utils/local-data-pack.util';
 
 const FETCH_BATCH_SIZE = 48;
 
@@ -67,8 +73,12 @@ interface ReverseIndex {
 export class UnityDataService {
   private readonly http = inject(HttpClient);
   private readonly assetMeta = inject(AssetMetaService);
+  private readonly tagTaxonomy = inject(TagTaxonomyService);
   /** Sidecar keyed by original row id; reset on each bundle build. */
   private gitByAssetId: Record<string, UnityGitAuthorship> = {};
+  /** Local db files (folder picker) used to resolve audio/video blob URLs. */
+  private localDbFiles = new Map<string, File>();
+  private localBlobUrls = new Map<string, string>();
 
   /** Load the per-file db/ tree via index.json, then fetch each row. */
   async loadDb(root = UNITY_DB_ROOT): Promise<DboLoadResult> {
@@ -171,18 +181,25 @@ export class UnityDataService {
     return this.loadDb();
   }
 
+  /** Build from a File System Access handle to a `db/` directory. */
+  async buildFromDirectoryHandle(
+    dbDir: FileSystemDirectoryHandle,
+  ): Promise<DboLoadResult> {
+    return this.buildFromRelativeFiles(await collectDirectoryFiles(dbDir));
+  }
+
   /**
    * Build from a folder selection (webkitdirectory). Expects relative paths such as
    * `characters/*.json`, `equipment/*.json`, `tools/*.json`, plus root array files.
    */
   async buildFromFolderFiles(files: File[]): Promise<DboLoadResult> {
-    const byRel = new Map<string, File>();
-    for (const f of files) {
-      const rel = (f as File & { webkitRelativePath?: string }).webkitRelativePath || f.name;
-      // Strip a leading folder segment if the user picked the db/ parent or db itself.
-      const normalized = rel.replace(/\\/g, '/').replace(/^[^/]+\/db\//, '').replace(/^db\//, '');
-      byRel.set(normalized, f);
-    }
+    return this.buildFromRelativeFiles(indexDbFiles(files));
+  }
+
+  private async buildFromRelativeFiles(
+    byRel: Map<string, File>,
+  ): Promise<DboLoadResult> {
+    this.replaceLocalDbFiles(byRel);
 
     const readJson = async <T>(rel: string): Promise<T | null> => {
       const file = byRel.get(rel);
@@ -249,7 +266,7 @@ export class UnityDataService {
 
     if (!bundle.characters.length && !bundle.equipment.length && !bundle.tools.length) {
       throw new Error(
-        'No Unity asset DB rows found. Select the db folder (with characters/, equipment/, tools/).'
+        'No Unity asset DB rows found. Select the unzipped folder that contains db/ (and assets/).'
       );
     }
 
@@ -286,8 +303,22 @@ export class UnityDataService {
     );
     this.assetMeta.records.set(metaRecords);
     this.assetMeta.loaded.set(true);
+    this.assetMeta.setLocalMediaFiles(byRel);
+
+    const taxonomy = await readJson<unknown>(TAG_TAXONOMY_FILE);
+    if (taxonomy) this.tagTaxonomy.applyLocal(taxonomy);
 
     return this.buildFromBundle(bundle);
+  }
+
+  clearLocalDbFiles(): void {
+    this.replaceLocalDbFiles(new Map());
+  }
+
+  private replaceLocalDbFiles(byRel: Map<string, File>): void {
+    for (const url of this.localBlobUrls.values()) URL.revokeObjectURL(url);
+    this.localBlobUrls.clear();
+    this.localDbFiles = byRel;
   }
 
   parseText(text: string): UnityDbBundle {
@@ -1017,6 +1048,15 @@ export class UnityDataService {
     if (!relPath) return null;
     const trimmed = relPath.replace(/^\/+/, '');
     if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    const local = this.localDbFiles.get(trimmed);
+    if (local) {
+      let url = this.localBlobUrls.get(trimmed);
+      if (!url) {
+        url = URL.createObjectURL(local);
+        this.localBlobUrls.set(trimmed, url);
+      }
+      return url;
+    }
     return `${UNITY_DB_ROOT}/${trimmed}`;
   }
 

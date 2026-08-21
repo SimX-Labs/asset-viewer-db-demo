@@ -199,6 +199,15 @@
     cursor: default;
   }
 
+  &--secondary {
+    margin-top: var(--space-3);
+    background: var(--simx-clinical-indigo, #0f2d5b);
+
+    &:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--simx-clinical-indigo, #0f2d5b) 88%, white);
+    }
+  }
+
   &--danger {
     background: var(--simx-red, #e31f2f);
 

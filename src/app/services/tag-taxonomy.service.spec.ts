@@ -197,4 +197,22 @@ describe('TagTaxonomyService', () => {
     expect(service.typeCategories().length).toBe(UNITY_CATEGORY_ORDER.length);
     expect(service.dirty()).toBeTrue();
   });
+
+  it('replaces the taxonomy from a local db folder pick', () => {
+    service.applyLocal({
+      categories: [
+        {
+          dataId: GLOBAL_TAG_CATEGORY_ID,
+          label: 'Global',
+          tags: ['or-tag'],
+          scope: 'global',
+        },
+      ],
+      tags: [{ dataId: 'or-tag', label: 'OR', categories: [GLOBAL_TAG_CATEGORY_ID] }],
+    });
+    http.expectNone(API);
+    expect(service.loaded()).toBeTrue();
+    expect(service.dirty()).toBeFalse();
+    expect(service.tags().map((t) => t.label)).toContain('OR');
+  });
 });

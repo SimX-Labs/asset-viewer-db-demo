@@ -127,6 +127,13 @@ export class TagTaxonomyService {
     await this.reload();
   }
 
+  /** Replace the taxonomy from a local db folder pick. */
+  applyLocal(raw: unknown): void {
+    this.taxonomy.set(hydrate(raw));
+    this.loaded.set(true);
+    this.dirty.set(false);
+  }
+
   async reload(): Promise<void> {
     // Prefer an unflushed local draft (refresh mid-edit), then API, then
     // localStorage overlay, then the static db file.

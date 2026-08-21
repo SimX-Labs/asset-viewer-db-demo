@@ -54,6 +54,7 @@ export class AssetMetaService {
    * UI uses this so a future permission check can wrap it without refactor.
    */
   readonly canEditMeta = signal(false);
+  private readonly localMediaUrls = new Map<string, string>();
 
   recordFor(assetId: string): AssetMetaRecord | null {
     const map = this.records();
@@ -205,7 +206,30 @@ export class AssetMetaService {
     if (!record) return null;
     const filename = resolveMediaFilename(record, mediaId);
     if (!filename) return null;
+    const local = this.localMediaUrls.get(`${record.assetId}/${filename}`);
+    if (local) return local;
     return mediaUrl(this.dbRoot, record.assetId, filename);
+  }
+
+  /**
+   * Point note images/videos at blob URLs from a local db folder pick.
+   * Paths are `meta/<assetId>/media/<filename>`.
+   */
+  setLocalMediaFiles(byRel: Map<string, File>): void {
+    this.revokeLocalMedia();
+    for (const [path, file] of byRel) {
+      const match = path.match(/^meta\/([^/]+)\/media\/(.+)$/i);
+      if (!match) continue;
+      this.localMediaUrls.set(
+        `${match[1]}/${match[2]}`,
+        URL.createObjectURL(file),
+      );
+    }
+  }
+
+  private revokeLocalMedia(): void {
+    for (const url of this.localMediaUrls.values()) URL.revokeObjectURL(url);
+    this.localMediaUrls.clear();
   }
 
   /**

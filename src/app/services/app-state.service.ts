@@ -13,11 +13,14 @@ import {
 } from '../utils/status-filter.util';
 import { assetMatchesTags, mergeTagLists, TagMatchMode } from '../utils/tag-filter.util';
 import { AssetMetaService } from './asset-meta.service';
+import { OrbitViewerService } from '../orbit-capture/services/orbit-viewer.service';
+import { resolveLocalDataPack } from '../utils/local-data-pack.util';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
   private readonly unityData = inject(UnityDataService);
   private readonly assetMeta = inject(AssetMetaService);
+  private readonly orbitViewer = inject(OrbitViewerService);
   private readonly platformId = inject(PLATFORM_ID);
 
   readonly loaded = signal(false);
@@ -118,16 +121,22 @@ export class AppStateService {
     try {
       const result = await this.unityData.loadDb();
       this.applyLoadResult(result);
+      const count = Object.keys(result.assetMap).length;
       this.statusMessage.set(
-        `Loaded Unity asset DB (${Object.keys(result.assetMap).length} assets).`,
+        count === 0
+          ? 'No local data loaded. Settings → View Local Data.'
+          : `Loaded Unity asset DB (${count} assets).`,
       );
       this.statusError.set(false);
       this.loaded.set(true);
       this.dismissLoadingCover();
       this.handleInitialNavigation();
-    } catch (err) {
-      this.statusMessage.set(`Error: ${(err as Error).message}`);
-      this.statusError.set(true);
+    } catch {
+      this.statusMessage.set(
+        'No catalog on this host. Settings → View Local Data.',
+      );
+      this.statusError.set(false);
+      this.loaded.set(true);
       this.dismissLoadingCover();
     }
   }
@@ -487,6 +496,47 @@ export class AppStateService {
       this.handleInitialNavigation();
     } catch (err) {
       this.statusMessage.set(`Error: ${(err as Error).message}`);
+      this.statusError.set(true);
+    } finally {
+      this.dismissLoadingCover();
+    }
+  }
+
+  /**
+   * Load a shared zip extract: a folder containing `db/` and `assets/`.
+   * The directory handle is resolved lazily so 3D files are not read up front.
+   */
+  async loadLocalDataPack(root: FileSystemDirectoryHandle): Promise<void> {
+    this.requestLoadingCover();
+    try {
+      const pack = await resolveLocalDataPack(root);
+      if (!pack.db) {
+        throw new Error(
+          'No db/ folder found. Select the unzipped folder that contains db/ and assets/.',
+        );
+      }
+      const result = await this.unityData.buildFromDirectoryHandle(pack.db);
+      this.resetCatalog();
+      this.applyLoadResult(result);
+      const count = Object.keys(result.assetMap).length;
+      if (pack.assets) {
+        await this.orbitViewer.applyRootHandle(pack.assets);
+        const captures = this.orbitViewer.captureNames().length;
+        this.statusMessage.set(
+          `Loaded local data (${count} assets, ${captures} 3D captures).`,
+        );
+      } else {
+        this.statusMessage.set(
+          `Loaded local db (${count} assets). No assets/ folder — 3D models unavailable.`,
+        );
+      }
+      this.statusError.set(false);
+      this.loaded.set(true);
+      this.handleInitialNavigation();
+    } catch (err) {
+      this.statusMessage.set(
+        `Error: ${err instanceof Error ? err.message : 'Failed to load local data.'}`,
+      );
       this.statusError.set(true);
     } finally {
       this.dismissLoadingCover();
