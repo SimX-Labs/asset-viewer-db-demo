@@ -4,16 +4,23 @@
 // Usage:
 //   node scripts/write-db-index.mjs [path-to-db-folder]
 //
-// Default: UNITY_ASSET_DB_DIR, else ../../unity-asset-documentation/db
-// (db-link is a junction to that folder — see ensure-db-link.mjs)
+// Default: UNITY_ASSET_DB_DIR, else ../../unity-asset-documentation/db.
+// When that folder is missing (GitHub Pages CI), index the db-link stub
+// created by ensure-db-link.mjs instead of failing the build.
 
 import { readdirSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { resolveDbRoot } from './resolve-db-root.mjs';
+import { allowMissingDb, resolveIndexRoot } from './resolve-db-root.mjs';
 
-const dbRoot = resolve(process.argv[2] ?? resolveDbRoot());
+const dbRoot = resolve(process.argv[2] ?? resolveIndexRoot());
 
 if (!existsSync(dbRoot)) {
+  if (allowMissingDb()) {
+    console.warn(
+      `db folder not found: ${dbRoot}\nSkipping index (empty viewer; set UNITY_ASSET_DB_DIR to fix).`,
+    );
+    process.exit(0);
+  }
   console.error(`db folder not found: ${dbRoot}`);
   console.error(
     'Usage: node scripts/write-db-index.mjs [path-to-db-folder]\n' +

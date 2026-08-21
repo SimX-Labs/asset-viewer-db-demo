@@ -13,15 +13,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   DEFAULT_UNITY_ASSET_DB_DIR,
+  allowMissingDb,
+  dbLinkPath,
   projectRoot,
   resolveDbRoot,
 } from './resolve-db-root.mjs';
 
-const linkPath = path.join(projectRoot, 'db-link');
+const linkPath = dbLinkPath;
 const legacyPublicDb = path.join(projectRoot, 'public', 'db');
 const target = resolveDbRoot();
-const allowMissing =
-  process.env.ALLOW_MISSING_DB === '1' || process.env.CI === 'true';
+const allowMissing = allowMissingDb();
 
 function isLink(p) {
   try {
@@ -63,12 +64,21 @@ function writeEmptyIndex(dir) {
         equipment: 0,
         tools: 0,
         interactions: 0,
+        environments: 0,
+        authoredEnvironments: 0,
+        audio: 0,
+        videos: 0,
+        assetMeta: 0,
       },
     },
     characters: [],
     equipment: [],
     tools: [],
     interactions: [],
+    environments: [],
+    authoredEnvironments: [],
+    audio: [],
+    videos: [],
     clothing: 'clothing.json',
     medications: 'medications.json',
     waveforms: 'waveforms.json',
@@ -76,6 +86,7 @@ function writeEmptyIndex(dir) {
     tagTaxonomy: 'tag-taxonomy.json',
     characterMetadata: 'character-metadata.json',
     toolMetadata: 'tool-metadata.json',
+    gitAuthorship: 'git-authorship.json',
     assetMeta: [],
     assetMetaAliases: 'meta/aliases.json',
   };
