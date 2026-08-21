@@ -20,6 +20,16 @@ import { OrbitViewerService } from '../../orbit-capture/services/orbit-viewer.se
 import { OrbitModelControlsService } from '../../orbit-capture/services/orbit-model-controls.service';
 import { OrbitInlineViewerComponent } from '../../orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
 import { WaveformChartComponent } from '../waveform-chart/waveform-chart.component';
+import { AssetMetaPanelComponent } from '../asset-meta-panel/asset-meta-panel.component';
+import { AssetMetaService } from '../../services/asset-meta.service';
+import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
+import { hasGitAuthorship } from '../../utils/git-authorship-view.util';
+import { mergeTagLists } from '../../utils/tag-filter.util';
+
+interface DisplayTag {
+  label: string;
+  source: 'native' | 'meta';
+}
 
 interface EquipmentInteraction {
   Interaction?: { AssetId: string };
@@ -71,6 +81,19 @@ const CUSTOM_VESSEL_SECTION_KEYS = new Set([
 /** Data keys rendered by the inline video player (not the prop table). */
 const VIDEO_SECTION_KEYS = new Set(['VideoUrl', 'PosterUrl']);
 
+/** Data keys rendered by the inline audio player (not the prop table). */
+const AUDIO_SECTION_KEYS = new Set(['AudioUrl']);
+
+/** Data keys rendered by the git authorship summary (not the prop table). */
+const GIT_AUTHORSHIP_KEYS = new Set([
+  'CreatedBy',
+  'CreatedOn',
+  'LastUpdatedBy',
+  'LastUpdatedOn',
+  'Contributors',
+  'ContributorOtherCommits',
+]);
+
 @Component({
   selector: 'app-asset-detail',
   standalone: true,
@@ -82,9 +105,13 @@ const VIDEO_SECTION_KEYS = new Set(['VideoUrl', 'PosterUrl']);
     ToolVisualizationComponent,
     OrbitInlineViewerComponent,
     WaveformChartComponent,
+    AssetMetaPanelComponent,
   ],
   templateUrl: './asset-detail.component.html',
   styleUrl: './asset-detail.component.scss',
+  host: {
+    '[class.edit-mode]': 'isEditing()',
+  },
   // Own the selection for this asset's inline viewer so an open orbit modal,
   // which resolves the root instance, cannot overwrite it.
   providers: [OrbitModelControlsService],
@@ -96,8 +123,13 @@ export class AssetDetailComponent {
   readonly orbitViewer = inject(OrbitViewerService);
   readonly modelControls = inject(OrbitModelControlsService);
   private readonly dboData = inject(DboDataService);
+  private readonly assetMeta = inject(AssetMetaService);
+  private readonly tagTaxonomy = inject(TagTaxonomyService);
 
   readonly metaSearch = signal('');
+  readonly addingTag = signal(false);
+  readonly tagDraft = signal('');
+  readonly tagError = signal<string | null>(null);
   /** Whether the contained-tool list follows the open containers or lists everything. */
   readonly containedToolScope = signal<'open' | 'all'>('open');
   readonly expandedMeta = signal<Record<string, boolean>>({});
@@ -137,6 +169,7 @@ export class AssetDetailComponent {
     const isWave = this.isWaveform();
     const isCustomVessel = this.isCustomVessel();
     const isVideo = this.isVideo();
+    const isAudio = this.isAudio();
     // The Vessels section covers grouped placements; hide the raw tool link list too.
     const hasPlacements = this.placedTools().length > 0;
     return Object.keys(this.asset.Data).filter(
@@ -154,6 +187,8 @@ export class AssetDetailComponent {
         // Custom vessels render composition beside the inline model.
         !(isCustomVessel && CUSTOM_VESSEL_SECTION_KEYS.has(k)) &&
         !(isVideo && VIDEO_SECTION_KEYS.has(k)) &&
+        !(isAudio && AUDIO_SECTION_KEYS.has(k)) &&
+        !(hasGitAuthorship(this.asset) && GIT_AUTHORSHIP_KEYS.has(k)) &&
         !(hasPlacements && (k === 'PlacedTools' || k === 'Tools')) &&
         !ADVANCED_DATA_KEYS.has(k),
     );
@@ -182,6 +217,133 @@ export class AssetDetailComponent {
 
   sourceHint(): string {
     return dataSourceHint(this.sourceId());
+  }
+
+  canEditTags(): boolean {
+    return this.assetMeta.canEditMeta();
+  }
+
+  nativeTags(): string[] {
+    return this.asset.Tags ?? [];
+  }
+
+  metaTags(): string[] {
+    void this.assetMeta.drafts();
+    return this.assetMeta.tagsFor(this.asset.AssetId);
+  }
+
+  isEditing(): boolean {
+    return this.assetMeta.isDirty(this.asset.AssetId);
+  }
+
+  savingEdits(): boolean {
+    return this.assetMeta.savingDraft();
+  }
+
+  editError(): string | null {
+    return this.assetMeta.draftError() ?? this.tagError();
+  }
+
+  displayTags(): DisplayTag[] {
+    const native = this.nativeTags();
+    const nativeLower = new Set(native.map((t) => t.toLowerCase()));
+    const meta = this.metaTags().filter((t) => !nativeLower.has(t.toLowerCase()));
+    return [
+      ...native.map((label) => ({ label, source: 'native' as const })),
+      ...meta.map((label) => ({ label, source: 'meta' as const })),
+    ];
+  }
+
+  showTagsRow(): boolean {
+    return this.displayTags().length > 0 || this.canEditTags();
+  }
+
+  tagSuggestions(): string[] {
+    const cat = this.asset._Category || this.asset.AssetType;
+    const used = new Set(this.displayTags().map((t) => t.label.toLowerCase()));
+    return this.tagTaxonomy
+      .tagsAvailableForAssetType(cat)
+      .map((t) => t.label)
+      .filter((label) => label && !used.has(label.toLowerCase()));
+  }
+
+  startAddTag(): void {
+    if (!this.canEditTags() || this.savingEdits()) return;
+    this.tagError.set(null);
+    this.tagDraft.set('');
+    this.addingTag.set(true);
+  }
+
+  cancelAddTag(): void {
+    this.tagDraft.set('');
+    this.addingTag.set(false);
+  }
+
+  async commitTagDraft(): Promise<void> {
+    if (!this.addingTag()) return;
+    const label = this.tagDraft().trim();
+    this.addingTag.set(false);
+    this.tagDraft.set('');
+    if (label) await this.addMetaTag(label);
+  }
+
+  async addMetaTag(label: string): Promise<void> {
+    const canonical = this.canonicalTagLabel(label);
+    if (!canonical || this.hasTag(canonical)) return;
+    await this.tagTaxonomy.ensureAuthoredTags([canonical]);
+    await this.saveMetaTags(mergeTagLists(this.metaTags(), [canonical]));
+  }
+
+  async removeMetaTag(label: string): Promise<void> {
+    const next = this.metaTags().filter((t) => t.toLowerCase() !== label.trim().toLowerCase());
+    await this.saveMetaTags(next);
+  }
+
+  private hasTag(label: string): boolean {
+    const lower = label.toLowerCase();
+    return this.displayTags().some((t) => t.label.toLowerCase() === lower);
+  }
+
+  private canonicalTagLabel(raw: string): string {
+    const trimmed = raw.trim();
+    if (!trimmed) return '';
+    const lower = trimmed.toLowerCase();
+    const match = this.tagTaxonomy
+      .tags()
+      .find((t) => t.label.trim().toLowerCase() === lower);
+    return match?.label ?? trimmed;
+  }
+
+  private metaSnapshot() {
+    return {
+      assetKey: String(this.asset.Data?.['AssetKey'] ?? ''),
+      type: this.asset.AssetType,
+      name: this.asset.AssetName,
+    };
+  }
+
+  private saveMetaTags(tags: string[]): void {
+    if (!this.canEditTags() || this.savingEdits()) return;
+    this.tagError.set(null);
+    this.assetMeta.setDraftTags(this.asset.AssetId, tags);
+  }
+
+  async saveEdits(): Promise<void> {
+    if (!this.canEditTags() || this.savingEdits() || !this.isEditing()) return;
+    this.tagError.set(null);
+    try {
+      await this.assetMeta.commitDraft(this.asset.AssetId, this.metaSnapshot());
+      this.cancelAddTag();
+    } catch {
+      /* draftError is set by the service */
+    }
+  }
+
+  async discardEdits(): Promise<void> {
+    if (this.savingEdits()) return;
+    this.tagError.set(null);
+    this.cancelAddTag();
+    await this.assetMeta.discardDraft(this.asset.AssetId);
   }
 
   isEquipment(): boolean {
@@ -476,7 +638,7 @@ export class AssetDetailComponent {
     return receivers;
   }
 
-  /** DBO uses `Tools`; Unity mode lumps tools/kits/groups under `Tooling`. */
+  /** DBO catalog rows used Tools; Unity lumps tools/kits/groups under Tooling. */
   private toolCategoryItems(): DboAsset[] {
     const raw = this.state.rawData();
     return [
@@ -517,6 +679,19 @@ export class AssetDetailComponent {
     void el.play();
   }
 
+  isAudio(): boolean {
+    return this.asset._Category === 'Audio';
+  }
+
+  audioUrl(): string | null {
+    const val = this.asset.Data?.['AudioUrl'];
+    return typeof val === 'string' && val ? val : null;
+  }
+
+  showInlineAudio(): boolean {
+    return this.isAudio() && !!this.audioUrl();
+  }
+
   /** Capture folder key — flat OrbitCaptureKey for custom vessels, else addressable. */
   orbitAddressable(): string | null {
     return resolveOrbitCaptureKey(this.asset.Data);
@@ -526,9 +701,9 @@ export class AssetDetailComponent {
     return this.isToolLike() && !!this.orbitAddressable();
   }
 
-  /** Inline (Wikipedia-style) GLB embed shown for Unity tool assets. */
+  /** Inline (Wikipedia-style) GLB embed shown for tool assets. */
   showInlineModel(): boolean {
-    return this.state.dataMode() === 'unity' && this.canViewOrbit();
+    return this.canViewOrbit();
   }
 
   async openOrbit(): Promise<void> {

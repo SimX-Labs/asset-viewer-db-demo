@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { AssetRef } from '../../models/dbo.models';
 import { formatDateTime, isDateTimeString } from '../../utils/datetime.util';
+import { liquidColorCss } from '../../utils/liquid-color.util';
 
 @Component({
   selector: 'app-value-renderer',
@@ -96,7 +97,11 @@ import { formatDateTime, isDateTimeString } from '../../utils/datetime.util';
             <div class="clean-row">
               <span class="clean-key">{{ key }}:</span>
               <span class="clean-val">
-                <app-value-renderer [value]="objectValue()[key]" [depth]="depth() + 1" />
+                <app-value-renderer
+                  [value]="objectValue()[key]"
+                  [propertyKey]="key"
+                  [depth]="depth() + 1"
+                />
               </span>
             </div>
           }
@@ -104,6 +109,11 @@ import { formatDateTime, isDateTimeString } from '../../utils/datetime.util';
       }
     } @else if (isDateTime()) {
       <span class="datetime-value" [title]="rawText()">{{ primitiveValue() }}</span>
+    } @else if (colorCss()) {
+      <span class="color-value" [title]="rawText()">
+        <span class="color-swatch" [style.background-color]="colorCss()"></span>
+        {{ primitiveValue() }}
+      </span>
     } @else {
       {{ primitiveValue() }}
     }
@@ -165,6 +175,7 @@ export class ValueRendererComponent {
 
   isDateTime = computed(() => isDateTimeString(this.value()));
   rawText = computed(() => String(this.value() ?? ''));
+  colorCss = computed(() => liquidColorCss(this.value(), this.propertyKey()));
 
   primitiveValue = computed(() => {
     const v = this.value();

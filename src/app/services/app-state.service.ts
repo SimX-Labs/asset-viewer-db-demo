@@ -1,30 +1,31 @@
 import { Injectable, signal, computed, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import {
-  DboAsset,
-  MessageMode,
-  TabState,
-  ToolNode,
-} from '../models/dbo.models';
+import { DboAsset, MessageMode, TabState, ToolNode } from '../models/dbo.models';
 import { UNITY_SUBCATEGORY_DEFS } from '../models/unity-asset.models';
 import { dataSourceLabel } from '../models/data-source';
-import { DboDataService, DboLoadResult } from './dbo-data.service';
+import { DboLoadResult } from './dbo-data.service';
 import { UnityDataService } from './unity-data.service';
 import { matchesFilter } from '../utils/property.util';
-import { assetMatchesTags, TagMatchMode } from '../utils/tag-filter.util';
-
-export type DataMode = 'dbo' | 'unity';
-const DATA_MODE_KEY = 'assetViewer.dataMode';
+import {
+  assetMatchesStatuses,
+  StatusFilterValue,
+  StatusMatchMode,
+} from '../utils/status-filter.util';
+import { assetMatchesTags, mergeTagLists, TagMatchMode } from '../utils/tag-filter.util';
+import { AssetMetaService } from './asset-meta.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
-  private readonly dboData = inject(DboDataService);
   private readonly unityData = inject(UnityDataService);
+  private readonly assetMeta = inject(AssetMetaService);
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly dataMode = signal<DataMode>('unity');
-
   readonly loaded = signal(false);
+  /**
+   * Full-screen "Loading assets…" cover. On for the cold start (no catalog
+   * yet). In-app work must call `requestLoadingCover()` to show it again.
+   */
+  readonly showLoadingCover = signal(true);
   readonly statusMessage = signal('');
   readonly statusError = signal(false);
   readonly rawData = signal<Record<string, Record<string, DboAsset[]>>>({});
@@ -34,7 +35,7 @@ export class AppStateService {
 
   readonly currentCategory = signal<string | null>(null);
   readonly currentFile = signal<string | null>(null);
-  // Optional second-level filter within a category (Unity mode), keyed by the
+  // Optional second-level filter within a category, keyed by the
   // value of that category's UNITY_SUBCATEGORY_DEFS field.
   readonly currentSubCategory = signal<string | null>(null);
   readonly searchQuery = signal('');
@@ -42,6 +43,10 @@ export class AppStateService {
   readonly selectedTagLabels = signal<string[]>([]);
   /** How selected tags combine. Default AND matches existing list behavior. */
   readonly tagMatchMode = signal<TagMatchMode>('and');
+  /** Overlay statuses to include or exclude. */
+  readonly selectedStatuses = signal<StatusFilterValue[]>([]);
+  /** Include selected statuses, or hide them. Default include. */
+  readonly statusMatchMode = signal<StatusMatchMode>('include');
 
   readonly pinnedAssetIds = signal<string[]>([]);
   readonly openTabIds = signal<string[]>([]);
@@ -51,8 +56,7 @@ export class AppStateService {
   readonly tabHistory = signal<Record<string, string[]>>({});
   readonly messageMode = signal<MessageMode>('package');
   readonly currentWebGLAssetId = signal<string | null>(null);
-  readonly expandedFiles = signal<Record<string, boolean>>({});
-  // Expanded state for Unity-mode categories that have subcategories (Tooling, Vessels, Audio, Videos).
+  // Expanded state for categories that have subcategories (Tooling, Vessels, Audio, Videos).
   readonly expandedCategories = signal<Record<string, boolean>>({});
 
   /** Current category (and subcategory) before search / tag filters. */
@@ -74,12 +78,28 @@ export class AppStateService {
     return items;
   });
 
+  /** Category items with overlay tags merged onto scrape tags. */
+  readonly categoryListItemsWithTags = computed(() => {
+    void this.assetMeta.records();
+    void this.assetMeta.drafts();
+    return this.categoryListItems().map((item) => ({
+      ...item,
+      Tags: mergeTagLists(item.Tags, this.assetMeta.tagsFor(item.AssetId)),
+      status: this.assetMeta.effectiveStatus(item.AssetId),
+    }));
+  });
+
   readonly filteredListItems = computed(() => {
     const query = this.searchQuery();
     const tags = this.selectedTagLabels();
     const mode = this.tagMatchMode();
-    return this.categoryListItems().filter(
-      (item) => matchesFilter(item, query) && assetMatchesTags(item, tags, mode),
+    const statuses = this.selectedStatuses();
+    const statusMode = this.statusMatchMode();
+    return this.categoryListItemsWithTags().filter(
+      (item) =>
+        matchesFilter(item, query) &&
+        assetMatchesTags(item, tags, mode) &&
+        assetMatchesStatuses(item, statuses, statusMode),
     );
   });
 
@@ -90,46 +110,38 @@ export class AppStateService {
     return history?.[history.length - 1] ?? null;
   });
 
-  /**
-   * @param opts.preferUnity Force Unity Asset DB mode (used by `?embed=1`
-   *   deep links from scenario-creator, which reference Unity export ids).
-   */
-  async loadDefaults(opts?: { preferUnity?: boolean }): Promise<void> {
-    this.dataMode.set(opts?.preferUnity ? 'unity' : this.readStoredMode());
-    await this.loadForCurrentMode();
+  async loadDefaults(): Promise<void> {
+    await this.loadUnityDb();
   }
 
-  private async loadForCurrentMode(): Promise<void> {
+  private async loadUnityDb(): Promise<void> {
     try {
-      const mode = this.dataMode();
-      const result =
-        mode === 'unity'
-          ? await this.unityData.loadDb()
-          : await this.dboData.loadDefaultFiles();
+      const result = await this.unityData.loadDb();
       this.applyLoadResult(result);
-      const label = mode === 'unity' ? 'Unity asset DB' : 'DBO files';
       this.statusMessage.set(
-        `Loaded ${label} (${Object.keys(result.assetMap).length} assets).`
+        `Loaded Unity asset DB (${Object.keys(result.assetMap).length} assets).`,
       );
       this.statusError.set(false);
       this.loaded.set(true);
+      this.dismissLoadingCover();
       this.handleInitialNavigation();
     } catch (err) {
       this.statusMessage.set(`Error: ${(err as Error).message}`);
       this.statusError.set(true);
+      this.dismissLoadingCover();
     }
   }
 
-  async setDataMode(mode: DataMode): Promise<void> {
-    if (mode === this.dataMode()) return;
-    this.dataMode.set(mode);
-    this.persistMode(mode);
-    this.resetForModeSwitch();
-    this.loaded.set(false);
-    await this.loadForCurrentMode();
+  /** Show the asset-load cover for an explicit catalog reload (folder). */
+  requestLoadingCover(): void {
+    this.showLoadingCover.set(true);
   }
 
-  private resetForModeSwitch(): void {
+  dismissLoadingCover(): void {
+    this.showLoadingCover.set(false);
+  }
+
+  private resetCatalog(): void {
     this.openTabIds.set([]);
     this.previewTabId.set(null);
     this.activeTabId.set(null);
@@ -142,19 +154,11 @@ export class AppStateService {
     this.searchQuery.set('');
     this.selectedTagLabels.set([]);
     this.tagMatchMode.set('and');
+    this.selectedStatuses.set([]);
+    this.statusMatchMode.set('include');
     this.currentWebGLAssetId.set(null);
+    this.assetMeta.clearDrafts();
     this.setUrlHash('');
-  }
-
-  private readStoredMode(): DataMode {
-    if (!isPlatformBrowser(this.platformId)) return this.dataMode();
-    // Default is Unity Asset DB. DBO remains available for comparison until removed.
-    return localStorage.getItem(DATA_MODE_KEY) === 'dbo' ? 'dbo' : 'unity';
-  }
-
-  private persistMode(mode: DataMode): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-    localStorage.setItem(DATA_MODE_KEY, mode);
   }
 
   applyLoadResult(result: DboLoadResult): void {
@@ -162,9 +166,6 @@ export class AppStateService {
     this.loadedFileNames.set(result.loadedFileNames);
     this.assetMap.set(result.assetMap);
     this.allToolsMap.set(result.allToolsMap);
-    const expanded: Record<string, boolean> = {};
-    result.loadedFileNames.forEach((f, i) => (expanded[f] = i === 0));
-    this.expandedFiles.set(expanded);
   }
 
   private handleInitialNavigation(): void {
@@ -219,6 +220,22 @@ export class AppStateService {
     this.tagMatchMode.set(mode);
   }
 
+  toggleStatusFilter(value: StatusFilterValue): void {
+    this.selectedStatuses.update((list) =>
+      list.includes(value)
+        ? list.filter((status) => status !== value)
+        : [...list, value],
+    );
+  }
+
+  clearStatusFilters(): void {
+    this.selectedStatuses.set([]);
+  }
+
+  setStatusMatchMode(mode: StatusMatchMode): void {
+    this.statusMatchMode.set(mode);
+  }
+
   private pruneSelectedTags(): void {
     const present = new Set(
       this.categoryListItems().flatMap((item) =>
@@ -228,11 +245,6 @@ export class AppStateService {
     this.selectedTagLabels.update((list) =>
       list.filter((label) => present.has(label.toLowerCase())),
     );
-  }
-
-  toggleFileAccordion(fileName: string): void {
-    const current = this.expandedFiles();
-    this.expandedFiles.set({ ...current, [fileName]: !current[fileName] });
   }
 
   toggleCategoryAccordion(cat: string): void {
@@ -414,6 +426,12 @@ export class AppStateService {
     return assetId ? this.assetMap()[assetId] ?? null : null;
   }
 
+  isTabDirty(tabId: string): boolean {
+    void this.assetMeta.dirtyIds();
+    const history = this.tabHistory()[tabId] ?? [tabId];
+    return history.some((id) => this.assetMeta.isDirty(id));
+  }
+
   openWebGLView(assetId: string): void {
     this.currentWebGLAssetId.set(assetId);
   }
@@ -456,9 +474,10 @@ export class AppStateService {
   }
 
   async loadUnityDbFolder(files: FileList): Promise<void> {
+    this.requestLoadingCover();
     try {
       const result = await this.unityData.buildFromFolderFiles(Array.from(files));
-      this.resetForModeSwitch();
+      this.resetCatalog();
       this.applyLoadResult(result);
       this.statusMessage.set(
         `Loaded Unity asset DB (${Object.keys(result.assetMap).length} assets).`
@@ -469,25 +488,9 @@ export class AppStateService {
     } catch (err) {
       this.statusMessage.set(`Error: ${(err as Error).message}`);
       this.statusError.set(true);
+    } finally {
+      this.dismissLoadingCover();
     }
-  }
-
-  async loadFilesFromInput(files: FileList, shiftKey: boolean): Promise<void> {
-    const results: { name: string; data: Record<string, DboAsset[]> }[] = [];
-    for (const file of Array.from(files)) {
-      const text = await file.text();
-      results.push({ name: file.name, data: this.dboData.loadFromText(text, file.name) });
-    }
-    const result = this.dboData.mergeMultipleFiles(
-      shiftKey ? this.rawData() : null,
-      shiftKey ? this.loadedFileNames() : [],
-      results,
-      shiftKey
-    );
-    this.applyLoadResult(result);
-    this.statusMessage.set(`Loaded ${result.loadedFileNames.length} file(s).`);
-    this.statusError.set(false);
-    this.loaded.set(true);
   }
 
   exportCsv(): void {

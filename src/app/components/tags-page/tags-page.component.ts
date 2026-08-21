@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
 import {
+  CUSTOM_TAG_CATEGORY_ID,
   GLOBAL_TAG_CATEGORY_ID,
   TagCategoryRecord,
   TagRecord,
@@ -19,9 +20,10 @@ import {
         <div>
           <h2 class="tags-page-title">Tags</h2>
           <p class="tags-page-sub">
-            Global tags can be applied to any asset type. Each type also has
-            its own tags, which apply only to that type. Changes stay local
-            until you leave this page.
+            Global and Custom tags can be applied to any asset type. Each type
+            also has its own tags, which apply only to that type. Overlay tags
+            that are not already in the taxonomy land in Custom. Changes stay
+            local until you leave this page.
           </p>
         </div>
         <button
@@ -70,6 +72,24 @@ import {
             </button>
           }
 
+          @if (filteredCustom(); as custom) {
+            <button
+              type="button"
+              class="nav-item nav-item--custom"
+              [class.active]="selectedId() === custom.dataId"
+              (click)="select(custom.dataId)"
+            >
+              <span class="nav-item-main">
+                <i class="pi pi-tag" aria-hidden="true"></i>
+                <span class="nav-label">{{ custom.label }}</span>
+              </span>
+              <span class="nav-meta">
+                <span class="nav-badge">All types</span>
+                <span class="nav-count">{{ tags.tagsForCategory(custom.dataId).length }}</span>
+              </span>
+            </button>
+          }
+
           @if (filteredTypeCategories().length) {
             <div class="nav-heading">Asset types</div>
             @for (cat of filteredTypeCategories(); track cat.dataId) {
@@ -100,7 +120,7 @@ import {
             }
           }
 
-          @if (!filteredGlobal() && !filteredTypeCategories().length && !filteredOtherCategories().length) {
+          @if (!filteredGlobal() && !filteredCustom() && !filteredTypeCategories().length && !filteredOtherCategories().length) {
             <div class="nav-empty">No types match “{{ search() }}”.</div>
           }
         </nav>
@@ -110,7 +130,9 @@ import {
             <header class="detail-head">
               <div>
                 <h3 class="detail-title">
-                  @if (cat.scope === 'global') {
+                  @if (cat.dataId === CUSTOM_TAG_CATEGORY_ID) {
+                    <i class="pi pi-tag" aria-hidden="true"></i>
+                  } @else if (cat.scope === 'global') {
                     <i class="pi pi-globe" aria-hidden="true"></i>
                   }
                   {{ cat.label }}
@@ -185,6 +207,9 @@ import {
               <div class="empty-note">
                 @if (search()) {
                   No tags match “{{ search() }}”.
+                } @else if (cat.dataId === CUSTOM_TAG_CATEGORY_ID) {
+                  No custom tags yet. Tags added on asset metadata that are
+                  not already Global or type-scoped will appear here.
                 } @else if (cat.scope === 'global') {
                   No global tags yet. Add one to use it on any asset type.
                 } @else {
@@ -203,6 +228,7 @@ import {
 })
 export class TagsPageComponent {
   readonly tags = inject(TagTaxonomyService);
+  readonly CUSTOM_TAG_CATEGORY_ID = CUSTOM_TAG_CATEGORY_ID;
 
   readonly search = signal('');
   readonly selectedId = signal(GLOBAL_TAG_CATEGORY_ID);
@@ -235,6 +261,13 @@ export class TagsPageComponent {
     return undefined;
   }
 
+  filteredCustom(): TagCategoryRecord | undefined {
+    const custom = this.tags.customCategory();
+    if (!custom) return undefined;
+    if (this.groupMatches(custom)) return custom;
+    return undefined;
+  }
+
   filteredTypeCategories(): TagCategoryRecord[] {
     return this.tags.typeCategories().filter((c) => this.groupMatches(c));
   }
@@ -252,6 +285,9 @@ export class TagsPageComponent {
   }
 
   scopeCopy(cat: TagCategoryRecord): string {
+    if (cat.dataId === CUSTOM_TAG_CATEGORY_ID) {
+      return 'These tags come from asset metadata overlays and can be applied to any asset type.';
+    }
     if (cat.scope === 'global') {
       return 'These tags can be applied and accepted on any asset type.';
     }
@@ -264,6 +300,7 @@ export class TagsPageComponent {
     if (selected && this.groupMatches(selected)) return;
     const next =
       this.filteredGlobal() ??
+      this.filteredCustom() ??
       this.filteredTypeCategories()[0] ??
       this.filteredOtherCategories()[0];
     if (next) this.selectedId.set(next.dataId);

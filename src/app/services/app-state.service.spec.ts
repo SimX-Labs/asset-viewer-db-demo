@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { DboAsset } from '../models/dbo.models';
 import { AppStateService } from './app-state.service';
+import { AssetMetaService } from './asset-meta.service';
+import { emptyAssetMetaRecord } from '../models/asset-meta.models';
 
 function asset(id: string, name = id): DboAsset {
   return { AssetId: id, AssetName: name, AssetType: 'Tool', Data: {} };
@@ -85,6 +87,48 @@ describe('AppStateService tab preview', () => {
     expect(state.openTabIds()).toContain('tray');
     expect(state.previewTabId()).toBeNull();
   });
+
+  it('marks a tab dirty when the open asset has unsaved meta edits', () => {
+    const meta = TestBed.inject(AssetMetaService);
+    state.openAssetTab('scalpel', true);
+    expect(state.isTabDirty('scalpel')).toBeFalse();
+
+    meta.setDraftTags('scalpel', ['Pediatric']);
+    expect(state.isTabDirty('scalpel')).toBeTrue();
+  });
+});
+
+describe('AppStateService loading cover', () => {
+  let state: AppStateService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()],
+    });
+    state = TestBed.inject(AppStateService);
+  });
+
+  it('shows the cover on cold start and not after dismiss', () => {
+    expect(state.showLoadingCover()).toBeTrue();
+    expect(state.loaded()).toBeFalse();
+
+    state.loaded.set(true);
+    state.dismissLoadingCover();
+
+    expect(state.showLoadingCover()).toBeFalse();
+    expect(state.loaded()).toBeTrue();
+  });
+
+  it('does not raise the cover for in-app edits unless requested', () => {
+    state.loaded.set(true);
+    state.dismissLoadingCover();
+    TestBed.inject(AssetMetaService).setDraftTags('scalpel', ['Pediatric']);
+
+    expect(state.showLoadingCover()).toBeFalse();
+
+    state.requestLoadingCover();
+    expect(state.showLoadingCover()).toBeTrue();
+  });
 });
 
 describe('AppStateService tag filters', () => {
@@ -161,5 +205,78 @@ describe('AppStateService tag filters', () => {
 
     expect(state.selectedTagLabels()).toEqual([]);
     expect(state.filteredListItems().map((i) => i.AssetId)).toEqual(['adult']);
+  });
+
+  it('matches overlay tags from asset meta', () => {
+    TestBed.inject(AssetMetaService).records.set({
+      scalpel: {
+        ...emptyAssetMetaRecord('scalpel'),
+        tags: ['Pediatric'],
+      },
+    });
+
+    state.toggleTagFilter('Pediatric');
+    expect(state.filteredListItems().map((i) => i.AssetId)).toEqual(['scalpel']);
+  });
+});
+
+describe('AppStateService status filters', () => {
+  let state: AppStateService;
+
+  function tool(id: string): DboAsset {
+    return {
+      AssetId: id,
+      AssetName: id,
+      AssetType: 'Tool',
+      Tags: [],
+      Data: {},
+      _Category: 'Tooling',
+      _File: 'unity.json',
+    };
+  }
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()],
+    });
+    state = TestBed.inject(AppStateService);
+    TestBed.inject(AssetMetaService).records.set({
+      scalpel: { ...emptyAssetMetaRecord('scalpel'), status: 'Functional' },
+      cart: { ...emptyAssetMetaRecord('cart'), status: 'Stable' },
+      old: { ...emptyAssetMetaRecord('old'), status: 'Deprecated' },
+    });
+    state.rawData.set({
+      'unity.json': {
+        Tooling: [tool('scalpel'), tool('cart'), tool('old'), tool('tray')],
+      },
+    });
+    state.currentFile.set('unity.json');
+    state.currentCategory.set('Tooling');
+  });
+
+  it('includes selected statuses', () => {
+    state.toggleStatusFilter('Functional');
+    expect(state.filteredListItems().map((i) => i.AssetId)).toEqual(['scalpel']);
+
+    state.toggleStatusFilter('Stable');
+    expect(state.filteredListItems().map((i) => i.AssetId)).toEqual([
+      'scalpel',
+      'cart',
+    ]);
+  });
+
+  it('excludes selected statuses', () => {
+    state.toggleStatusFilter('Deprecated');
+    state.setStatusMatchMode('exclude');
+    expect(state.filteredListItems().map((i) => i.AssetId)).toEqual([
+      'scalpel',
+      'cart',
+      'tray',
+    ]);
+  });
+
+  it('filters assets with no overlay status', () => {
+    state.toggleStatusFilter('unset');
+    expect(state.filteredListItems().map((i) => i.AssetId)).toEqual(['tray']);
   });
 });

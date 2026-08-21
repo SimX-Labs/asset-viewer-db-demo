@@ -1,6 +1,6 @@
 # SimX Asset Database Viewer
 
-Angular app for browsing SimX Unity Asset DB exports with WebGL preview support. The classic DBO format remains available for comparison but will be removed in a future release.
+Angular app for browsing SimX Unity Asset DB exports with WebGL preview support.
 
 **Live demo:** https://simx-labs.github.io/asset-viewer-db-demo/
 
@@ -13,7 +13,7 @@ npm start
 
 Open http://localhost:4300
 
-On startup the viewer loads the **Unity Asset DB** via `public/db` (a junction/symlink to an external folder — see below). Switch to DBO (legacy) under **Settings → Data Source** if you need a side-by-side comparison.
+On startup the viewer loads the **Unity Asset DB** via `db-link` (a junction/symlink to an external folder, copied to `/db` — see below).
 
 **Tags** (header button, or Settings) opens a dedicated page for the global tag list (accepted on any asset type) plus per-type tags. Edits stay local until you leave that page, so writing `tag-taxonomy.json` does not live-reload the viewer on every change.
 
@@ -24,7 +24,7 @@ The JSON tree is **not** stored in this repo. Locally it comes from `unity-asset
 | Role | Setting |
 |------|---------|
 | Filesystem (API, import scripts, `npm run db:link`) | `UNITY_ASSET_DB_DIR` — default `../../unity-asset-documentation/db` |
-| Browser URL (`UNITY_DB_ROOT` in the app) | `db` today (served through the link); replace with an S3/HTTPS URL later |
+| Browser URL (`UNITY_DB_ROOT` in the app) | `db` today (copied from `db-link`); replace with an S3/HTTPS URL later |
 
 ```bash
 # optional override (PowerShell)
@@ -42,7 +42,7 @@ db/
   equipment/<assetKey>.<8hex>.json
   tools/<assetKey>.<8hex>.json
   interactions/<location>.<8hex>.json
-  audio/<assetKey>.<8hex>.json
+  audio/<assetKey>.<8hex>.json     # Music / SFX; clips in audio/media/
   videos/<assetKey>.<8hex>.json   # Ultrasound clips; MP4s in videos/media/
   clothing.json
   medications.json          # from Unity MedicationDatabase export (not scraped)
@@ -51,8 +51,35 @@ db/
   tag-taxonomy.json         # global + per-type tags (Tags page; written on leave)
   character-metadata.json
   tool-metadata.json
+  meta/<assetId>/record.json  # curated overlay (status, notes, comments) — scrape-forbidden
+  meta/<assetId>/media/       # uploaded note images (git-tracked)
+  meta/aliases.json           # optional oldId → newId
   index.json                 # generated; browser needs a file list
 ```
+
+### Curated overlay (`db/meta/`)
+
+Tribal knowledge that must survive scrapes. Each curated asset gets a folder keyed by the
+deterministic row `id` (UUIDv5). Notes are ordered blocks (markdown / image / carousel);
+comments are a short Auth0-stamped thread; status is Development / Functional / Stable / Deprecated / unset.
+
+Writes go through the API (`PUT /asset-meta/:id`, `POST …/comments`, `POST/DELETE …/media`).
+Browse stays public; edits require login when Auth0 is enabled (local default allows writes
+as `local-dev`). Enable Auth0 with:
+
+```html
+<script>
+  window.__ASSET_VIEWER_CONFIG__ = {
+    authEnabled: true,
+    auth0Domain: 'simx.us.auth0.com',
+    auth0ClientId: '…',
+    auth0Audience: 'https://asset-database-api.simx-infra.com',
+  };
+</script>
+```
+
+Add `http://localhost:4300` to Auth0 Allowed Callback / Logout / Web Origins. Set API
+`AUTH0_DOMAIN` + `AUTH0_AUDIENCE` to require JWT on write routes.
 
 Refresh the manifest:
 
@@ -88,27 +115,9 @@ You can also load a different `db/` folder at runtime via **Settings → Load Un
 2. Change `UNITY_DB_ROOT` in `src/app/models/unity-asset.models.ts` to the public HTTPS base URL (or wire it via environment config).
 3. Point the API’s `UNITY_ASSET_DB_DIR` at a local sync/cache of that bucket, or teach the API to fetch remotely.
 
-## DBO content files (legacy)
-
-> **Deprecation notice:** DBO parsing is kept temporarily for comparison with the Unity Asset DB. It will be removed in a future release. Prefer the Unity Asset DB for all new work.
-
-DBO JSON exports (`DBO_*.json`) are **not** included in this repository. Share them separately and load them in the app via **Settings → Data Source → DBO → Load DBO File(s)...**
-
-Expected filenames:
-
-- `DBO_Tools.json`
-- `DBO_Authoring.json`
-- `DBO_Cases.json`
-- `DBO_Characters.json`
-- `DBO_Dialog.json`
-- `DBO_Other.json`
-- `DBO_Scenes.json`
-
-Place files in `public/` for local development, or use the in-app file picker when using the hosted demo.
-
 ## Asset Database API (scenario-creator Next)
 
-PoC HTTP layer over the Unity asset DB folder so scenario-creator can use header **Asset DB → Next** for tool / equipment / interaction pickers. DBO is not used by this API.
+PoC HTTP layer over the Unity asset DB folder so scenario-creator can use header **Asset DB → Next** for tool / equipment / interaction pickers.
 
 ```bash
 npm run api:install
@@ -125,6 +134,14 @@ Override the folder with `UNITY_ASSET_DB_DIR`. Listens on **http://localhost:430
 | GET | `/tag-categories` | Curated categories (`{ dataId, label, tags }`) |
 | POST / PATCH / DELETE | `/tag-categories`, `/tag-categories/:dataId` | Create / update / delete categories |
 | GET / PUT | `/tag-taxonomy` | Full taxonomy dump / replace (persists `tag-taxonomy.json`) |
+| GET | `/asset-meta` | All curated overlay records + aliases |
+| DELETE | `/asset-meta?confirm=all` | Wipe every overlay folder (keeps `aliases.json`) |
+| POST | `/asset-meta/clear-all` | Same as DELETE `?confirm=all` |
+| GET / PUT | `/asset-meta/:assetId` | Read / upsert status + notes |
+| DELETE | `/asset-meta/:assetId` | Delete one overlay folder (record + media) |
+| POST | `/asset-meta/:assetId/comments` | Append a comment |
+| POST | `/asset-meta/:assetId/media` | Multipart image upload (`file`) |
+| DELETE | `/asset-meta/:assetId/media/:mediaId` | Remove image + drop from note blocks |
 | GET | `/asset-image/:id` | 501 — no image store |
 | GET | `/models/<key>/model.glb` | Orbit Capture GLB (see below) |
 | GET | `/models-index` | `{ count, keys }` of published captures |

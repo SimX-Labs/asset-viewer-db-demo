@@ -266,3 +266,125 @@ describe('UnityDataService videos', () => {
     expect(result.rawData['Unity Asset DB']['Videos'].length).toBe(1);
   });
 });
+
+describe('UnityDataService audio', () => {
+  let service: UnityDataService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient()] });
+    service = TestBed.inject(UnityDataService);
+  });
+
+  it('adapts clips into the Audio category with a playable URL', () => {
+    const result = service.buildFromText({
+      characters: [],
+      equipment: [],
+      tools: [],
+      interactions: [],
+      environments: [],
+      authoredEnvironments: [],
+      audio: [
+        {
+          id: 'audio-1',
+          type: 'audio',
+          audioKind: 'sound-effect',
+          name: 'Ambient Suburban',
+          assetKey: 'Ambient_Suburban',
+          addressableGroup: 'environment_sounds',
+          clipPath: 'Assets/SimX/Scenes/Environments/SimX_TrainingHouse/Audio/Ambient_Suburban.ogg',
+          audioPath: 'audio/media/Ambient_Suburban.3dfe750a.ogg',
+          copyStatus: 'copied',
+          tags: ['Ambient'],
+        },
+      ],
+      videos: [],
+      clothing: [],
+      medications: [],
+      waveforms: [],
+      scenarios: [],
+      characterMetadata: [],
+      toolMetadata: [],
+    });
+
+    const asset = result.assetMap['audio-1'];
+    expect(asset._Category).toBe('Audio');
+    expect(asset.AssetType).toBe('Sound Effect');
+    expect(asset._Source).toBe('client-scrape');
+    expect(asset.Data['AudioKind']).toBe('sound-effect');
+    expect(asset.Data['AudioUrl']).toBe('db/audio/media/Ambient_Suburban.3dfe750a.ogg');
+    expect(asset.Data['CopyStatus']).toBe('copied');
+    expect(asset.Tags).toContain('Ambient');
+    expect(result.rawData['Unity Asset DB']['Audio'].length).toBe(1);
+  });
+});
+
+describe('UnityDataService git authorship', () => {
+  let service: UnityDataService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient()] });
+    service = TestBed.inject(UnityDataService);
+  });
+
+  it('stamps creator and top contributors onto matching rows', () => {
+    const result = service.buildFromText({
+      characters: [],
+      equipment: [],
+      tools: [
+        {
+          id: 'tool-1',
+          type: 'tool',
+          kind: 'tool',
+          name: 'Pillow',
+          assetKey: 'tool_pillow',
+          toolId: 'pillow1',
+          prefabPath: 'Assets/SimX/AssetBundles/Tools/tool_pillow.prefab',
+          metadata: [],
+          interactions: [],
+          interactionLocations: [],
+          usedInGroupIds: [],
+          scenarioIds: [],
+        },
+      ],
+      interactions: [],
+      environments: [],
+      authoredEnvironments: [],
+      audio: [],
+      videos: [],
+      clothing: [],
+      medications: [],
+      waveforms: [],
+      scenarios: [],
+      characterMetadata: [],
+      toolMetadata: [],
+      gitAuthorship: {
+        'tool-1': {
+          createdBy: { name: 'Jason Ribeira', email: 'jason@simx.com', date: '2020-08-09' },
+          lastTouchedBy: {
+            name: 'alex.brandt',
+            email: 'alex.brandt@simxvr.com',
+            date: '2026-02-04',
+          },
+          contributors: [
+            { name: 'alex.brandt', email: 'alex.brandt@simxvr.com', commits: 14 },
+            { name: 'Caolan', email: 'caolan@simx.com', commits: 8 },
+            { name: 'pfmallon', email: 'pfmallon@simx.com', commits: 3 },
+          ],
+          otherCommits: 4,
+        },
+      },
+    });
+
+    const data = result.assetMap['tool-1'].Data;
+    expect(data['CreatedBy']).toBe('Jason Ribeira <jason@simx.com>');
+    expect(data['CreatedOn']).toBe('2020-08-09');
+    expect(data['LastUpdatedBy']).toBe('alex.brandt <alex.brandt@simxvr.com>');
+    expect(data['LastUpdatedOn']).toBe('2026-02-04');
+    expect(data['Contributors']).toEqual([
+      { Name: 'alex.brandt <alex.brandt@simxvr.com>', Commits: 14 },
+      { Name: 'Caolan <caolan@simx.com>', Commits: 8 },
+      { Name: 'pfmallon <pfmallon@simx.com>', Commits: 3 },
+    ]);
+    expect(data['ContributorOtherCommits']).toBe(4);
+  });
+});

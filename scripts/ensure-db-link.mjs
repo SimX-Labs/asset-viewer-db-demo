@@ -1,9 +1,9 @@
 /**
- * Ensure public/db is a junction/symlink to the external Unity asset DB folder
+ * Ensure db-link is a junction/symlink to the external Unity asset DB folder
  * (unity-asset-documentation/db by default, or UNITY_ASSET_DB_DIR).
  *
- * The folder is gitignored so the repo stays free of db JSON. Replace the
- * target path (or later serve UNITY_DB_ROOT from S3) when the bucket is ready.
+ * Lives outside public/ so writing meta/comments does not live-reload ng serve.
+ * Angular copies db-link → /db; /db/meta is proxied to the API.
  *
  * Usage:
  *   node scripts/ensure-db-link.mjs
@@ -17,7 +17,8 @@ import {
   resolveDbRoot,
 } from './resolve-db-root.mjs';
 
-const linkPath = path.join(projectRoot, 'public', 'db');
+const linkPath = path.join(projectRoot, 'db-link');
+const legacyPublicDb = path.join(projectRoot, 'public', 'db');
 const target = resolveDbRoot();
 const allowMissing =
   process.env.ALLOW_MISSING_DB === '1' || process.env.CI === 'true';
@@ -75,6 +76,8 @@ function writeEmptyIndex(dir) {
     tagTaxonomy: 'tag-taxonomy.json',
     characterMetadata: 'character-metadata.json',
     toolMetadata: 'tool-metadata.json',
+    assetMeta: [],
+    assetMetaAliases: 'meta/aliases.json',
   };
   fs.writeFileSync(
     path.join(dir, 'index.json'),
@@ -86,7 +89,7 @@ if (!fs.existsSync(target)) {
   if (allowMissing) {
     console.warn(
       `Unity asset DB not found at ${target}\n` +
-        `Creating empty public/db stub (set UNITY_ASSET_DB_DIR to fix).`,
+        `Creating empty db-link stub (set UNITY_ASSET_DB_DIR to fix).`,
     );
     try {
       removeLinkOrEmptyStub(linkPath);
@@ -114,7 +117,12 @@ try {
     const current = fs.readlinkSync(linkPath);
     const resolvedCurrent = path.resolve(path.dirname(linkPath), current);
     if (path.resolve(resolvedCurrent) === path.resolve(target)) {
-      console.log(`public/db already linked → ${target}`);
+      try {
+        removeLinkOrEmptyStub(legacyPublicDb);
+      } catch {
+        /* leftover public/db may already be gone */
+      }
+      console.log(`db-link already linked → ${target}`);
       process.exit(0);
     }
     fs.unlinkSync(linkPath);
@@ -126,7 +134,13 @@ try {
   process.exit(1);
 }
 
+try {
+  removeLinkOrEmptyStub(legacyPublicDb);
+} catch {
+  /* leftover public/db may already be gone */
+}
+
 fs.mkdirSync(path.dirname(linkPath), { recursive: true });
 const linkType = process.platform === 'win32' ? 'junction' : 'dir';
 fs.symlinkSync(target, linkPath, linkType);
-console.log(`Linked public/db → ${target} (${linkType})`);
+console.log(`Linked db-link → ${target} (${linkType})`);

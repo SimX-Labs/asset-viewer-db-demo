@@ -79,3 +79,19 @@
   position: relative;
   z-index: 1;
 }
+
+.browser-pane {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: calc(var(--sidebar-width) + var(--list-width));
+  min-height: 0;
+  background: var(--bg-main);
+}
+
+.browser-columns {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}

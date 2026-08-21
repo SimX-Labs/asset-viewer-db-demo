@@ -2,6 +2,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import {
+  CUSTOM_TAG_CATEGORY_ID,
   EMPTY_TAG_TAXONOMY,
   GLOBAL_TAG_CATEGORY_ID,
   TAG_TAXONOMY_DRAFT_KEY,
@@ -12,6 +13,7 @@ import {
   TagTaxonomy,
   ensureBuiltInTagCategories,
   isBuiltInTagCategoryId,
+  isGlobalScopeCategoryId,
   isScrapedTag,
   typeTagCategoryId,
 } from '../models/tag.models';
@@ -31,7 +33,7 @@ function normalize(raw: unknown): TagTaxonomy {
           .filter((c): c is TagCategoryRecord => !!c && typeof c.dataId === 'string')
           .map((c) => {
             const isGlobal =
-              c.scope === 'global' || c.dataId === GLOBAL_TAG_CATEGORY_ID;
+              c.scope === 'global' || isGlobalScopeCategoryId(c.dataId);
             return {
               dataId: c.dataId,
               label: String(c.label ?? ''),
@@ -175,7 +177,13 @@ export class TagTaxonomyService {
 
   globalCategory(): TagCategoryRecord | undefined {
     return this.taxonomy().categories.find(
-      (c) => c.dataId === GLOBAL_TAG_CATEGORY_ID || c.scope === 'global',
+      (c) => c.dataId === GLOBAL_TAG_CATEGORY_ID,
+    );
+  }
+
+  customCategory(): TagCategoryRecord | undefined {
+    return this.taxonomy().categories.find(
+      (c) => c.dataId === CUSTOM_TAG_CATEGORY_ID,
     );
   }
 
@@ -202,11 +210,55 @@ export class TagTaxonomyService {
     return cat.tags.map((id) => byId.get(id)).filter((t): t is TagRecord => !!t);
   }
 
-  /** Global tags plus tags scoped to this Unity asset type. */
+  /** Global + Custom tags plus tags scoped to this Unity asset type. */
   tagsAvailableForAssetType(assetType: string): TagRecord[] {
-    const global = this.tagsForCategory(GLOBAL_TAG_CATEGORY_ID);
-    const typed = this.tagsForCategory(typeTagCategoryId(assetType));
-    return [...global, ...typed];
+    const seen = new Set<string>();
+    const out: TagRecord[] = [];
+    const typeId = typeTagCategoryId(assetType);
+    for (const cat of this.taxonomy().categories) {
+      if (cat.scope !== 'global' && cat.dataId !== typeId) continue;
+      for (const tag of this.tagsForCategory(cat.dataId)) {
+        if (seen.has(tag.dataId)) continue;
+        seen.add(tag.dataId);
+        out.push(tag);
+      }
+    }
+    return out;
+  }
+
+  /**
+   * Put labels that are not already in the taxonomy onto Custom (or another
+   * group). Existing Global / type / scraped tags are left where they are.
+   */
+  async ensureAuthoredTags(
+    labels: readonly string[],
+    categoryId = CUSTOM_TAG_CATEGORY_ID,
+  ): Promise<TagRecord[]> {
+    if (!this.loaded()) await this.reload();
+    const existingByLower = new Map(
+      this.taxonomy().tags.map((t) => [t.label.trim().toLowerCase(), t]),
+    );
+    const additions: TagRecord[] = [];
+    for (const raw of labels) {
+      const label = raw.trim();
+      if (!label) continue;
+      const key = label.toLowerCase();
+      if (existingByLower.has(key)) continue;
+      const tag: TagRecord = {
+        dataId: newId(),
+        label,
+        categories: [categoryId],
+        source: 'authored',
+      };
+      additions.push(tag);
+      existingByLower.set(key, tag);
+    }
+    if (!additions.length) return [];
+    await this.persist({
+      categories: this.taxonomy().categories,
+      tags: [...this.taxonomy().tags, ...additions],
+    });
+    return additions;
   }
 
   async createCategory(label = '[[ New Tag Category ]]'): Promise<TagCategoryRecord> {
@@ -302,7 +354,7 @@ export class TagTaxonomyService {
 
   /**
    * Write the current taxonomy to the API. The tag page defers this until
-   * leave so `public/db/tag-taxonomy.json` does not trip the Angular watcher
+   * leave so `db-link/tag-taxonomy.json` does not trip the Angular watcher
    * on every keystroke.
    */
   async flush(): Promise<void> {

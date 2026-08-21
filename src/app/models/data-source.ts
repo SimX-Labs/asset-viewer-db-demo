@@ -6,7 +6,7 @@
  *   Shared library git   — env-authoring-library (CustomVessels + Authored Environments)
  *   API/DB               — Asset Database Postgres (MedicationDatabase export)
  *   Scenario Creator     — scenario-creator-cases JSON
- *   Unknown              — type has no mapped scrape path (including legacy DBO)
+ *   Unknown              — type has no mapped scrape path
  */
 export type DataSource =
   | 'client-scrape'

@@ -1,81 +1,172 @@
+<div class="asset-detail-main">
 <div class="header-row">
-  <div class="header-tags">
-    <div class="simx-tag">{{ asset.AssetType || 'Unknown Type' }}</div>
-    <div
-      class="simx-tag source-tag"
-      [attr.data-source]="sourceId()"
-      [title]="sourceHint()"
+  <div class="header-leading">
+    <button
+      type="button"
+      class="pin-btn"
+      [class.pinned]="isPinned()"
+      (click)="togglePin()"
+      [title]="isPinned() ? 'Unpin' : 'Pin'"
+      [attr.aria-label]="isPinned() ? 'Unpin' : 'Pin'"
+      [attr.aria-pressed]="isPinned()"
     >
-      {{ sourceLabel() }}
+      <i class="pi" [class.pi-star-fill]="isPinned()" [class.pi-star]="!isPinned()" aria-hidden="true"></i>
+    </button>
+    <div class="header-tags">
+      <div class="simx-tag">{{ asset.AssetType || 'Unknown Type' }}</div>
+      <div
+        class="simx-tag source-tag"
+        [attr.data-source]="sourceId()"
+        [title]="sourceHint()"
+      >
+        {{ sourceLabel() }}
+      </div>
     </div>
   </div>
-  <button
-    class="pin-btn simx-btn simx-btn--small"
-    [class.simx-btn--danger]="isPinned()"
-    [class.pinned]="isPinned()"
-    (click)="togglePin()"
-  >
-    <i class="pi" [class.pi-star-fill]="isPinned()" [class.pi-star]="!isPinned()" aria-hidden="true"></i>
-    {{ isPinned() ? 'Unpin' : 'Pin' }}
-  </button>
+  @if (isEditing()) {
+    <div class="header-edit-actions">
+      <button
+        type="button"
+        class="simx-btn simx-btn--small"
+        (click)="discardEdits()"
+        [disabled]="savingEdits()"
+      >
+        Discard
+      </button>
+      <button
+        type="button"
+        class="simx-btn simx-btn--small simx-btn--primary"
+        (click)="saveEdits()"
+        [disabled]="savingEdits()"
+      >
+        {{ savingEdits() ? 'Saving…' : 'Save' }}
+      </button>
+    </div>
+  }
 </div>
 
-<div class="asset-summary" [class.has-inline-model]="showInlineModel()" [class.has-inline-video]="showInlineVideo()">
-  @if (showInlineModel()) {
-    <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
-  }
-  @if (showInlineVideo()) {
-    <div class="inline-video">
-      @if (videoUrl(); as src) {
-        <video
-          controls
-          playsinline
-          [autoplay]="true"
-          [muted]="true"
-          [loop]="videoLoops()"
-          [attr.poster]="videoPosterUrl() || null"
-          [src]="src"
-          (loadeddata)="playInlineVideo($event)"
-        ></video>
-      } @else if (videoPosterUrl()) {
-        <img [src]="videoPosterUrl()!" alt="" />
-      }
-    </div>
-  }
-
+<div
+  class="asset-summary"
+  [class.has-inline-model]="showInlineModel()"
+  [class.has-inline-video]="showInlineVideo()"
+  [class.has-inline-audio]="showInlineAudio()"
+>
   <div class="asset-summary-copy">
-    <h2 class="asset-title">{{ asset.AssetName }}</h2>
+        <h2 class="asset-title">{{ asset.AssetName }}</h2>
 
-    <div class="id-row">
-      ID: {{ asset.AssetId }}
-      <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">
-        <i class="pi pi-copy" aria-hidden="true"></i>
-      </button>
-      <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">
-        <i class="pi pi-link" aria-hidden="true"></i>
-      </button>
-      @if (missingAddress()) {
-        <span class="warning-badge" title="Missing Addressable ID">
-          <i class="pi pi-exclamation-triangle" aria-hidden="true"></i> Missing Address
-        </span>
+        <div class="id-row">
+          ID: {{ asset.AssetId }}
+          <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">
+            <i class="pi pi-copy" aria-hidden="true"></i>
+          </button>
+          <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">
+            <i class="pi pi-link" aria-hidden="true"></i>
+          </button>
+          @if (missingAddress()) {
+            <span class="warning-badge" title="Missing Addressable ID">
+              <i class="pi pi-exclamation-triangle" aria-hidden="true"></i> Missing Address
+            </span>
+          }
+        </div>
+
+        @if (baseEmptyVessel(); as base) {
+          <div class="vessel-base-row">
+            <span class="vessel-base-label">Base empty vessel:</span>
+            <app-value-renderer [value]="base" />
+          </div>
+        }
+
+        @if (showTagsRow()) {
+          <div class="tags-row">
+            @for (tag of displayTags(); track tag.source + ':' + tag.label) {
+              <span
+                class="asset-tag"
+                [class.asset-tag--native]="tag.source === 'native'"
+                [class.asset-tag--meta]="tag.source === 'meta'"
+              >
+                {{ tag.label }}
+                @if (tag.source === 'meta' && canEditTags()) {
+                  <button
+                    type="button"
+                    class="tag-remove"
+                    title="Remove tag"
+                    (click)="removeMetaTag(tag.label)"
+                  >
+                    <i class="pi pi-times" aria-hidden="true"></i>
+                  </button>
+                }
+              </span>
+            }
+            @if (canEditTags()) {
+              @if (addingTag()) {
+                <input
+                  class="tag-add-input"
+                  type="text"
+                  list="asset-tag-suggestions"
+                  [ngModel]="tagDraft()"
+                  (ngModelChange)="tagDraft.set($event)"
+                  (keydown.enter)="commitTagDraft(); $event.preventDefault()"
+                  (keydown.escape)="cancelAddTag()"
+                  (blur)="commitTagDraft()"
+                  placeholder="Add tag"
+                  autofocus
+                />
+                <datalist id="asset-tag-suggestions">
+                  @for (s of tagSuggestions(); track s) {
+                    <option [value]="s"></option>
+                  }
+                </datalist>
+              } @else {
+                <button
+                  type="button"
+                  class="tag-add-btn"
+                  title="Add tag"
+                  [disabled]="savingEdits()"
+                  (click)="startAddTag()"
+                >
+                  <i class="pi pi-plus" aria-hidden="true"></i>
+                </button>
+              }
+            }
+          </div>
+          @if (editError()) {
+            <p class="tag-error">{{ editError() }}</p>
+          }
+        }
+  </div>
+
+  @if (showInlineModel() || showInlineVideo() || showInlineAudio()) {
+    <div class="asset-summary-media">
+      @if (showInlineModel()) {
+        <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
+      }
+      @if (showInlineVideo()) {
+        <div class="inline-video">
+          @if (videoUrl(); as src) {
+            <video
+              controls
+              playsinline
+              [autoplay]="true"
+              [muted]="true"
+              [loop]="videoLoops()"
+              [attr.poster]="videoPosterUrl() || null"
+              [src]="src"
+              (loadeddata)="playInlineVideo($event)"
+            ></video>
+          } @else if (videoPosterUrl()) {
+            <img [src]="videoPosterUrl()!" alt="" />
+          }
+        </div>
+      }
+      @if (showInlineAudio()) {
+        <div class="inline-audio">
+          <audio controls [src]="audioUrl()!"></audio>
+        </div>
       }
     </div>
+  }
 
-    @if (baseEmptyVessel(); as base) {
-      <div class="vessel-base-row">
-        <span class="vessel-base-label">Base empty vessel:</span>
-        <app-value-renderer [value]="base" />
-      </div>
-    }
-
-    @if (asset.Tags?.length) {
-      <div class="tags-row">
-        @for (tag of asset.Tags; track tag) {
-          <span class="asset-tag">{{ tag }}</span>
-        }
-      </div>
-    }
-
+  <div class="asset-summary-rest">
     @if (asset.Data['HasWebGLView'] === true) {
       <button class="btn-webgl simx-btn simx-btn--primary" (click)="openWebGL()">
         <i class="pi pi-play" aria-hidden="true"></i> View Asset
@@ -218,7 +309,7 @@
   </div>
 </div>
 
-<div class="simx-section-divider" role="separator"></div>
+<app-asset-meta-panel [asset]="asset" [showComments]="false" />
 
 @if (isWaveform()) {
   <div class="special-section">
@@ -428,18 +519,6 @@
 }
 
 <table class="prop-table">
-  <tr class="source-row">
-    <td class="prop-key">
-      <span class="prop-key-label">Source</span>
-    </td>
-    <td class="prop-val">
-      <span
-        class="simx-tag source-tag"
-        [attr.data-source]="sourceId()"
-        [title]="sourceHint()"
-      >{{ sourceLabel() }}</span>
-    </td>
-  </tr>
   @for (key of dataKeys(); track key) {
     @if (isMediaKey(key) && mediaUrl(key)) {
       <tr>
@@ -595,3 +674,4 @@
     }
   </div>
 }
+</div>

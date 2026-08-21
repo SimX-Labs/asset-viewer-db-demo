@@ -1,8 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from '@angular/common/http/testing';
 import { AssetDetailComponent } from './asset-detail.component';
 import { DboAsset } from '../../models/dbo.models';
 import { AppStateService } from '../../services/app-state.service';
+import { AssetMetaService } from '../../services/asset-meta.service';
+import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
+import { emptyAssetMetaRecord } from '../../models/asset-meta.models';
+import { CUSTOM_TAG_CATEGORY_ID } from '../../models/tag.models';
 import { OrbitModelControlsService } from '../../orbit-capture/services/orbit-model-controls.service';
 
 describe('AssetDetailComponent custom vessel', () => {
@@ -44,8 +52,6 @@ describe('AssetDetailComponent custom vessel', () => {
     fixture = TestBed.createComponent(AssetDetailComponent);
     component = fixture.componentInstance;
     component.asset = customVesselAsset;
-    // Skip inline GLB path; composition sections do not need Unity mode.
-    TestBed.inject(AppStateService).dataMode.set('dbo');
     fixture.detectChanges();
   });
 
@@ -75,9 +81,11 @@ describe('AssetDetailComponent custom vessel', () => {
 
   it('shows the shared-library source next to the type', () => {
     const host = fixture.nativeElement as HTMLElement;
-    const tag = host.querySelector('.source-tag');
+    const tag = host.querySelector('.header-tags .source-tag');
     expect(tag?.textContent?.trim()).toBe('Shared library git');
     expect(tag?.getAttribute('data-source')).toBe('shared-library-git');
+    expect(host.querySelector('.prop-table .source-tag')).toBeNull();
+    expect(host.querySelector('.source-row')).toBeNull();
   });
 
   it('renders the base vessel as a line item and one contained-tool list', () => {
@@ -98,7 +106,6 @@ describe('AssetDetailComponent custom vessel', () => {
     let controls: OrbitModelControlsService;
 
     beforeEach(() => {
-      TestBed.inject(AppStateService).dataMode.set('unity');
       controls = fixture.debugElement.injector.get(OrbitModelControlsService);
       controls.load({
         images: [],
@@ -145,6 +152,76 @@ describe('AssetDetailComponent custom vessel', () => {
       expect(component.showInlineModelControls()).toBeTrue();
       expect(component.showCustomVesselComposition()).toBeTrue();
     });
+  });
+});
+
+describe('AssetDetailComponent git authorship', () => {
+  let fixture: ComponentFixture<AssetDetailComponent>;
+  let component: AssetDetailComponent;
+
+  const toolAsset: DboAsset = {
+    AssetId: 'tool-1',
+    AssetName: 'Pillow',
+    AssetType: 'Tool',
+    Data: {
+      AssetKey: 'tool_pillow',
+      PrefabPath: 'Assets/SimX/AssetBundles/Tools/tool_pillow.prefab',
+      CreatedBy: 'Jason Ribeira <jason@simx.com>',
+      CreatedOn: '2020-08-09',
+      LastUpdatedBy: 'alex.brandt <alex.brandt@simxvr.com>',
+      LastUpdatedOn: '2026-02-04',
+      Contributors: [
+        { Name: 'alex.brandt <alex.brandt@simxvr.com>', Commits: 14 },
+        { Name: 'Caolan <caolan@simx.com>', Commits: 8 },
+        { Name: 'pfmallon <pfmallon@simx.com>', Commits: 3 },
+      ],
+    },
+    Tags: [],
+    _Category: 'Tooling',
+    _File: 'unity',
+  };
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AssetDetailComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AssetDetailComponent);
+    component = fixture.componentInstance;
+    component.asset = toolAsset;
+    fixture.detectChanges();
+  });
+
+  it('uses an icon-only pin control at the start of the header', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    const header = host.querySelector('.header-row');
+    const pin = header?.querySelector('.pin-btn');
+    expect(pin).toBeTruthy();
+    expect(header?.querySelector('.header-leading')?.firstElementChild).toBe(pin);
+    expect(pin?.textContent?.trim()).toBe('');
+    expect(pin?.getAttribute('aria-label')).toBe('Pin');
+  });
+
+  it('keeps notes in the main column without comments', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    expect(
+      host.querySelector('.asset-detail-main .status-label')?.textContent,
+    ).toContain('Status');
+    expect(
+      host.querySelector('.asset-detail-main .notes-head .status-label')?.textContent,
+    ).toContain('Notes');
+    expect(host.querySelector('.asset-detail-main .meta-panel-title')).toBeNull();
+    expect(host.querySelector('.comments-title')).toBeNull();
+    expect(host.querySelector('.git-authorship')).toBeNull();
+    expect(host.querySelector('.asset-summary-copy .asset-title')).toBeTruthy();
+  });
+
+  it('keeps git fields out of the property table', () => {
+    expect(component.dataKeys()).not.toContain('CreatedBy');
+    expect(component.dataKeys()).not.toContain('LastUpdatedBy');
+    expect(component.dataKeys()).not.toContain('Contributors');
+    expect(component.dataKeys()).toContain('AssetKey');
   });
 });
 
@@ -216,7 +293,6 @@ describe('AssetDetailComponent authored environment', () => {
       _File: 'unity',
     };
     const state = TestBed.inject(AppStateService);
-    state.dataMode.set('unity');
     // Only the door handle has a tool row; the scalpel stands in for an unexported prefab.
     state.assetMap.set({
       'tool-door-handle': {
@@ -276,7 +352,7 @@ describe('AssetDetailComponent authored environment', () => {
     const labels = Array.from(host.querySelectorAll('.prop-key-label')).map(
       (el) => el.textContent?.trim(),
     );
-    expect(labels).toEqual(['Source', 'Authoring Id', 'Last Saved']);
+    expect(labels).toEqual(['Authoring Id', 'Last Saved']);
     expect(host.querySelector('.prop-key[title]')!.getAttribute('title')).toBe(
       'AuthoringId',
     );
@@ -371,7 +447,6 @@ describe('AssetDetailComponent equipment model', () => {
       _Category: 'Equipment',
       _File: 'unity',
     };
-    TestBed.inject(AppStateService).dataMode.set('unity');
     fixture.detectChanges();
   });
 
@@ -380,6 +455,21 @@ describe('AssetDetailComponent equipment model', () => {
     expect(component.orbitAddressable()).toBe('equipment_info_pamphlet');
     expect(component.canViewOrbit()).toBeTrue();
     expect(component.showInlineModel()).toBeTrue();
+  });
+
+  it('places the model after name, id, and tags', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    const copy = host.querySelector('.asset-summary-copy');
+    const media = host.querySelector('.asset-summary-media');
+    expect(copy).toBeTruthy();
+    expect(media).toBeTruthy();
+    expect(
+      Boolean(
+        copy &&
+          media &&
+          copy.compareDocumentPosition(media) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBeTrue();
   });
 
   it('does not show Compatible Equipment', () => {
@@ -420,7 +510,6 @@ describe('AssetDetailComponent ultrasound video', () => {
     fixture = TestBed.createComponent(AssetDetailComponent);
     component = fixture.componentInstance;
     component.asset = videoAsset;
-    TestBed.inject(AppStateService).dataMode.set('unity');
     fixture.detectChanges();
   });
 
@@ -441,5 +530,188 @@ describe('AssetDetailComponent ultrasound video', () => {
     expect(keys).not.toContain('PosterUrl');
     expect(keys).toContain('Duration');
     expect(keys).toContain('AssetKey');
+  });
+});
+
+describe('AssetDetailComponent audio clip', () => {
+  let fixture: ComponentFixture<AssetDetailComponent>;
+  let component: AssetDetailComponent;
+
+  const audioAsset: DboAsset = {
+    AssetId: 'audio-1',
+    AssetName: 'Ambient Suburban',
+    AssetType: 'Sound Effect',
+    Data: {
+      AudioKind: 'sound-effect',
+      AssetKey: 'Ambient_Suburban',
+      ClipPath: 'Assets/SimX/Scenes/Environments/SimX_TrainingHouse/Audio/Ambient_Suburban.ogg',
+      AudioUrl: 'db/audio/media/Ambient_Suburban.3dfe750a.ogg',
+      CopyStatus: 'copied',
+    },
+    Tags: ['Ambient'],
+    _Category: 'Audio',
+    _File: 'unity',
+  };
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AssetDetailComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AssetDetailComponent);
+    component = fixture.componentInstance;
+    component.asset = audioAsset;
+    fixture.detectChanges();
+  });
+
+  it('plays the copied clip beside the summary', () => {
+    expect(component.showInlineAudio()).toBeTrue();
+    expect(component.audioUrl()).toBe('db/audio/media/Ambient_Suburban.3dfe750a.ogg');
+    const audio = (fixture.nativeElement as HTMLElement).querySelector('audio');
+    expect(audio).toBeTruthy();
+    expect(audio?.getAttribute('src')).toBe('db/audio/media/Ambient_Suburban.3dfe750a.ogg');
+  });
+
+  it('omits the media URL from the property table', () => {
+    const keys = component.dataKeys();
+    expect(keys).not.toContain('AudioUrl');
+    expect(keys).toContain('ClipPath');
+    expect(keys).toContain('AssetKey');
+  });
+});
+
+describe('AssetDetailComponent tags', () => {
+  let fixture: ComponentFixture<AssetDetailComponent>;
+  let component: AssetDetailComponent;
+  let http: HttpTestingController;
+  let tags: TagTaxonomyService;
+
+  const characterAsset: DboAsset = {
+    AssetId: 'char-1',
+    AssetName: 'Adolescent01 Base',
+    AssetType: 'CharacterBase',
+    Data: { AssetKey: 'character_adolescent01' },
+    Tags: ['Core', 'Adolescent'],
+    _Category: 'Characters',
+    _File: 'unity',
+  };
+
+  beforeEach(async () => {
+    localStorage.clear();
+    await TestBed.configureTestingModule({
+      imports: [AssetDetailComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
+
+    tags = TestBed.inject(TagTaxonomyService);
+    http = TestBed.inject(HttpTestingController);
+    const loaded = tags.ensureLoaded();
+    http.expectOne('http://localhost:4301/tag-taxonomy').flush({
+      categories: [],
+      tags: [],
+    });
+    await loaded;
+
+    fixture = TestBed.createComponent(AssetDetailComponent);
+    component = fixture.componentInstance;
+    component.asset = characterAsset;
+    TestBed.inject(AssetMetaService).records.set({
+      'char-1': {
+        ...emptyAssetMetaRecord('char-1'),
+        tags: ['Pediatric'],
+      },
+    });
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    http.verify();
+    localStorage.clear();
+  });
+
+  it('renders scrape tags as capsules and overlay tags in a distinct style', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    const native = Array.from(host.querySelectorAll('.asset-tag--native')).map(
+      (el) => el.textContent?.replace(/\s+/g, ' ').trim(),
+    );
+    const meta = Array.from(host.querySelectorAll('.asset-tag--meta')).map(
+      (el) => el.textContent?.replace(/\s+/g, ' ').trim(),
+    );
+    expect(native).toEqual(['Core', 'Adolescent']);
+    expect(meta).toEqual(['Pediatric']);
+    expect(host.querySelector('.tag-add-btn')).toBeNull();
+  });
+
+  it('lets an editor add overlay tags with the plus button', async () => {
+    const meta = TestBed.inject(AssetMetaService);
+    meta.setCanEdit(true);
+    spyOn(meta, 'saveRecord').and.resolveTo({
+      ...emptyAssetMetaRecord('char-1'),
+      tags: ['Pediatric', 'Military'],
+    });
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    host.querySelector<HTMLButtonElement>('.tag-add-btn')!.click();
+    fixture.detectChanges();
+
+    component.tagDraft.set('Military');
+    await component.commitTagDraft();
+    fixture.detectChanges();
+
+    expect(meta.saveRecord).not.toHaveBeenCalled();
+    expect(host.textContent).toContain('Military');
+    expect(host.querySelector('.header-edit-actions')).toBeTruthy();
+
+    host.querySelector<HTMLButtonElement>('.header-edit-actions .simx-btn--primary')!.click();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(meta.saveRecord).toHaveBeenCalledWith('char-1', jasmine.objectContaining({
+      tags: ['Pediatric', 'Military'],
+    }));
+  });
+
+  it('discards overlay tag edits without writing the record', async () => {
+    const meta = TestBed.inject(AssetMetaService);
+    meta.setCanEdit(true);
+    spyOn(meta, 'saveRecord');
+    fixture.detectChanges();
+
+    await component.addMetaTag('Military');
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.textContent).toContain('Military');
+    host.querySelector<HTMLButtonElement>('.header-edit-actions .simx-btn:not(.simx-btn--primary)')!.click();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(meta.saveRecord).not.toHaveBeenCalled();
+    expect(host.textContent).not.toContain('Military');
+    expect(host.querySelector('.header-edit-actions')).toBeNull();
+  });
+
+  it('registers a new overlay tag in the Custom category', async () => {
+    const meta = TestBed.inject(AssetMetaService);
+    meta.setCanEdit(true);
+
+    const adding = component.addMetaTag('Needs Review');
+    const req = http.expectOne(
+      (r) => r.method === 'PUT' && r.url === 'http://localhost:4301/tag-taxonomy',
+    );
+    expect(
+      req.request.body.tags.map((t: { label: string }) => t.label),
+    ).toContain('Needs Review');
+    req.flush(req.request.body);
+    await adding;
+
+    expect(
+      tags.tagsForCategory(CUSTOM_TAG_CATEGORY_ID).map((t) => t.label),
+    ).toContain('Needs Review');
+    expect(
+      tags.tagsAvailableForAssetType('Characters').map((t) => t.label),
+    ).toContain('Needs Review');
   });
 });

@@ -4,6 +4,7 @@
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+  border-left: 1px solid var(--pane-split);
 }
 
 .detail-panel {
@@ -89,6 +90,27 @@
     background: rgba(0, 124, 192, 0.2);
     color: var(--text-on-dark);
   }
+
+  &.editing {
+    background: #c98412;
+    color: #fff;
+
+    &.active {
+      background: #f5c451;
+      color: var(--simx-black-dusk);
+    }
+
+    &:hover:not(.active) {
+      background: #d4921c;
+      color: #fff;
+    }
+  }
+}
+
+.tab-edit-icon {
+  flex-shrink: 0;
+  font-size: 11px;
+  opacity: 0.9;
 }
 
 .tab-title {
@@ -117,21 +139,34 @@
   flex: 1;
   overflow: hidden;
   position: relative;
+  display: flex;
+  min-height: 0;
 }
 
 .tab-pane {
-  height: 100%;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.tab-main {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  min-height: 0;
 }
 
 .breadcrumb-bar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-1);
+  gap: 2px;
   min-height: var(--view-toolbar-height);
-  padding: var(--space-3) var(--content-gutter);
+  padding: 4px var(--content-gutter);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -139,7 +174,7 @@
   background: rgba(var(--simx-instrument-grey-rgb), 0.72);
   border-bottom: 1px solid rgba(var(--simx-procedure-blue-rgb), 0.18);
   font-family: var(--font-graphic);
-  font-size: var(--text-caption);
+  font-size: 11px;
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -156,9 +191,9 @@
   color: var(--simx-content-heavy);
   cursor: pointer;
   padding: 0;
-  font-size: 15px;
+  font-size: 12px;
   font-family: var(--font-graphic);
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     text-decoration: underline;
@@ -182,16 +217,17 @@
 .crumb-separator {
   color: var(--text-muted);
   margin: 0 2px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .tab-scroll-area {
   flex: 1;
   overflow-y: auto;
-  padding: var(--space-6) var(--space-7);
+  padding: var(--space-4) 16px var(--space-6) var(--content-gutter);
 }
 
 .empty-state {
+  flex: 1;
   color: var(--text-muted);
   margin-top: 80px;
   text-align: center;

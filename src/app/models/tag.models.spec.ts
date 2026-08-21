@@ -1,4 +1,5 @@
 import {
+  CUSTOM_TAG_CATEGORY_ID,
   EMPTY_TAG_TAXONOMY,
   GLOBAL_TAG_CATEGORY_ID,
   SCRAPED_TAGS,
@@ -10,7 +11,7 @@ import {
 import { UNITY_CATEGORY_ORDER } from './unity-asset.models';
 
 describe('ensureBuiltInTagCategories', () => {
-  it('seeds Global plus every Unity asset type on an empty taxonomy', () => {
+  it('seeds Global, Custom, plus every Unity asset type on an empty taxonomy', () => {
     const next = ensureBuiltInTagCategories(EMPTY_TAG_TAXONOMY);
     expect(next.categories[0]).toEqual(
       jasmine.objectContaining({
@@ -19,7 +20,14 @@ describe('ensureBuiltInTagCategories', () => {
         scope: 'global',
       }),
     );
-    expect(next.categories.slice(1).map((c) => c.label)).toEqual([
+    expect(next.categories[1]).toEqual(
+      jasmine.objectContaining({
+        dataId: CUSTOM_TAG_CATEGORY_ID,
+        label: 'Custom',
+        scope: 'global',
+      }),
+    );
+    expect(next.categories.slice(2).map((c) => c.label)).toEqual([
       ...UNITY_CATEGORY_ORDER,
     ]);
     expect(next.categories).toEqual(builtInTagCategories());

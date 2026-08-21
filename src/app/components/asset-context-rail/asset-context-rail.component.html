@@ -1,0 +1,77 @@
+<aside class="context-rail">
+  <button
+    type="button"
+    class="context-toggle"
+    (click)="toggle()"
+    [title]="open() ? 'Hide contributors and comments' : 'Show contributors and comments'"
+    [attr.aria-expanded]="open()"
+    [attr.aria-label]="open() ? 'Hide contributors and comments' : 'Show contributors and comments'"
+    aria-controls="asset-context-body"
+  >
+    <i
+      class="pi"
+      [class.pi-chevron-right]="open()"
+      [class.pi-chevron-left]="!open()"
+      aria-hidden="true"
+    ></i>
+  </button>
+  <div class="context-body" id="asset-context-body">
+    @if (hasGitAuthorship()) {
+      <section class="git-authorship" aria-label="Contributors">
+        <div class="git-authorship-heading">Contributors</div>
+        @if (gitCreatedBy(); as created) {
+          <div class="git-line">
+            <span class="git-person" [attr.title]="created.email || null">{{ created.name }}</span>
+            <span class="git-role">created</span>
+            @if (created.date) {
+              <span class="git-date">{{ created.date }}</span>
+            }
+          </div>
+        }
+        @if (gitLastUpdated(); as updated) {
+          <div class="git-line">
+            <span class="git-person" [attr.title]="updated.email || null">{{ updated.name }}</span>
+            <span class="git-role">updated</span>
+            @if (updated.date) {
+              <span class="git-date">{{ updated.date }}</span>
+            }
+          </div>
+        }
+        @if (gitContributorPie(); as pie) {
+          <div class="contrib-breakdown">
+            <div class="contrib-pie-wrap">
+              <svg
+                class="contrib-pie"
+                viewBox="0 0 100 100"
+                role="img"
+                [attr.aria-label]="contributorPieLabel(pie)"
+                (mouseleave)="pieTip.set(null)"
+              >
+                @for (wedge of pie.wedges; track $index) {
+                  <path
+                    [attr.d]="wedge.d"
+                    [attr.fill]="wedge.color"
+                    (mouseenter)="pieTip.set(wedge.label)"
+                  />
+                }
+              </svg>
+              @if (pieTip(); as tip) {
+                <div class="contrib-pie-tip" role="tooltip">{{ tip }}</div>
+              }
+            </div>
+            <ul class="contrib-legend">
+              @for (slice of pie.named; track slice.name + ':' + slice.email) {
+                <li class="contrib-legend-item" [style.color]="slice.color">
+                  <span class="contrib-name" [attr.title]="contributorHoverTitle(slice)">{{
+                    slice.name
+                  }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </section>
+    }
+    <app-asset-meta-panel [asset]="asset" [showNotes]="false" />
+  </div>
+</aside>

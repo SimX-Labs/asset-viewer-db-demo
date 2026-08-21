@@ -5,9 +5,9 @@
 //   node scripts/write-db-index.mjs [path-to-db-folder]
 //
 // Default: UNITY_ASSET_DB_DIR, else ../../unity-asset-documentation/db
-// (public/db is a junction to that folder — see ensure-db-link.mjs)
+// (db-link is a junction to that folder — see ensure-db-link.mjs)
 
-import { readdirSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { resolveDbRoot } from './resolve-db-root.mjs';
 
@@ -29,6 +29,25 @@ function listJson(sub) {
     .filter((f) => f.toLowerCase().endsWith('.json'))
     .sort((a, b) => a.localeCompare(b))
     .map((f) => `${sub}/${f}`);
+}
+
+/** Curated overlay: db/meta/<uuid>/record.json (never scrape-owned). */
+function listAssetMeta() {
+  const metaRoot = join(dbRoot, 'meta');
+  if (!existsSync(metaRoot)) return [];
+  return readdirSync(metaRoot)
+    .filter((name) => {
+      if (name === 'aliases.json') return false;
+      const dir = join(metaRoot, name);
+      try {
+        if (!statSync(dir).isDirectory()) return false;
+      } catch {
+        return false;
+      }
+      return existsSync(join(dir, 'record.json'));
+    })
+    .sort((a, b) => a.localeCompare(b))
+    .map((name) => `meta/${name}/record.json`);
 }
 
 function requireFile(name) {
@@ -59,6 +78,11 @@ const index = {
   tagTaxonomy: requireFile('tag-taxonomy.json'),
   characterMetadata: requireFile('character-metadata.json'),
   toolMetadata: requireFile('tool-metadata.json'),
+  gitAuthorship: requireFile('git-authorship.json'),
+  // Curated overlay (scrape must never write here). Key is assetMeta — not
+  // "meta", which is reserved for { source, generatedAt, counts }.
+  assetMeta: listAssetMeta(),
+  assetMetaAliases: requireFile('meta/aliases.json'),
 };
 
 index.meta.counts = {
@@ -70,6 +94,7 @@ index.meta.counts = {
   authoredEnvironments: index.authoredEnvironments.length,
   audio: index.audio.length,
   videos: index.videos.length,
+  assetMeta: index.assetMeta.length,
 };
 
 const outPath = join(dbRoot, 'index.json');

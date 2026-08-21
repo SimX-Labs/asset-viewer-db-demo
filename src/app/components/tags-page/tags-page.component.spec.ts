@@ -39,9 +39,10 @@ describe('TagsPageComponent', () => {
     localStorage.clear();
   });
 
-  it('surfaces Global separately from asset type groups', () => {
+  it('surfaces Global and Custom separately from asset type groups', () => {
     const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
     expect(text).toContain('Global');
+    expect(text).toContain('Custom');
     expect(text).toContain('All types');
     expect(text).toContain('Asset types');
     expect(text).toContain('Tooling');
@@ -66,6 +67,21 @@ describe('TagsPageComponent', () => {
     expect(text).toContain('Scraped');
     expect(fixture.componentInstance.selectedId()).not.toBe(
       GLOBAL_TAG_CATEGORY_ID,
+    );
+  });
+
+  it('describes Custom as overlay tags that apply to any type', () => {
+    const buttons = fixture.debugElement.queryAll(By.css('.nav-item'));
+    const custom = buttons.find((b) =>
+      (b.nativeElement as HTMLElement).textContent?.includes('Custom'),
+    );
+    expect(custom).toBeTruthy();
+    custom!.nativeElement.click();
+    fixture.detectChanges();
+
+    const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
+    expect(text).toContain(
+      'These tags come from asset metadata overlays and can be applied to any asset type.',
     );
   });
 });

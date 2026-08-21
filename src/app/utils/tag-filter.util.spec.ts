@@ -3,6 +3,7 @@ import {
   assetHasAllTags,
   assetMatchesTags,
   buildContextualTagFilters,
+  mergeTagLists,
   tagFilterSuggestions,
 } from './tag-filter.util';
 
@@ -20,6 +21,14 @@ describe('tag-filter.util', () => {
     expect(assetHasAllTags(cart, ['Grabbable', 'Generator'])).toBeTrue();
     expect(assetHasAllTags(scalpel, ['Grabbable', 'Generator'])).toBeFalse();
     expect(assetHasAllTags(scalpel, [])).toBeTrue();
+  });
+
+  it('merges tag lists without duplicates', () => {
+    expect(mergeTagLists(['Core', 'Adolescent'], ['Adolescent', 'Pediatric'])).toEqual([
+      'Core',
+      'Adolescent',
+      'Pediatric',
+    ]);
   });
 
   it('matches tags by AND or OR mode', () => {

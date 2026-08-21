@@ -8,17 +8,31 @@ import { AppStateService } from '../../services/app-state.service';
   imports: [CommonModule],
   template: `
     @if (state.pinnedAssetIds().length > 0) {
-      <aside class="pinned-panel">
-        <div class="pinned-header">Pinned Assets</div>
-        @for (id of state.pinnedAssetIds(); track id) {
-          <div class="pinned-item" (click)="state.openAssetTab(id, true)">
-            <span>{{ label(id) }}</span>
-            <button class="unpin-btn" (click)="unpin($event, id)" title="Unpin">
-              <i class="pi pi-times" aria-hidden="true"></i>
-            </button>
-          </div>
-        }
-      </aside>
+      <div class="pinned-tabs" aria-label="Pinned assets">
+        <div class="pinned-tab-list">
+          @for (id of state.pinnedAssetIds(); track id) {
+            <div class="pinned-chip" [class.active]="state.activeAssetId() === id">
+              <button
+                type="button"
+                class="pinned-tab"
+                (click)="state.openAssetTab(id, true)"
+                [title]="label(id)"
+              >
+                <i class="pi pi-star-fill" aria-hidden="true"></i>
+                <span class="pinned-tab-title">{{ label(id) }}</span>
+              </button>
+              <button
+                type="button"
+                class="unpin-btn"
+                title="Unpin"
+                (click)="state.togglePin(id)"
+              >
+                <i class="pi pi-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          }
+        </div>
+      </div>
     }
   `,
   styleUrl: './pinned-panel.component.scss',
@@ -28,10 +42,5 @@ export class PinnedPanelComponent {
 
   label(id: string): string {
     return this.state.assetMap()[id]?.AssetName ?? id;
-  }
-
-  unpin(event: Event, id: string): void {
-    event.stopPropagation();
-    this.state.togglePin(id);
   }
 }

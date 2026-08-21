@@ -1,0 +1,441 @@
+<section class="meta-panel">
+  @if (showNotes) {
+  @if (error()) {
+    <p class="meta-error">{{ error() }}</p>
+  }
+
+  <div class="status-row">
+    <span class="status-label" id="asset-meta-status-label">Status</span>
+    @if (canEdit()) {
+      <div class="status-picker" [class.open]="statusMenuOpen()">
+        <button
+          type="button"
+          class="status-chip"
+          [attr.data-status]="status() || 'unset'"
+          [attr.aria-expanded]="statusMenuOpen()"
+          aria-haspopup="listbox"
+          aria-labelledby="asset-meta-status-label"
+          [disabled]="busy()"
+          (click)="toggleStatusMenu($event)"
+        >
+          <span class="status-dot" aria-hidden="true"></span>
+          {{ statusLabel(status()) }}
+          <i class="pi pi-chevron-down" aria-hidden="true"></i>
+        </button>
+        @if (statusMenuOpen()) {
+          <ul class="status-menu" role="listbox">
+            <li>
+              <button
+                type="button"
+                class="status-option"
+                data-status="unset"
+                [class.selected]="!status()"
+                (click)="pickStatus('')"
+              >
+                <span class="status-dot" aria-hidden="true"></span>
+                —
+              </button>
+            </li>
+            @for (s of statuses; track s) {
+              <li>
+                <button
+                  type="button"
+                  class="status-option"
+                  [attr.data-status]="s"
+                  [class.selected]="status() === s"
+                  (click)="pickStatus(s)"
+                >
+                  <span class="status-dot" aria-hidden="true"></span>
+                  {{ s }}
+                </button>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    } @else {
+      <span
+        class="status-chip"
+        [attr.data-status]="status() || 'unset'"
+      >
+        <span class="status-dot" aria-hidden="true"></span>
+        {{ statusLabel(status()) }}
+      </span>
+    }
+  </div>
+
+  <div class="notes-section">
+    <div class="notes-head">
+      <span class="status-label">Notes</span>
+      @if (canEdit() && !editingNoteId() && !pickingNoteType()) {
+        <button
+          type="button"
+          class="simx-btn simx-btn--small"
+          (click)="startAddNote()"
+          [disabled]="busy()"
+        >
+          <i class="pi pi-plus" aria-hidden="true"></i>
+          Add Note
+        </button>
+      }
+      @if (canClearMetadata()) {
+        <button
+          type="button"
+          class="link-btn notes-clear"
+          title="Delete this asset's curated overlay"
+          [disabled]="busy()"
+          (click)="clearMetadata()"
+        >
+          Clear metadata
+        </button>
+      }
+    </div>
+
+    @if (pickingNoteType()) {
+      <div class="add-block-row">
+        <button type="button" class="simx-btn simx-btn--small" (click)="startNewNote('markdown')">
+          <i class="pi pi-align-left" aria-hidden="true"></i> Markdown
+        </button>
+        <button type="button" class="simx-btn simx-btn--small" (click)="startNewNote('image')">
+          <i class="pi pi-image" aria-hidden="true"></i> Image
+        </button>
+        <button type="button" class="simx-btn simx-btn--small" (click)="startNewNote('video')">
+          <i class="pi pi-video" aria-hidden="true"></i> Video
+        </button>
+        <button type="button" class="simx-btn simx-btn--small" (click)="startNewNote('carousel')">
+          <i class="pi pi-images" aria-hidden="true"></i> Carousel
+        </button>
+        <button type="button" class="simx-btn simx-btn--small" (click)="cancelNoteType()">
+          Cancel
+        </button>
+      </div>
+    }
+
+    <div class="notes-view">
+      @for (block of notes(); track block.id) {
+        @if (editingNoteId() === block.id) {
+          <ng-container *ngTemplateOutlet="noteEditor; context: { $implicit: draftBlock() }" />
+        } @else {
+          <div class="note-card">
+            @if (canEdit()) {
+              <button
+                type="button"
+                class="icon-btn note-edit-btn"
+                title="Edit note"
+                [disabled]="!!editingNoteId() || busy()"
+                (click)="startEditNote(block)"
+              >
+                <i class="pi pi-pencil" aria-hidden="true"></i>
+              </button>
+            }
+            <ng-container *ngTemplateOutlet="noteView; context: { $implicit: block }" />
+          </div>
+        }
+      } @empty {
+        <p class="meta-empty">No notes yet.</p>
+      }
+    </div>
+  </div>
+  }
+
+  @if (showComments) {
+  @if (error() && !showNotes) {
+    <p class="meta-error">{{ error() }}</p>
+  }
+  <!-- Comments -->
+  <div class="comments-section">
+    <h4 class="comments-title">Comments</h4>
+    <ul class="comment-list">
+      @for (c of record()?.comments ?? []; track c.id) {
+        <li class="comment-item">
+          <div class="comment-meta">
+            <strong>{{ c.author.name || c.author.sub || 'User' }}</strong>
+            <span class="comment-date">{{ formatDate(c.createdAt) }}</span>
+          </div>
+          <p class="comment-body">{{ c.body }}</p>
+        </li>
+      } @empty {
+        <li class="meta-empty">No comments yet.</li>
+      }
+    </ul>
+
+    @if (canEdit()) {
+      <div class="comment-compose">
+        <textarea
+          rows="3"
+          [ngModel]="commentDraft()"
+          (ngModelChange)="commentDraft.set($event)"
+          placeholder="Add a comment…"
+        ></textarea>
+        <button
+          type="button"
+          class="simx-btn simx-btn--small simx-btn--primary"
+          (click)="submitComment()"
+          [disabled]="busy() || !commentDraft().trim()"
+        >
+          Comment
+        </button>
+      </div>
+    } @else if (auth.authConfigured) {
+      <p class="meta-hint">
+        <button type="button" class="link-btn" (click)="auth.requestLogin()">Log in</button>
+        to comment.
+      </p>
+    }
+  </div>
+  }
+</section>
+
+<ng-template #noteView let-block>
+  @if (block.type === 'markdown') {
+    <div class="note-block note-markdown" [innerHTML]="block.markdown | markdownHtml"></div>
+  }
+  @if (block.type === 'image') {
+    <figure class="note-block note-image">
+      @if (mediaSrc(block.mediaId); as src) {
+        <button
+          type="button"
+          class="note-image-btn"
+          (click)="openImageLightbox(block.mediaId, block.alt || '')"
+        >
+          <img [src]="src" [alt]="block.alt || ''" />
+        </button>
+        @if (block.alt) {
+          <figcaption>{{ block.alt }}</figcaption>
+        }
+      }
+    </figure>
+  }
+  @if (block.type === 'video') {
+    <figure class="note-block note-video">
+      @if (mediaSrc(block.mediaId); as src) {
+        <video controls playsinline [src]="src" [attr.aria-label]="block.caption || 'Video note'"></video>
+        @if (block.caption) {
+          <figcaption>{{ block.caption }}</figcaption>
+        }
+      }
+    </figure>
+  }
+  @if (block.type === 'carousel') {
+    <div class="note-block note-carousel">
+      @if (carouselUrls(block); as urls) {
+        @if (urls.length) {
+          <div class="carousel">
+            <button
+              type="button"
+              class="carousel-nav"
+              (click)="setCarouselIndex(block.id, currentCarouselIndex(block.id) - 1, urls.length)"
+              [disabled]="urls.length < 2"
+              title="Previous"
+            >
+              <i class="pi pi-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="carousel-frame"
+              (click)="openCarouselLightbox(block, currentCarouselIndex(block.id))"
+            >
+              <img
+                [src]="urls[currentCarouselIndex(block.id)]"
+                [alt]="carouselCaption(block)"
+              />
+            </button>
+            <button
+              type="button"
+              class="carousel-nav"
+              (click)="setCarouselIndex(block.id, currentCarouselIndex(block.id) + 1, urls.length)"
+              [disabled]="urls.length < 2"
+              title="Next"
+            >
+              <i class="pi pi-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="carousel-meta">
+            <span class="carousel-count">
+              {{ currentCarouselIndex(block.id) + 1 }} / {{ urls.length }}
+            </span>
+            @if (carouselCaption(block); as caption) {
+              <span class="carousel-caption">{{ caption }}</span>
+            }
+          </div>
+        }
+      }
+    </div>
+  }
+</ng-template>
+
+<ng-template #noteEditor let-block>
+  @if (block) {
+    <div class="edit-block" [attr.data-type]="block.type">
+      <div class="edit-block-toolbar">
+        <span class="edit-block-type">{{ block.type }}</span>
+        <button
+          type="button"
+          class="simx-btn simx-btn--small"
+          (click)="closeNoteEditor()"
+          [disabled]="busy()"
+        >
+          Done
+        </button>
+        <button
+          type="button"
+          class="icon-btn danger"
+          title="Delete note"
+          (click)="deleteEditingNote()"
+          [disabled]="busy()"
+        >
+          <i class="pi pi-trash" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      @if (block.type === 'markdown') {
+        <div class="md-edit">
+          <div class="md-toolbar" role="toolbar" aria-label="Markdown formatting">
+            <button
+              type="button"
+              class="icon-btn"
+              title="Bold"
+              [disabled]="busy()"
+              (click)="applyMarkdownInline(mdInput, '**', '**')"
+            >
+              <i class="pi pi-bold" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="icon-btn"
+              title="Italic"
+              [disabled]="busy()"
+              (click)="applyMarkdownInline(mdInput, '*', '*')"
+            >
+              <i class="pi pi-italic" aria-hidden="true"></i>
+            </button>
+            <label class="md-style-label">
+              <span class="visually-hidden">Font style</span>
+              <select
+                class="md-style"
+                [disabled]="busy()"
+                (change)="onMarkdownStyle(mdInput, $event)"
+              >
+                <option value="" selected>Style</option>
+                <option value="0">Body</option>
+                <option value="1">Heading 1</option>
+                <option value="2">Heading 2</option>
+                <option value="3">Heading 3</option>
+              </select>
+            </label>
+            <button
+              type="button"
+              class="icon-btn"
+              title="Insert link"
+              [disabled]="busy()"
+              (click)="insertMarkdownUrl(mdInput)"
+            >
+              <i class="pi pi-link" aria-hidden="true"></i>
+            </button>
+          </div>
+          <textarea
+            #mdInput
+            class="md-input"
+            rows="6"
+            [ngModel]="block.markdown"
+            (ngModelChange)="updateMarkdown($event)"
+            placeholder="Markdown notes…"
+          ></textarea>
+          <div class="md-preview-label">Preview</div>
+          @if ((block.markdown || '').trim()) {
+            <div class="md-preview note-markdown" [innerHTML]="block.markdown | markdownHtml"></div>
+          } @else {
+            <div class="md-preview md-preview--empty">Nothing to preview</div>
+          }
+        </div>
+      }
+
+      @if (block.type === 'image') {
+        <div class="image-edit">
+          @if (mediaSrc(block.mediaId); as src) {
+            <img class="image-preview" [src]="src" [alt]="block.alt || ''" />
+            <button type="button" class="simx-btn simx-btn--small" (click)="clearImageBlock()">
+              Remove image
+            </button>
+          } @else {
+            <label class="upload-label">
+              <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden (change)="onMediaFile($event, 'image')" />
+              Upload image…
+            </label>
+          }
+          <input
+            class="alt-input"
+            type="text"
+            [ngModel]="block.alt || ''"
+            (ngModelChange)="updateImageAlt($event)"
+            placeholder="Alt text / caption"
+          />
+        </div>
+      }
+
+      @if (block.type === 'video') {
+        <div class="video-edit">
+          @if (mediaSrc(block.mediaId); as src) {
+            <video class="video-preview" controls playsinline [src]="src"></video>
+            <button type="button" class="simx-btn simx-btn--small" (click)="clearVideoBlock()">
+              Remove video
+            </button>
+          } @else {
+            <label class="upload-label">
+              <input type="file" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov" hidden (change)="onMediaFile($event, 'video')" />
+              Upload video…
+            </label>
+          }
+          <input
+            class="alt-input"
+            type="text"
+            [ngModel]="block.caption || ''"
+            (ngModelChange)="updateVideoCaption($event)"
+            placeholder="Caption"
+          />
+        </div>
+      }
+
+      @if (block.type === 'carousel') {
+        <div class="carousel-edit">
+          <div class="carousel-slides">
+            @for (mid of block.mediaIds; track mid; let i = $index) {
+              <div class="carousel-slide-edit">
+                <div class="carousel-thumb">
+                  @if (mediaSrc(mid); as src) {
+                    <img [src]="src" alt="" />
+                  }
+                  <button type="button" class="icon-btn danger" title="Remove slide" (click)="removeCarouselSlide(mid)">
+                    <i class="pi pi-times" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <input
+                  class="alt-input"
+                  type="text"
+                  [ngModel]="block.slideCaptions?.[mid] || ''"
+                  (ngModelChange)="updateSlideCaption(mid, $event)"
+                  [placeholder]="'Caption for image ' + (i + 1)"
+                />
+              </div>
+            }
+          </div>
+          <label class="upload-label">
+            <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden (change)="onMediaFile($event, 'carousel')" />
+            Add slide…
+          </label>
+        </div>
+      }
+
+    </div>
+  }
+</ng-template>
+
+@if (lightboxOpen()) {
+  <app-image-lightbox
+    [urls]="lightboxUrls()"
+    [captions]="lightboxCaptions()"
+    [index]="lightboxIndex()"
+    (close)="closeLightbox()"
+    (indexChange)="lightboxIndex.set($event)"
+  />
+}

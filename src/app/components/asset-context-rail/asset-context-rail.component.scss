@@ -1,0 +1,193 @@
+:host {
+  display: flex;
+  flex: 0 0 var(--context-rail-width, 360px);
+  width: var(--context-rail-width, 360px);
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+  position: relative;
+  overflow: visible;
+  z-index: 3;
+
+  &.collapsed {
+    flex: 0 0 16px;
+    width: 16px;
+  }
+}
+
+.context-rail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border-left: 1px solid var(--pane-split);
+  background: var(--bg-main);
+}
+
+.context-toggle {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  transform: translateX(-50%);
+  border: 1px solid var(--pane-split);
+  border-radius: 50%;
+  background: var(--bg-main);
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px var(--bg-main);
+
+  .pi {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  &:hover {
+    color: var(--text-main);
+    background: var(--bg-hover);
+    border-color: var(--border-active);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+.context-body {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+:host.collapsed .context-body {
+  display: none;
+}
+
+.git-authorship {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 0 var(--space-4);
+  font-size: 12px;
+}
+
+.git-authorship-heading {
+  margin: 0 0 6px;
+  font-family: var(--font-graphic);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-label);
+}
+
+.git-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+  line-height: 1.35;
+}
+
+.git-role,
+.git-date {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.git-person {
+  overflow-wrap: anywhere;
+}
+
+.contrib-breakdown {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  min-width: 0;
+}
+
+.contrib-pie-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: visible;
+  background: var(--bg-main);
+}
+
+.contrib-pie {
+  width: 45px;
+  height: 45px;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+
+  path {
+    cursor: default;
+
+    &:hover {
+      filter: brightness(1.12);
+    }
+  }
+}
+
+.contrib-pie-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  z-index: 5;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  background: var(--control-bg);
+  color: var(--text-main);
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.contrib-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contrib-legend-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.contrib-name {
+  overflow-wrap: anywhere;
+}

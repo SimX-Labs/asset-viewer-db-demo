@@ -37,6 +37,8 @@ export const TAG_TAXONOMY_DRAFT_KEY = 'simx-asset-viewer-tag-taxonomy-draft';
 export const EMPTY_TAG_TAXONOMY: TagTaxonomy = { categories: [], tags: [] };
 
 export const GLOBAL_TAG_CATEGORY_ID = 'global';
+/** Overlay / ad-hoc tags that are not already Global or type-scoped. */
+export const CUSTOM_TAG_CATEGORY_ID = 'custom';
 export const TYPE_TAG_CATEGORY_PREFIX = 'type:';
 export const SCRAPED_TAG_ID_PREFIX = 'scraped:';
 
@@ -48,9 +50,13 @@ export function scrapedTagId(slug: string): string {
   return `${SCRAPED_TAG_ID_PREFIX}${slug}`;
 }
 
+export function isGlobalScopeCategoryId(dataId: string): boolean {
+  return dataId === GLOBAL_TAG_CATEGORY_ID || dataId === CUSTOM_TAG_CATEGORY_ID;
+}
+
 export function isBuiltInTagCategoryId(dataId: string): boolean {
   return (
-    dataId === GLOBAL_TAG_CATEGORY_ID ||
+    isGlobalScopeCategoryId(dataId) ||
     dataId.startsWith(TYPE_TAG_CATEGORY_PREFIX)
   );
 }
@@ -238,6 +244,12 @@ export function builtInTagCategories(): TagCategoryRecord[] {
       tags: [],
       scope: 'global',
     },
+    {
+      dataId: CUSTOM_TAG_CATEGORY_ID,
+      label: 'Custom',
+      tags: [],
+      scope: 'global',
+    },
     ...UNITY_CATEGORY_ORDER.map((assetType) => ({
       dataId: typeTagCategoryId(assetType),
       label: assetType,
@@ -263,7 +275,7 @@ function takeMatch(
 }
 
 /**
- * Guarantee a Global group plus one group per Unity asset type.
+ * Guarantee Global, Custom, and one group per Unity asset type.
  * Legacy user-created categories matching a built-in label are remapped onto
  * the stable id; unmatched leftover groups are kept after the built-ins.
  */

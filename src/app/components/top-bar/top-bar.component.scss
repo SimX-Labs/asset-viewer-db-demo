@@ -146,6 +146,13 @@
   &--wide {
     min-width: 280px;
   }
+
+  &--scroll {
+    max-height: calc(100vh - var(--header-height) - 16px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 .dropdown-title {
@@ -183,8 +190,21 @@
   border-radius: var(--radius-default);
   transition: background 0.2s;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: var(--accent-hover);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  &--danger {
+    background: var(--simx-red, #e31f2f);
+
+    &:hover:not(:disabled) {
+      background: var(--simx-red-dark, #ca1928);
+    }
   }
 }
 
@@ -222,4 +242,30 @@ hr {
   .app-title {
     font-size: 18px;
   }
+}
+
+.auth-user {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 8px;
+  color: var(--header-text);
+  max-width: 160px;
+}
+
+.auth-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.auth-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-graphic);
+  font-size: var(--text-copy);
+  font-weight: 500;
 }

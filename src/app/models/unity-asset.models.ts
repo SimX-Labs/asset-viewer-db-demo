@@ -221,6 +221,7 @@ export interface UnityMedication {
   } | null;
   vialInfo?: {
     isPowder: boolean;
+    /** RRGGBB hex, or a legacy enum name (`red`, `blue`, …) for material swapping. */
     vialLiquidColorOverride?: string | null;
   } | null;
   /** DB-only fields; omitted from Unity interchange export. */
@@ -382,8 +383,6 @@ export interface UnityAuthoredEnvironment {
 
 export type UnityAudioKind = 'music' | 'sound-effect' | 'background-audio';
 
-export type UnityVideoKind = 'ultrasound';
-
 /** Audio clip addressable (environment_music / environment_sounds). */
 export interface UnityAudio {
   id: string;
@@ -396,8 +395,13 @@ export interface UnityAudio {
   addressableGroup?: string | null;
   addressableLabels?: string[];
   clipPath?: string | null;
+  /** Path under db/ to the copied clip, e.g. audio/media/foo.ogg */
+  audioPath?: string | null;
+  copyStatus?: string | null;
   tags?: string[];
 }
+
+export type UnityVideoKind = 'ultrasound';
 
 /** Animation-clip video (ultrasound_videos Addressables). */
 export interface UnityVideo {
@@ -433,12 +437,41 @@ export interface UnityToolMetadata extends UnityMetadataObject {
   toolIds: string[];
 }
 
+/** One row's git creator + top contributors (`db/git-authorship.json`). */
+export interface UnityGitPerson {
+  name: string;
+  email: string;
+  date?: string;
+}
+
+export interface UnityGitContributor extends UnityGitPerson {
+  commits: number;
+}
+
+export interface UnityGitAuthorship {
+  createdBy: UnityGitPerson | null;
+  lastTouchedBy?: UnityGitPerson | null;
+  contributors: UnityGitContributor[];
+  /** Commits from authors outside the top-N contributor list. */
+  otherCommits?: number;
+}
+
+export interface UnityGitAuthorshipFile {
+  meta?: {
+    generatedAt?: string;
+    counts?: Record<string, number>;
+  };
+  byAssetId: Record<string, UnityGitAuthorship>;
+}
+
 export interface UnityDbBundle {
   meta?: {
     source?: string;
     generatedAt?: string;
     counts?: Record<string, number>;
   };
+  /** Sidecar keyed by row id; omitted when git-authorship.json is absent. */
+  gitAuthorship?: Record<string, UnityGitAuthorship>;
   characters: UnityCharacter[];
   equipment: UnityEquipment[];
   tools: UnityTool[];
@@ -477,6 +510,12 @@ export interface UnityDbIndex {
   scenarios: string;
   characterMetadata: string;
   toolMetadata: string;
+  /** Curated overlay record paths: meta/<uuid>/record.json */
+  assetMeta?: string[];
+  /** Optional oldId → newId map at meta/aliases.json */
+  assetMetaAliases?: string;
+  /** Sidecar with creator + top git contributors. */
+  gitAuthorship?: string;
 }
 
 /**
@@ -556,7 +595,7 @@ export const UNITY_SUBCATEGORY_DEFS: Record<string, UnitySubcategoryDef> = {
 };
 
 /** Root URL path (or absolute URL) of the db folder.
- * Locally served via public/db → UNITY_ASSET_DB_DIR junction.
+ * Locally served via db-link → UNITY_ASSET_DB_DIR junction (copied to /db).
  * Point this at an S3/HTTPS URL once the bucket is ready. */
 export const UNITY_DB_ROOT = 'db';
 export const UNITY_DB_INDEX_FILE = 'index.json';

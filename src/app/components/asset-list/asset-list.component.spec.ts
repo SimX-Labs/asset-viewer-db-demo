@@ -5,8 +5,10 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { emptyAssetMetaRecord } from '../../models/asset-meta.models';
 import { DboAsset } from '../../models/dbo.models';
 import { AppStateService } from '../../services/app-state.service';
+import { AssetMetaService } from '../../services/asset-meta.service';
 import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
 import { AssetListComponent } from './asset-list.component';
 
@@ -20,6 +22,12 @@ function tool(id: string, tags: string[]): DboAsset {
     _Category: 'Tooling',
     _File: 'unity.json',
   };
+}
+
+function names(fixture: ComponentFixture<AssetListComponent>): string[] {
+  return fixture.debugElement
+    .queryAll(By.css('.asset-name'))
+    .map((el) => (el.nativeElement as HTMLElement).textContent?.trim() ?? '');
 }
 
 describe('AssetListComponent tag filters', () => {
@@ -65,104 +73,98 @@ describe('AssetListComponent tag filters', () => {
     localStorage.clear();
   });
 
-  function openPicker(): void {
-    const btn = fixture.debugElement.query(By.css('.tag-picker-btn'));
-    expect(btn).toBeTruthy();
-    btn.nativeElement.click();
-    fixture.detectChanges();
-  }
-
-  function pickerOption(label: string) {
-    return fixture.debugElement
-      .queryAll(By.css('.tag-picker-option'))
-      .find((el) =>
-        (el.nativeElement as HTMLElement).textContent?.includes(label),
-      );
-  }
-
-  it('shows a Tags button that opens a picker of type-scoped tags', () => {
-    expect(fixture.debugElement.query(By.css('.tag-picker-btn'))).toBeTruthy();
-    expect(fixture.debugElement.queryAll(By.css('.tag-filter')).length).toBe(0);
-
-    openPicker();
-
-    const labels = fixture.debugElement
-      .queryAll(By.css('.tag-picker-option'))
-      .map((el) => (el.nativeElement as HTMLElement).textContent ?? '');
-    expect(labels.some((t) => t.includes('Grabbable'))).toBeTrue();
-    expect(labels.some((t) => t.includes('Generator'))).toBeTrue();
-    expect(labels.some((t) => t.includes('Prop'))).toBeTrue();
-    expect(labels.some((t) => t.includes('Core'))).toBeFalse();
+  it('lists every asset before a tag is selected', () => {
+    expect(names(fixture)).toEqual(['scalpel', 'cart', 'tray']);
   });
 
-  it('filters the list when a picker tag is selected and keeps the chip visible', () => {
-    openPicker();
-    const grabbable = pickerOption('Grabbable');
-    expect(grabbable).toBeTruthy();
-    grabbable!.query(By.css('input')).nativeElement.click();
+  it('filters the list when a tag is selected', () => {
+    state.toggleTagFilter('Grabbable');
     fixture.detectChanges();
-
-    const names = fixture.debugElement
-      .queryAll(By.css('.asset-name'))
-      .map((el) => (el.nativeElement as HTMLElement).textContent?.trim());
-    expect(names).toEqual(['scalpel', 'cart']);
-
-    const chips = fixture.debugElement
-      .queryAll(By.css('.tag-filters > .tag-filter'))
-      .map((el) => (el.nativeElement as HTMLElement).textContent ?? '');
-    expect(chips.some((t) => t.includes('Grabbable'))).toBeTrue();
+    expect(names(fixture)).toEqual(['scalpel', 'cart']);
   });
 
   it('matches any selected tag after switching to OR', () => {
-    openPicker();
-    fixture.debugElement.query(By.css('[data-mode="or"]')).nativeElement.click();
+    state.setTagMatchMode('or');
+    state.toggleTagFilter('Grabbable');
+    state.toggleTagFilter('Prop');
     fixture.detectChanges();
+    expect(names(fixture)).toEqual(['scalpel', 'cart', 'tray']);
 
-    pickerOption('Grabbable')!.query(By.css('input')).nativeElement.click();
-    pickerOption('Prop')!.query(By.css('input')).nativeElement.click();
+    state.setTagMatchMode('and');
     fixture.detectChanges();
+    expect(names(fixture)).toEqual([]);
+  });
+});
 
-    expect(
-      fixture.debugElement
-        .queryAll(By.css('.asset-name'))
-        .map((el) => (el.nativeElement as HTMLElement).textContent?.trim()),
-    ).toEqual(['scalpel', 'cart', 'tray']);
+describe('AssetListComponent status filters', () => {
+  let fixture: ComponentFixture<AssetListComponent>;
+  let state: AppStateService;
+  let http: HttpTestingController;
 
-    fixture.debugElement.query(By.css('[data-mode="and"]')).nativeElement.click();
+  function tool(id: string): DboAsset {
+    return {
+      AssetId: id,
+      AssetName: id,
+      AssetType: 'Tool',
+      Tags: ['Grabbable'],
+      Data: {},
+      _Category: 'Tooling',
+      _File: 'unity.json',
+    };
+  }
+
+  beforeEach(async () => {
+    localStorage.clear();
+    await TestBed.configureTestingModule({
+      imports: [AssetListComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
+
+    const tags = TestBed.inject(TagTaxonomyService);
+    http = TestBed.inject(HttpTestingController);
+    const loaded = tags.ensureLoaded();
+    http.expectOne('http://localhost:4301/tag-taxonomy').flush({
+      categories: [],
+      tags: [],
+    });
+    await loaded;
+
+    state = TestBed.inject(AppStateService);
+    TestBed.inject(AssetMetaService).records.set({
+      scalpel: { ...emptyAssetMetaRecord('scalpel'), status: 'Functional' },
+      cart: { ...emptyAssetMetaRecord('cart'), status: 'Stable' },
+    });
+    state.rawData.set({
+      'unity.json': {
+        Tooling: [tool('scalpel'), tool('cart'), tool('tray')],
+      },
+    });
+    state.currentFile.set('unity.json');
+    state.currentCategory.set('Tooling');
+
+    fixture = TestBed.createComponent(AssetListComponent);
     fixture.detectChanges();
-
-    expect(
-      fixture.debugElement
-        .queryAll(By.css('.asset-name'))
-        .map((el) => (el.nativeElement as HTMLElement).textContent?.trim()),
-    ).toEqual([]);
   });
 
-  it('filters picker tags by the popup search', () => {
-    openPicker();
-    const search = fixture.debugElement.query(By.css('.tag-picker-search'));
-    search.triggerEventHandler('ngModelChange', 'prop');
-    fixture.detectChanges();
-
-    const labels = fixture.debugElement
-      .queryAll(By.css('.tag-picker-option'))
-      .map((el) => (el.nativeElement as HTMLElement).textContent ?? '');
-    expect(labels.length).toBe(1);
-    expect(labels[0]).toContain('Prop');
+  afterEach(() => {
+    http.verify();
+    localStorage.clear();
   });
 
-  it('offers a matching tag from the search box', () => {
-    const input = fixture.debugElement.query(By.css('input'));
-    input.triggerEventHandler('ngModelChange', 'grab');
-    input.triggerEventHandler('focus', null);
+  it('filters the list with Include/Exclude status', () => {
+    state.toggleStatusFilter('Functional');
     fixture.detectChanges();
+    expect(names(fixture)).toEqual(['scalpel']);
 
-    const suggestion = fixture.debugElement.query(By.css('.tag-suggest-item'));
-    expect(suggestion.nativeElement.textContent).toContain('Grabbable');
-    suggestion.triggerEventHandler('mousedown', new MouseEvent('mousedown'));
+    state.setStatusMatchMode('exclude');
     fixture.detectChanges();
+    expect(names(fixture)).toEqual(['cart', 'tray']);
+  });
 
-    expect(state.selectedTagLabels()).toEqual(['Grabbable']);
-    expect(state.searchQuery()).toBe('');
+  it('marks each row with overlay status for the selected bar', () => {
+    const statuses = fixture.debugElement
+      .queryAll(By.css('.asset-item'))
+      .map((el) => (el.nativeElement as HTMLElement).getAttribute('data-status'));
+    expect(statuses).toEqual(['Functional', 'Stable', 'unset']);
   });
 });

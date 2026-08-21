@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { DboAsset, ToolNode } from '../models/dbo.models';
 import { DboLoadResult } from './dbo-data.service';
+import { AssetMetaService } from './asset-meta.service';
 import {
   UNITY_CATEGORY_ORDER,
   UNITY_DB_INDEX_FILE,
@@ -16,6 +17,8 @@ import {
   UnityDbIndex,
   UnityEnvironment,
   UnityEquipment,
+  UnityGitAuthorship,
+  UnityGitAuthorshipFile,
   UnityInteractionRef,
   UnityInteractionRow,
   UnityMedication,
@@ -28,6 +31,8 @@ import {
 } from '../models/unity-asset.models';
 import { adaptVesselToolFields } from '../models/custom-vessel.util';
 import { sourceForUnityAsset } from '../models/data-source';
+import { formatGitIdentity } from '../utils/git-identity.util';
+import { normalizeAssetMetaRecord } from '../models/asset-meta.models';
 
 const FETCH_BATCH_SIZE = 48;
 
@@ -61,6 +66,9 @@ interface ReverseIndex {
 @Injectable({ providedIn: 'root' })
 export class UnityDataService {
   private readonly http = inject(HttpClient);
+  private readonly assetMeta = inject(AssetMetaService);
+  /** Sidecar keyed by original row id; reset on each bundle build. */
+  private gitByAssetId: Record<string, UnityGitAuthorship> = {};
 
   /** Load the per-file db/ tree via index.json, then fetch each row. */
   async loadDb(root = UNITY_DB_ROOT): Promise<DboLoadResult> {
@@ -71,6 +79,14 @@ export class UnityDataService {
     if (!index || !Array.isArray(index.characters)) {
       throw new Error(`Invalid Unity asset DB index at ${base}/${UNITY_DB_INDEX_FILE}`);
     }
+
+    // Curated overlay loads in parallel with scraped rows (never mixed into them).
+    const metaLoad = this.assetMeta.loadFromIndex(index, base);
+    const gitLoad = firstValueFrom(
+      this.http.get<UnityGitAuthorshipFile>(
+        `${base}/${index.gitAuthorship ?? 'git-authorship.json'}`,
+      ),
+    ).catch(() => ({ byAssetId: {} } as UnityGitAuthorshipFile));
 
     const [characters, equipment, tools, interactions, environments, authoredEnvironments, audio, videos, clothing, medications, waveforms, scenarios, characterMetadata, toolMetadata] =
       await Promise.all([
@@ -108,6 +124,9 @@ export class UnityDataService {
         ),
       ]);
 
+    await metaLoad;
+    const gitFile = await gitLoad;
+
     return this.buildFromBundle({
       meta: {
         source: index.meta?.source ?? base,
@@ -129,6 +148,7 @@ export class UnityDataService {
           toolMetadata: Array.isArray(toolMetadata) ? toolMetadata.length : 0,
         },
       },
+      gitAuthorship: gitFile?.byAssetId ?? {},
       characters,
       equipment,
       tools,
@@ -205,9 +225,12 @@ export class UnityDataService {
       (await readJson<UnityDbBundle['characterMetadata']>('character-metadata.json')) ?? [];
     const toolMetadata =
       (await readJson<UnityDbBundle['toolMetadata']>('tool-metadata.json')) ?? [];
+    const gitFile =
+      (await readJson<UnityGitAuthorshipFile>('git-authorship.json')) ?? { byAssetId: {} };
 
     const bundle: UnityDbBundle = {
       meta: { source: 'folder', generatedAt: new Date().toISOString() },
+      gitAuthorship: gitFile.byAssetId ?? {},
       characters: await readDir<UnityCharacter>('characters'),
       equipment: await readDir<UnityEquipment>('equipment'),
       tools: await readDir<UnityTool>('tools'),
@@ -230,6 +253,40 @@ export class UnityDataService {
       );
     }
 
+    // Load curated overlay from the same folder pick when present.
+    const metaRecords: Record<string, import('../models/asset-meta.models').AssetMetaRecord> = {};
+    const aliasRaw =
+      (await readJson<import('../models/asset-meta.models').AssetMetaAliases>(
+        'meta/aliases.json',
+      )) ?? {};
+    for (const path of byRel.keys()) {
+      const m = path.match(/^meta\/([^/]+)\/record\.json$/i);
+      if (!m) continue;
+      try {
+        const raw = await readJson<unknown>(path);
+        if (!raw) continue;
+        const record = normalizeAssetMetaRecord(raw, m[1]);
+        if (!record.assetId) continue;
+        metaRecords[record.assetId] = record;
+      } catch {
+        /* skip bad meta files */
+      }
+    }
+    for (const [oldId, newId] of Object.entries(aliasRaw)) {
+      if (typeof newId === 'string' && metaRecords[newId]) {
+        metaRecords[oldId] = metaRecords[newId];
+      }
+    }
+    this.assetMeta.aliases.set(
+      Object.fromEntries(
+        Object.entries(aliasRaw).filter(
+          ([k, v]) => typeof k === 'string' && typeof v === 'string',
+        ),
+      ),
+    );
+    this.assetMeta.records.set(metaRecords);
+    this.assetMeta.loaded.set(true);
+
     return this.buildFromBundle(bundle);
   }
 
@@ -246,12 +303,14 @@ export class UnityDataService {
   }
 
   buildFromBundle(bundle: UnityDbBundle): DboLoadResult {
+    this.gitByAssetId = bundle.gitAuthorship ?? {};
     const reverse = this.buildReverseIndex(bundle);
     const assetMap: Record<string, DboAsset> = {};
     const categories: Record<string, DboAsset[]> = {};
     for (const cat of UNITY_CATEGORY_ORDER) categories[cat] = [];
 
     const push = (cat: string, asset: DboAsset) => {
+      this.applyGitAuthorship(asset);
       asset = { ...asset, _Source: sourceForUnityAsset(asset) };
       // Guard against duplicate ids in the source graph (two rows can share a
       // UUID). Colliding ids would overwrite each other in assetMap and produce
@@ -322,6 +381,31 @@ export class UnityDataService {
       assetMap,
       allToolsMap: {},
     };
+  }
+
+  private applyGitAuthorship(asset: DboAsset): void {
+    const g = this.gitByAssetId[asset.AssetId];
+    if (!g || !asset.Data) return;
+    if (g.createdBy) {
+      const label = formatGitIdentity(g.createdBy);
+      if (label) asset.Data['CreatedBy'] = label;
+      if (g.createdBy.date) asset.Data['CreatedOn'] = g.createdBy.date;
+    }
+    if (g.lastTouchedBy) {
+      const label = formatGitIdentity(g.lastTouchedBy);
+      if (label) asset.Data['LastUpdatedBy'] = label;
+      if (g.lastTouchedBy.date) asset.Data['LastUpdatedOn'] = g.lastTouchedBy.date;
+    }
+    if (g.contributors?.length) {
+      asset.Data['Contributors'] = g.contributors.map((c) => ({
+        Name: formatGitIdentity(c),
+        Commits: c.commits,
+      }));
+    }
+    const other = Number(g.otherCommits);
+    if (Number.isFinite(other) && other > 0) {
+      asset.Data['ContributorOtherCommits'] = other;
+    }
   }
 
   private async fetchJsonFiles<T>(base: string, relPaths: string[]): Promise<T[]> {
@@ -911,6 +995,9 @@ export class UnityDataService {
     };
     if (a.assetKey) data['AssetKey'] = a.assetKey;
     if (a.clipPath) data['ClipPath'] = a.clipPath;
+    if (a.copyStatus) data['CopyStatus'] = a.copyStatus;
+    const audioUrl = this.dbMediaUrl(a.audioPath);
+    if (audioUrl) data['AudioUrl'] = audioUrl;
     if (a.addressableGroup) data['AddressableGroup'] = a.addressableGroup;
     if (a.addressableLabels?.length) data['AddressableLabels'] = a.addressableLabels;
     if (a.guid) data['Guid'] = a.guid;

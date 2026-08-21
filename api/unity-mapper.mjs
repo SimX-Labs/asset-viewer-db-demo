@@ -657,6 +657,8 @@ export function mapUnityAudioToLibraryAsset(clip, opts = {}) {
       addressableGroup: clip.addressableGroup ?? null,
       addressableLabels: clip.addressableLabels ?? [],
       clipPath: clip.clipPath ?? null,
+      audioPath: clip.audioPath ?? null,
+      copyStatus: clip.copyStatus ?? null,
     };
   }
 

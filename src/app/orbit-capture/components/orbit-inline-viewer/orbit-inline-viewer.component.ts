@@ -74,6 +74,9 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
         display: block;
         min-width: 0;
       }
+      :host:not(:has(.model-infobox)) {
+        display: none;
+      }
       .model-infobox {
         position: relative;
         width: 100%;
@@ -152,7 +155,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   private readonly session = inject(OrbitSessionState);
   private readonly host = inject(ElementRef<HTMLElement>);
 
-  readonly status = signal<InlineStatus>('idle');
+  readonly status = signal<InlineStatus>('none');
   /** Why the viewer is not showing a model; surfaced when `diagnostic` is set. */
   readonly reason = signal<string>('');
   readonly bundle = signal<OrbitCaptureBundle | null>(null);
@@ -299,7 +302,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
     this.bundle()?.revoke();
     this.bundle.set(null);
     this.reason.set('');
-    this.status.set('idle');
+    this.status.set('none');
   }
 
   private exitExpandedIfNeeded(): void {

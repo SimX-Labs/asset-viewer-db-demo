@@ -5,6 +5,7 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import {
+  CUSTOM_TAG_CATEGORY_ID,
   GLOBAL_TAG_CATEGORY_ID,
   TAG_TAXONOMY_DRAFT_KEY,
   TAG_TAXONOMY_STORAGE_KEY,
@@ -41,9 +42,10 @@ describe('TagTaxonomyService', () => {
     await loaded;
   }
 
-  it('hydrates Global plus every Unity asset type from an empty file', async () => {
+  it('hydrates Global, Custom, plus every Unity asset type from an empty file', async () => {
     await loadEmpty();
     expect(service.globalCategory()?.dataId).toBe(GLOBAL_TAG_CATEGORY_ID);
+    expect(service.customCategory()?.dataId).toBe(CUSTOM_TAG_CATEGORY_ID);
     expect(service.typeCategories().map((c) => c.label)).toEqual([
       ...UNITY_CATEGORY_ORDER,
     ]);
@@ -126,6 +128,32 @@ describe('TagTaxonomyService', () => {
     expect(characterLabels).toContain('Reviewed');
     expect(characterLabels).toContain('Pediatric');
     expect(characterLabels).toContain('Core');
+  });
+
+  it('registers unknown overlay labels onto Custom for every type', async () => {
+    await loadEmpty();
+
+    const registering = service.ensureAuthoredTags(['Needs Review', 'Military']);
+    const req = http.expectOne((r) => r.method === 'PUT' && r.url === API);
+    expect(
+      req.request.body.tags.map((t: { label: string }) => t.label),
+    ).toContain('Needs Review');
+    expect(
+      req.request.body.tags.filter((t: { label: string }) => t.label === 'Military')
+        .length,
+    ).toBe(1);
+    req.flush(req.request.body);
+    await registering;
+
+    expect(
+      service.tagsForCategory(CUSTOM_TAG_CATEGORY_ID).map((t) => t.label),
+    ).toEqual(['Needs Review']);
+    expect(
+      service.tagsAvailableForAssetType('Tooling').map((t) => t.label),
+    ).toContain('Needs Review');
+    expect(
+      service.tagsAvailableForAssetType('Characters').map((t) => t.label),
+    ).toContain('Needs Review');
   });
 
   it('refuses to delete a scraped tag', async () => {

@@ -22,8 +22,13 @@
   --simx-instrument-grey: rgb(240, 242, 244); /* #f0f2f4 — neutral selected surface */
   --simx-instrument-grey-rgb: 240, 242, 244;
   --simx-black-dusk: rgb(24, 23, 29); /* #18171d — default text */
+  --contributor-slice-1: var(--simx-procedure-blue);
+  --contributor-slice-2: var(--simx-clinical-indigo);
+  --contributor-slice-3: var(--simx-content-light);
   --simx-warning: rgb(255, 177, 0);
+  --simx-warning-rgb: 255, 177, 0;
   --simx-success: rgb(0, 201, 133);
+  --simx-success-rgb: 0, 201, 133;
 
   /* Scenario Creator's current content-accent ramp */
   --simx-slate: var(--simx-midnight-scrub);
@@ -92,12 +97,12 @@
   /* Layout */
   --header-height: 50px;
   --toolbar-height: 60px;
-  --view-toolbar-height: 69px;
+  --view-toolbar-height: 40px;
   --content-gutter: 30px;
   --toolbar-compact-breakpoint: 1200px;
   --sidebar-width: 268px;
   --list-width: 320px;
-  --pinned-width: 220px;
+  --context-rail-width: 360px;
   --z-header: 1000;
   --z-toolbar: 100;
   --z-sidebar: 10;
@@ -130,6 +135,7 @@
   --border: var(--simx-content-lighter);
   --border-light: var(--simx-content-lightest);
   --border-active: var(--simx-content-light);
+  --pane-split: var(--simx-content-light);
 
   --accent: var(--simx-procedure-blue);
   --accent-hover: var(--simx-procedure-blue-dark);
@@ -167,6 +173,19 @@
   --text-group-header: var(--simx-content-heavy);
   --border-group: var(--simx-content-light);
   --bg-group-children: rgba(var(--simx-procedure-blue-rgb), 0.03);
+
+  --status-development-fg: rgb(176, 118, 0);
+  --status-development-bg: rgba(var(--simx-warning-rgb), 0.16);
+  --status-development-border: rgba(var(--simx-warning-rgb), 0.42);
+  --status-functional-fg: var(--simx-procedure-blue);
+  --status-functional-bg: rgba(var(--simx-procedure-blue-rgb), 0.14);
+  --status-functional-border: rgba(var(--simx-procedure-blue-rgb), 0.34);
+  --status-stable-fg: rgb(8, 140, 96);
+  --status-stable-bg: rgba(var(--simx-success-rgb), 0.16);
+  --status-stable-border: rgba(var(--simx-success-rgb), 0.38);
+  --status-deprecated-fg: var(--simx-red);
+  --status-deprecated-bg: rgba(var(--simx-red-rgb), 0.12);
+  --status-deprecated-border: rgba(var(--simx-red-rgb), 0.32);
 }
 
 /* Dark theme — matches Scenario Creator dark mode (navy + cyan) */
@@ -183,6 +202,9 @@ html.simx-dark {
   --simx-content-heavy: rgb(140, 195, 235);
   --simx-content-heaviest: rgb(9, 29, 60);
   --simx-app-view-background: rgb(18, 20, 28);
+  --contributor-slice-1: var(--simx-procedure-blue-light);
+  --contributor-slice-2: var(--simx-content-heavy);
+  --contributor-slice-3: var(--simx-content-light);
 
   --bg-app: var(--simx-app-view-background);
   --bg-main: rgb(28, 32, 42);
@@ -206,6 +228,7 @@ html.simx-dark {
   --border: rgb(96, 112, 138);
   --border-light: rgb(58, 68, 84);
   --border-active: var(--simx-procedure-blue);
+  --pane-split: rgb(142, 158, 184);
 
   --accent: var(--simx-procedure-blue);
   --accent-hover: rgb(0, 100, 160);
@@ -243,6 +266,19 @@ html.simx-dark {
   --text-group-header: var(--simx-content-heavy);
   --border-group: rgb(84, 100, 124);
   --bg-group-children: rgba(var(--simx-white-rgb), 0.025);
+
+  --status-development-fg: rgb(255, 206, 74);
+  --status-development-bg: rgba(var(--simx-warning-rgb), 0.22);
+  --status-development-border: rgba(var(--simx-warning-rgb), 0.5);
+  --status-functional-fg: var(--simx-procedure-blue-light);
+  --status-functional-bg: rgba(var(--simx-procedure-blue-rgb), 0.24);
+  --status-functional-border: rgba(var(--simx-procedure-blue-rgb), 0.48);
+  --status-stable-fg: rgb(72, 214, 160);
+  --status-stable-bg: rgba(var(--simx-success-rgb), 0.2);
+  --status-stable-border: rgba(var(--simx-success-rgb), 0.46);
+  --status-deprecated-fg: var(--simx-red);
+  --status-deprecated-bg: rgba(var(--simx-red-rgb), 0.2);
+  --status-deprecated-border: rgba(var(--simx-red-rgb), 0.42);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────────────── */
@@ -625,11 +661,7 @@ textarea.simx-control {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-}
-
-.equipment-refs .link-group-list,
-.ref-section .link-group-list {
-  max-height: 300px;
+  max-height: 225px;
   overflow-y: auto;
   padding-right: var(--space-2);
 }
@@ -676,6 +708,25 @@ textarea.simx-control {
   }
 }
 
+.datetime-value {
+  color: var(--text-main);
+}
+
+.color-value {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.color-swatch {
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+  height: 14px;
+  width: 14px;
+}
+
 .clean-empty {
   color: var(--text-muted);
   font-style: italic;
@@ -685,6 +736,9 @@ textarea.simx-control {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: var(--space-2);
 }
 
 .clean-item {

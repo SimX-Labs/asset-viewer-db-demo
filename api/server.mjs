@@ -9,6 +9,7 @@
  *   GET  /tag-categories        → curated categories
  *   POST/PATCH/DELETE /tag-categories…
  *   GET/PUT /tag-taxonomy       → full taxonomy file
+ *   GET/PUT/DELETE /asset-meta… → curated overlay (status, notes, tags, comments, media)
  *   GET  /asset-image/:id       → 501
  *   GET  /system/health
  *
@@ -19,11 +20,14 @@
 
 import cors from 'cors';
 import express from 'express';
+import multer from 'multer';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadUnityDbFromDir } from './load-unity-db.mjs';
 import { createTagTaxonomyStore } from './tag-taxonomy.mjs';
+import { createAssetMetaStore } from './asset-meta.mjs';
+import { createAuthMiddleware } from './auth.mjs';
 import {
   SUPPORTED_LIBRARY_TYPES,
   collectUniqueTags,
@@ -94,6 +98,18 @@ console.log(
   `Tag taxonomy: ${tagStore.listTags().length} tags, ${tagStore.listCategories().length} categories.`,
 );
 
+const metaStore = createAssetMetaStore(DB_DIR);
+const auth = createAuthMiddleware();
+console.log(
+  `Asset meta: ${metaStore.listAll().length} records` +
+    (auth.enabled ? ' (Auth0 JWT required on writes)' : ' (local writes open)'),
+);
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 80 * 1024 * 1024 },
+});
+
 /**
  * @param {string} dir
  * @returns {string[]} capture subfolder names that contain a manifest.json
@@ -133,6 +149,14 @@ console.log(
 app.get('/models-index', (_req, res) => {
   res.json({ count: orbitKeys.length, keys: orbitKeys });
 });
+
+app.use(
+  '/db/meta',
+  express.static(path.join(DB_DIR, 'meta'), {
+    fallthrough: true,
+    index: false,
+  }),
+);
 
 app.use(
   '/models',
@@ -234,6 +258,129 @@ app.get('/tag-taxonomy', (_req, res) => {
 app.put('/tag-taxonomy', (req, res) => {
   res.json(tagStore.replaceTaxonomy(req.body ?? {}));
 });
+
+/* ── Curated asset meta overlay (db/meta/) ─────────────────────────── */
+
+app.get('/asset-meta', (_req, res) => {
+  res.json({
+    records: metaStore.listAll(),
+    aliases: metaStore.getAliases(),
+  });
+});
+
+app.delete('/asset-meta', auth.requireAuth, (req, res) => {
+  if (req.query.confirm !== 'all') {
+    return res.status(400).json({
+      message: 'Pass ?confirm=all to delete every curated overlay record.',
+    });
+  }
+  try {
+    res.json(metaStore.clearAll());
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.post('/asset-meta/clear-all', auth.requireAuth, (req, res) => {
+  try {
+    res.json(metaStore.clearAll());
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.get('/asset-meta/:assetId', (req, res) => {
+  const record = metaStore.get(req.params.assetId);
+  if (!record) {
+    return res.status(404).json({ message: 'Asset meta not found.' });
+  }
+  res.json(record);
+});
+
+app.put('/asset-meta/:assetId', auth.requireAuth, (req, res) => {
+  try {
+    const author = auth.authorFromReq(req);
+    const record = metaStore.upsert(req.params.assetId, req.body ?? {}, author);
+    res.json(record);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to save asset meta.' });
+  }
+});
+
+app.delete('/asset-meta/:assetId', auth.requireAuth, (req, res) => {
+  try {
+    const result = metaStore.remove(req.params.assetId);
+    if (!result.deleted) {
+      return res.status(404).json({ message: 'Asset meta not found.' });
+    }
+    res.json(result);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.post('/asset-meta/:assetId/comments', auth.requireAuth, (req, res) => {
+  try {
+    const author = auth.authorFromReq(req);
+    const record = metaStore.addComment(
+      req.params.assetId,
+      req.body ?? {},
+      author,
+    );
+    res.status(201).json(record);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to add comment.' });
+  }
+});
+
+app.post(
+  '/asset-meta/:assetId/media',
+  auth.requireAuth,
+  upload.single('file'),
+  (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: 'file is required.' });
+      }
+      const author = auth.authorFromReq(req);
+      const snapshot = {
+        assetKey: req.body?.assetKey,
+        type: req.body?.type,
+        name: req.body?.name,
+      };
+      const result = metaStore.addMedia(
+        req.params.assetId,
+        req.file,
+        snapshot,
+        author,
+      );
+      res.status(201).json(result);
+    } catch (e) {
+      res.status(400).json({ message: e.message ?? 'Failed to upload media.' });
+    }
+  },
+);
+
+app.delete(
+  '/asset-meta/:assetId/media/:mediaId',
+  auth.requireAuth,
+  (req, res) => {
+    try {
+      const author = auth.authorFromReq(req);
+      const record = metaStore.deleteMedia(
+        req.params.assetId,
+        req.params.mediaId,
+        author,
+      );
+      if (!record) {
+        return res.status(404).json({ message: 'Asset meta not found.' });
+      }
+      res.json(record);
+    } catch (e) {
+      res.status(400).json({ message: e.message ?? 'Failed to delete media.' });
+    }
+  },
+);
 
 app.get('/asset-image/:id', (_req, res) => {
   res.status(501).json({

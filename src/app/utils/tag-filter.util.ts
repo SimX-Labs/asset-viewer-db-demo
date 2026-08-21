@@ -10,6 +10,20 @@ export interface TagFilterOption {
   selected: boolean;
 }
 
+/** Deduped labels, first-seen casing wins. */
+export function mergeTagLists(...lists: (readonly string[] | undefined | null)[]): string[] {
+  const seen = new Map<string, string>();
+  for (const list of lists) {
+    for (const raw of list ?? []) {
+      const trimmed = raw.trim();
+      if (!trimmed) continue;
+      const key = trimmed.toLowerCase();
+      if (!seen.has(key)) seen.set(key, trimmed);
+    }
+  }
+  return [...seen.values()];
+}
+
 export function assetHasTag(item: Pick<DboAsset, 'Tags'>, label: string): boolean {
   const lower = label.trim().toLowerCase();
   if (!lower) return true;
