@@ -1,0 +1,6 @@
+{
+  "/db/meta": {
+    "target": "http://localhost:4301",
+    "secure": false
+  }
+}

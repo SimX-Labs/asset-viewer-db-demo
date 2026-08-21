@@ -9,29 +9,42 @@
  *   GET  /tag-categories        → curated categories
  *   POST/PATCH/DELETE /tag-categories…
  *   GET/PUT /tag-taxonomy       → full taxonomy file
+ *   GET/PUT/DELETE /asset-meta… → curated overlay (status, notes, tags, comments, media)
  *   GET  /asset-image/:id       → 501
  *   GET  /system/health
  *
  * Supported assetType values: "tool" (Unity kind===tool), "equipment",
- * "interaction", "medication", "waveform", "scenario".
+ * "interaction", "medication", "waveform", "scenario", "environment",
+ * "authored-environment", "audio", "video".
  */
 
 import cors from 'cors';
 import express from 'express';
+import multer from 'multer';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadUnityDbFromDir } from './load-unity-db.mjs';
 import { createTagTaxonomyStore } from './tag-taxonomy.mjs';
+import { createAssetMetaStore } from './asset-meta.mjs';
+import { createAuthMiddleware } from './auth.mjs';
 import {
   SUPPORTED_LIBRARY_TYPES,
   collectUniqueTags,
+  listUnityAudio,
+  listUnityVideos,
+  listUnityAuthoredEnvironments,
+  listUnityEnvironments,
   listUnityEquipment,
   listUnityInteractions,
   listUnityMedications,
   listUnityScenarios,
   listUnityTools,
   listUnityWaveforms,
+  mapUnityAudioToLibraryAsset,
+  mapUnityVideoToLibraryAsset,
+  mapUnityAuthoredEnvironmentToLibraryAsset,
+  mapUnityEnvironmentToLibraryAsset,
   mapUnityEquipmentToLibraryAsset,
   mapUnityInteractionToLibraryAsset,
   mapUnityMedicationToLibraryAsset,
@@ -69,10 +82,14 @@ const interactions = listUnityInteractions(bundle);
 const medications = listUnityMedications(bundle);
 const waveforms = listUnityWaveforms(bundle);
 const scenarios = listUnityScenarios(bundle);
+const environments = listUnityEnvironments(bundle);
+const authoredEnvironments = listUnityAuthoredEnvironments(bundle);
+const audio = listUnityAudio(bundle);
+const videos = listUnityVideos(bundle);
 /** All tool-catalog rows (tool/kit/group/vessel) for interaction FK resolution. */
 const toolCatalog = (bundle.tools ?? []).filter((t) => t?.id);
 console.log(
-  `Loaded ${tools.length} tools (kind=tool), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios.`,
+  `Loaded ${tools.length} tools (kind=tool|vessel), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios, ${environments.length} environments, ${authoredEnvironments.length} authored environments, ${audio.length} audio clips, ${videos.length} videos.`,
 );
 console.table(bundle.meta?.counts ?? {});
 
@@ -80,6 +97,18 @@ const tagStore = createTagTaxonomyStore(DB_DIR);
 console.log(
   `Tag taxonomy: ${tagStore.listTags().length} tags, ${tagStore.listCategories().length} categories.`,
 );
+
+const metaStore = createAssetMetaStore(DB_DIR);
+const auth = createAuthMiddleware();
+console.log(
+  `Asset meta: ${metaStore.listAll().length} records` +
+    (auth.enabled ? ' (Auth0 JWT required on writes)' : ' (local writes open)'),
+);
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 80 * 1024 * 1024 },
+});
 
 /**
  * @param {string} dir
@@ -122,6 +151,14 @@ app.get('/models-index', (_req, res) => {
 });
 
 app.use(
+  '/db/meta',
+  express.static(path.join(DB_DIR, 'meta'), {
+    fallthrough: true,
+    index: false,
+  }),
+);
+
+app.use(
   '/models',
   express.static(ORBIT_DIR, {
     fallthrough: false,
@@ -149,6 +186,9 @@ app.get('/tags', (_req, res) => {
       medications,
       waveforms,
       scenarios,
+      environments,
+      authoredEnvironments,
+      audio,
     ),
   );
 });
@@ -218,6 +258,129 @@ app.get('/tag-taxonomy', (_req, res) => {
 app.put('/tag-taxonomy', (req, res) => {
   res.json(tagStore.replaceTaxonomy(req.body ?? {}));
 });
+
+/* ── Curated asset meta overlay (db/meta/) ─────────────────────────── */
+
+app.get('/asset-meta', (_req, res) => {
+  res.json({
+    records: metaStore.listAll(),
+    aliases: metaStore.getAliases(),
+  });
+});
+
+app.delete('/asset-meta', auth.requireAuth, (req, res) => {
+  if (req.query.confirm !== 'all') {
+    return res.status(400).json({
+      message: 'Pass ?confirm=all to delete every curated overlay record.',
+    });
+  }
+  try {
+    res.json(metaStore.clearAll());
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.post('/asset-meta/clear-all', auth.requireAuth, (req, res) => {
+  try {
+    res.json(metaStore.clearAll());
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.get('/asset-meta/:assetId', (req, res) => {
+  const record = metaStore.get(req.params.assetId);
+  if (!record) {
+    return res.status(404).json({ message: 'Asset meta not found.' });
+  }
+  res.json(record);
+});
+
+app.put('/asset-meta/:assetId', auth.requireAuth, (req, res) => {
+  try {
+    const author = auth.authorFromReq(req);
+    const record = metaStore.upsert(req.params.assetId, req.body ?? {}, author);
+    res.json(record);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to save asset meta.' });
+  }
+});
+
+app.delete('/asset-meta/:assetId', auth.requireAuth, (req, res) => {
+  try {
+    const result = metaStore.remove(req.params.assetId);
+    if (!result.deleted) {
+      return res.status(404).json({ message: 'Asset meta not found.' });
+    }
+    res.json(result);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to clear asset meta.' });
+  }
+});
+
+app.post('/asset-meta/:assetId/comments', auth.requireAuth, (req, res) => {
+  try {
+    const author = auth.authorFromReq(req);
+    const record = metaStore.addComment(
+      req.params.assetId,
+      req.body ?? {},
+      author,
+    );
+    res.status(201).json(record);
+  } catch (e) {
+    res.status(400).json({ message: e.message ?? 'Failed to add comment.' });
+  }
+});
+
+app.post(
+  '/asset-meta/:assetId/media',
+  auth.requireAuth,
+  upload.single('file'),
+  (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: 'file is required.' });
+      }
+      const author = auth.authorFromReq(req);
+      const snapshot = {
+        assetKey: req.body?.assetKey,
+        type: req.body?.type,
+        name: req.body?.name,
+      };
+      const result = metaStore.addMedia(
+        req.params.assetId,
+        req.file,
+        snapshot,
+        author,
+      );
+      res.status(201).json(result);
+    } catch (e) {
+      res.status(400).json({ message: e.message ?? 'Failed to upload media.' });
+    }
+  },
+);
+
+app.delete(
+  '/asset-meta/:assetId/media/:mediaId',
+  auth.requireAuth,
+  (req, res) => {
+    try {
+      const author = auth.authorFromReq(req);
+      const record = metaStore.deleteMedia(
+        req.params.assetId,
+        req.params.mediaId,
+        author,
+      );
+      if (!record) {
+        return res.status(404).json({ message: 'Asset meta not found.' });
+      }
+      res.json(record);
+    } catch (e) {
+      res.status(400).json({ message: e.message ?? 'Failed to delete media.' });
+    }
+  },
+);
 
 app.get('/asset-image/:id', (_req, res) => {
   res.status(501).json({
@@ -291,6 +454,12 @@ app.post('/assets', (req, res) => {
       ...medications.map((m) => mapUnityMedicationToLibraryAsset(m, mapOpts)),
       ...waveforms.map((w) => mapUnityWaveformToLibraryAsset(w, mapOpts)),
       ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
+      ...environments.map((e) => mapUnityEnvironmentToLibraryAsset(e, mapOpts)),
+      ...authoredEnvironments.map((e) =>
+        mapUnityAuthoredEnvironmentToLibraryAsset(e, mapOpts),
+      ),
+      ...audio.map((a) => mapUnityAudioToLibraryAsset(a, mapOpts)),
+      ...videos.map((v) => mapUnityVideoToLibraryAsset(v, mapOpts)),
     ];
   } else {
     if (assetTypes.includes('tool')) {
@@ -322,6 +491,26 @@ app.post('/assets', (req, res) => {
       results.push(
         ...scenarios.map((s) => mapUnityScenarioToLibraryAsset(s, mapOpts)),
       );
+    }
+    if (assetTypes.includes('environment')) {
+      results.push(
+        ...environments.map((e) =>
+          mapUnityEnvironmentToLibraryAsset(e, mapOpts),
+        ),
+      );
+    }
+    if (assetTypes.includes('authored-environment')) {
+      results.push(
+        ...authoredEnvironments.map((e) =>
+          mapUnityAuthoredEnvironmentToLibraryAsset(e, mapOpts),
+        ),
+      );
+    }
+    if (assetTypes.includes('audio')) {
+      results.push(...audio.map((a) => mapUnityAudioToLibraryAsset(a, mapOpts)));
+    }
+    if (assetTypes.includes('video')) {
+      results.push(...videos.map((v) => mapUnityVideoToLibraryAsset(v, mapOpts)));
     }
   }
 

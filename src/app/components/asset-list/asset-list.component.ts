@@ -8,7 +8,6 @@ import {
   viewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { AppStateService } from '../../services/app-state.service';
 
 const DRAG_THRESHOLD_PX = 5;
@@ -19,28 +18,9 @@ const LETTER_HIDE_DELAY_MS = 450;
 @Component({
   selector: 'app-asset-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   template: `
     <section class="list-panel">
-      <div class="list-header">
-        <div class="search-wrapper">
-          <input
-            type="text"
-            placeholder="Search by asset name..."
-            [ngModel]="state.searchQuery()"
-            (ngModelChange)="state.searchQuery.set($event)"
-          />
-          @if (state.searchQuery()) {
-            <button class="search-clear" (click)="state.searchQuery.set('')" title="Clear search">
-              <i class="pi pi-times" aria-hidden="true"></i>
-            </button>
-          }
-        </div>
-        <button class="export-btn simx-btn simx-btn--small" title="Export filtered list to CSV" (click)="state.exportCsv()">
-          <i class="pi pi-download" aria-hidden="true"></i>
-          Export
-        </button>
-      </div>
       <div class="list-columns">
         <span>Name</span>
         <span>Type / ID</span>
@@ -55,6 +35,7 @@ const LETTER_HIDE_DELAY_MS = 450;
             <button
               class="asset-item"
               [class.active]="state.activeAssetId() === item.AssetId"
+              [attr.data-status]="item.status || 'unset'"
               (click)="onItemClick($event, item.AssetId)"
             >
               <span class="asset-name">{{ item.AssetName }}</span>
@@ -64,7 +45,17 @@ const LETTER_HIDE_DELAY_MS = 450;
               </span>
             </button>
           } @empty {
-            <div class="empty-list">No assets in this category.</div>
+            <div class="empty-list">
+              @if (
+                state.searchQuery() ||
+                state.selectedTagLabels().length ||
+                state.selectedStatuses().length
+              ) {
+                No assets match this search.
+              } @else {
+                No assets in this category.
+              }
+            </div>
           }
         </div>
         @if (showLetter()) {
@@ -119,7 +110,7 @@ export class AssetListComponent {
       this.suppressClick = false;
       return;
     }
-    this.state.openAssetTab(assetId, true);
+    this.state.previewAsset(assetId);
   }
 
   private bindScrollInteractions(): void {

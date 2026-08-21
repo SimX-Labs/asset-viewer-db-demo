@@ -1,28 +1,34 @@
 import { Injectable, signal, computed, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import {
-  DboAsset,
-  MessageMode,
-  TabState,
-  ToolNode,
-} from '../models/dbo.models';
-import { DboDataService, DboLoadResult } from './dbo-data.service';
+import { DboAsset, MessageMode, TabState, ToolNode } from '../models/dbo.models';
+import { UNITY_SUBCATEGORY_DEFS } from '../models/unity-asset.models';
+import { dataSourceLabel } from '../models/data-source';
+import { DboLoadResult } from './dbo-data.service';
 import { UnityDataService } from './unity-data.service';
 import { matchesFilter } from '../utils/property.util';
-
-export type DataMode = 'dbo' | 'unity';
-const DATA_MODE_KEY = 'assetViewer.dataMode';
-const COLLAPSED_PROPS_KEY = 'assetViewer.collapsedProps';
+import {
+  assetMatchesStatuses,
+  StatusFilterValue,
+  StatusMatchMode,
+} from '../utils/status-filter.util';
+import { assetMatchesTags, mergeTagLists, TagMatchMode } from '../utils/tag-filter.util';
+import { AssetMetaService } from './asset-meta.service';
+import { OrbitViewerService } from '../orbit-capture/services/orbit-viewer.service';
+import { resolveLocalDataPack } from '../utils/local-data-pack.util';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
-  private readonly dboData = inject(DboDataService);
   private readonly unityData = inject(UnityDataService);
+  private readonly assetMeta = inject(AssetMetaService);
+  private readonly orbitViewer = inject(OrbitViewerService);
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly dataMode = signal<DataMode>('unity');
-
   readonly loaded = signal(false);
+  /**
+   * Full-screen "Loading assets…" cover. On for the cold start (no catalog
+   * yet). In-app work must call `requestLoadingCover()` to show it again.
+   */
+  readonly showLoadingCover = signal(true);
   readonly statusMessage = signal('');
   readonly statusError = signal(false);
   readonly rawData = signal<Record<string, Record<string, DboAsset[]>>>({});
@@ -32,27 +38,72 @@ export class AppStateService {
 
   readonly currentCategory = signal<string | null>(null);
   readonly currentFile = signal<string | null>(null);
+  // Optional second-level filter within a category, keyed by the
+  // value of that category's UNITY_SUBCATEGORY_DEFS field.
+  readonly currentSubCategory = signal<string | null>(null);
   readonly searchQuery = signal('');
+  /** Tag labels; scoped to the current category in the list UI. */
+  readonly selectedTagLabels = signal<string[]>([]);
+  /** How selected tags combine. Default AND matches existing list behavior. */
+  readonly tagMatchMode = signal<TagMatchMode>('and');
+  /** Overlay statuses to include or exclude. */
+  readonly selectedStatuses = signal<StatusFilterValue[]>([]);
+  /** Include selected statuses, or hide them. Default include. */
+  readonly statusMatchMode = signal<StatusMatchMode>('include');
 
   readonly pinnedAssetIds = signal<string[]>([]);
   readonly openTabIds = signal<string[]>([]);
+  /** List-cell preview that is not yet a persistent tab. */
+  readonly previewTabId = signal<string | null>(null);
   readonly activeTabId = signal<string | null>(null);
   readonly tabHistory = signal<Record<string, string[]>>({});
   readonly messageMode = signal<MessageMode>('package');
   readonly currentWebGLAssetId = signal<string | null>(null);
-  readonly expandedFiles = signal<Record<string, boolean>>({});
+  // Expanded state for categories that have subcategories (Tooling, Vessels, Audio, Videos).
+  readonly expandedCategories = signal<Record<string, boolean>>({});
 
-  // Collapsed detail-property sections, keyed by property name so the state
-  // persists as the user switches between assets (and across reloads).
-  readonly collapsedPropKeys = signal<Record<string, boolean>>(this.loadCollapsedPropKeys());
-
-  readonly filteredListItems = computed(() => {
+  /** Current category (and subcategory) before search / tag filters. */
+  readonly categoryListItems = computed(() => {
     const cat = this.currentCategory();
     const file = this.currentFile();
-    const query = this.searchQuery();
+    const sub = this.currentSubCategory();
     const data = this.rawData();
     if (!cat || !file || !data[file]?.[cat]) return [];
-    return data[file][cat].filter((item) => matchesFilter(item, query));
+    let items = data[file][cat];
+    if (sub) {
+      const def = UNITY_SUBCATEGORY_DEFS[cat];
+      if (def) {
+        items = items.filter(
+          (item) => ((item.Data?.[def.field] as string) ?? def.fallback) === sub,
+        );
+      }
+    }
+    return items;
+  });
+
+  /** Category items with overlay tags merged onto scrape tags. */
+  readonly categoryListItemsWithTags = computed(() => {
+    void this.assetMeta.records();
+    void this.assetMeta.drafts();
+    return this.categoryListItems().map((item) => ({
+      ...item,
+      Tags: mergeTagLists(item.Tags, this.assetMeta.tagsFor(item.AssetId)),
+      status: this.assetMeta.effectiveStatus(item.AssetId),
+    }));
+  });
+
+  readonly filteredListItems = computed(() => {
+    const query = this.searchQuery();
+    const tags = this.selectedTagLabels();
+    const mode = this.tagMatchMode();
+    const statuses = this.selectedStatuses();
+    const statusMode = this.statusMatchMode();
+    return this.categoryListItemsWithTags().filter(
+      (item) =>
+        matchesFilter(item, query) &&
+        assetMatchesTags(item, tags, mode) &&
+        assetMatchesStatuses(item, statuses, statusMode),
+    );
   });
 
   readonly activeAssetId = computed(() => {
@@ -62,66 +113,61 @@ export class AppStateService {
     return history?.[history.length - 1] ?? null;
   });
 
-  /**
-   * @param opts.preferUnity Force Unity Asset DB mode (used by `?embed=1`
-   *   deep links from scenario-creator, which reference Unity export ids).
-   */
-  async loadDefaults(opts?: { preferUnity?: boolean }): Promise<void> {
-    this.dataMode.set(opts?.preferUnity ? 'unity' : this.readStoredMode());
-    await this.loadForCurrentMode();
+  async loadDefaults(): Promise<void> {
+    await this.loadUnityDb();
   }
 
-  private async loadForCurrentMode(): Promise<void> {
+  private async loadUnityDb(): Promise<void> {
     try {
-      const mode = this.dataMode();
-      const result =
-        mode === 'unity'
-          ? await this.unityData.loadDb()
-          : await this.dboData.loadDefaultFiles();
+      const result = await this.unityData.loadDb();
       this.applyLoadResult(result);
-      const label = mode === 'unity' ? 'Unity asset DB' : 'DBO files';
+      const count = Object.keys(result.assetMap).length;
       this.statusMessage.set(
-        `Loaded ${label} (${Object.keys(result.assetMap).length} assets).`
+        count === 0
+          ? 'No local data loaded. Settings → View Local Data.'
+          : `Loaded Unity asset DB (${count} assets).`,
       );
       this.statusError.set(false);
       this.loaded.set(true);
+      this.dismissLoadingCover();
       this.handleInitialNavigation();
-    } catch (err) {
-      this.statusMessage.set(`Error: ${(err as Error).message}`);
-      this.statusError.set(true);
+    } catch {
+      this.statusMessage.set(
+        'No catalog on this host. Settings → View Local Data.',
+      );
+      this.statusError.set(false);
+      this.loaded.set(true);
+      this.dismissLoadingCover();
     }
   }
 
-  async setDataMode(mode: DataMode): Promise<void> {
-    if (mode === this.dataMode()) return;
-    this.dataMode.set(mode);
-    this.persistMode(mode);
-    this.resetForModeSwitch();
-    this.loaded.set(false);
-    await this.loadForCurrentMode();
+  /** Show the asset-load cover for an explicit catalog reload (folder). */
+  requestLoadingCover(): void {
+    this.showLoadingCover.set(true);
   }
 
-  private resetForModeSwitch(): void {
+  dismissLoadingCover(): void {
+    this.showLoadingCover.set(false);
+  }
+
+  private resetCatalog(): void {
     this.openTabIds.set([]);
+    this.previewTabId.set(null);
     this.activeTabId.set(null);
     this.tabHistory.set({});
     this.pinnedAssetIds.set([]);
     this.currentCategory.set(null);
     this.currentFile.set(null);
+    this.currentSubCategory.set(null);
+    this.expandedCategories.set({});
     this.searchQuery.set('');
+    this.selectedTagLabels.set([]);
+    this.tagMatchMode.set('and');
+    this.selectedStatuses.set([]);
+    this.statusMatchMode.set('include');
     this.currentWebGLAssetId.set(null);
+    this.assetMeta.clearDrafts();
     this.setUrlHash('');
-  }
-
-  private readStoredMode(): DataMode {
-    if (!isPlatformBrowser(this.platformId)) return this.dataMode();
-    // Default is Unity Asset DB. DBO remains available for comparison until removed.
-    return localStorage.getItem(DATA_MODE_KEY) === 'dbo' ? 'dbo' : 'unity';
-  }
-
-  private persistMode(mode: DataMode): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-    localStorage.setItem(DATA_MODE_KEY, mode);
   }
 
   applyLoadResult(result: DboLoadResult): void {
@@ -129,9 +175,6 @@ export class AppStateService {
     this.loadedFileNames.set(result.loadedFileNames);
     this.assetMap.set(result.assetMap);
     this.allToolsMap.set(result.allToolsMap);
-    const expanded: Record<string, boolean> = {};
-    result.loadedFileNames.forEach((f, i) => (expanded[f] = i === 0));
-    this.expandedFiles.set(expanded);
   }
 
   private handleInitialNavigation(): void {
@@ -152,42 +195,70 @@ export class AppStateService {
     }
   }
 
-  selectCategory(cat: string, file: string): void {
+  selectCategory(cat: string, file: string, subCategory: string | null = null): void {
+    const prevCat = this.currentCategory();
     this.currentCategory.set(cat);
     this.currentFile.set(file);
+    this.currentSubCategory.set(subCategory);
     this.searchQuery.set('');
-  }
-
-  toggleFileAccordion(fileName: string): void {
-    const current = this.expandedFiles();
-    this.expandedFiles.set({ ...current, [fileName]: !current[fileName] });
-  }
-
-  isPropCollapsed(key: string): boolean {
-    return this.collapsedPropKeys()[key] === true;
-  }
-
-  togglePropKey(key: string): void {
-    const current = { ...this.collapsedPropKeys() };
-    if (current[key]) delete current[key];
-    else current[key] = true;
-    this.collapsedPropKeys.set(current);
-    this.persistCollapsedPropKeys(current);
-  }
-
-  private loadCollapsedPropKeys(): Record<string, boolean> {
-    if (!isPlatformBrowser(this.platformId)) return {};
-    try {
-      const raw = localStorage.getItem(COLLAPSED_PROPS_KEY);
-      return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
-    } catch {
-      return {};
+    if (prevCat !== cat) this.pruneSelectedTags();
+    // Keep a category's accordion open when it (or one of its subcategories) is
+    // the active selection, so linking straight to a vessel reveals the tree.
+    if (subCategory) {
+      this.expandedCategories.set({ ...this.expandedCategories(), [cat]: true });
     }
   }
 
-  private persistCollapsedPropKeys(value: Record<string, boolean>): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-    localStorage.setItem(COLLAPSED_PROPS_KEY, JSON.stringify(value));
+  toggleTagFilter(label: string): void {
+    const trimmed = label.trim();
+    if (!trimmed) return;
+    const lower = trimmed.toLowerCase();
+    this.selectedTagLabels.update((list) => {
+      const exists = list.some((t) => t.toLowerCase() === lower);
+      return exists
+        ? list.filter((t) => t.toLowerCase() !== lower)
+        : [...list, trimmed];
+    });
+  }
+
+  clearTagFilters(): void {
+    this.selectedTagLabels.set([]);
+  }
+
+  setTagMatchMode(mode: TagMatchMode): void {
+    this.tagMatchMode.set(mode);
+  }
+
+  toggleStatusFilter(value: StatusFilterValue): void {
+    this.selectedStatuses.update((list) =>
+      list.includes(value)
+        ? list.filter((status) => status !== value)
+        : [...list, value],
+    );
+  }
+
+  clearStatusFilters(): void {
+    this.selectedStatuses.set([]);
+  }
+
+  setStatusMatchMode(mode: StatusMatchMode): void {
+    this.statusMatchMode.set(mode);
+  }
+
+  private pruneSelectedTags(): void {
+    const present = new Set(
+      this.categoryListItems().flatMap((item) =>
+        (item.Tags ?? []).map((tag) => tag.toLowerCase()),
+      ),
+    );
+    this.selectedTagLabels.update((list) =>
+      list.filter((label) => present.has(label.toLowerCase())),
+    );
+  }
+
+  toggleCategoryAccordion(cat: string): void {
+    const current = this.expandedCategories();
+    this.expandedCategories.set({ ...current, [cat]: !current[cat] });
   }
 
   togglePin(assetId: string): void {
@@ -196,15 +267,80 @@ export class AppStateService {
     if (idx === -1) pins.push(assetId);
     else pins.splice(idx, 1);
     this.pinnedAssetIds.set(pins);
+    this.commitPreviewTab();
   }
 
   isPinned(assetId: string): boolean {
     return this.pinnedAssetIds().includes(assetId);
   }
 
+  /**
+   * Show an asset from a list-cell click without creating a persistent tab.
+   * An existing committed tab is reused. A previous uncommitted preview is discarded.
+   */
+  previewAsset(assetId: string): void {
+    const asset = this.assetMap()[assetId];
+    if (!asset) return;
+
+    if (this.openTabIds().includes(assetId)) {
+      this.discardPreview();
+      this.activateTab(assetId);
+      return;
+    }
+
+    if (this.previewTabId() === assetId && this.activeTabId() === assetId) {
+      this.setUrlHash(assetId);
+      return;
+    }
+
+    this.discardPreview();
+    const history = { ...this.tabHistory() };
+    history[assetId] = [assetId];
+    this.tabHistory.set(history);
+    this.previewTabId.set(assetId);
+    this.activeTabId.set(assetId);
+    this.setUrlHash(assetId);
+  }
+
+  /** Promote the current list preview into a real tab after the user interacts with the page. */
+  commitPreviewTab(): void {
+    const previewId = this.previewTabId();
+    if (!previewId) return;
+    const tabs = [...this.openTabIds()];
+    if (!tabs.includes(previewId)) {
+      tabs.push(previewId);
+      this.openTabIds.set(tabs);
+    }
+    if (!this.tabHistory()[previewId]?.length) {
+      const history = { ...this.tabHistory() };
+      history[previewId] = [previewId];
+      this.tabHistory.set(history);
+    }
+    this.previewTabId.set(null);
+    this.activateTab(previewId);
+  }
+
+  private discardPreview(): void {
+    const previewId = this.previewTabId();
+    if (!previewId) return;
+    if (!this.openTabIds().includes(previewId)) {
+      const history = { ...this.tabHistory() };
+      delete history[previewId];
+      this.tabHistory.set(history);
+    }
+    this.previewTabId.set(null);
+  }
+
   openAssetTab(assetId: string, isRoot = false): void {
     const asset = this.assetMap()[assetId];
     if (!asset) return;
+
+    const previewId = this.previewTabId();
+    if (previewId && (previewId === assetId || !isRoot)) {
+      this.commitPreviewTab();
+    } else if (previewId) {
+      this.discardPreview();
+    }
 
     if (!isRoot && this.activeTabId()) {
       const tabId = this.activeTabId()!;
@@ -240,6 +376,9 @@ export class AppStateService {
   }
 
   activateTab(tabId: string): void {
+    if (this.previewTabId() && this.previewTabId() !== tabId) {
+      this.discardPreview();
+    }
     this.activeTabId.set(tabId);
     const history = this.tabHistory()[tabId];
     if (history?.length) this.setUrlHash(history[history.length - 1]);
@@ -255,6 +394,7 @@ export class AppStateService {
 
   closeTab(assetId: string): void {
     if (this.currentWebGLAssetId() === assetId) this.closeWebGLView();
+    if (this.previewTabId() === assetId) this.previewTabId.set(null);
     const prevTabs = this.openTabIds();
     const idx = prevTabs.indexOf(assetId);
     const tabs = prevTabs.filter((id) => id !== assetId);
@@ -275,6 +415,7 @@ export class AppStateService {
   closeAllTabs(): void {
     this.closeWebGLView();
     this.openTabIds.set([]);
+    this.previewTabId.set(null);
     this.activeTabId.set(null);
     this.tabHistory.set({});
     this.setUrlHash('');
@@ -292,6 +433,12 @@ export class AppStateService {
     const history = this.tabHistory()[tabId];
     const assetId = history?.[history.length - 1];
     return assetId ? this.assetMap()[assetId] ?? null : null;
+  }
+
+  isTabDirty(tabId: string): boolean {
+    void this.assetMeta.dirtyIds();
+    const history = this.tabHistory()[tabId] ?? [tabId];
+    return history.some((id) => this.assetMeta.isDirty(id));
   }
 
   openWebGLView(assetId: string): void {
@@ -336,9 +483,10 @@ export class AppStateService {
   }
 
   async loadUnityDbFolder(files: FileList): Promise<void> {
+    this.requestLoadingCover();
     try {
       const result = await this.unityData.buildFromFolderFiles(Array.from(files));
-      this.resetForModeSwitch();
+      this.resetCatalog();
       this.applyLoadResult(result);
       this.statusMessage.set(
         `Loaded Unity asset DB (${Object.keys(result.assetMap).length} assets).`
@@ -349,25 +497,50 @@ export class AppStateService {
     } catch (err) {
       this.statusMessage.set(`Error: ${(err as Error).message}`);
       this.statusError.set(true);
+    } finally {
+      this.dismissLoadingCover();
     }
   }
 
-  async loadFilesFromInput(files: FileList, shiftKey: boolean): Promise<void> {
-    const results: { name: string; data: Record<string, DboAsset[]> }[] = [];
-    for (const file of Array.from(files)) {
-      const text = await file.text();
-      results.push({ name: file.name, data: this.dboData.loadFromText(text, file.name) });
+  /**
+   * Load a shared zip extract: a folder containing `db/` and `assets/`.
+   * The directory handle is resolved lazily so 3D files are not read up front.
+   */
+  async loadLocalDataPack(root: FileSystemDirectoryHandle): Promise<void> {
+    this.requestLoadingCover();
+    try {
+      const pack = await resolveLocalDataPack(root);
+      if (!pack.db) {
+        throw new Error(
+          'No db/ folder found. Select the unzipped folder that contains db/ and assets/.',
+        );
+      }
+      const result = await this.unityData.buildFromDirectoryHandle(pack.db);
+      this.resetCatalog();
+      this.applyLoadResult(result);
+      const count = Object.keys(result.assetMap).length;
+      if (pack.assets) {
+        await this.orbitViewer.applyRootHandle(pack.assets);
+        const captures = this.orbitViewer.captureNames().length;
+        this.statusMessage.set(
+          `Loaded local data (${count} assets, ${captures} 3D captures).`,
+        );
+      } else {
+        this.statusMessage.set(
+          `Loaded local db (${count} assets). No assets/ folder — 3D models unavailable.`,
+        );
+      }
+      this.statusError.set(false);
+      this.loaded.set(true);
+      this.handleInitialNavigation();
+    } catch (err) {
+      this.statusMessage.set(
+        `Error: ${err instanceof Error ? err.message : 'Failed to load local data.'}`,
+      );
+      this.statusError.set(true);
+    } finally {
+      this.dismissLoadingCover();
     }
-    const result = this.dboData.mergeMultipleFiles(
-      shiftKey ? this.rawData() : null,
-      shiftKey ? this.loadedFileNames() : [],
-      results,
-      shiftKey
-    );
-    this.applyLoadResult(result);
-    this.statusMessage.set(`Loaded ${result.loadedFileNames.length} file(s).`);
-    this.statusError.set(false);
-    this.loaded.set(true);
   }
 
   exportCsv(): void {
@@ -378,7 +551,15 @@ export class AppStateService {
       return;
     }
 
-    const headers = ['AssetId', 'AssetName', 'AssetType', 'Tags', 'AssetAddress', 'HasWebGLView'];
+    const headers = [
+      'AssetId',
+      'AssetName',
+      'AssetType',
+      'Source',
+      'Tags',
+      'AssetAddress',
+      'HasWebGLView',
+    ];
     const sample = items[0];
     if (sample.Data?.['ContainedTools']) {
       headers.push('ContainedTools_Count', 'ContainedTools_List');
@@ -393,6 +574,7 @@ export class AppStateService {
         `"${item.AssetId ?? ''}"`,
         `"${item.AssetName ?? ''}"`,
         `"${item.AssetType ?? ''}"`,
+        `"${item._Source ? dataSourceLabel(item._Source) : ''}"`,
         `"${(item.Tags ?? []).join(';')}"`,
         `"${(item.Data?.['AssetAddress'] as string) ?? ''}"`,
         Boolean(item.Data?.['HasWebGLView']),

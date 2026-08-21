@@ -2,15 +2,24 @@ import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
+import { AssetContextRailComponent } from '../asset-context-rail/asset-context-rail.component';
+import { PinnedPanelComponent } from '../pinned-panel/pinned-panel.component';
 import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component';
 
 @Component({
   selector: 'app-detail-panel',
   standalone: true,
-  imports: [CommonModule, AssetDetailComponent, WebglSidebarComponent],
+  imports: [
+    CommonModule,
+    AssetDetailComponent,
+    AssetContextRailComponent,
+    PinnedPanelComponent,
+    WebglSidebarComponent,
+  ],
   template: `
     <section class="detail-panel" [class.embed-mode]="embedMode">
       @if (!embedMode) {
+        <app-pinned-panel />
         <div class="tab-strip">
           <button class="close-all-btn" (click)="state.closeAllTabs()">
             <i class="pi pi-times" aria-hidden="true"></i> Close All
@@ -20,8 +29,12 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
               <button
                 class="tab-header"
                 [class.active]="state.activeTabId() === tabId"
+                [class.editing]="state.isTabDirty(tabId)"
                 (click)="state.activateTab(tabId)"
               >
+                @if (state.isTabDirty(tabId)) {
+                  <i class="pi pi-pencil tab-edit-icon" title="Unsaved changes" aria-hidden="true"></i>
+                }
                 <span class="tab-title" [title]="tabLabel(tabId)">{{ tabLabel(tabId) }}</span>
                 <span class="tab-close" (click)="closeTab($event, tabId)" title="Close tab">
                   <i class="pi pi-times" aria-hidden="true"></i>
@@ -32,12 +45,15 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
         </div>
       }
       <div class="tab-content-container">
-        @if (state.openTabIds().length === 0) {
-          <div class="empty-state">Select an asset to view details</div>
-        }
-        @for (tabId of state.openTabIds(); track tabId) {
-          @if (state.activeTabId() === tabId) {
-            <div class="tab-pane active">
+        @if (state.activeTabId(); as tabId) {
+          <div
+            class="tab-pane active"
+            (scroll)="onDetailInteract()"
+            (click)="onDetailInteract()"
+            (pointerdown)="onDetailInteract()"
+            (keydown)="onDetailInteract()"
+          >
+            <div class="tab-main">
               @if (!embedMode) {
                 <nav class="breadcrumb-bar">
                   @for (histId of state.tabHistory()[tabId]; track i; let i = $index; let last = $last) {
@@ -54,7 +70,7 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
                   }
                 </nav>
               }
-              <div class="tab-scroll-area">
+              <div class="tab-scroll-area" (scroll)="onDetailInteract()">
                 @if (state.getTabAsset(tabId); as asset) {
                   <!-- Recreate the detail view per asset so accordion/search
                        local state and reused child renderers cannot go stale
@@ -65,7 +81,14 @@ import { WebglSidebarComponent } from '../webgl-sidebar/webgl-sidebar.component'
                 }
               </div>
             </div>
-          }
+            @if (state.getTabAsset(tabId); as asset) {
+              @for (_ of [asset.AssetId]; track _) {
+                <app-asset-context-rail [asset]="asset" />
+              }
+            }
+          </div>
+        } @else {
+          <div class="empty-state">Select an asset to view details</div>
         }
       </div>
     </section>
@@ -88,5 +111,10 @@ export class DetailPanelComponent {
   closeTab(event: Event, tabId: string): void {
     event.stopPropagation();
     this.state.closeTab(tabId);
+  }
+
+  /** Scroll, click, or keyboard use on the detail page commits a list preview into a tab. */
+  onDetailInteract(): void {
+    this.state.commitPreviewTab();
   }
 }

@@ -74,6 +74,9 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
         display: block;
         min-width: 0;
       }
+      :host:not(:has(.model-infobox)) {
+        display: none;
+      }
       .model-infobox {
         position: relative;
         width: 100%;
@@ -152,7 +155,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   private readonly session = inject(OrbitSessionState);
   private readonly host = inject(ElementRef<HTMLElement>);
 
-  readonly status = signal<InlineStatus>('idle');
+  readonly status = signal<InlineStatus>('none');
   /** Why the viewer is not showing a model; surfaced when `diagnostic` is set. */
   readonly reason = signal<string>('');
   readonly bundle = signal<OrbitCaptureBundle | null>(null);
@@ -180,7 +183,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
 
   @HostListener('window:keydown.escape')
   onEscape(): void {
-    if (this.expanded()) this.session.panelExpanded.set(false);
+    this.collapse();
   }
 
   async grant(): Promise<void> {
@@ -201,15 +204,25 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   toggleExpanded(): void {
-    const next = !this.expanded();
-    this.session.panelExpanded.set(next);
-    if (next) {
-      this.syncExpandedBounds();
-      this.observeDetailPanel();
-    } else {
-      this.expandedStyle.set(null);
-      this.teardownPanelObserver();
+    if (this.expanded()) {
+      this.collapse();
+      return;
     }
+    this.session.panelExpanded.set(true);
+    this.syncExpandedBounds();
+    this.observeDetailPanel();
+  }
+
+  /**
+   * Single exit path for expanded mode. The fixed-position bounds are inline
+   * styles, so clearing the flag without clearing them leaves the infobox
+   * pinned over the panel.
+   */
+  private collapse(): void {
+    if (!this.expanded()) return;
+    this.session.panelExpanded.set(false);
+    this.expandedStyle.set(null);
+    this.teardownPanelObserver();
   }
 
   private async resolve(): Promise<void> {
@@ -289,14 +302,11 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
     this.bundle()?.revoke();
     this.bundle.set(null);
     this.reason.set('');
-    this.status.set('idle');
+    this.status.set('none');
   }
 
   private exitExpandedIfNeeded(): void {
-    if (!this.expanded()) return;
-    this.session.panelExpanded.set(false);
-    this.expandedStyle.set(null);
-    this.teardownPanelObserver();
+    this.collapse();
   }
 
   private detailPanelEl(): HTMLElement | null {
@@ -304,6 +314,10 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   }
 
   private syncExpandedBounds(): void {
+    if (!this.expanded()) {
+      this.expandedStyle.set(null);
+      return;
+    }
     const panel = this.detailPanelEl();
     if (!panel) {
       this.expandedStyle.set(null);

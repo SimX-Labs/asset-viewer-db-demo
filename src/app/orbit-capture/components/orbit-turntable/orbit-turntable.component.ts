@@ -11,14 +11,19 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
+  effect,
   inject,
   signal,
+  untracked,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { OrbitCaptureBundle } from '../../models/orbit-manifest';
+import { OrbitCaptureBundle, OrbitVesselContainer } from '../../models/orbit-manifest';
+import { visibleNodeIdsForState } from '../../models/tool-state';
+import { resolveVesselNodeVisibility } from '../../models/vessel-containers';
+import { OrbitModelControlsService } from '../../services/orbit-model-controls.service';
 import {
   ORBIT_BASE_PHI,
   ORBIT_BASE_THETA,
@@ -45,6 +50,45 @@ type ViewMode = 'orbit' | 'model';
           <span class="group-label">Model</span>
           <button type="button" [class.active]="mode() === 'model'" (click)="setMode('model')">3D Model</button>
         </div>
+      }
+      @if (mode() === 'model' && toolStates().length) {
+        <div class="group">
+          <span class="group-label">State</span>
+          <span class="state-select-wrap">
+            <select
+              class="state-select"
+              [value]="selectedState()"
+              title="Tool state"
+              aria-label="Tool state"
+              (change)="onStateSelect($event)"
+            >
+              @for (s of toolStates(); track s.name) {
+                <option [value]="s.name">{{ s.name }}</option>
+              }
+            </select>
+            <i class="pi pi-chevron-down state-select-arrow" aria-hidden="true"></i>
+          </span>
+        </div>
+      }
+      @if (mode() === 'model' && vesselContainerOptions().length) {
+        <details class="container-menu">
+          <summary>
+            Containers ({{ openContainerCount() }}/{{ toggleableContainerCount() }})
+          </summary>
+          <div class="container-options">
+            @for (container of vesselContainerOptions(); track container.id) {
+              <label [class.permanent]="!container.toggleable">
+                <input
+                  type="checkbox"
+                  [checked]="isContainerOpen(container.id)"
+                  [disabled]="!container.toggleable"
+                  (change)="onContainerToggle(container, $event)"
+                />
+                <span>{{ container.id }}</span>
+              </label>
+            }
+          </div>
+        </details>
       }
       <span class="status">{{ status() }}</span>
     </div>
@@ -134,6 +178,90 @@ type ViewMode = 'orbit' | 'model';
       .toolbar button:disabled {
         opacity: 0.45;
         cursor: not-allowed;
+      }
+      .state-select-wrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+      }
+      .state-select {
+        appearance: none;
+        -webkit-appearance: none;
+        font-family: var(--font-body, inherit);
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.2;
+        padding: 6px 30px 6px 10px;
+        border: 1px solid var(--control-border, #ccc);
+        border-radius: var(--radius-default, 4px);
+        background: var(--control-bg, #fff);
+        color: var(--control-value, #18171d);
+        cursor: pointer;
+        max-width: 220px;
+        width: 100%;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .state-select:hover:not(:disabled) {
+        border-color: var(--control-active-border, #007cc0);
+      }
+      .state-select:focus {
+        outline: none;
+        border-color: var(--control-active-border, #007cc0);
+        box-shadow: var(--control-focus-ring, 0 0 5px 0 rgba(0, 124, 192, 0.55));
+      }
+      .state-select-arrow {
+        position: absolute;
+        right: 9px;
+        font-size: 14px;
+        color: var(--control-border, #ccc);
+        pointer-events: none;
+        transition: color 0.2s;
+      }
+      .state-select-wrap:hover .state-select-arrow,
+      .state-select:focus + .state-select-arrow {
+        color: var(--control-active-border, #007cc0);
+      }
+      .container-menu {
+        position: relative;
+        font-size: var(--text-caption, 12px);
+      }
+      .container-menu summary {
+        cursor: pointer;
+        user-select: none;
+        padding: 4px 8px;
+        border: 1px solid var(--border, #ccc);
+        border-radius: var(--radius-default, 4px);
+        background: var(--bg-input, #fff);
+        color: var(--text-main, #18171d);
+      }
+      .container-options {
+        position: absolute;
+        z-index: 5;
+        top: calc(100% + 4px);
+        left: 0;
+        min-width: 180px;
+        max-height: 260px;
+        overflow: auto;
+        padding: 6px;
+        border: 1px solid var(--border, #ccc);
+        border-radius: var(--radius-default, 4px);
+        background: var(--bg-panel, #fff);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+      .container-options label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 6px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .container-options label:hover {
+        background: var(--bg-hover, rgba(0, 124, 192, 0.08));
+      }
+      .container-options label.permanent {
+        opacity: 0.6;
+        cursor: default;
       }
       .status {
         margin-left: auto;
@@ -241,6 +369,8 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   @Output() expand = new EventEmitter<void>();
 
   private readonly session = inject(OrbitSessionState);
+  /** Shared with the surrounding UI, which can drive the same selection. */
+  private readonly modelControls = inject(OrbitModelControlsService);
 
   readonly status = signal('');
   readonly mode = signal<ViewMode>('orbit');
@@ -248,6 +378,25 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   readonly autoSpin = signal(this.session.autoSpin);
   /** OrbitControls autoRotateSpeed (≈2 ≈ 30°/s at 60fps). */
   readonly autoSpinSpeed = signal(this.session.autoSpinSpeed);
+
+  /** Tool-state controller metadata from the manifest (empty when the model has no states). */
+  readonly toolStates = this.modelControls.states;
+  /** Currently selected tool state name. */
+  readonly selectedState = this.modelControls.selectedState;
+  /** Independently toggleable vessel containers from the manifest. */
+  readonly vesselContainerOptions = this.modelControls.containerOptions;
+  readonly openContainerCount = this.modelControls.openContainerCount;
+  readonly toggleableContainerCount = this.modelControls.toggleableContainerCount;
+
+  /**
+   * Toggle node visibility when tool-state / container selection changes.
+   * Do not reframe — the current orbit (including a mid-spin azimuth) should stay put.
+   */
+  private readonly applySelection = effect(() => {
+    this.modelControls.selectedState();
+    this.modelControls.openContainerIds();
+    untracked(() => this.applyControlVisibility());
+  });
 
   /** Whether this capture has yaw carousel frames (optional now). */
   get hasCarousel(): boolean {
@@ -278,6 +427,10 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
   private modelLoading = false;
   private modelFitDistance = 3;
   private lights?: THREE.Group;
+
+  // --- Tool states ---
+  /** Managed GLB nodes indexed by exported node id (may map to multiple objects defensively). */
+  private managedNodeIndex = new Map<string, THREE.Object3D[]>();
   private onControlsStart = (): void => {
     // Manual orbit/zoom/pan: stop spinning and mark session dirty so the next
     // asset resets to baseline framing (even if auto-spin is turned back on).
@@ -357,6 +510,7 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     this.ro.observe(el);
     this.resize();
     this.bindPointer(el);
+    this.initModelControls();
     this.applyInitialMode();
 
     const tick = () => {
@@ -389,7 +543,14 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     if (this.controls) this.controls.enabled = false;
     this.camera?.position.set(0, 0, 2.4);
     this.camera?.lookAt(0, 0, 0);
+    this.initModelControls();
     this.applyInitialMode();
+  }
+
+  /** Read tool-state and vessel-container metadata and establish their default selections. */
+  private initModelControls(): void {
+    this.managedNodeIndex.clear();
+    this.modelControls.load(this.bundle?.manifest);
   }
 
   /** Choose the starting mode: model when preferred/only option, else the carousel. */
@@ -430,6 +591,7 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
 
   @HostListener('window:keydown', ['$event'])
   onKey(e: KeyboardEvent): void {
+    if (this.isTypingTarget(e.target)) return;
     switch (e.key) {
       case 'ArrowLeft':
         this.stepYaw(-1);
@@ -449,6 +611,13 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
         return;
     }
     e.preventDefault();
+  }
+
+  private isTypingTarget(target: EventTarget | null): boolean {
+    const el = target as HTMLElement | null;
+    if (!el || typeof el.tagName !== 'string') return false;
+    const tag = el.tagName.toLowerCase();
+    return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
   }
 
   private stepYaw(delta: number): void {
@@ -508,7 +677,7 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     if (!this.modelLoaded && !this.modelLoading) {
       void this.loadModel();
     } else if (this.modelLoaded) {
-      this.frameModel();
+      this.applyControlsAndFrame();
       this.status.set(key ? `3D model · ${key}` : '3D model');
     }
   }
@@ -534,7 +703,8 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
       this.modelRoot = root;
       this.scene.add(root);
       this.modelLoaded = true;
-      this.frameModel();
+      this.buildManagedNodeIndex();
+      this.applyControlsAndFrame();
       const key = this.bundle.manifest.addressableKey ?? '';
       this.status.set(key ? `3D model · ${key}` : '3D model');
     } catch (e) {
@@ -551,7 +721,9 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     this.modelRoot.visible = true;
     // Reset any prior recenter offset before measuring.
     this.modelRoot.position.set(0, 0, 0);
-    const box = new THREE.Box3().setFromObject(this.modelRoot);
+    this.modelRoot.updateWorldMatrix(true, true);
+    // Frame only currently-visible geometry so hidden tool-state variants don't inflate the bounds.
+    const box = this.computeVisibleBounds(this.modelRoot);
     if (box.isEmpty()) return;
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
@@ -583,6 +755,93 @@ export class OrbitTurntableComponent implements AfterViewInit, OnChanges, OnDest
     this.controls.autoRotate = this.autoSpin();
     this.controls.autoRotateSpeed = this.autoSpinSpeed();
     this.controls.update();
+  }
+
+  // --- Tool-state and vessel-container visibility ---------------------------
+
+  /** Handle a state dropdown change. */
+  onStateSelect(event: Event): void {
+    this.modelControls.selectState((event.target as HTMLSelectElement).value);
+  }
+
+  isContainerOpen(id: string): boolean {
+    return this.modelControls.isContainerOpen(id);
+  }
+
+  /** Handle one independent vessel-container checkbox. */
+  onContainerToggle(container: OrbitVesselContainer, event: Event): void {
+    this.modelControls.setContainerOpen(container, (event.target as HTMLInputElement).checked);
+  }
+
+  /** Index managed GLB nodes by their exported node id; warn on any that are missing. */
+  private buildManagedNodeIndex(): void {
+    this.managedNodeIndex.clear();
+    if (!this.modelRoot) return;
+
+    const wanted = new Set([
+      ...(this.modelControls.controller()?.managedNodeIds ?? []),
+      ...(this.modelControls.containers()?.managedNodeIds ?? []),
+    ]);
+    if (!wanted.size) return;
+
+    this.modelRoot.traverse((obj) => {
+      if (wanted.has(obj.name)) {
+        const list = this.managedNodeIndex.get(obj.name) ?? [];
+        list.push(obj);
+        this.managedNodeIndex.set(obj.name, list);
+      }
+    });
+
+    const missing = [...wanted].filter((id) => !this.managedNodeIndex.has(id));
+    if (missing.length) {
+      console.warn(
+        `[orbit-turntable] ${missing.length} managed control node(s) not found in GLB:`,
+        missing,
+      );
+    }
+  }
+
+  /** Apply visibility then frame. Used on first load / re-entering model mode, not on selection changes. */
+  private applyControlsAndFrame(): void {
+    this.applyControlVisibility();
+    this.frameModel();
+  }
+
+  /**
+   * Resolve tool-state and vessel-container visibility together. A node managed by both systems
+   * must be visible in both; nodes managed by neither are untouched.
+   */
+  private applyControlVisibility(): void {
+    if (!this.managedNodeIndex.size) return;
+
+    const controller = this.modelControls.controller();
+    const vesselContainers = this.modelControls.containers();
+    const stateManaged = new Set(controller?.managedNodeIds ?? []);
+    const stateVisible = visibleNodeIdsForState(controller, this.selectedState());
+    const vesselManaged = new Set(vesselContainers?.managedNodeIds ?? []);
+    const vesselVisible = resolveVesselNodeVisibility(
+      vesselContainers,
+      this.modelControls.openContainerIds(),
+    );
+
+    for (const [id, objects] of this.managedNodeIndex) {
+      const visible =
+        (!stateManaged.has(id) || stateVisible.has(id)) &&
+        (!vesselManaged.has(id) || vesselVisible.get(id) === true);
+      for (const obj of objects) obj.visible = visible;
+    }
+  }
+
+  /** World-space bounds over currently-visible meshes only (hidden subtrees are skipped). */
+  private computeVisibleBounds(root: THREE.Object3D): THREE.Box3 {
+    const box = new THREE.Box3();
+    root.traverseVisible((obj) => {
+      const mesh = obj as THREE.Mesh;
+      if ((mesh as unknown as { isMesh?: boolean }).isMesh && mesh.geometry) {
+        box.expandByObject(mesh);
+      }
+    });
+    return box;
   }
 
   /** Persist current yaw so the next asset can continue from the same angle. */

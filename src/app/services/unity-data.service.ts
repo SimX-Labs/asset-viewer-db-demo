@@ -1,45 +1,57 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { DboAsset } from '../models/dbo.models';
+import { DboAsset, ToolNode } from '../models/dbo.models';
 import { DboLoadResult } from './dbo-data.service';
+import { AssetMetaService } from './asset-meta.service';
+import { TagTaxonomyService } from './tag-taxonomy.service';
 import {
+  UNITY_CATEGORY_ORDER,
   UNITY_DB_INDEX_FILE,
   UNITY_DB_ROOT,
   UNITY_VIRTUAL_FILE,
+  UnityAudio,
+  UnityAuthoredEnvironment,
   UnityCharacter,
   UnityClothing,
   UnityDbBundle,
   UnityDbIndex,
+  UnityEnvironment,
   UnityEquipment,
+  UnityGitAuthorship,
+  UnityGitAuthorshipFile,
   UnityInteractionRef,
   UnityInteractionRow,
   UnityMedication,
   UnityMetadataObject,
   UnityScenario,
   UnityTool,
+  UnityToolPlacement,
+  UnityVideo,
   UnityWaveform,
 } from '../models/unity-asset.models';
-
-// Category order for the sidebar. Tool rows are split by their `kind`.
-const CATEGORY_ORDER = [
-  'Characters',
-  'Equipment',
-  'Clothing',
-  'Medications',
-  'Waveforms',
-  'Scenarios',
-  'Tools',
-  'Kits',
-  'Groups',
-  'Vessels',
-  'Scenes',
-  'Interactions',
-  'Character Metadata',
-  'Tool Metadata',
-];
+import { TAG_TAXONOMY_FILE } from '../models/tag.models';
+import { adaptVesselToolFields } from '../models/custom-vessel.util';
+import { sourceForUnityAsset } from '../models/data-source';
+import { formatGitIdentity } from '../utils/git-identity.util';
+import { normalizeAssetMetaRecord } from '../models/asset-meta.models';
+import {
+  collectDirectoryFiles,
+  indexDbFiles,
+} from '../utils/local-data-pack.util';
 
 const FETCH_BATCH_SIZE = 48;
+
+/** Row-level type label per audio kind. */
+const AUDIO_TYPE_LABELS: Record<string, string> = {
+  music: 'Music',
+  'sound-effect': 'Sound Effect',
+  'background-audio': 'Background Audio',
+};
+
+const VIDEO_TYPE_LABELS: Record<string, string> = {
+  ultrasound: 'Ultrasound Video',
+};
 
 /** Scenario actor `model` sentinels that do not name a character addressable. */
 const NON_CHARACTER_MODELS = new Set(['environment', 'none', 'null']);
@@ -60,6 +72,13 @@ interface ReverseIndex {
 @Injectable({ providedIn: 'root' })
 export class UnityDataService {
   private readonly http = inject(HttpClient);
+  private readonly assetMeta = inject(AssetMetaService);
+  private readonly tagTaxonomy = inject(TagTaxonomyService);
+  /** Sidecar keyed by original row id; reset on each bundle build. */
+  private gitByAssetId: Record<string, UnityGitAuthorship> = {};
+  /** Local db files (folder picker) used to resolve audio/video blob URLs. */
+  private localDbFiles = new Map<string, File>();
+  private localBlobUrls = new Map<string, string>();
 
   /** Load the per-file db/ tree via index.json, then fetch each row. */
   async loadDb(root = UNITY_DB_ROOT): Promise<DboLoadResult> {
@@ -71,12 +90,24 @@ export class UnityDataService {
       throw new Error(`Invalid Unity asset DB index at ${base}/${UNITY_DB_INDEX_FILE}`);
     }
 
-    const [characters, equipment, tools, interactions, clothing, medications, waveforms, scenarios, characterMetadata, toolMetadata] =
+    // Curated overlay loads in parallel with scraped rows (never mixed into them).
+    const metaLoad = this.assetMeta.loadFromIndex(index, base);
+    const gitLoad = firstValueFrom(
+      this.http.get<UnityGitAuthorshipFile>(
+        `${base}/${index.gitAuthorship ?? 'git-authorship.json'}`,
+      ),
+    ).catch(() => ({ byAssetId: {} } as UnityGitAuthorshipFile));
+
+    const [characters, equipment, tools, interactions, environments, authoredEnvironments, audio, videos, clothing, medications, waveforms, scenarios, characterMetadata, toolMetadata] =
       await Promise.all([
         this.fetchJsonFiles<UnityCharacter>(base, index.characters),
         this.fetchJsonFiles<UnityEquipment>(base, index.equipment),
         this.fetchJsonFiles<UnityTool>(base, index.tools),
         this.fetchJsonFiles<UnityInteractionRow>(base, index.interactions ?? []),
+        this.fetchJsonFiles<UnityEnvironment>(base, index.environments ?? []),
+        this.fetchJsonFiles<UnityAuthoredEnvironment>(base, index.authoredEnvironments ?? []),
+        this.fetchJsonFiles<UnityAudio>(base, index.audio ?? []),
+        this.fetchJsonFiles<UnityVideo>(base, index.videos ?? []),
         firstValueFrom(this.http.get<UnityClothing[]>(`${base}/${index.clothing}`)),
         firstValueFrom(
           this.http.get<UnityMedication[]>(
@@ -103,6 +134,9 @@ export class UnityDataService {
         ),
       ]);
 
+    await metaLoad;
+    const gitFile = await gitLoad;
+
     return this.buildFromBundle({
       meta: {
         source: index.meta?.source ?? base,
@@ -112,6 +146,10 @@ export class UnityDataService {
           equipment: equipment.length,
           tools: tools.length,
           interactions: interactions.length,
+          environments: environments.length,
+          authoredEnvironments: authoredEnvironments.length,
+          audio: audio.length,
+          videos: videos.length,
           clothing: Array.isArray(clothing) ? clothing.length : 0,
           medications: Array.isArray(medications) ? medications.length : 0,
           waveforms: Array.isArray(waveforms) ? waveforms.length : 0,
@@ -120,10 +158,15 @@ export class UnityDataService {
           toolMetadata: Array.isArray(toolMetadata) ? toolMetadata.length : 0,
         },
       },
+      gitAuthorship: gitFile?.byAssetId ?? {},
       characters,
       equipment,
       tools,
       interactions,
+      environments,
+      authoredEnvironments,
+      audio,
+      videos,
       clothing: Array.isArray(clothing) ? clothing : [],
       medications: Array.isArray(medications) ? medications : [],
       waveforms: Array.isArray(waveforms) ? waveforms : [],
@@ -138,18 +181,25 @@ export class UnityDataService {
     return this.loadDb();
   }
 
+  /** Build from a File System Access handle to a `db/` directory. */
+  async buildFromDirectoryHandle(
+    dbDir: FileSystemDirectoryHandle,
+  ): Promise<DboLoadResult> {
+    return this.buildFromRelativeFiles(await collectDirectoryFiles(dbDir));
+  }
+
   /**
    * Build from a folder selection (webkitdirectory). Expects relative paths such as
    * `characters/*.json`, `equipment/*.json`, `tools/*.json`, plus root array files.
    */
   async buildFromFolderFiles(files: File[]): Promise<DboLoadResult> {
-    const byRel = new Map<string, File>();
-    for (const f of files) {
-      const rel = (f as File & { webkitRelativePath?: string }).webkitRelativePath || f.name;
-      // Strip a leading folder segment if the user picked the db/ parent or db itself.
-      const normalized = rel.replace(/\\/g, '/').replace(/^[^/]+\/db\//, '').replace(/^db\//, '');
-      byRel.set(normalized, f);
-    }
+    return this.buildFromRelativeFiles(indexDbFiles(files));
+  }
+
+  private async buildFromRelativeFiles(
+    byRel: Map<string, File>,
+  ): Promise<DboLoadResult> {
+    this.replaceLocalDbFiles(byRel);
 
     const readJson = async <T>(rel: string): Promise<T | null> => {
       const file = byRel.get(rel);
@@ -192,13 +242,20 @@ export class UnityDataService {
       (await readJson<UnityDbBundle['characterMetadata']>('character-metadata.json')) ?? [];
     const toolMetadata =
       (await readJson<UnityDbBundle['toolMetadata']>('tool-metadata.json')) ?? [];
+    const gitFile =
+      (await readJson<UnityGitAuthorshipFile>('git-authorship.json')) ?? { byAssetId: {} };
 
     const bundle: UnityDbBundle = {
       meta: { source: 'folder', generatedAt: new Date().toISOString() },
+      gitAuthorship: gitFile.byAssetId ?? {},
       characters: await readDir<UnityCharacter>('characters'),
       equipment: await readDir<UnityEquipment>('equipment'),
       tools: await readDir<UnityTool>('tools'),
       interactions: await readDir<UnityInteractionRow>('interactions'),
+      environments: await readDir<UnityEnvironment>('environments'),
+      authoredEnvironments: await readDir<UnityAuthoredEnvironment>('authored-environments'),
+      audio: await readDir<UnityAudio>('audio'),
+      videos: await readDir<UnityVideo>('videos'),
       clothing: Array.isArray(clothing) ? clothing : [],
       medications: Array.isArray(medications) ? medications : [],
       waveforms: Array.isArray(waveforms) ? waveforms : [],
@@ -209,11 +266,59 @@ export class UnityDataService {
 
     if (!bundle.characters.length && !bundle.equipment.length && !bundle.tools.length) {
       throw new Error(
-        'No Unity asset DB rows found. Select the db folder (with characters/, equipment/, tools/).'
+        'No Unity asset DB rows found. Select the unzipped folder that contains db/ (and assets/).'
       );
     }
 
+    // Load curated overlay from the same folder pick when present.
+    const metaRecords: Record<string, import('../models/asset-meta.models').AssetMetaRecord> = {};
+    const aliasRaw =
+      (await readJson<import('../models/asset-meta.models').AssetMetaAliases>(
+        'meta/aliases.json',
+      )) ?? {};
+    for (const path of byRel.keys()) {
+      const m = path.match(/^meta\/([^/]+)\/record\.json$/i);
+      if (!m) continue;
+      try {
+        const raw = await readJson<unknown>(path);
+        if (!raw) continue;
+        const record = normalizeAssetMetaRecord(raw, m[1]);
+        if (!record.assetId) continue;
+        metaRecords[record.assetId] = record;
+      } catch {
+        /* skip bad meta files */
+      }
+    }
+    for (const [oldId, newId] of Object.entries(aliasRaw)) {
+      if (typeof newId === 'string' && metaRecords[newId]) {
+        metaRecords[oldId] = metaRecords[newId];
+      }
+    }
+    this.assetMeta.aliases.set(
+      Object.fromEntries(
+        Object.entries(aliasRaw).filter(
+          ([k, v]) => typeof k === 'string' && typeof v === 'string',
+        ),
+      ),
+    );
+    this.assetMeta.records.set(metaRecords);
+    this.assetMeta.loaded.set(true);
+    this.assetMeta.setLocalMediaFiles(byRel);
+
+    const taxonomy = await readJson<unknown>(TAG_TAXONOMY_FILE);
+    if (taxonomy) this.tagTaxonomy.applyLocal(taxonomy);
+
     return this.buildFromBundle(bundle);
+  }
+
+  clearLocalDbFiles(): void {
+    this.replaceLocalDbFiles(new Map());
+  }
+
+  private replaceLocalDbFiles(byRel: Map<string, File>): void {
+    for (const url of this.localBlobUrls.values()) URL.revokeObjectURL(url);
+    this.localBlobUrls.clear();
+    this.localDbFiles = byRel;
   }
 
   parseText(text: string): UnityDbBundle {
@@ -229,12 +334,15 @@ export class UnityDataService {
   }
 
   buildFromBundle(bundle: UnityDbBundle): DboLoadResult {
+    this.gitByAssetId = bundle.gitAuthorship ?? {};
     const reverse = this.buildReverseIndex(bundle);
     const assetMap: Record<string, DboAsset> = {};
     const categories: Record<string, DboAsset[]> = {};
-    for (const cat of CATEGORY_ORDER) categories[cat] = [];
+    for (const cat of UNITY_CATEGORY_ORDER) categories[cat] = [];
 
     const push = (cat: string, asset: DboAsset) => {
+      this.applyGitAuthorship(asset);
+      asset = { ...asset, _Source: sourceForUnityAsset(asset) };
       // Guard against duplicate ids in the source graph (two rows can share a
       // UUID). Colliding ids would overwrite each other in assetMap and produce
       // duplicate @for track keys (NG0955), so suffix later occurrences to keep
@@ -270,6 +378,18 @@ export class UnityDataService {
     for (const t of bundle.tools ?? []) {
       push(this.toolCategory(t.kind), this.adaptTool(t, reverse));
     }
+    for (const e of bundle.environments ?? []) {
+      push('Environments', this.adaptEnvironment(e));
+    }
+    for (const a of bundle.authoredEnvironments ?? []) {
+      push('Authored Environments', this.adaptAuthoredEnvironment(a));
+    }
+    for (const a of bundle.audio ?? []) {
+      push('Audio', this.adaptAudio(a));
+    }
+    for (const v of bundle.videos ?? []) {
+      push('Videos', this.adaptVideo(v));
+    }
     for (const i of bundle.interactions ?? []) {
       push('Interactions', this.adaptInteractionRow(i));
     }
@@ -281,7 +401,7 @@ export class UnityDataService {
     }
 
     const fileData: Record<string, DboAsset[]> = {};
-    for (const cat of CATEGORY_ORDER) {
+    for (const cat of UNITY_CATEGORY_ORDER) {
       if (categories[cat]?.length) fileData[cat] = categories[cat];
     }
 
@@ -292,6 +412,31 @@ export class UnityDataService {
       assetMap,
       allToolsMap: {},
     };
+  }
+
+  private applyGitAuthorship(asset: DboAsset): void {
+    const g = this.gitByAssetId[asset.AssetId];
+    if (!g || !asset.Data) return;
+    if (g.createdBy) {
+      const label = formatGitIdentity(g.createdBy);
+      if (label) asset.Data['CreatedBy'] = label;
+      if (g.createdBy.date) asset.Data['CreatedOn'] = g.createdBy.date;
+    }
+    if (g.lastTouchedBy) {
+      const label = formatGitIdentity(g.lastTouchedBy);
+      if (label) asset.Data['LastUpdatedBy'] = label;
+      if (g.lastTouchedBy.date) asset.Data['LastUpdatedOn'] = g.lastTouchedBy.date;
+    }
+    if (g.contributors?.length) {
+      asset.Data['Contributors'] = g.contributors.map((c) => ({
+        Name: formatGitIdentity(c),
+        Commits: c.commits,
+      }));
+    }
+    const other = Number(g.otherCommits);
+    if (Number.isFinite(other) && other > 0) {
+      asset.Data['ContributorOtherCommits'] = other;
+    }
   }
 
   private async fetchJsonFiles<T>(base: string, relPaths: string[]): Promise<T[]> {
@@ -448,16 +593,31 @@ export class UnityDataService {
 
   private toolCategory(kind: string): string {
     switch (kind) {
-      case 'kit':
-        return 'Kits';
-      case 'group':
-        return 'Groups';
       case 'vessel':
         return 'Vessels';
       case 'scene':
         return 'Scenes';
+      case 'kit':
+      case 'group':
+      case 'tool':
       default:
-        return 'Tools';
+        return 'Tooling';
+    }
+  }
+
+  private toolAssetType(tool: UnityTool): string {
+    if (tool.kind === 'vessel') {
+      return tool.vesselType === 'custom' ? 'Custom Vessel' : 'Empty Vessel';
+    }
+    switch (tool.kind) {
+      case 'kit':
+        return 'Kit';
+      case 'group':
+        return 'Group';
+      case 'scene':
+        return 'Scene';
+      default:
+        return 'Tool';
     }
   }
 
@@ -717,6 +877,220 @@ export class UnityDataService {
     };
   }
 
+  /** Unity scene that authored environments are built on top of. */
+  private adaptEnvironment(e: UnityEnvironment): DboAsset {
+    const data: Record<string, unknown> = {};
+    if (e.assetKey) data['AssetKey'] = e.assetKey;
+    if (e.scenePath) data['ScenePath'] = e.scenePath;
+    if (e.addressableGroup) data['AddressableGroup'] = e.addressableGroup;
+    if (e.addressableLabels?.length) data['AddressableLabels'] = e.addressableLabels;
+    if (e.guid) data['Guid'] = e.guid;
+    if (e.authoredEnvironmentIds?.length) {
+      data['AuthoredEnvironments'] = this.toRefs(e.authoredEnvironmentIds);
+    }
+
+    return {
+      AssetId: e.id,
+      AssetName: e.name || e.assetKey || e.id,
+      AssetType: 'Environment',
+      Data: data,
+      Tags: this.normalizeTags(e.tags),
+      _Category: 'Environments',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+  }
+
+  /** Layout authored in the env-authoring tool, placed in one Unity scene. */
+  private adaptAuthoredEnvironment(a: UnityAuthoredEnvironment): DboAsset {
+    const data: Record<string, unknown> = {};
+    if (a.description) data['Description'] = a.description;
+    if (a.authoringId) data['AuthoringId'] = a.authoringId;
+    if (a.environmentId) data['Environment'] = { AssetId: a.environmentId };
+    if (a.environmentAssetKey) data['EnvironmentAssetKey'] = a.environmentAssetKey;
+    if (a.lastSaved) data['LastSaved'] = a.lastSaved;
+    if (a.authoringToolVersion) data['AuthoringToolVersion'] = a.authoringToolVersion;
+    if (a.rootToolEntryCount != null) data['RootToolEntryCount'] = a.rootToolEntryCount;
+    if (a.toolIds?.length) data['Tools'] = this.toRefs(a.toolIds);
+    const placed = this.adaptToolPlacements(a.toolPlacements);
+    if (placed.length) data['PlacedTools'] = placed;
+    const toolHierarchy = this.adaptToolHierarchy(a.toolPlacements);
+    if (toolHierarchy.Roots.length) data['ToolHierarchy'] = toolHierarchy;
+    if (a.emptyVesselIds?.length) data['EmptyVessels'] = this.toRefs(a.emptyVesselIds);
+    if (a.customVesselIds?.length) data['CustomVessels'] = this.toRefs(a.customVesselIds);
+    // Vessel snapshots saved inside the layout with no matching library vessel.
+    if (a.unresolvedVesselSnapshotIds?.length) {
+      data['UnresolvedVesselSnapshots'] = a.unresolvedVesselSnapshotIds;
+    }
+    if (a.sourceFile) data['SourceFile'] = a.sourceFile;
+
+    const asset: DboAsset = {
+      AssetId: a.id,
+      AssetName: a.name || a.assetKey || a.id,
+      AssetType: 'Authored Environment',
+      Data: data,
+      Tags: this.normalizeTags(a.tags),
+      _Category: 'Authored Environments',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+    if (toolHierarchy.Roots.length) asset.ToolHierarchyData = toolHierarchy;
+    return asset;
+  }
+
+  /**
+   * Collapse per-instance placements into one entry per tool, keeping every runtime
+   * id so the detail view can show a quantity and expand to the individual tools.
+   */
+  private adaptToolPlacements(
+    placements: UnityToolPlacement[] | undefined | null,
+  ): Record<string, unknown>[] {
+    const groups = new Map<string, Record<string, unknown>>();
+
+    for (const p of placements ?? []) {
+      const assetKey = p?.assetKey?.trim();
+      if (!assetKey) continue;
+      const groupKey = p.toolRowId?.trim() || assetKey;
+
+      let group = groups.get(groupKey);
+      if (!group) {
+        group = {
+          AssetKey: assetKey,
+          Kind: p.kind ?? 'tool',
+          Count: 0,
+          Instances: [] as Record<string, unknown>[],
+        };
+        if (p.toolRowId) group['AssetId'] = p.toolRowId;
+        if (p.kind === 'custom-vessel') {
+          group['CustomVesselKey'] = p.customVesselKey ?? assetKey;
+          group['SharedLibrary'] = !!p.sharedLibrary;
+        }
+        groups.set(groupKey, group);
+      }
+
+      const instance: Record<string, unknown> = { ToolId: p.toolId ?? '' };
+      if (p.parentToolId) instance['ParentToolId'] = p.parentToolId;
+      if (p.positionData) instance['PositionData'] = p.positionData;
+      (group['Instances'] as Record<string, unknown>[]).push(instance);
+      group['Count'] = (group['Count'] as number) + 1;
+    }
+
+    return [...groups.values()].sort((a, b) =>
+      String(a['AssetKey']).localeCompare(String(b['AssetKey'])),
+    );
+  }
+
+  /**
+   * Adapt positioned layout entries into the DBO overhead inspector shape.
+   * Custom vessels are roots and never receive their snapshot-contained tools.
+   */
+  private adaptToolHierarchy(
+    placements: UnityToolPlacement[] | undefined | null,
+  ): { Roots: ToolNode[] } {
+    const nodes = new Map<string, ToolNode>();
+    const parentIds = new Map<string, string>();
+
+    for (const p of placements ?? []) {
+      const toolId = p.toolId?.trim();
+      const position = p.positionData?.worldPosition;
+      if (!toolId || !position) continue;
+
+      const node: ToolNode = {
+        ToolId: toolId,
+        Position: position,
+        Asset: p.toolRowId ? { AssetId: p.toolRowId } : null,
+        Children: [],
+        PlacementKind: p.kind ?? 'tool',
+      };
+      if (p.positionData?.worldRotation) {
+        node.Rotation = p.positionData.worldRotation;
+      }
+      if (p.kind === 'custom-vessel') {
+        node.SharedLibrary = !!p.sharedLibrary;
+      }
+      nodes.set(toolId, node);
+      if (p.parentToolId) parentIds.set(toolId, p.parentToolId);
+    }
+
+    const roots: ToolNode[] = [];
+    for (const [toolId, node] of nodes) {
+      const parent = nodes.get(parentIds.get(toolId) ?? '');
+      if (parent) parent.Children!.push(node);
+      else roots.push(node);
+    }
+    return { Roots: roots };
+  }
+
+  private adaptAudio(a: UnityAudio): DboAsset {
+    const data: Record<string, unknown> = {
+      // Drives the Audio sidebar accordion (see UNITY_SUBCATEGORY_DEFS).
+      AudioKind: a.audioKind,
+    };
+    if (a.assetKey) data['AssetKey'] = a.assetKey;
+    if (a.clipPath) data['ClipPath'] = a.clipPath;
+    if (a.copyStatus) data['CopyStatus'] = a.copyStatus;
+    const audioUrl = this.dbMediaUrl(a.audioPath);
+    if (audioUrl) data['AudioUrl'] = audioUrl;
+    if (a.addressableGroup) data['AddressableGroup'] = a.addressableGroup;
+    if (a.addressableLabels?.length) data['AddressableLabels'] = a.addressableLabels;
+    if (a.guid) data['Guid'] = a.guid;
+
+    return {
+      AssetId: a.id,
+      AssetName: a.name || a.assetKey || a.id,
+      AssetType: AUDIO_TYPE_LABELS[a.audioKind] ?? 'Audio',
+      Data: data,
+      Tags: this.normalizeTags(a.tags),
+      _Category: 'Audio',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+  }
+
+  private dbMediaUrl(relPath: string | null | undefined): string | null {
+    if (!relPath) return null;
+    const trimmed = relPath.replace(/^\/+/, '');
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    const local = this.localDbFiles.get(trimmed);
+    if (local) {
+      let url = this.localBlobUrls.get(trimmed);
+      if (!url) {
+        url = URL.createObjectURL(local);
+        this.localBlobUrls.set(trimmed, url);
+      }
+      return url;
+    }
+    return `${UNITY_DB_ROOT}/${trimmed}`;
+  }
+
+  private adaptVideo(v: UnityVideo): DboAsset {
+    const data: Record<string, unknown> = {
+      VideoKind: v.videoKind,
+    };
+    if (v.assetKey) data['AssetKey'] = v.assetKey;
+    if (v.animPath) data['AnimPath'] = v.animPath;
+    if (v.addressableGroup) data['AddressableGroup'] = v.addressableGroup;
+    if (v.addressableLabels?.length) data['AddressableLabels'] = v.addressableLabels;
+    if (v.guid) data['Guid'] = v.guid;
+    if (v.duration != null) data['Duration'] = v.duration;
+    if (v.fps != null) data['Fps'] = v.fps;
+    data['Loop'] = !!v.loop;
+    if (v.frameCount != null) data['FrameCount'] = v.frameCount;
+    if (v.resolvedFrames != null) data['ResolvedFrames'] = v.resolvedFrames;
+    if (v.encodeStatus) data['EncodeStatus'] = v.encodeStatus;
+    const videoUrl = this.dbMediaUrl(v.videoPath);
+    const posterUrl = this.dbMediaUrl(v.posterPath);
+    if (videoUrl) data['VideoUrl'] = videoUrl;
+    if (posterUrl) data['PosterUrl'] = posterUrl;
+
+    return {
+      AssetId: v.id,
+      AssetName: v.name || v.assetKey || v.id,
+      AssetType: VIDEO_TYPE_LABELS[v.videoKind] ?? 'Video',
+      Data: data,
+      Tags: this.normalizeTags(v.tags ?? v.addressableLabels),
+      _Category: 'Videos',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+  }
+
   private adaptScenario(s: UnityScenario, reverse: ReverseIndex): DboAsset {
     const data: Record<string, unknown> = {};
     if (s.scenarioCreatorId) data['ScenarioCreatorId'] = s.scenarioCreatorId;
@@ -793,6 +1167,7 @@ export class UnityDataService {
       ToolId: t.toolId,
       PrefabPath: t.prefabPath,
     };
+    if (t.kind === 'vessel') data['VesselType'] = t.vesselType ?? 'empty';
     if (t.metadata?.length) data['Metadata'] = t.metadata.map((m) => this.compactMetadata(m));
 
     const outbound = this.toolOutbound(t);
@@ -802,9 +1177,15 @@ export class UnityDataService {
 
     if (t.usedInGroupIds?.length) data['UsedInGroups'] = this.toRefs(t.usedInGroupIds);
 
+    // Vessel-authored contents (custom) / reverse links (empty → customs) land here first.
+    Object.assign(data, adaptVesselToolFields(t));
+
     // "Kids" of a group / kit: tools that declare this row in their usedInGroupIds.
-    const contained = reverse.containedTools[t.id];
-    if (contained?.length) data['ContainedTools'] = this.toRefs(contained);
+    // Do not overwrite custom-vessel ContainedTools (authored composition).
+    if (!data['ContainedTools']) {
+      const contained = reverse.containedTools[t.id];
+      if (contained?.length) data['ContainedTools'] = this.toRefs(contained);
+    }
 
     const compatibleEquipment = reverse.equipmentByTool[t.id];
     if (compatibleEquipment?.length) data['CompatibleEquipment'] = this.toRefs(compatibleEquipment);
@@ -815,7 +1196,7 @@ export class UnityDataService {
     return {
       AssetId: t.id,
       AssetName: t.name,
-      AssetType: this.toolCategory(t.kind).replace(/s$/, ''),
+      AssetType: this.toolAssetType(t),
       Data: data,
       Tags: tags,
       _Category: this.toolCategory(t.kind),
@@ -836,6 +1217,7 @@ export class UnityDataService {
       AssetName: m.key,
       AssetType: 'Character Metadata',
       Data: data,
+      Tags: this.normalizeTags(m.tags),
       _Category: category,
       _File: UNITY_VIRTUAL_FILE,
     };

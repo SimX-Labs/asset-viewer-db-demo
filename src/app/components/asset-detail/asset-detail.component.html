@@ -1,52 +1,300 @@
+<div class="asset-detail-main">
 <div class="header-row">
-  <div class="simx-tag">{{ asset.AssetType || 'Unknown Type' }}</div>
-  <button
-    class="pin-btn simx-btn simx-btn--small"
-    [class.simx-btn--danger]="isPinned()"
-    [class.pinned]="isPinned()"
-    (click)="togglePin()"
-  >
-    <i class="pi" [class.pi-star-fill]="isPinned()" [class.pi-star]="!isPinned()" aria-hidden="true"></i>
-    {{ isPinned() ? 'Unpin' : 'Pin' }}
-  </button>
+  <div class="header-leading">
+    <button
+      type="button"
+      class="pin-btn"
+      [class.pinned]="isPinned()"
+      (click)="togglePin()"
+      [title]="isPinned() ? 'Unpin' : 'Pin'"
+      [attr.aria-label]="isPinned() ? 'Unpin' : 'Pin'"
+      [attr.aria-pressed]="isPinned()"
+    >
+      <i class="pi" [class.pi-star-fill]="isPinned()" [class.pi-star]="!isPinned()" aria-hidden="true"></i>
+    </button>
+    <div class="header-tags">
+      <div class="simx-tag">{{ asset.AssetType || 'Unknown Type' }}</div>
+      <div
+        class="simx-tag source-tag"
+        [attr.data-source]="sourceId()"
+        [title]="sourceHint()"
+      >
+        {{ sourceLabel() }}
+      </div>
+    </div>
+  </div>
+  @if (isEditing()) {
+    <div class="header-edit-actions">
+      <button
+        type="button"
+        class="simx-btn simx-btn--small"
+        (click)="discardEdits()"
+        [disabled]="savingEdits()"
+      >
+        Discard
+      </button>
+      <button
+        type="button"
+        class="simx-btn simx-btn--small simx-btn--primary"
+        (click)="saveEdits()"
+        [disabled]="savingEdits()"
+      >
+        {{ savingEdits() ? 'Saving…' : 'Save' }}
+      </button>
+    </div>
+  }
 </div>
 
-<div class="asset-summary" [class.has-inline-model]="showInlineModel()">
-  @if (showInlineModel()) {
-    <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
-  }
-
+<div
+  class="asset-summary"
+  [class.has-inline-model]="showInlineModel()"
+  [class.has-inline-video]="showInlineVideo()"
+  [class.has-inline-audio]="showInlineAudio()"
+>
   <div class="asset-summary-copy">
-    <h2 class="asset-title">{{ asset.AssetName }}</h2>
+        <h2 class="asset-title">{{ asset.AssetName }}</h2>
 
-    <div class="id-row">
-      ID: {{ asset.AssetId }}
-      <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">
-        <i class="pi pi-copy" aria-hidden="true"></i>
-      </button>
-      <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">
-        <i class="pi pi-link" aria-hidden="true"></i>
-      </button>
-      @if (missingAddress()) {
-        <span class="warning-badge" title="Missing Addressable ID">
-          <i class="pi pi-exclamation-triangle" aria-hidden="true"></i> Missing Address
-        </span>
+        <div class="id-row">
+          ID: {{ asset.AssetId }}
+          <button class="action-btn" title="Copy ID" (click)="copy(asset.AssetId)">
+            <i class="pi pi-copy" aria-hidden="true"></i>
+          </button>
+          <button class="action-btn" title="Copy Direct Link" (click)="copy(deepLink())">
+            <i class="pi pi-link" aria-hidden="true"></i>
+          </button>
+          @if (missingAddress()) {
+            <span class="warning-badge" title="Missing Addressable ID">
+              <i class="pi pi-exclamation-triangle" aria-hidden="true"></i> Missing Address
+            </span>
+          }
+        </div>
+
+        @if (baseEmptyVessel(); as base) {
+          <div class="vessel-base-row">
+            <span class="vessel-base-label">Base empty vessel:</span>
+            <app-value-renderer [value]="base" />
+          </div>
+        }
+
+        @if (showTagsRow()) {
+          <div class="tags-row">
+            @for (tag of displayTags(); track tag.source + ':' + tag.label) {
+              <span
+                class="asset-tag"
+                [class.asset-tag--native]="tag.source === 'native'"
+                [class.asset-tag--meta]="tag.source === 'meta'"
+              >
+                {{ tag.label }}
+                @if (tag.source === 'meta' && canEditTags()) {
+                  <button
+                    type="button"
+                    class="tag-remove"
+                    title="Remove tag"
+                    (click)="removeMetaTag(tag.label)"
+                  >
+                    <i class="pi pi-times" aria-hidden="true"></i>
+                  </button>
+                }
+              </span>
+            }
+            @if (canEditTags()) {
+              @if (addingTag()) {
+                <input
+                  class="tag-add-input"
+                  type="text"
+                  list="asset-tag-suggestions"
+                  [ngModel]="tagDraft()"
+                  (ngModelChange)="tagDraft.set($event)"
+                  (keydown.enter)="commitTagDraft(); $event.preventDefault()"
+                  (keydown.escape)="cancelAddTag()"
+                  (blur)="commitTagDraft()"
+                  placeholder="Add tag"
+                  autofocus
+                />
+                <datalist id="asset-tag-suggestions">
+                  @for (s of tagSuggestions(); track s) {
+                    <option [value]="s"></option>
+                  }
+                </datalist>
+              } @else {
+                <button
+                  type="button"
+                  class="tag-add-btn"
+                  title="Add tag"
+                  [disabled]="savingEdits()"
+                  (click)="startAddTag()"
+                >
+                  <i class="pi pi-plus" aria-hidden="true"></i>
+                </button>
+              }
+            }
+          </div>
+          @if (editError()) {
+            <p class="tag-error">{{ editError() }}</p>
+          }
+        }
+  </div>
+
+  @if (showInlineModel() || showInlineVideo() || showInlineAudio()) {
+    <div class="asset-summary-media">
+      @if (showInlineModel()) {
+        <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
+      }
+      @if (showInlineVideo()) {
+        <div class="inline-video">
+          @if (videoUrl(); as src) {
+            <video
+              controls
+              playsinline
+              [autoplay]="true"
+              [muted]="true"
+              [loop]="videoLoops()"
+              [attr.poster]="videoPosterUrl() || null"
+              [src]="src"
+              (loadeddata)="playInlineVideo($event)"
+            ></video>
+          } @else if (videoPosterUrl()) {
+            <img [src]="videoPosterUrl()!" alt="" />
+          }
+        </div>
+      }
+      @if (showInlineAudio()) {
+        <div class="inline-audio">
+          <audio controls [src]="audioUrl()!"></audio>
+        </div>
       }
     </div>
+  }
 
-    @if (asset.Tags?.length) {
-      <div class="tags-row">
-        @for (tag of asset.Tags; track tag) {
-          <span class="asset-tag">{{ tag }}</span>
-        }
-      </div>
-    }
-
+  <div class="asset-summary-rest">
     @if (asset.Data['HasWebGLView'] === true) {
       <button class="btn-webgl simx-btn simx-btn--primary" (click)="openWebGL()">
         <i class="pi pi-play" aria-hidden="true"></i> View Asset
       </button>
     }
+
+    @if (showInlineModel() && modelControls.hasControls()) {
+      <div class="model-controls">
+        @if (modelControls.states().length) {
+          <div class="model-control-group">
+            <div class="simx-section-heading">States</div>
+            <div class="model-control-list">
+              @for (s of modelControls.states(); track s.name) {
+                <button
+                  type="button"
+                  class="model-control-item"
+                  [class.active]="modelControls.selectedState() === s.name"
+                  (click)="modelControls.selectState(s.name)"
+                >
+                  <i
+                    class="pi model-control-icon"
+                    [class.pi-circle-fill]="modelControls.selectedState() === s.name"
+                    [class.pi-circle]="modelControls.selectedState() !== s.name"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="model-control-name">{{ s.name }}</span>
+                  @if (modelControls.isDefaultState(s.name)) {
+                    <span class="model-control-badge">Default</span>
+                  }
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        @if (modelControls.containerOptions().length) {
+          <div class="model-control-group">
+            <div class="simx-section-heading">
+              Containers ({{ modelControls.openContainerCount() }}/{{
+                modelControls.toggleableContainerCount()
+              }}
+              open)
+            </div>
+            <div class="model-control-list">
+              @for (c of modelControls.containerOptions(); track c.id) {
+                <button
+                  type="button"
+                  class="model-control-item"
+                  [class.active]="modelControls.isContainerOpen(c.id)"
+                  [class.locked]="!c.toggleable"
+                  [disabled]="!c.toggleable"
+                  [title]="
+                    c.toggleable
+                      ? 'Toggle ' + c.id
+                      : c.id + ' has no open/closed difference, so it is always open'
+                  "
+                  (click)="modelControls.toggleContainer(c)"
+                >
+                  <i
+                    class="pi model-control-icon"
+                    [class.pi-folder-open]="!c.toggleable || modelControls.isContainerOpen(c.id)"
+                    [class.pi-folder]="c.toggleable && !modelControls.isContainerOpen(c.id)"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="model-control-name">{{ c.id }}</span>
+                  <span class="model-control-badge">
+                    @if (!c.toggleable) {
+                      Always open
+                    } @else if (modelControls.isContainerOpen(c.id)) {
+                      Open
+                    } @else {
+                      Closed
+                    }
+                  </span>
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        @if (vesselContainedTools().length) {
+          <ng-container [ngTemplateOutlet]="containedToolsGroup" />
+        }
+      </div>
+    }
+
+    @if (showCustomVesselComposition()) {
+      <div class="vessel-composition">
+        @if (vesselContainedTools().length && !showInlineModelControls()) {
+          <ng-container [ngTemplateOutlet]="containedToolsGroup" />
+        }
+        @if (vesselCustomization().length) {
+          <div class="vessel-composition-block">
+            <div class="simx-section-heading">Customization</div>
+            <app-value-renderer [value]="vesselCustomization()" />
+          </div>
+        }
+      </div>
+    }
+
+    <ng-template #containedToolsGroup>
+      <div class="model-control-group">
+        <div class="simx-section-heading heading-with-action">
+          <span>Contained Tools ({{ visibleContainedTools().length }})</span>
+          @if (toolScopeToggleAvailable()) {
+            <button
+              type="button"
+              class="scope-toggle"
+              [title]="
+                containedToolScope() === 'open'
+                  ? 'Showing tools in the open containers — click to show every contained tool'
+                  : 'Showing every contained tool — click to follow the open containers'
+              "
+              (click)="toggleContainedToolScope()"
+            >
+              {{ containedToolScope() === 'open' ? 'Open only' : 'All' }}
+            </button>
+          }
+        </div>
+        @if (visibleContainedTools().length) {
+          <div class="contained-tools-list">
+            <app-value-renderer [value]="visibleContainedTools()" />
+          </div>
+        } @else {
+          <div class="empty-note">No tools in the open containers</div>
+        }
+      </div>
+    </ng-template>
 
     @if (canViewOrbit() && !showInlineModel()) {
       <button
@@ -61,7 +309,7 @@
   </div>
 </div>
 
-<div class="simx-section-divider" role="separator"></div>
+<app-asset-meta-panel [asset]="asset" [showComments]="false" />
 
 @if (isWaveform()) {
   <div class="special-section">
@@ -83,9 +331,11 @@
   </div>
 }
 
-@if (asset.AssetType === 'EnvironmentScene' && asset.ToolHierarchyData) {
-  <div class="special-section">
-    <div class="simx-section-heading">Tool Visualization</div>
+@if (asset.ToolHierarchyData) {
+  <div class="special-section" [class.tool-inspector-section]="isAuthoredEnvironment()">
+    @if (!isAuthoredEnvironment()) {
+      <div class="simx-section-heading">Tool Visualization</div>
+    }
     <app-tool-visualization [asset]="asset" />
   </div>
 }
@@ -158,7 +408,106 @@
   </div>
 }
 
-@if (isToolLike()) {
+@if (placedVessels().length) {
+  <div class="ref-section">
+    <div class="simx-section-heading">Vessels</div>
+    <div class="placed-tool-list">
+      @for (group of placedVessels(); track group.AssetKey) {
+        <div class="placed-tool">
+          <div class="placed-tool-row">
+            @if (placedToolIsLinked(group)) {
+              <a
+                class="assoc-link placed-tool-name"
+                [title]="group.AssetKey"
+                (click)="openAsset(group.AssetId)"
+              >{{ placedVesselName(group) }}</a>
+            } @else {
+              <span
+                class="placed-tool-name"
+                [class.missing]="!isLocalVessel(group)"
+                [title]="
+                  isLocalVessel(group)
+                    ? group.AssetKey
+                    : 'No vessel row exists for this addressable'
+                "
+              >{{ placedVesselName(group) }}</span>
+            }
+
+            @if (group.Kind === 'custom-vessel') {
+              <span
+                class="vessel-library-badge"
+                [class.shared]="group.SharedLibrary"
+                [class.inline]="!group.SharedLibrary"
+              >
+                {{ group.SharedLibrary ? 'Shared vessel' : 'Local vessel' }}
+              </span>
+            }
+
+            @if (!isLocalVessel(group)) {
+              @if (soleInstance(group); as only) {
+                @if (only.ToolId) {
+                  <button
+                    type="button"
+                    class="tool-instance-id"
+                    title="Copy tool id"
+                    (click)="copy(only.ToolId)"
+                  >{{ only.ToolId }}</button>
+                }
+                @if (only.ParentToolId) {
+                  <span class="tool-instance-parent">in {{ only.ParentToolId }}</span>
+                }
+              } @else {
+                <button
+                  type="button"
+                  class="placed-tool-qty"
+                  [attr.aria-expanded]="isPlacedToolOpen(group)"
+                  [title]="
+                    isPlacedToolOpen(group)
+                      ? 'Hide the individual tool ids'
+                      : 'Show the individual tool ids'
+                  "
+                  (click)="togglePlacedTool(group)"
+                >
+                  <i
+                    class="pi qty-caret"
+                    [class.pi-chevron-right]="!isPlacedToolOpen(group)"
+                    [class.pi-chevron-down]="isPlacedToolOpen(group)"
+                    aria-hidden="true"
+                  ></i>
+                  &times;{{ group.Count }}
+                </button>
+              }
+            }
+          </div>
+
+          @if (!isLocalVessel(group) && !soleInstance(group) && isPlacedToolOpen(group)) {
+            <ul class="tool-instance-list">
+              @for (inst of group.Instances; track $index) {
+                <li class="tool-instance">
+                  @if (inst.ToolId) {
+                    <button
+                      type="button"
+                      class="tool-instance-id"
+                      title="Copy tool id"
+                      (click)="copy(inst.ToolId)"
+                    >{{ inst.ToolId }}</button>
+                  } @else {
+                    <span class="tool-instance-id">Unnamed instance</span>
+                  }
+                  @if (inst.ParentToolId) {
+                    <span class="tool-instance-parent">in {{ inst.ParentToolId }}</span>
+                  }
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      }
+    </div>
+  </div>
+}
+
+@if (showCompatibleEquipment()) {
   <div class="ref-section">
     <div class="simx-section-heading">Compatible Equipment</div>
     @if (compatibleEquipment().length) {
@@ -196,34 +545,19 @@
         </td>
       </tr>
     } @else if (!isMediaKey(key)) {
-      <tr [class.row-collapsed]="state.isPropCollapsed(key)">
-        <td
-          class="prop-key"
-          [class.collapsed]="state.isPropCollapsed(key)"
-          title="Click to collapse / expand"
-          (click)="state.togglePropKey(key)"
-        >
-          <i
-            class="pi prop-caret"
-            [class.pi-chevron-right]="state.isPropCollapsed(key)"
-            [class.pi-chevron-down]="!state.isPropCollapsed(key)"
-            aria-hidden="true"
-          ></i>
-          <span class="prop-key-label">{{ key }}</span>
+      <tr>
+        <td class="prop-key" [title]="key">
+          <span class="prop-key-label">{{ keyLabel(key) }}</span>
           @if (isPrimitive(asset.Data![key])) {
             <button
               class="prop-copy"
               title="Copy value"
-              (click)="$event.stopPropagation(); copyPropertyValue(asset.Data![key])"
+              (click)="copyPropertyValue(asset.Data![key])"
             ><i class="pi pi-copy" aria-hidden="true"></i></button>
           }
         </td>
         <td class="prop-val">
-          @if (state.isPropCollapsed(key)) {
-            <span class="prop-collapsed-hint" (click)="state.togglePropKey(key)">…</span>
-          } @else {
-            <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
-          }
+          <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
         </td>
       </tr>
     }
@@ -309,3 +643,35 @@
     }
   </div>
 }
+
+@if (advancedKeys().length) {
+  <div class="advanced-props">
+    <button
+      type="button"
+      class="advanced-toggle"
+      [attr.aria-expanded]="advancedOpen()"
+      (click)="toggleAdvanced()"
+    >
+      <i
+        class="pi advanced-caret"
+        [class.pi-chevron-right]="!advancedOpen()"
+        [class.pi-chevron-down]="advancedOpen()"
+        aria-hidden="true"
+      ></i>
+      Advanced ({{ advancedKeys().length }})
+    </button>
+    @if (advancedOpen()) {
+      <ul class="advanced-list">
+        @for (key of advancedKeys(); track key) {
+          <li class="advanced-item">
+            <span class="advanced-key" [title]="key">{{ keyLabel(key) }}</span>
+            <span class="advanced-val">
+              <app-value-renderer [value]="asset.Data![key]" [propertyKey]="key" />
+            </span>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+}
+</div>

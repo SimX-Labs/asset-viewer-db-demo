@@ -1,72 +1,100 @@
 :host {
-  display: flex;
+  display: block;
   flex-shrink: 0;
-  min-height: 0;
+  min-width: 0;
 }
 
-.pinned-panel {
-  width: var(--pinned-width);
-  background: var(--bg-pinned);
-  border-right: 1px solid var(--border);
+.pinned-tabs {
   display: flex;
-  flex-direction: column;
-  min-height: 0;
-  overflow-y: auto;
+  align-items: stretch;
+  min-height: var(--view-toolbar-height);
+  background: var(--simx-clinical-indigo);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.pinned-header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  flex-shrink: 0;
-  padding: var(--space-4) var(--space-4) var(--space-3);
-  font-family: var(--font-graphic);
-  font-weight: 600;
-  font-size: var(--text-caption);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-label);
-  background: var(--bg-pinned);
-  border-bottom: 1px solid var(--border);
-}
-
-.pinned-item {
-  padding: var(--space-3) var(--space-4);
-  cursor: pointer;
-  font-size: var(--text-copy);
+.pinned-tab-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-2);
-  border-bottom: 1px solid var(--border-light);
+  align-items: stretch;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.pinned-chip {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 220px;
+  background: transparent;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
   transition: background 0.15s;
 
-  span:first-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  &:hover {
+    background: rgba(0, 124, 192, 0.2);
   }
 
-  &:hover {
-    background: var(--bg-hover);
+  &.active {
+    background: var(--tab-active-bg);
   }
+}
+
+.pinned-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 0 4px 0 var(--space-3);
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-graphic);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+
+  i.pi-star-fill {
+    flex-shrink: 0;
+    font-size: 9px;
+    color: var(--simx-red);
+  }
+
+  .pinned-chip.active & {
+    color: var(--text-main);
+  }
+
+  .pinned-chip:hover:not(.active) & {
+    color: var(--text-on-dark);
+  }
+}
+
+.pinned-tab-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .unpin-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: none;
+  flex-shrink: 0;
+  width: 18px;
+  height: auto;
+  margin-right: 8px;
+  padding: 0;
   border: none;
-  color: var(--text-muted);
-  font-size: 12px;
+  background: none;
+  color: inherit;
+  opacity: 0.5;
+  font-size: 9px;
   line-height: 1;
   cursor: pointer;
-  padding: 0 var(--space-1);
-  flex-shrink: 0;
-  transition: color 0.15s;
+  transition: opacity 0.15s, color 0.15s;
+
+  .pinned-chip.active & {
+    color: var(--text-muted);
+  }
 
   &:hover {
+    opacity: 1;
     color: var(--error);
   }
 }

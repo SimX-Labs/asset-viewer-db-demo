@@ -1,8 +1,4 @@
-export interface DboEnvelope {
-  data: {
-    value: Record<string, DboAsset[]>;
-  };
-}
+import { DataSource } from './data-source';
 
 export interface DboAsset {
   AssetId: string;
@@ -13,6 +9,8 @@ export interface DboAsset {
   Tags?: string[];
   _Category?: string;
   _File?: string;
+  /** Scrape origin for this row (client, shared library, API/DB, …). */
+  _Source?: DataSource;
   ToolHierarchyData?: ToolHierarchy;
 }
 
@@ -23,8 +21,12 @@ export interface ToolHierarchy {
 export interface ToolNode {
   ToolId: string;
   Position?: { x: number; y: number; z: number };
+  Rotation?: { x: number; y: number; z: number };
   Asset: unknown;
   Children?: ToolNode[];
+  /** Authored-environment custom-vessel shell metadata. */
+  PlacementKind?: 'tool' | 'custom-vessel';
+  SharedLibrary?: boolean;
   _SceneAssetId?: string;
   _ParentToolId?: string | null;
 }
@@ -65,13 +67,3 @@ export interface TabState {
 
 export type MessageMode = 'package' | 'address';
 export type ThemePreference = 'system' | 'light' | 'dark';
-
-export const DEFAULT_DBO_FILES = [
-  'DBO_Tools.json',
-  'DBO_Authoring.json',
-  'DBO_Cases.json',
-  'DBO_Characters.json',
-  'DBO_Dialog.json',
-  'DBO_Other.json',
-  'DBO_Scenes.json',
-];

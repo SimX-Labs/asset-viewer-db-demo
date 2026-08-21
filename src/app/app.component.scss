@@ -10,13 +10,23 @@
   min-height: 0;
 }
 
+.main-shell {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
 .main-container {
   display: flex;
   flex: 1;
   min-height: 0;
   overflow: hidden;
   background: var(--bg-app);
-  opacity: 0.3;
+  /* Dim while loading; the coverage overlay sits as a sibling so its spinner
+     stays full-opacity (parent opacity would mute children). */
+  opacity: 0.35;
   transition: opacity 0.3s;
   pointer-events: none;
 
@@ -37,14 +47,17 @@
   flex: 1;
   justify-content: stretch;
   min-height: 0;
-  opacity: 0.3;
   overflow: hidden;
-  pointer-events: none;
   position: relative;
 
+  /* Do not opacity-dim this host: the coverage widget is a child and would
+     inherit the fade. The coverage's own backdrop handles the mute. */
   &.loaded {
-    opacity: 1;
     pointer-events: all;
+  }
+
+  &:not(.loaded) {
+    pointer-events: none;
   }
 }
 
@@ -65,4 +78,20 @@
   min-width: 0;
   position: relative;
   z-index: 1;
+}
+
+.browser-pane {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: calc(var(--sidebar-width) + var(--list-width));
+  min-height: 0;
+  background: var(--bg-main);
+}
+
+.browser-columns {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
 }

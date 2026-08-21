@@ -2,15 +2,34 @@ import { Component, inject, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DboAsset, MetadataObject } from '../../models/dbo.models';
+import { resolveOrbitCaptureKey } from '../../models/custom-vessel.util';
 import { AppStateService } from '../../services/app-state.service';
 import { DboDataService } from '../../services/dbo-data.service';
 import { copyToClipboard } from '../../utils/property.util';
+import { humanizeKey } from '../../utils/key-label.util';
+import {
+  DataSource,
+  dataSourceHint,
+  dataSourceLabel,
+  sourceForUnityAsset,
+} from '../../models/data-source';
 import { ValueRendererComponent } from '../value-renderer/value-renderer.component';
 import { ProcedureGraphComponent } from '../procedure-graph/procedure-graph.component';
 import { ToolVisualizationComponent } from '../tool-visualization/tool-visualization.component';
 import { OrbitViewerService } from '../../orbit-capture/services/orbit-viewer.service';
+import { OrbitModelControlsService } from '../../orbit-capture/services/orbit-model-controls.service';
 import { OrbitInlineViewerComponent } from '../../orbit-capture/components/orbit-inline-viewer/orbit-inline-viewer.component';
 import { WaveformChartComponent } from '../waveform-chart/waveform-chart.component';
+import { AssetMetaPanelComponent } from '../asset-meta-panel/asset-meta-panel.component';
+import { AssetMetaService } from '../../services/asset-meta.service';
+import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
+import { hasGitAuthorship } from '../../utils/git-authorship-view.util';
+import { mergeTagLists } from '../../utils/tag-filter.util';
+
+interface DisplayTag {
+  label: string;
+  source: 'native' | 'meta';
+}
 
 interface EquipmentInteraction {
   Interaction?: { AssetId: string };
@@ -18,6 +37,62 @@ interface EquipmentInteraction {
   AvailableIn?: string[];
   Assets?: { AssetId: string }[];
 }
+
+interface VesselContainerGroup {
+  State?: string;
+  Tools?: { AssetId: string }[];
+}
+
+/** One placed copy of a tool in an authored environment layout. */
+interface PlacedToolInstance {
+  ToolId?: string;
+  ParentToolId?: string;
+  PositionData?: {
+    worldPosition?: { x: number; y: number; z: number };
+    worldRotation?: { x: number; y: number; z: number };
+  };
+}
+
+interface PlacedToolGroup {
+  AssetId?: string;
+  AssetKey: string;
+  Kind?: 'tool' | 'custom-vessel';
+  CustomVesselKey?: string;
+  SharedLibrary?: boolean;
+  Count: number;
+  Instances: PlacedToolInstance[];
+}
+
+/** Export bookkeeping that is rarely useful — collapsed under Advanced, not the prop table. */
+const ADVANCED_DATA_KEYS = new Set([
+  'SourceFile',
+  'RootToolEntryCount',
+  'AuthoringToolVersion',
+]);
+
+/** Data keys rendered in dedicated custom-vessel sections (not the prop table). */
+const CUSTOM_VESSEL_SECTION_KEYS = new Set([
+  'BaseEmptyVessel',
+  'ContainedTools',
+  'Containers',
+  'Customization',
+]);
+
+/** Data keys rendered by the inline video player (not the prop table). */
+const VIDEO_SECTION_KEYS = new Set(['VideoUrl', 'PosterUrl']);
+
+/** Data keys rendered by the inline audio player (not the prop table). */
+const AUDIO_SECTION_KEYS = new Set(['AudioUrl']);
+
+/** Data keys rendered by the git authorship summary (not the prop table). */
+const GIT_AUTHORSHIP_KEYS = new Set([
+  'CreatedBy',
+  'CreatedOn',
+  'LastUpdatedBy',
+  'LastUpdatedOn',
+  'Contributors',
+  'ContributorOtherCommits',
+]);
 
 @Component({
   selector: 'app-asset-detail',
@@ -30,21 +105,38 @@ interface EquipmentInteraction {
     ToolVisualizationComponent,
     OrbitInlineViewerComponent,
     WaveformChartComponent,
+    AssetMetaPanelComponent,
   ],
   templateUrl: './asset-detail.component.html',
   styleUrl: './asset-detail.component.scss',
+  host: {
+    '[class.edit-mode]': 'isEditing()',
+  },
+  // Own the selection for this asset's inline viewer so an open orbit modal,
+  // which resolves the root instance, cannot overwrite it.
+  providers: [OrbitModelControlsService],
 })
 export class AssetDetailComponent {
   @Input({ required: true }) asset!: DboAsset;
 
   readonly state = inject(AppStateService);
   readonly orbitViewer = inject(OrbitViewerService);
+  readonly modelControls = inject(OrbitModelControlsService);
   private readonly dboData = inject(DboDataService);
+  private readonly assetMeta = inject(AssetMetaService);
+  private readonly tagTaxonomy = inject(TagTaxonomyService);
 
   readonly metaSearch = signal('');
+  readonly addingTag = signal(false);
+  readonly tagDraft = signal('');
+  readonly tagError = signal<string | null>(null);
+  /** Whether the contained-tool list follows the open containers or lists everything. */
+  readonly containedToolScope = signal<'open' | 'all'>('open');
   readonly expandedMeta = signal<Record<string, boolean>>({});
   readonly expandedMetaItems = signal<Record<string, boolean>>({});
   readonly expandedOptions = signal<Record<string, boolean>>({});
+  readonly advancedOpen = signal(false);
+  readonly expandedPlacedTools = signal<Record<string, boolean>>({});
 
   readonly objectKeys = Object.keys;
 
@@ -75,21 +167,257 @@ export class AssetDetailComponent {
     const isEquip = this.isEquipment();
     const isToolLike = this.isToolLike();
     const isWave = this.isWaveform();
+    const isCustomVessel = this.isCustomVessel();
+    const isVideo = this.isVideo();
+    const isAudio = this.isAudio();
+    // The Vessels section covers grouped placements; hide the raw tool link list too.
+    const hasPlacements = this.placedTools().length > 0;
     return Object.keys(this.asset.Data).filter(
       (k) =>
         !(this.asset.AssetType === 'Procedure' && k === 'StateMap') &&
         k !== 'MetadataObjects' &&
+        k !== 'ToolHierarchy' &&
         // Chart section renders the point array; keep the table free of a huge list.
         !(isWave && k === 'DataPoints') &&
         // Equipment renders these in dedicated Compatible Characters / Compatible Tools sections.
         !(isEquip && (k === 'CompatibleCharacters' || k === 'Interactions')) &&
         // Tools render Compatible Equipment in a dedicated section.
-        !(isToolLike && k === 'CompatibleEquipment')
+        // Equipment is tool-like for orbit viewing but has no reverse-compat list.
+        !(isToolLike && !isEquip && k === 'CompatibleEquipment') &&
+        // Custom vessels render composition beside the inline model.
+        !(isCustomVessel && CUSTOM_VESSEL_SECTION_KEYS.has(k)) &&
+        !(isVideo && VIDEO_SECTION_KEYS.has(k)) &&
+        !(isAudio && AUDIO_SECTION_KEYS.has(k)) &&
+        !(hasGitAuthorship(this.asset) && GIT_AUTHORSHIP_KEYS.has(k)) &&
+        !(hasPlacements && (k === 'PlacedTools' || k === 'Tools')) &&
+        !ADVANCED_DATA_KEYS.has(k),
     );
+  }
+
+  advancedKeys(): string[] {
+    if (!this.asset.Data) return [];
+    return Object.keys(this.asset.Data).filter((k) => ADVANCED_DATA_KEYS.has(k));
+  }
+
+  toggleAdvanced(): void {
+    this.advancedOpen.set(!this.advancedOpen());
+  }
+
+  keyLabel(key: string): string {
+    return humanizeKey(key);
+  }
+
+  sourceId(): DataSource {
+    return this.asset._Source ?? sourceForUnityAsset(this.asset);
+  }
+
+  sourceLabel(): string {
+    return dataSourceLabel(this.sourceId());
+  }
+
+  sourceHint(): string {
+    return dataSourceHint(this.sourceId());
+  }
+
+  canEditTags(): boolean {
+    return this.assetMeta.canEditMeta();
+  }
+
+  nativeTags(): string[] {
+    return this.asset.Tags ?? [];
+  }
+
+  metaTags(): string[] {
+    void this.assetMeta.drafts();
+    return this.assetMeta.tagsFor(this.asset.AssetId);
+  }
+
+  isEditing(): boolean {
+    return this.assetMeta.isDirty(this.asset.AssetId);
+  }
+
+  savingEdits(): boolean {
+    return this.assetMeta.savingDraft();
+  }
+
+  editError(): string | null {
+    return this.assetMeta.draftError() ?? this.tagError();
+  }
+
+  displayTags(): DisplayTag[] {
+    const native = this.nativeTags();
+    const nativeLower = new Set(native.map((t) => t.toLowerCase()));
+    const meta = this.metaTags().filter((t) => !nativeLower.has(t.toLowerCase()));
+    return [
+      ...native.map((label) => ({ label, source: 'native' as const })),
+      ...meta.map((label) => ({ label, source: 'meta' as const })),
+    ];
+  }
+
+  showTagsRow(): boolean {
+    return this.displayTags().length > 0 || this.canEditTags();
+  }
+
+  tagSuggestions(): string[] {
+    const cat = this.asset._Category || this.asset.AssetType;
+    const used = new Set(this.displayTags().map((t) => t.label.toLowerCase()));
+    return this.tagTaxonomy
+      .tagsAvailableForAssetType(cat)
+      .map((t) => t.label)
+      .filter((label) => label && !used.has(label.toLowerCase()));
+  }
+
+  startAddTag(): void {
+    if (!this.canEditTags() || this.savingEdits()) return;
+    this.tagError.set(null);
+    this.tagDraft.set('');
+    this.addingTag.set(true);
+  }
+
+  cancelAddTag(): void {
+    this.tagDraft.set('');
+    this.addingTag.set(false);
+  }
+
+  async commitTagDraft(): Promise<void> {
+    if (!this.addingTag()) return;
+    const label = this.tagDraft().trim();
+    this.addingTag.set(false);
+    this.tagDraft.set('');
+    if (label) await this.addMetaTag(label);
+  }
+
+  async addMetaTag(label: string): Promise<void> {
+    const canonical = this.canonicalTagLabel(label);
+    if (!canonical || this.hasTag(canonical)) return;
+    await this.tagTaxonomy.ensureAuthoredTags([canonical]);
+    await this.saveMetaTags(mergeTagLists(this.metaTags(), [canonical]));
+  }
+
+  async removeMetaTag(label: string): Promise<void> {
+    const next = this.metaTags().filter((t) => t.toLowerCase() !== label.trim().toLowerCase());
+    await this.saveMetaTags(next);
+  }
+
+  private hasTag(label: string): boolean {
+    const lower = label.toLowerCase();
+    return this.displayTags().some((t) => t.label.toLowerCase() === lower);
+  }
+
+  private canonicalTagLabel(raw: string): string {
+    const trimmed = raw.trim();
+    if (!trimmed) return '';
+    const lower = trimmed.toLowerCase();
+    const match = this.tagTaxonomy
+      .tags()
+      .find((t) => t.label.trim().toLowerCase() === lower);
+    return match?.label ?? trimmed;
+  }
+
+  private metaSnapshot() {
+    return {
+      assetKey: String(this.asset.Data?.['AssetKey'] ?? ''),
+      type: this.asset.AssetType,
+      name: this.asset.AssetName,
+    };
+  }
+
+  private saveMetaTags(tags: string[]): void {
+    if (!this.canEditTags() || this.savingEdits()) return;
+    this.tagError.set(null);
+    this.assetMeta.setDraftTags(this.asset.AssetId, tags);
+  }
+
+  async saveEdits(): Promise<void> {
+    if (!this.canEditTags() || this.savingEdits() || !this.isEditing()) return;
+    this.tagError.set(null);
+    try {
+      await this.assetMeta.commitDraft(this.asset.AssetId, this.metaSnapshot());
+      this.cancelAddTag();
+    } catch {
+      /* draftError is set by the service */
+    }
+  }
+
+  async discardEdits(): Promise<void> {
+    if (this.savingEdits()) return;
+    this.tagError.set(null);
+    this.cancelAddTag();
+    await this.assetMeta.discardDraft(this.asset.AssetId);
   }
 
   isEquipment(): boolean {
     return this.asset.AssetType === 'Equipment';
+  }
+
+  isAuthoredEnvironment(): boolean {
+    return (
+      this.asset.AssetType === 'Authored Environment' ||
+      this.asset._Category === 'Authored Environments'
+    );
+  }
+
+  placedTools(): PlacedToolGroup[] {
+    const list = this.asset.Data?.['PlacedTools'];
+    return Array.isArray(list) ? (list as PlacedToolGroup[]) : [];
+  }
+
+  /** Custom vessels and empty-vessel prefabs — ordinary tools stay in the overhead map. */
+  placedVessels(): PlacedToolGroup[] {
+    return this.placedTools().filter((group) => this.isVesselGroup(group));
+  }
+
+  placedToolTotal(): number {
+    return this.placedTools().reduce((sum, g) => sum + (g.Count ?? 0), 0);
+  }
+
+  isLocalVessel(group: PlacedToolGroup): boolean {
+    return group.Kind === 'custom-vessel' && !group.SharedLibrary;
+  }
+
+  /** Placements can point at addressables with no tool row (unexported prefabs). */
+  placedToolIsLinked(group: PlacedToolGroup): boolean {
+    return !!group.AssetId && !!this.state.assetMap()[group.AssetId];
+  }
+
+  placedVesselName(group: PlacedToolGroup): string {
+    if (this.isLocalVessel(group)) {
+      const inst = this.soleInstance(group) ?? group.Instances?.[0];
+      if (inst?.ToolId) return inst.ToolId;
+    }
+    const asset = group.AssetId ? this.state.assetMap()[group.AssetId] : null;
+    return asset?.AssetName ?? group.AssetKey;
+  }
+
+  private isVesselGroup(group: PlacedToolGroup): boolean {
+    if (group.Kind === 'custom-vessel') return true;
+    const asset = group.AssetId ? this.state.assetMap()[group.AssetId] : null;
+    if (!asset) return false;
+    return (
+      asset.AssetType === 'Empty Vessel' ||
+      asset.AssetType === 'Custom Vessel' ||
+      asset._Category === 'Vessels'
+    );
+  }
+
+  /** A lone placement shows its runtime id inline instead of a quantity. */
+  soleInstance(group: PlacedToolGroup): PlacedToolInstance | null {
+    return group.Count === 1 ? group.Instances?.[0] ?? null : null;
+  }
+
+  isPlacedToolOpen(group: PlacedToolGroup): boolean {
+    return !!this.expandedPlacedTools()[group.AssetKey];
+  }
+
+  togglePlacedTool(group: PlacedToolGroup): void {
+    const current = { ...this.expandedPlacedTools() };
+    current[group.AssetKey] = !current[group.AssetKey];
+    this.expandedPlacedTools.set(current);
+  }
+
+  openAsset(assetId: string | undefined): void {
+    if (!assetId || !this.state.assetMap()[assetId]) return;
+    this.state.openAssetTab(assetId, false);
   }
 
   isWaveform(): boolean {
@@ -109,7 +437,96 @@ export class AssetDetailComponent {
   }
 
   isToolLike(): boolean {
-    return ['Tool', 'Kit', 'Group', 'Vessel', 'Scene'].includes(this.asset.AssetType);
+    return [
+      'Tool',
+      'Kit',
+      'Group',
+      'Vessel',
+      'Empty Vessel',
+      'Custom Vessel',
+      'Scene',
+      'Equipment',
+    ].includes(this.asset.AssetType);
+  }
+
+  /** Inverse of Compatible Tools: which equipment lists this tool as a provider. */
+  showCompatibleEquipment(): boolean {
+    return this.isToolLike() && !this.isEquipment();
+  }
+
+  isCustomVessel(): boolean {
+    return (
+      this.asset.AssetType === 'Custom Vessel' ||
+      this.asset.Data?.['VesselType'] === 'custom'
+    );
+  }
+
+  baseEmptyVessel(): { AssetId: string } | null {
+    const ref = this.asset.Data?.['BaseEmptyVessel'];
+    if (ref && typeof ref === 'object' && 'AssetId' in (ref as object)) {
+      return ref as { AssetId: string };
+    }
+    return null;
+  }
+
+  vesselContainedTools(): { AssetId: string }[] {
+    const list = this.asset.Data?.['ContainedTools'];
+    return Array.isArray(list) ? (list as { AssetId: string }[]) : [];
+  }
+
+  vesselContainers(): VesselContainerGroup[] {
+    const list = this.asset.Data?.['Containers'];
+    return Array.isArray(list) ? (list as VesselContainerGroup[]) : [];
+  }
+
+  vesselCustomization(): unknown[] {
+    const list = this.asset.Data?.['Customization'];
+    return Array.isArray(list) ? list : [];
+  }
+
+  showInlineModelControls(): boolean {
+    return this.showInlineModel() && this.modelControls.hasControls();
+  }
+
+  /** Contained tools sit beside the container controls; otherwise they need their own block. */
+  showCustomVesselComposition(): boolean {
+    if (!this.isCustomVessel()) return false;
+    if (this.vesselCustomization().length) return true;
+    return this.vesselContainedTools().length > 0 && !this.showInlineModelControls();
+  }
+
+  /** Scoping tools to open containers only means something when the model has container toggles. */
+  toolScopeToggleAvailable(): boolean {
+    return (
+      this.showInlineModelControls() &&
+      this.modelControls.containerOptions().length > 0 &&
+      this.vesselContainers().length > 0
+    );
+  }
+
+  toggleContainedToolScope(): void {
+    this.containedToolScope.set(this.containedToolScope() === 'open' ? 'all' : 'open');
+  }
+
+  /**
+   * Tools in the containers that are currently open, or every contained tool. Container states
+   * come from the DB row and match the manifest container ids the viewer toggles.
+   */
+  visibleContainedTools(): { AssetId: string }[] {
+    const all = this.vesselContainedTools();
+    if (!this.toolScopeToggleAvailable() || this.containedToolScope() === 'all') return all;
+
+    const seen = new Set<string>();
+    const open: { AssetId: string }[] = [];
+    for (const group of this.vesselContainers()) {
+      if (!this.modelControls.isContainerOpen(group.State ?? '')) continue;
+      for (const tool of group.Tools ?? []) {
+        if (!tool?.AssetId || seen.has(tool.AssetId)) continue;
+        seen.add(tool.AssetId);
+        open.push(tool);
+      }
+    }
+    return open;
   }
 
   compatibleCharacters(): { AssetId: string }[] {
@@ -181,8 +598,7 @@ export class AssetDetailComponent {
   }
 
   interactionSenders(): { AssetId: string }[] {
-    const tools = this.dboData.getCategoryItems(this.state.rawData(), 'Tools');
-    return tools
+    return this.toolCategoryItems()
       .filter((tool) => {
         const senders = tool.Data?.['InteractionSenders'] as { AssetId: string }[] | undefined;
         return senders?.some((s) => s.AssetId === this.asset.AssetId);
@@ -213,8 +629,7 @@ export class AssetDetailComponent {
       if (equip?.some((r) => r.AssetId === this.asset.AssetId)) hasRef = true;
       if (hasRef) receivers.push({ AssetId: proc.AssetId });
     }
-    const tools = this.dboData.getCategoryItems(this.state.rawData(), 'Tools');
-    for (const tool of tools) {
+    for (const tool of this.toolCategoryItems()) {
       const rec = tool.Data?.['InteractionReceivers'] as { AssetId: string }[] | undefined;
       if (rec?.some((r) => r.AssetId === this.asset.AssetId)) {
         receivers.push({ AssetId: tool.AssetId });
@@ -223,24 +638,72 @@ export class AssetDetailComponent {
     return receivers;
   }
 
+  /** DBO catalog rows used Tools; Unity lumps tools/kits/groups under Tooling. */
+  private toolCategoryItems(): DboAsset[] {
+    const raw = this.state.rawData();
+    return [
+      ...this.dboData.getCategoryItems(raw, 'Tools'),
+      ...this.dboData.getCategoryItems(raw, 'Tooling'),
+    ];
+  }
+
   openWebGL(): void {
     this.state.openWebGLView(this.asset.AssetId);
   }
 
-  /** The tool's addressable, used to locate its orbit-capture subfolder. */
+  isVideo(): boolean {
+    return this.asset._Category === 'Videos';
+  }
+
+  videoUrl(): string | null {
+    const val = this.asset.Data?.['VideoUrl'];
+    return typeof val === 'string' && val ? val : null;
+  }
+
+  videoPosterUrl(): string | null {
+    const val = this.asset.Data?.['PosterUrl'];
+    return typeof val === 'string' && val ? val : null;
+  }
+
+  videoLoops(): boolean {
+    return this.asset.Data?.['Loop'] === true;
+  }
+
+  showInlineVideo(): boolean {
+    return this.isVideo() && (!!this.videoUrl() || !!this.videoPosterUrl());
+  }
+
+  playInlineVideo(event: Event): void {
+    const el = event.target as HTMLVideoElement | null;
+    if (!el) return;
+    void el.play();
+  }
+
+  isAudio(): boolean {
+    return this.asset._Category === 'Audio';
+  }
+
+  audioUrl(): string | null {
+    const val = this.asset.Data?.['AudioUrl'];
+    return typeof val === 'string' && val ? val : null;
+  }
+
+  showInlineAudio(): boolean {
+    return this.isAudio() && !!this.audioUrl();
+  }
+
+  /** Capture folder key — flat OrbitCaptureKey for custom vessels, else addressable. */
   orbitAddressable(): string | null {
-    // DBO mode stores it as AssetAddress; Unity mode maps it to AssetKey.
-    const addr = this.asset.Data?.['AssetAddress'] ?? this.asset.Data?.['AssetKey'];
-    return typeof addr === 'string' && addr.trim() ? addr.trim() : null;
+    return resolveOrbitCaptureKey(this.asset.Data);
   }
 
   canViewOrbit(): boolean {
     return this.isToolLike() && !!this.orbitAddressable();
   }
 
-  /** Inline (Wikipedia-style) GLB embed shown for Unity tool assets. */
+  /** Inline (Wikipedia-style) GLB embed shown for tool assets. */
   showInlineModel(): boolean {
-    return this.state.dataMode() === 'unity' && this.canViewOrbit();
+    return this.canViewOrbit();
   }
 
   async openOrbit(): Promise<void> {
