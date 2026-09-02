@@ -8,6 +8,7 @@ import { AssetMetaService } from '../../services/asset-meta.service';
 import { OrbitOpenButtonComponent } from '../../orbit-capture/components/orbit-open-button/orbit-open-button.component';
 import { OrbitCaptureLoaderService } from '../../orbit-capture/services/orbit-capture-loader.service';
 import { environment } from '../../environment';
+import { localFolderDataEnabled } from '../../utils/runtime-host.util';
 
 @Component({
   selector: 'app-top-bar',
@@ -27,6 +28,7 @@ import { environment } from '../../environment';
         <span class="status" [class.error]="state.statusError()">{{ state.statusMessage() }}</span>
       </div>
       <div class="top-bar-actions">
+        <!-- Localhost: switches the API models folder. Hosted: picks a local folder. -->
         <app-orbit-open-button />
         <button
           class="header-btn"
@@ -86,30 +88,31 @@ import { environment } from '../../environment';
           </button>
           @if (showSettings()) {
             <div class="dropdown-panel dropdown-panel--wide dropdown-panel--scroll">
-              <div class="dropdown-title">Local data</div>
-              <button
-                type="button"
-                class="dropdown-action"
-                (click)="viewLocalData()"
-              >
-                View Local Data…
-              </button>
-              <p class="dropdown-hint">
-                Select the unzipped folder that contains <code>db/</code> and
-                <code>assets/</code>. Chrome or Edge required.
-              </p>
-              <button
-                type="button"
-                class="dropdown-action dropdown-action--secondary"
-                (click)="folderInput.click()"
-              >
-                Load db folder only…
-              </button>
-              <p class="dropdown-hint">
-                Catalog without 3D captures. Defaults to the linked Unity asset
-                DB on local startup.
-              </p>
-              <hr />
+              @if (localFolderEnabled) {
+                <div class="dropdown-title">Local data</div>
+                <button
+                  type="button"
+                  class="dropdown-action"
+                  (click)="viewLocalData()"
+                >
+                  View Local Data…
+                </button>
+                <p class="dropdown-hint">
+                  Select the unzipped folder that contains <code>db/</code> and
+                  <code>assets/</code>. Chrome or Edge required.
+                </p>
+                <button
+                  type="button"
+                  class="dropdown-action dropdown-action--secondary"
+                  (click)="folderInput.click()"
+                >
+                  Load db folder only…
+                </button>
+                <p class="dropdown-hint">
+                  Catalog without 3D captures. Used on the hosted empty viewer.
+                </p>
+                <hr />
+              }
               <div class="dropdown-title">Tags</div>
               <button
                 class="dropdown-action"
@@ -215,6 +218,8 @@ export class TopBarComponent {
   readonly showSettings = signal(false);
   readonly showFiles = signal(false);
   readonly authEnabled = environment.authEnabled;
+  /** Folder-picker packs are hosted-only; localhost uses the API. */
+  readonly localFolderEnabled = localFolderDataEnabled();
 
   openTags(): void {
     if (this.tagTaxonomy.pageOpen()) {
@@ -225,6 +230,7 @@ export class TopBarComponent {
   }
 
   async viewLocalData(): Promise<void> {
+    if (!this.localFolderEnabled) return;
     if (!this.orbitLoader.supportsDirectoryPicker) {
       this.state.statusMessage.set(
         'View Local Data needs Chrome or Edge (folder picker).',
@@ -247,6 +253,7 @@ export class TopBarComponent {
   }
 
   async onFolderSelected(event: Event): Promise<void> {
+    if (!this.localFolderEnabled) return;
     const input = event.target as HTMLInputElement;
     if (!input.files?.length) return;
     await this.state.loadUnityDbFolder(input.files);

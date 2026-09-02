@@ -18,6 +18,8 @@
 
 export type UnityRowType =
   | 'character'
+  | 'BodyTexture'
+  | 'OverlayTexture'
   | 'equipment'
   | 'tool'
   | 'clothing'
@@ -99,6 +101,40 @@ export interface UnityCharacter {
   interactions?: UnityInteractionRef[];
   availableEquipment: string[];
   availableClothing: string[];
+  /** Unique BodyTexture ids from this prefab's TextureStateController. */
+  bodyTextureIds?: string[];
+  /** Unique OverlayTexture ids from overlay / global overlay / Unity decalTextures. */
+  overlayTextureIds?: string[];
+  /** BodyTexture used in the most baseTexture slots. Null when there is no controller. */
+  defaultBodyTextureId?: string | null;
+}
+
+/** Albedo assigned as a base on a character TextureStateController. */
+export interface UnityBodyTexture {
+  id: string;
+  type: 'BodyTexture';
+  category?: 'character';
+  name: string;
+  assetKey: string;
+  guid: string;
+  texturePath?: string | null;
+  isDefault?: boolean;
+  characterIds?: string[];
+  tags?: string[];
+}
+
+/** Albedo used as an overlay on a character TextureStateController. */
+export interface UnityOverlayTexture {
+  id: string;
+  type: 'OverlayTexture';
+  category?: 'character';
+  name: string;
+  assetKey: string;
+  guid: string;
+  texturePath?: string | null;
+  baseTextureIds?: string[];
+  characterIds?: string[];
+  tags?: string[];
 }
 
 export interface UnityEquipment {
@@ -473,6 +509,9 @@ export interface UnityDbBundle {
   /** Sidecar keyed by row id; omitted when git-authorship.json is absent. */
   gitAuthorship?: Record<string, UnityGitAuthorship>;
   characters: UnityCharacter[];
+  /** Optional so a bundle generated before body-texture scrape still loads. */
+  bodyTextures?: UnityBodyTexture[];
+  overlayTextures?: UnityOverlayTexture[];
   equipment: UnityEquipment[];
   tools: UnityTool[];
   interactions: UnityInteractionRow[];
@@ -496,6 +535,9 @@ export interface UnityDbIndex {
     counts?: Record<string, number>;
   };
   characters: string[];
+  /** Optional so an index.json generated before body-texture scrape still loads. */
+  bodyTextures?: string[];
+  overlayTextures?: string[];
   equipment: string[];
   tools: string[];
   interactions: string[];
@@ -590,6 +632,15 @@ export const UNITY_SUBCATEGORY_DEFS: Record<string, UnitySubcategoryDef> = {
     fallback: 'ultrasound',
     options: [
       { key: 'ultrasound', name: 'Ultrasound Videos' },
+    ],
+  },
+  Characters: {
+    field: 'CharacterKind',
+    fallback: 'character',
+    options: [
+      { key: 'character', name: 'Characters' },
+      { key: 'body-texture', name: 'Body Textures' },
+      { key: 'overlay-texture', name: 'Overlay Textures' },
     ],
   },
 };

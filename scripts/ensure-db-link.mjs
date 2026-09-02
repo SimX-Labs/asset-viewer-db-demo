@@ -61,6 +61,8 @@ function writeEmptyIndex(dir) {
       generatedAt: new Date().toISOString(),
       counts: {
         characters: 0,
+        bodyTextures: 0,
+        overlayTextures: 0,
         equipment: 0,
         tools: 0,
         interactions: 0,
@@ -72,6 +74,8 @@ function writeEmptyIndex(dir) {
       },
     },
     characters: [],
+    bodyTextures: [],
+    overlayTextures: [],
     equipment: [],
     tools: [],
     interactions: [],

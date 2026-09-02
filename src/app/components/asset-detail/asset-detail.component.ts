@@ -25,6 +25,7 @@ import { AssetMetaService } from '../../services/asset-meta.service';
 import { TagTaxonomyService } from '../../services/tag-taxonomy.service';
 import { hasGitAuthorship } from '../../utils/git-authorship-view.util';
 import { mergeTagLists } from '../../utils/tag-filter.util';
+import { ImageLightboxComponent } from '../image-lightbox/image-lightbox.component';
 
 interface DisplayTag {
   label: string;
@@ -84,6 +85,9 @@ const VIDEO_SECTION_KEYS = new Set(['VideoUrl', 'PosterUrl']);
 /** Data keys rendered by the inline audio player (not the prop table). */
 const AUDIO_SECTION_KEYS = new Set(['AudioUrl']);
 
+/** Data keys rendered by the inline body-texture / overlay-texture preview. */
+const TEXTURE_SECTION_KEYS = new Set(['TextureUrl', 'OrbitCaptureKey']);
+
 /** Data keys rendered by the git authorship summary (not the prop table). */
 const GIT_AUTHORSHIP_KEYS = new Set([
   'CreatedBy',
@@ -106,6 +110,7 @@ const GIT_AUTHORSHIP_KEYS = new Set([
     OrbitInlineViewerComponent,
     WaveformChartComponent,
     AssetMetaPanelComponent,
+    ImageLightboxComponent,
   ],
   templateUrl: './asset-detail.component.html',
   styleUrl: './asset-detail.component.scss',
@@ -137,6 +142,9 @@ export class AssetDetailComponent {
   readonly expandedOptions = signal<Record<string, boolean>>({});
   readonly advancedOpen = signal(false);
   readonly expandedPlacedTools = signal<Record<string, boolean>>({});
+  readonly textureLightboxOpen = signal(false);
+  /** Hide a broken preview without wiping TextureUrl for the next asset. */
+  readonly textureFailedUrl = signal<string | null>(null);
 
   readonly objectKeys = Object.keys;
 
@@ -170,6 +178,7 @@ export class AssetDetailComponent {
     const isCustomVessel = this.isCustomVessel();
     const isVideo = this.isVideo();
     const isAudio = this.isAudio();
+    const isTexture = this.isCharacterTexture();
     // The Vessels section covers grouped placements; hide the raw tool link list too.
     const hasPlacements = this.placedTools().length > 0;
     return Object.keys(this.asset.Data).filter(
@@ -188,6 +197,8 @@ export class AssetDetailComponent {
         !(isCustomVessel && CUSTOM_VESSEL_SECTION_KEYS.has(k)) &&
         !(isVideo && VIDEO_SECTION_KEYS.has(k)) &&
         !(isAudio && AUDIO_SECTION_KEYS.has(k)) &&
+        !(isTexture && TEXTURE_SECTION_KEYS.has(k)) &&
+        k !== 'CharacterKind' &&
         !(hasGitAuthorship(this.asset) && GIT_AUTHORSHIP_KEYS.has(k)) &&
         !(hasPlacements && (k === 'PlacedTools' || k === 'Tools')) &&
         !ADVANCED_DATA_KEYS.has(k),
@@ -449,6 +460,16 @@ export class AssetDetailComponent {
     ].includes(this.asset.AssetType);
   }
 
+  /** Characters, body textures, and overlays share the orbit GLB viewer with tools. */
+  isCharacterModelAsset(): boolean {
+    const kind = this.asset.Data?.['CharacterKind'];
+    return kind === 'character' || kind === 'body-texture' || kind === 'overlay-texture';
+  }
+
+  isOrbitModelAsset(): boolean {
+    return this.isToolLike() || this.isCharacterModelAsset();
+  }
+
   /** Inverse of Compatible Tools: which equipment lists this tool as a provider. */
   showCompatibleEquipment(): boolean {
     return this.isToolLike() && !this.isEquipment();
@@ -692,13 +713,42 @@ export class AssetDetailComponent {
     return this.isAudio() && !!this.audioUrl();
   }
 
+  isCharacterTexture(): boolean {
+    const kind = this.asset.Data?.['CharacterKind'];
+    return kind === 'body-texture' || kind === 'overlay-texture';
+  }
+
+  textureUrl(): string | null {
+    const val = this.asset.Data?.['TextureUrl'];
+    return typeof val === 'string' && val ? val : null;
+  }
+
+  showInlineTexture(): boolean {
+    const url = this.textureUrl();
+    return this.isCharacterTexture() && !!url && this.textureFailedUrl() !== url;
+  }
+
+  onTextureError(): void {
+    this.textureFailedUrl.set(this.textureUrl());
+    this.textureLightboxOpen.set(false);
+  }
+
+  openTextureLightbox(): void {
+    if (!this.showInlineTexture()) return;
+    this.textureLightboxOpen.set(true);
+  }
+
+  closeTextureLightbox(): void {
+    this.textureLightboxOpen.set(false);
+  }
+
   /** Capture folder key — flat OrbitCaptureKey for custom vessels, else addressable. */
   orbitAddressable(): string | null {
     return resolveOrbitCaptureKey(this.asset.Data);
   }
 
   canViewOrbit(): boolean {
-    return this.isToolLike() && !!this.orbitAddressable();
+    return this.isOrbitModelAsset() && !!this.orbitAddressable();
   }
 
   /** Inline (Wikipedia-style) GLB embed shown for tool assets. */

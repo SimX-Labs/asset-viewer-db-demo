@@ -7,6 +7,7 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
+  effect,
   inject,
   signal,
 } from '@angular/core';
@@ -16,6 +17,7 @@ import { OrbitViewerService } from '../../services/orbit-viewer.service';
 import { OrbitHttpCaptureService } from '../../services/orbit-http-capture.service';
 import { OrbitSessionState } from '../../services/orbit-session-state';
 import { OrbitTurntableComponent } from '../orbit-turntable/orbit-turntable.component';
+import { localFolderDataEnabled } from '../../../utils/runtime-host.util';
 
 type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
 
@@ -30,6 +32,11 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
   selector: 'app-orbit-inline-viewer',
   standalone: true,
   imports: [CommonModule, OrbitTurntableComponent],
+  host: {
+    // Parent layouts key off this (not inner .model-infobox) so encapsulation
+    // still sees whether a capture actually rendered.
+    '[class.has-infobox]': 'status() !== "none" || diagnostic',
+  },
   template: `
     @if (status() !== 'none' || diagnostic) {
       <figure
@@ -80,6 +87,7 @@ type InlineStatus = 'idle' | 'loading' | 'ready' | 'blocked' | 'none';
       .model-infobox {
         position: relative;
         width: 100%;
+        height: 100%;
         aspect-ratio: 1 / 1;
         margin: 0;
         padding: 0;
@@ -154,6 +162,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   private readonly http = inject(OrbitHttpCaptureService);
   private readonly session = inject(OrbitSessionState);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private lastRootRevision = 0;
 
   readonly status = signal<InlineStatus>('none');
   /** Why the viewer is not showing a model; surfaced when `diagnostic` is set. */
@@ -163,6 +172,15 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
   readonly expandedStyle = signal<Record<string, string> | null>(null);
 
   private panelRo?: ResizeObserver;
+
+  constructor() {
+    effect(() => {
+      const rev = this.http.rootRevision();
+      if (rev === this.lastRootRevision) return;
+      this.lastRootRevision = rev;
+      if (this.addressable) void this.resolve();
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['addressable']) {
@@ -231,9 +249,11 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    // A locally linked folder wins when it is already readable; otherwise fall
-    // back to HTTP, which is the only option inside cross-origin iframes.
+    // Hosted empty viewer: a picked folder wins when it is already readable.
+    // Localhost always uses HTTP so a stale IndexedDB handle cannot shadow the
+    // API manifests (container / tool-state toggles live there).
     const localReady =
+      localFolderDataEnabled() &&
       this.viewer.supported &&
       this.viewer.hasRoot &&
       (await this.viewer.isRootReadable());
@@ -248,7 +268,7 @@ export class OrbitInlineViewerComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    if (this.viewer.hasRoot) {
+    if (localFolderDataEnabled() && this.viewer.hasRoot) {
       // Folder set but not yet readable this session — offer a one-click grant.
       this.reason.set('Grant access to the models folder.');
       this.status.set('blocked');

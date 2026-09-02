@@ -71,6 +71,8 @@ const index = {
     generatedAt: new Date().toISOString(),
   },
   characters: listJson('characters'),
+  bodyTextures: listJson('body-textures'),
+  overlayTextures: listJson('overlay-textures'),
   equipment: listJson('equipment'),
   tools: listJson('tools'),
   interactions: listJson('interactions'),
@@ -94,6 +96,8 @@ const index = {
 
 index.meta.counts = {
   characters: index.characters.length,
+  bodyTextures: index.bodyTextures.length,
+  overlayTextures: index.overlayTextures.length,
   equipment: index.equipment.length,
   tools: index.tools.length,
   interactions: index.interactions.length,

@@ -7,6 +7,7 @@ import {
   parseBirdsEyeProjection,
 } from '../models/birdseye-projection';
 import { OrbitCaptureLoaderService } from './orbit-capture-loader.service';
+import { localFolderDataEnabled } from '../../utils/runtime-host.util';
 
 const IDB_NAME = 'orbit-viewer';
 const IDB_STORE = 'handles';
@@ -44,7 +45,7 @@ export class OrbitViewerService {
   private rootHandle?: FileSystemDirectoryHandle;
 
   constructor() {
-    void this.restoreRoot();
+    if (localFolderDataEnabled()) void this.restoreRoot();
   }
 
   get supported(): boolean {
@@ -57,6 +58,7 @@ export class OrbitViewerService {
 
   /** Prompt the user to choose the root folder that holds addressable subfolders. */
   async setRootFolder(): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.error.set(null);
     try {
       const dir = await this.loader.showDirectoryPicker();
@@ -75,6 +77,7 @@ export class OrbitViewerService {
     dir: FileSystemDirectoryHandle,
     options?: { openBrowser?: boolean },
   ): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.rootHandle = dir;
     this.rootName.set(dir.name);
     await this.persistRoot(dir);
@@ -219,6 +222,7 @@ export class OrbitViewerService {
 
   /** Manual single-folder open (the folder that directly contains manifest.json). */
   async openSingleFolder(): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.error.set(null);
     this.busy.set(true);
     try {
@@ -234,6 +238,7 @@ export class OrbitViewerService {
 
   /** Open from a webkitdirectory <input> file list (Firefox/Safari fallback). */
   async openFromFileList(list: FileList | File[]): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.error.set(null);
     this.busy.set(true);
     try {

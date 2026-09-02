@@ -12,6 +12,8 @@ import {
   UNITY_VIRTUAL_FILE,
   UnityAudio,
   UnityAuthoredEnvironment,
+  UnityOverlayTexture,
+  UnityBodyTexture,
   UnityCharacter,
   UnityClothing,
   UnityDbBundle,
@@ -32,6 +34,10 @@ import {
 } from '../models/unity-asset.models';
 import { TAG_TAXONOMY_FILE } from '../models/tag.models';
 import { adaptVesselToolFields } from '../models/custom-vessel.util';
+import {
+  bodyTextureOrbitCaptureKey,
+  overlayTextureOrbitCaptureKey,
+} from '../models/character-orbit.util';
 import { sourceForUnityAsset } from '../models/data-source';
 import { formatGitIdentity } from '../utils/git-identity.util';
 import { normalizeAssetMetaRecord } from '../models/asset-meta.models';
@@ -39,6 +45,7 @@ import {
   collectDirectoryFiles,
   indexDbFiles,
 } from '../utils/local-data-pack.util';
+import { unityClientTextureUrl } from '../utils/unity-texture-url.util';
 
 const FETCH_BATCH_SIZE = 48;
 
@@ -98,9 +105,11 @@ export class UnityDataService {
       ),
     ).catch(() => ({ byAssetId: {} } as UnityGitAuthorshipFile));
 
-    const [characters, equipment, tools, interactions, environments, authoredEnvironments, audio, videos, clothing, medications, waveforms, scenarios, characterMetadata, toolMetadata] =
+    const [characters, bodyTextures, overlayTextures, equipment, tools, interactions, environments, authoredEnvironments, audio, videos, clothing, medications, waveforms, scenarios, characterMetadata, toolMetadata] =
       await Promise.all([
         this.fetchJsonFiles<UnityCharacter>(base, index.characters),
+        this.fetchJsonFiles<UnityBodyTexture>(base, index.bodyTextures ?? []),
+        this.fetchJsonFiles<UnityOverlayTexture>(base, index.overlayTextures ?? []),
         this.fetchJsonFiles<UnityEquipment>(base, index.equipment),
         this.fetchJsonFiles<UnityTool>(base, index.tools),
         this.fetchJsonFiles<UnityInteractionRow>(base, index.interactions ?? []),
@@ -143,6 +152,8 @@ export class UnityDataService {
         generatedAt: index.meta?.generatedAt,
         counts: {
           characters: characters.length,
+          bodyTextures: bodyTextures.length,
+          overlayTextures: overlayTextures.length,
           equipment: equipment.length,
           tools: tools.length,
           interactions: interactions.length,
@@ -160,6 +171,8 @@ export class UnityDataService {
       },
       gitAuthorship: gitFile?.byAssetId ?? {},
       characters,
+      bodyTextures,
+      overlayTextures,
       equipment,
       tools,
       interactions,
@@ -249,6 +262,8 @@ export class UnityDataService {
       meta: { source: 'folder', generatedAt: new Date().toISOString() },
       gitAuthorship: gitFile.byAssetId ?? {},
       characters: await readDir<UnityCharacter>('characters'),
+      bodyTextures: await readDir<UnityBodyTexture>('body-textures'),
+      overlayTextures: await readDir<UnityOverlayTexture>('overlay-textures'),
       equipment: await readDir<UnityEquipment>('equipment'),
       tools: await readDir<UnityTool>('tools'),
       interactions: await readDir<UnityInteractionRow>('interactions'),
@@ -359,6 +374,12 @@ export class UnityDataService {
 
     for (const c of bundle.characters ?? []) {
       push('Characters', this.adaptCharacter(c, reverse));
+    }
+    for (const t of bundle.bodyTextures ?? []) {
+      push('Characters', this.adaptBodyTexture(t));
+    }
+    for (const d of bundle.overlayTextures ?? []) {
+      push('Characters', this.adaptOverlayTexture(d));
     }
     for (const e of bundle.equipment ?? []) {
       push('Equipment', this.adaptEquipment(e, reverse));
@@ -698,6 +719,8 @@ export class UnityDataService {
 
   private adaptCharacter(c: UnityCharacter, reverse: ReverseIndex): DboAsset {
     const data: Record<string, unknown> = {
+      // Drives the Characters sidebar accordion (see UNITY_SUBCATEGORY_DEFS).
+      CharacterKind: 'character',
       AssetKey: c.assetKey,
       GroupFolder: c.groupFolder,
       IsVariant: c.isVariant,
@@ -720,6 +743,15 @@ export class UnityDataService {
     data['AvailableEquipment'] = this.toRefs(c.availableEquipment);
     data['AvailableClothing'] = this.toRefs(c.availableClothing);
 
+    const defaultTex = c.defaultBodyTextureId ?? null;
+    if (defaultTex) data['DefaultBodyTexture'] = { AssetId: defaultTex };
+    const textureIds = [...(c.bodyTextureIds ?? [])];
+    if (defaultTex) {
+      textureIds.sort((a, b) => (a === defaultTex ? -1 : b === defaultTex ? 1 : 0));
+    }
+    if (textureIds.length) data['BodyTextures'] = this.toRefs(textureIds);
+    if (c.overlayTextureIds?.length) data['OverlayTextures'] = this.toRefs(c.overlayTextureIds);
+
     const usedInScenarios = reverse.scenariosByCharacterId[c.id];
     if (usedInScenarios?.length) data['UsedInScenarios'] = this.toRefs(usedInScenarios);
 
@@ -730,6 +762,56 @@ export class UnityDataService {
       AssetType: c.isVariant ? 'Character (variant)' : 'Character',
       Data: data,
       Tags: tags,
+      _Category: 'Characters',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+  }
+
+  private adaptBodyTexture(t: UnityBodyTexture): DboAsset {
+    const data: Record<string, unknown> = {
+      CharacterKind: 'body-texture',
+    };
+    if (t.assetKey) data['AssetKey'] = t.assetKey;
+    if (t.guid) data['Guid'] = t.guid;
+    if (t.texturePath) data['TexturePath'] = t.texturePath;
+    data['IsDefault'] = !!t.isDefault;
+    if (t.characterIds?.length) data['Characters'] = this.toRefs(t.characterIds);
+    const textureUrl = unityClientTextureUrl(t.texturePath);
+    if (textureUrl) data['TextureUrl'] = textureUrl;
+    const orbitKey = bodyTextureOrbitCaptureKey(t.guid);
+    if (orbitKey) data['OrbitCaptureKey'] = orbitKey;
+
+    return {
+      AssetId: t.id,
+      AssetName: t.name || t.assetKey || t.id,
+      AssetType: t.isDefault ? 'Body Texture (default)' : 'Body Texture',
+      Data: data,
+      Tags: this.normalizeTags(t.tags),
+      _Category: 'Characters',
+      _File: UNITY_VIRTUAL_FILE,
+    };
+  }
+
+  private adaptOverlayTexture(d: UnityOverlayTexture): DboAsset {
+    const data: Record<string, unknown> = {
+      CharacterKind: 'overlay-texture',
+    };
+    if (d.assetKey) data['AssetKey'] = d.assetKey;
+    if (d.guid) data['Guid'] = d.guid;
+    if (d.texturePath) data['TexturePath'] = d.texturePath;
+    if (d.characterIds?.length) data['Characters'] = this.toRefs(d.characterIds);
+    if (d.baseTextureIds?.length) data['BaseTextures'] = this.toRefs(d.baseTextureIds);
+    const textureUrl = unityClientTextureUrl(d.texturePath);
+    if (textureUrl) data['TextureUrl'] = textureUrl;
+    const orbitKey = overlayTextureOrbitCaptureKey(d.guid);
+    if (orbitKey) data['OrbitCaptureKey'] = orbitKey;
+
+    return {
+      AssetId: d.id,
+      AssetName: d.name || d.assetKey || d.id,
+      AssetType: 'Overlay Texture',
+      Data: data,
+      Tags: this.normalizeTags(d.tags),
       _Category: 'Characters',
       _File: UNITY_VIRTUAL_FILE,
     };

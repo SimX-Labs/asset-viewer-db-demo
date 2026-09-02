@@ -207,6 +207,36 @@ describe('AppStateService tag filters', () => {
     expect(state.filteredListItems().map((i) => i.AssetId)).toEqual(['adult']);
   });
 
+  it('reads accordion subcategory from CharacterKind', () => {
+    expect(
+      state.subcategoryForAsset({
+        AssetId: 'tex-1',
+        AssetName: 'Skin',
+        AssetType: 'Body Texture',
+        Data: { CharacterKind: 'body-texture' },
+        _Category: 'Characters',
+      }),
+    ).toBe('body-texture');
+    expect(
+      state.subcategoryForAsset({
+        AssetId: 'char-1',
+        AssetName: 'Patient',
+        AssetType: 'Character',
+        Data: {},
+        _Category: 'Characters',
+      }),
+    ).toBe('character');
+    expect(
+      state.subcategoryForAsset({
+        AssetId: 'med-1',
+        AssetName: 'Vial',
+        AssetType: 'Medication',
+        Data: {},
+        _Category: 'Medications',
+      }),
+    ).toBeNull();
+  });
+
   it('matches overlay tags from asset meta', () => {
     TestBed.inject(AssetMetaService).records.set({
       scalpel: {

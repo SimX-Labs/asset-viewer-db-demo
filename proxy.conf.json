@@ -2,5 +2,9 @@
   "/db/meta": {
     "target": "http://localhost:4301",
     "secure": false
+  },
+  "/unity-client": {
+    "target": "http://localhost:4301",
+    "secure": false
   }
 }

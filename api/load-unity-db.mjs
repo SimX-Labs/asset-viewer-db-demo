@@ -46,6 +46,8 @@ export function loadUnityDbFromDir(dbRoot) {
       generatedAt: new Date().toISOString(),
     },
     characters: readDir('characters'),
+    bodyTextures: readDir('body-textures'),
+    overlayTextures: readDir('overlay-textures'),
     equipment: readDir('equipment'),
     tools: readDir('tools'),
     interactions: readDir('interactions'),
@@ -63,6 +65,8 @@ export function loadUnityDbFromDir(dbRoot) {
 
   bundle.meta.counts = {
     characters: bundle.characters.length,
+    bodyTextures: bundle.bodyTextures.length,
+    overlayTextures: bundle.overlayTextures.length,
     equipment: bundle.equipment.length,
     tools: bundle.tools.length,
     interactions: bundle.interactions.length,

@@ -11,10 +11,13 @@
  *   GET/PUT /tag-taxonomy       → full taxonomy file
  *   GET/PUT/DELETE /asset-meta… → curated overlay (status, notes, tags, comments, media)
  *   GET  /asset-image/:id       → 501
+ *   GET  /unity-client/*        → albedo files from UNITY_CLIENT_ROOT (Assets/ only)
+ *   GET  /models-index          → published orbit capture keys
+ *   GET/PUT /models-root        → current orbit folder; remount with { dir }
  *   GET  /system/health
  *
  * Supported assetType values: "tool" (Unity kind===tool), "equipment",
- * "interaction", "medication", "waveform", "scenario", "environment",
+ * "interaction", "character", "medication", "waveform", "scenario", "environment",
  * "authored-environment", "audio", "video".
  */
 
@@ -23,7 +26,6 @@ import express from 'express';
 import multer from 'multer';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadUnityDbFromDir } from './load-unity-db.mjs';
 import { createTagTaxonomyStore } from './tag-taxonomy.mjs';
 import { createAssetMetaStore } from './asset-meta.mjs';
@@ -35,6 +37,7 @@ import {
   listUnityVideos,
   listUnityAuthoredEnvironments,
   listUnityEnvironments,
+  listUnityCharacters,
   listUnityEquipment,
   listUnityInteractions,
   listUnityMedications,
@@ -45,6 +48,7 @@ import {
   mapUnityVideoToLibraryAsset,
   mapUnityAuthoredEnvironmentToLibraryAsset,
   mapUnityEnvironmentToLibraryAsset,
+  mapUnityCharacterToLibraryAsset,
   mapUnityEquipmentToLibraryAsset,
   mapUnityInteractionToLibraryAsset,
   mapUnityMedicationToLibraryAsset,
@@ -55,10 +59,14 @@ import {
 } from './unity-mapper.mjs';
 import {
   DEFAULT_UNITY_ASSET_DB_DIR,
+  DEFAULT_UNITY_CLIENT_ROOT,
+  FALLBACK_ORBIT_CAPTURES_DIR,
+  orbitCaptureSuggestions,
   resolveDbRoot,
+  resolveOrbitCapturesDir,
+  resolveUnityClientRoot,
 } from '../scripts/resolve-db-root.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4301);
 const DB_DIR = resolveDbRoot();
 if (!process.env.UNITY_ASSET_DB_DIR) {
@@ -70,14 +78,31 @@ if (!process.env.UNITY_ASSET_DB_DIR) {
  * Orbit Capture exports: one subfolder per addressable key, each holding
  * manifest.json + model.glb. Served over HTTP so embedded viewers (iframes)
  * can render models without the File System Access API.
+ *
+ * Default prefers the sibling unity-env-authoring EXPORT when it exists;
+ * public/models is an older copy that is missing newer client captures.
+ * PUT /models-root remounts for this process.
  */
-const ORBIT_DIR =
-  process.env.ORBIT_CAPTURES_DIR || path.resolve(__dirname, '../public/models');
+let orbitDir = resolveOrbitCapturesDir();
+if (!process.env.ORBIT_CAPTURES_DIR) {
+  console.log(`ORBIT_CAPTURES_DIR unset; using ${orbitDir}`);
+}
+/**
+ * Unity client checkout. BodyTexture / OverlayTexture previews resolve
+ * texturePath against this tree (no copies under db/).
+ */
+const UNITY_CLIENT_ROOT = resolveUnityClientRoot();
+if (!process.env.UNITY_CLIENT_ROOT) {
+  console.log(
+    `UNITY_CLIENT_ROOT unset; using default ${DEFAULT_UNITY_CLIENT_ROOT}`,
+  );
+}
 
 console.log(`Loading Unity asset DB from ${DB_DIR}…`);
 const bundle = loadUnityDbFromDir(DB_DIR);
 const tools = listUnityTools(bundle);
 const equipment = listUnityEquipment(bundle);
+const characters = listUnityCharacters(bundle);
 const interactions = listUnityInteractions(bundle);
 const medications = listUnityMedications(bundle);
 const waveforms = listUnityWaveforms(bundle);
@@ -89,7 +114,7 @@ const videos = listUnityVideos(bundle);
 /** All tool-catalog rows (tool/kit/group/vessel) for interaction FK resolution. */
 const toolCatalog = (bundle.tools ?? []).filter((t) => t?.id);
 console.log(
-  `Loaded ${tools.length} tools (kind=tool|vessel), ${equipment.length} equipment, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios, ${environments.length} environments, ${authoredEnvironments.length} authored environments, ${audio.length} audio clips, ${videos.length} videos.`,
+  `Loaded ${tools.length} tools (kind=tool|vessel), ${equipment.length} equipment, ${characters.length} characters, ${interactions.length} interactions, ${medications.length} medications, ${waveforms.length} waveforms, ${scenarios.length} scenarios, ${environments.length} environments, ${authoredEnvironments.length} authored environments, ${audio.length} audio clips, ${videos.length} videos.`,
 );
 console.table(bundle.meta?.counts ?? {});
 
@@ -130,6 +155,70 @@ function listOrbitCaptureKeys(dir) {
   }
 }
 
+/** @param {string} dir */
+function countSubdirectories(dir) {
+  try {
+    return fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory()).length;
+  } catch {
+    return 0;
+  }
+}
+
+/** @param {string} a @param {string} b */
+function sameFsPath(a, b) {
+  return path.resolve(a).toLowerCase() === path.resolve(b).toLowerCase();
+}
+
+function createModelsStatic(dir) {
+  return express.static(dir, {
+    fallthrough: false,
+    index: false,
+    setHeaders: (res, filePath) => {
+      if (filePath.toLowerCase().endsWith('.glb')) {
+        res.setHeader('Content-Type', 'model/gltf-binary');
+      }
+    },
+  });
+}
+
+function describeOrbitRoot() {
+  const suggestions = orbitCaptureSuggestions().map((s) => {
+    let exists = false;
+    try {
+      exists = fs.existsSync(s.dir) && fs.statSync(s.dir).isDirectory();
+    } catch {
+      exists = false;
+    }
+    return {
+      ...s,
+      exists,
+      count: exists ? countSubdirectories(s.dir) : 0,
+      current: sameFsPath(s.dir, orbitDir),
+    };
+  });
+  const usingStaleCopy = sameFsPath(orbitDir, FALLBACK_ORBIT_CAPTURES_DIR);
+  const exportSuggestion = suggestions.find((s) => s.id === 'export');
+  return {
+    dir: orbitDir,
+    count: orbitKeys.length,
+    usingStaleCopy,
+    staleHint:
+      usingStaleCopy && exportSuggestion?.exists
+        ? 'This is a stale copy in the viewer repo. Tools were copied here; newer character / body / overlay captures live in the Unity env-authoring export.'
+        : null,
+    suggestions,
+  };
+}
+
+/** @param {string} dir */
+function applyOrbitDir(dir) {
+  orbitDir = path.resolve(dir);
+  orbitKeys = listOrbitCaptureKeys(orbitDir);
+  serveModels = createModelsStatic(orbitDir);
+}
+
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
@@ -138,16 +227,41 @@ app.get('/system/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-const orbitKeys = listOrbitCaptureKeys(ORBIT_DIR);
+let orbitKeys = listOrbitCaptureKeys(orbitDir);
+let serveModels = createModelsStatic(orbitDir);
 console.log(
   orbitKeys.length
-    ? `Serving ${orbitKeys.length} orbit captures from ${ORBIT_DIR} at /models`
-    : `No orbit captures found at ${ORBIT_DIR} (set ORBIT_CAPTURES_DIR).`,
+    ? `Serving ${orbitKeys.length} orbit captures from ${orbitDir} at /models`
+    : `No orbit captures found at ${orbitDir} (set ORBIT_CAPTURES_DIR or use PUT /models-root).`,
 );
 
 /** Available capture keys, so clients can tell "no model" from "not configured". */
 app.get('/models-index', (_req, res) => {
-  res.json({ count: orbitKeys.length, keys: orbitKeys });
+  res.json({ count: orbitKeys.length, keys: orbitKeys, dir: orbitDir });
+});
+
+app.get('/models-root', (_req, res) => {
+  res.json(describeOrbitRoot());
+});
+
+app.put('/models-root', auth.requireAuth, (req, res) => {
+  const dir = typeof req.body?.dir === 'string' ? req.body.dir.trim() : '';
+  if (!dir) {
+    return res.status(400).json({ message: 'dir is required.' });
+  }
+  const resolved = path.resolve(dir);
+  try {
+    if (!fs.existsSync(resolved) || !fs.statSync(resolved).isDirectory()) {
+      return res.status(400).json({ message: `Not a directory: ${resolved}` });
+    }
+  } catch (e) {
+    return res.status(400).json({ message: e.message ?? `Cannot read ${resolved}` });
+  }
+  applyOrbitDir(resolved);
+  console.log(
+    `Orbit captures remounted: ${orbitKeys.length} from ${orbitDir}`,
+  );
+  res.json(describeOrbitRoot());
 });
 
 app.use(
@@ -158,18 +272,33 @@ app.use(
   }),
 );
 
-app.use(
-  '/models',
-  express.static(ORBIT_DIR, {
-    fallthrough: false,
-    index: false,
-    setHeaders: (res, filePath) => {
-      if (filePath.toLowerCase().endsWith('.glb')) {
-        res.setHeader('Content-Type', 'model/gltf-binary');
-      }
-    },
-  }),
-);
+app.use('/models', (req, res, next) => serveModels(req, res, next));
+
+const unityClientRootResolved = path.resolve(UNITY_CLIENT_ROOT);
+if (fs.existsSync(unityClientRootResolved)) {
+  console.log(
+    `Serving Unity client textures from ${unityClientRootResolved} at /unity-client`,
+  );
+} else {
+  console.log(
+    `Unity client not found at ${unityClientRootResolved} (set UNITY_CLIENT_ROOT for BodyTexture previews).`,
+  );
+}
+
+app.use('/unity-client', (req, res, next) => {
+  const rel = decodeURIComponent(req.path).replace(/^\/+/, '').replace(/\\/g, '/');
+  if (!rel.startsWith('Assets/') || rel.includes('..')) {
+    return res.status(403).json({ message: 'Only Assets/ paths are served.' });
+  }
+  if (!fs.existsSync(unityClientRootResolved)) {
+    return res.status(404).json({ message: 'Unity client root is not configured.' });
+  }
+  next();
+}, express.static(unityClientRootResolved, {
+  fallthrough: false,
+  index: false,
+  dotfiles: 'deny',
+}));
 
 app.get('/tags', (_req, res) => {
   // Prefer curated taxonomy (legacy Asset Library shape). Fall back to
@@ -182,6 +311,7 @@ app.get('/tags', (_req, res) => {
     collectUniqueTags(
       tools,
       equipment,
+      characters,
       interactions,
       medications,
       waveforms,
@@ -433,6 +563,9 @@ app.post('/assets', (req, res) => {
   const equipmentById = new Map(
     equipment.filter((e) => e?.id).map((e) => [e.id, e]),
   );
+  const characterById = new Map(
+    characters.filter((c) => c?.id).map((c) => [c.id, c]),
+  );
   const mapOpts = {
     includeData,
     includeImages,
@@ -440,6 +573,7 @@ app.post('/assets', (req, res) => {
     interactionByLocation,
     toolById,
     equipmentById,
+    characterById,
   };
 
   /** @type {object[]} */
@@ -450,6 +584,7 @@ app.post('/assets', (req, res) => {
     results = [
       ...tools.map((t) => mapUnityToolToLibraryAsset(t, mapOpts)),
       ...equipment.map((e) => mapUnityEquipmentToLibraryAsset(e, mapOpts)),
+      ...characters.map((c) => mapUnityCharacterToLibraryAsset(c, mapOpts)),
       ...interactions.map((i) => mapUnityInteractionToLibraryAsset(i, mapOpts)),
       ...medications.map((m) => mapUnityMedicationToLibraryAsset(m, mapOpts)),
       ...waveforms.map((w) => mapUnityWaveformToLibraryAsset(w, mapOpts)),
@@ -468,6 +603,11 @@ app.post('/assets', (req, res) => {
     if (assetTypes.includes('equipment')) {
       results.push(
         ...equipment.map((e) => mapUnityEquipmentToLibraryAsset(e, mapOpts)),
+      );
+    }
+    if (assetTypes.includes('character')) {
+      results.push(
+        ...characters.map((c) => mapUnityCharacterToLibraryAsset(c, mapOpts)),
       );
     }
     if (assetTypes.includes('interaction')) {

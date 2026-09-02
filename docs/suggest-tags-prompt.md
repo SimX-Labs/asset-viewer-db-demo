@@ -20,7 +20,7 @@ Do not write or edit code. Do not invent scrape rules. Return a suggested tag li
 
 Ground every suggestion in what actually exists. Scan, do not guess:
 
-1. `C:\SimX\unity-asset-documentation\db` — row JSON (`tools/`, `characters/`, `equipment/`, `environments/`, `authored-environments/`, `audio/`, `videos/`, `interactions/`, plus `clothing.json`, `medications.json`, `waveforms.json`, `scenarios.json`, `character-metadata.json`, `tool-metadata.json`). Use `db/index.json` for file lists and counts.
+1. `C:\SimX\unity-asset-documentation\db` — row JSON (`tools/`, `characters/`, `body-textures/`, `overlay-textures/`, `equipment/`, `environments/`, `authored-environments/`, `audio/`, `videos/`, `interactions/`, plus `clothing.json`, `medications.json`, `waveforms.json`, `scenarios.json`, `character-metadata.json`, `tool-metadata.json`). Use `db/index.json` for file lists and counts.
 2. `C:\SimX\unity-client-alt\Assets\SimX` — prefab folder names, addressable groups, and naming conventions (`tool_*`, `character_core_*`, `env_*`, `equipment_*`).
 3. Prefab / addressable folder structure under `Assets/SimX/AssetBundles` (especially Tools, Equipment, Humanoids, Environments) — folder names are a strong signal for Tooling and Equipment facets.
 
@@ -36,7 +36,7 @@ Use these groups and no others. Approximate sizes from the latest scrape are in 
 | **Vessels** | Empty vessel prefabs and authored custom vessels (`kind`: vessel). Split Empty vs Custom in the sidebar. | `empty` / `custom`. |
 | **Audio** | Music and environment SFX clips. Sidebar: Music, Sound Effects, Background Audio (reserved, often empty). ~42. | `music` / `sound-effect` / `background-audio`. |
 | **Videos** | Ultrasound loops. Addressable labels (e.g. `us_abnormal`, `us_canine`) are already stored as tags on rows. ~78. | `ultrasound` as a kind. Do not duplicate existing label tags unless you are proposing a cleaner human label and saying so. |
-| **Characters** | Core character prefabs and their variants (`character_core_*`, including `_pNN` variants). ~127. Variant vs base is already first-class (`isVariant` / AssetType). Scraped: **Core** (all `_core_` keys, including variants). | Age/body from the key is OK to facet if it helps filtering (e.g. Newborn vs Adult), but do not add a “Core Variant” scrape-style tag. |
+| **Characters** | Core character prefabs and their variants (`character_core_*`, including `_pNN` variants). Sidebar also lists **Body Textures** (albedo bases) and **Overlay Textures** (wound overlays) from `TextureStateController` — same category, discriminated by `type`. ~127 characters + ~99 textures + ~115 overlays. Variant vs base is already first-class (`isVariant` / AssetType). Scraped: **Core** (all `_core_` keys, including variants). | Age/body from the key is OK to facet if it helps filtering (e.g. Newborn vs Adult), but do not add a “Core Variant” scrape-style tag. Do not tag “Body Texture” / “Overlay Texture” — those are sidebar subcategories. |
 | **Equipment** | Wearable / attachable character equipment (`equipment_*`, IV sites, monitors, etc.). ~608. | The word “Equipment”. |
 | **Clothing** | Master clothing rows worn by characters. | The word “Clothing”. |
 | **Medications** | Medication database rows (IV bags, vials, syringes, pills, …), not tool prefabs. `medContainer` is already in AssetType. | Container type if it is already in the type string (IVBag, Vial, …) — prefer clinical class / use instead. |

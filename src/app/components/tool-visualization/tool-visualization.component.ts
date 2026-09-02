@@ -35,6 +35,7 @@ import {
 } from './tool-filter.util';
 import { centeredCanvasTextOrigin, clusterCountFontSize } from './canvas-text.util';
 import { isToolEligibleForDatabaseEntry, toolCatalogAssetId } from '../../models/tool-entry.util';
+import { localFolderDataEnabled } from '../../utils/runtime-host.util';
 
 const BIRDS_EYE_ALPHA_KEY = 'assetViewer.birdsEyeAlpha';
 
@@ -967,8 +968,9 @@ export class ToolVisualizationComponent implements AfterViewInit, OnChanges, OnD
     if (!key) return;
 
     const capture =
-      (await this.orbitViewer.loadBirdsEye(key)) ??
-      (await this.orbitHttp.loadBirdsEye(key));
+      (localFolderDataEnabled()
+        ? await this.orbitViewer.loadBirdsEye(key)
+        : null) ?? (await this.orbitHttp.loadBirdsEye(key));
     if (!capture || this.birdsEyeRequestKey !== key) return;
 
     const image = await this.loadImage(capture.imageUrl);

@@ -2,7 +2,7 @@
  * Maps Unity Asset Export rows → Asset Library response shapes used by
  * scenario-creator (AssetLibrary*Interface).
  *
- * Supported today: tools (kind 'tool' or 'vessel'), equipment, interactions, and medications.
+ * Supported today: tools, equipment, characters, interactions, medications, and related catalogs.
  */
 
 /** Asset types the Asset Database PoC can serve today. */
@@ -10,6 +10,7 @@ export const SUPPORTED_LIBRARY_TYPES = Object.freeze([
   'tool',
   'equipment',
   'interaction',
+  'character',
   'medication',
   'waveform',
   'scenario',
@@ -20,8 +21,6 @@ export const SUPPORTED_LIBRARY_TYPES = Object.freeze([
 ]);
 
 const UNSUPPORTED_REASONS = Object.freeze({
-  character:
-    'Character options are not part of the Asset Database PoC yet.',
   settings:
     'Unity Asset Export has no settings/environment-configuration assets.',
 });
@@ -198,7 +197,7 @@ export function vesselFieldsForLibraryAsset(row) {
 /**
  * @param {object} row Unity tool or equipment row
  * @param {'tool' | 'equipment'} assetType
- * @param {{ includeData?: boolean, includeImages?: boolean, interactionById?: Map<string, object>, interactionByLocation?: Map<string, object> }} opts
+ * @param {{ includeData?: boolean, includeImages?: boolean, interactionById?: Map<string, object>, interactionByLocation?: Map<string, object>, characterById?: Map<string, object> }} opts
  */
 function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
   const includeData = opts.includeData !== false;
@@ -239,6 +238,13 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
         ? row.usedInGroupIds.length
         : 0,
     };
+    if (assetType === 'equipment') {
+      data.compatibleCharacters = resolveAssetRefs(
+        row.characterIds,
+        opts.characterById,
+        { keepMissing: true },
+      );
+    }
     Object.assign(data, vesselFieldsForLibraryAsset(row));
     asset.data = data;
   }
@@ -264,6 +270,55 @@ export function mapUnityToolToLibraryAsset(tool, opts = {}) {
  */
 export function mapUnityEquipmentToLibraryAsset(equipment, opts = {}) {
   return mapUnityRowToLibraryAsset(equipment, 'equipment', opts);
+}
+
+/**
+ * @param {object} character Unity character row
+ * @param {{ includeData?: boolean, includeImages?: boolean, interactionById?: Map<string, object>, interactionByLocation?: Map<string, object>, equipmentById?: Map<string, object> }} opts
+ */
+export function mapUnityCharacterToLibraryAsset(character, opts = {}) {
+  const includeData = opts.includeData !== false;
+  const includeImages = !!opts.includeImages;
+
+  /** @type {Record<string, unknown>} */
+  const asset = {
+    assetId: character.assetKey || character.id,
+    assetName: character.name || character.assetKey || character.id,
+    assetType: 'character',
+    dataId: character.id,
+    description: '',
+    prefabName: prefabNameFromPath(
+      character.prefabPath,
+      character.assetKey || character.id,
+    ),
+    tags: normalizeTags(character.tags),
+  };
+
+  if (includeData) {
+    const locations = character.interactionLocations ?? character.interactions ?? [];
+    asset.data = {
+      metadata: [],
+      assetKey: character.assetKey ?? null,
+      prefabPath: character.prefabPath ?? null,
+      baseAddressable: character.baseAddressable ?? null,
+      isVariant: !!character.isVariant,
+      groupFolder: character.groupFolder ?? null,
+      kind: 'character',
+      interactionSenders: [],
+      interactionLocations: resolveInteractionRefs(locations, opts),
+      availableEquipment: resolveAssetRefs(
+        character.availableEquipment,
+        opts.equipmentById,
+        { keepMissing: true },
+      ),
+    };
+  }
+
+  if (includeImages) {
+    asset.images = [];
+  }
+
+  return asset;
 }
 
 /**
@@ -424,16 +479,17 @@ export function collectUniqueTags(...rowLists) {
  * @param {string[] | undefined} ids
  * @param {Map<string, object> | undefined} byId
  */
-function resolveAssetRefs(ids, byId) {
-  if (!Array.isArray(ids) || !byId) return [];
+function resolveAssetRefs(ids, byId, { keepMissing = false } = {}) {
+  if (!Array.isArray(ids)) return [];
   const out = [];
   for (const id of ids) {
-    const row = byId.get(id);
-    if (!row) continue;
+    if (!id) continue;
+    const row = byId?.get(id);
+    if (!row && !keepMissing) continue;
     out.push({
       id,
-      name: row.name || row.assetKey || id,
-      assetKey: row.assetKey ?? null,
+      name: row?.name || row?.assetKey || id,
+      assetKey: row?.assetKey ?? null,
     });
   }
   return out;
@@ -458,6 +514,14 @@ export function listUnityTools(bundle) {
  */
 export function listUnityEquipment(bundle) {
   return (bundle.equipment ?? []).filter((e) => e && e.id);
+}
+
+/**
+ * @param {object} bundle UnityDbBundle
+ * @returns {object[]}
+ */
+export function listUnityCharacters(bundle) {
+  return (bundle.characters ?? []).filter((c) => c && c.id);
 }
 
 /**

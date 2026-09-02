@@ -50,6 +50,7 @@
   [class.has-inline-model]="showInlineModel()"
   [class.has-inline-video]="showInlineVideo()"
   [class.has-inline-audio]="showInlineAudio()"
+  [class.has-inline-texture]="showInlineTexture()"
 >
   <div class="asset-summary-copy">
         <h2 class="asset-title">{{ asset.AssetName }}</h2>
@@ -135,7 +136,7 @@
         }
   </div>
 
-  @if (showInlineModel() || showInlineVideo() || showInlineAudio()) {
+  @if (showInlineModel() || showInlineVideo() || showInlineAudio() || showInlineTexture()) {
     <div class="asset-summary-media">
       @if (showInlineModel()) {
         <app-orbit-inline-viewer [addressable]="orbitAddressable()!" />
@@ -161,6 +162,22 @@
       @if (showInlineAudio()) {
         <div class="inline-audio">
           <audio controls [src]="audioUrl()!"></audio>
+        </div>
+      }
+      @if (showInlineTexture()) {
+        <div class="inline-texture">
+          <button
+            type="button"
+            class="inline-texture-btn"
+            title="Open full-size preview"
+            (click)="openTextureLightbox()"
+          >
+            <img
+              [src]="textureUrl()!"
+              [alt]="asset.AssetName"
+              (error)="onTextureError()"
+            />
+          </button>
         </div>
       }
     </div>
@@ -675,3 +692,11 @@
   </div>
 }
 </div>
+
+@if (textureLightboxOpen() && textureUrl(); as src) {
+  <app-image-lightbox
+    [urls]="[src]"
+    [alt]="asset.AssetName"
+    (close)="closeTextureLightbox()"
+  />
+}

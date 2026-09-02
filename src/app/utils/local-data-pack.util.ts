@@ -13,6 +13,8 @@ const ASSETS_DIR_ALIASES = new Set(['assets', 'models', 'export']);
 
 const DB_TOP_LEVEL_DIRS = new Set([
   'characters',
+  'body-textures',
+  'overlay-textures',
   'equipment',
   'tools',
   'interactions',

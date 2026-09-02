@@ -15,6 +15,9 @@ describe('sourceForCategory', () => {
     expect(sourceForCategory('Audio', 'background-audio')).toBe('client-scrape');
     expect(sourceForCategory('Videos', 'ultrasound')).toBe('client-scrape');
     expect(sourceForCategory('Characters')).toBe('client-scrape');
+    expect(sourceForCategory('Characters', 'character')).toBe('client-scrape');
+    expect(sourceForCategory('Characters', 'body-texture')).toBe('client-scrape');
+    expect(sourceForCategory('Characters', 'overlay-texture')).toBe('client-scrape');
     expect(sourceForCategory('Equipment')).toBe('client-scrape');
     expect(sourceForCategory('Clothing')).toBe('client-scrape');
     expect(sourceForCategory('Environments')).toBe('client-scrape');

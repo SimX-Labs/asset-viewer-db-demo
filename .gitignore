@@ -50,5 +50,8 @@ Thumbs.db
 /public/db
 /db-link
 
+# Orbit Capture GLBs — serve locally from ORBIT_CAPTURES_DIR or public/models
+/public/models
+
 # Legacy consolidated Unity bundle (replaced by linked db/)
 /public/unity-asset-db.json

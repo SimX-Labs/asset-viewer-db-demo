@@ -44,6 +44,8 @@ describe('local-data-pack.util', () => {
 
   it('treats a bare db-tree pick as db content', () => {
     expect(looksLikeDbContentPath('characters/scalpel.json')).toBeTrue();
+    expect(looksLikeDbContentPath('body-textures/skin.json')).toBeTrue();
+    expect(looksLikeDbContentPath('overlay-textures/wound.json')).toBeTrue();
     expect(classifyPackPath('characters/scalpel.json')).toEqual({
       kind: 'db',
       inner: 'characters/scalpel.json',

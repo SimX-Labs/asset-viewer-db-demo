@@ -354,6 +354,135 @@ describe('UnityDataService audio', () => {
   });
 });
 
+describe('UnityDataService body textures', () => {
+  let service: UnityDataService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient()] });
+    service = TestBed.inject(UnityDataService);
+  });
+
+  it('adapts BodyTexture and OverlayTexture rows into the Characters category', () => {
+    const result = service.buildFromText({
+      characters: [
+        {
+          id: 'char-1',
+          type: 'character',
+          name: 'Adult01 P02',
+          assetKey: 'character_core_adult01_p02',
+          baseAddressable: 'character_core_adult01_p02',
+          isVariant: false,
+          isPrimaryInGroup: true,
+          groupFolder: 'character_core_adult01',
+          prefabPath: 'Assets/patient.prefab',
+          interactionLocations: [],
+          availableEquipment: [],
+          availableClothing: [],
+          bodyTextureIds: ['tex-extra', 'tex-default'],
+          overlayTextureIds: ['overlay-1'],
+          defaultBodyTextureId: 'tex-default',
+        },
+      ],
+      bodyTextures: [
+        {
+          id: 'tex-default',
+          type: 'BodyTexture',
+          category: 'character',
+          name: 'Ga Skin Body Diffuse',
+          assetKey: 'Ga_Skin_Body_Diffuse',
+          guid: 'f282e47c4d66acd4aace982d29714b1d',
+          texturePath:
+            'Assets/SimX/AssetBundles/Humanoids/character_adult01/Textures/Ga_Skin_Body_Diffuse.png',
+          isDefault: true,
+          characterIds: ['char-1'],
+          tags: ['Adult'],
+        },
+        {
+          id: 'tex-extra',
+          type: 'BodyTexture',
+          category: 'character',
+          name: 'Pale Skin',
+          assetKey: 'Pale_Skin',
+          guid: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+          texturePath: 'Assets/SimX/pale.psd',
+          isDefault: false,
+          characterIds: ['char-1'],
+          tags: [],
+        },
+      ],
+      overlayTextures: [
+        {
+          id: 'overlay-1',
+          type: 'OverlayTexture',
+          category: 'character',
+          name: 'WP Neck JunctionalWound',
+          assetKey: 'WP_Neck_JunctionalWound_R_Diffuse',
+          guid: '0457152b06e950049aa3237467c0a46b',
+          texturePath:
+            'Assets/SimX/AssetBundles/Humanoids/_Shared Assets/WoundPatterns/WP_Neck_JunctionalWound_R_Diffuse.png',
+          baseTextureIds: ['tex-default'],
+          characterIds: ['char-1'],
+          tags: [],
+        },
+      ],
+      equipment: [],
+      tools: [],
+      interactions: [],
+      environments: [],
+      authoredEnvironments: [],
+      audio: [],
+      clothing: [],
+      medications: [],
+      waveforms: [],
+      scenarios: [],
+      characterMetadata: [],
+      toolMetadata: [],
+    });
+
+    const character = result.assetMap['char-1'];
+    expect(character._Category).toBe('Characters');
+    expect(character.Data['CharacterKind']).toBe('character');
+    expect(character.Data['DefaultBodyTexture']).toEqual({ AssetId: 'tex-default' });
+    expect(character.Data['BodyTextures']).toEqual([
+      { AssetId: 'tex-default' },
+      { AssetId: 'tex-extra' },
+    ]);
+    expect(character.Data['OverlayTextures']).toEqual([{ AssetId: 'overlay-1' }]);
+
+    const tex = result.assetMap['tex-default'];
+    expect(tex._Category).toBe('Characters');
+    expect(tex.AssetType).toBe('Body Texture (default)');
+    expect(tex.Data['CharacterKind']).toBe('body-texture');
+    expect(tex.Data['IsDefault']).toBeTrue();
+    expect(tex.Data['Characters']).toEqual([{ AssetId: 'char-1' }]);
+    expect(tex.Data['OrbitCaptureKey']).toBe(
+      'body_texture_f282e47c4d66acd4aace982d29714b1d',
+    );
+    expect(tex.Data['TextureUrl']).toBe(
+      'http://localhost:4301/unity-client/Assets/SimX/AssetBundles/Humanoids/character_adult01/Textures/Ga_Skin_Body_Diffuse.png',
+    );
+    expect(tex.Tags).toContain('Adult');
+    expect(tex._Source).toBe('client-scrape');
+
+    const extra = result.assetMap['tex-extra'];
+    expect(extra.AssetType).toBe('Body Texture');
+    expect(extra.Data['TextureUrl']).toBeUndefined();
+    expect(extra.Data['OrbitCaptureKey']).toBe(
+      'body_texture_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    );
+
+    const overlay = result.assetMap['overlay-1'];
+    expect(overlay.AssetType).toBe('Overlay Texture');
+    expect(overlay.Data['CharacterKind']).toBe('overlay-texture');
+    expect(overlay.Data['BaseTextures']).toEqual([{ AssetId: 'tex-default' }]);
+    expect(overlay.Data['Characters']).toEqual([{ AssetId: 'char-1' }]);
+    expect(overlay.Data['OrbitCaptureKey']).toBe(
+      'overlay_texture_0457152b06e950049aa3237467c0a46b',
+    );
+    expect(result.rawData['Unity Asset DB']['Characters'].length).toBe(4);
+  });
+});
+
 describe('UnityDataService git authorship', () => {
   let service: UnityDataService;
 

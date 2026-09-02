@@ -581,6 +581,156 @@ describe('AssetDetailComponent audio clip', () => {
   });
 });
 
+describe('AssetDetailComponent body texture', () => {
+  let fixture: ComponentFixture<AssetDetailComponent>;
+  let component: AssetDetailComponent;
+
+  const textureAsset: DboAsset = {
+    AssetId: 'tex-1',
+    AssetName: 'Ga Skin Body Diffuse',
+    AssetType: 'Body Texture (default)',
+    Data: {
+      CharacterKind: 'body-texture',
+      AssetKey: 'Ga_Skin_Body_Diffuse',
+      Guid: 'f282e47c4d66acd4aace982d29714b1d',
+      OrbitCaptureKey: 'body_texture_f282e47c4d66acd4aace982d29714b1d',
+      TexturePath:
+        'Assets/SimX/AssetBundles/Humanoids/character_adult01/Textures/Ga_Skin_Body_Diffuse.png',
+      IsDefault: true,
+      Characters: [{ AssetId: 'char-1' }],
+      TextureUrl:
+        'http://localhost:4301/unity-client/Assets/SimX/AssetBundles/Humanoids/character_adult01/Textures/Ga_Skin_Body_Diffuse.png',
+    },
+    Tags: ['Adult'],
+    _Category: 'Characters',
+    _File: 'unity',
+  };
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AssetDetailComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AssetDetailComponent);
+    component = fixture.componentInstance;
+    component.asset = textureAsset;
+    fixture.detectChanges();
+  });
+
+  it('previews the Unity albedo beside the summary', () => {
+    expect(component.showInlineTexture()).toBeTrue();
+    expect(component.textureUrl()).toContain('/unity-client/Assets/');
+    const img = (fixture.nativeElement as HTMLElement).querySelector(
+      '.inline-texture img',
+    ) as HTMLImageElement | null;
+    expect(img).toBeTruthy();
+    expect(img?.getAttribute('src')).toBe(textureAsset.Data['TextureUrl'] as string);
+  });
+
+  it('also offers the captured character GLB', () => {
+    expect(component.isCharacterModelAsset()).toBeTrue();
+    expect(component.orbitAddressable()).toBe(
+      'body_texture_f282e47c4d66acd4aace982d29714b1d',
+    );
+    expect(component.showInlineModel()).toBeTrue();
+  });
+
+  it('places the texture after the 3D viewer so they sit in a row', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    const media = host.querySelector('.asset-summary-media') as HTMLElement | null;
+    const viewer = media?.querySelector('app-orbit-inline-viewer');
+    const texture = media?.querySelector('.inline-texture');
+    expect(media).toBeTruthy();
+    expect(viewer).toBeTruthy();
+    expect(texture).toBeTruthy();
+    expect(
+      Boolean(
+        viewer &&
+          texture &&
+          viewer.compareDocumentPosition(texture) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBeTrue();
+    expect(getComputedStyle(media!).flexDirection).toBe('row');
+  });
+
+  it('omits sidebar plumbing and the media URL from the property table', () => {
+    const keys = component.dataKeys();
+    expect(keys).not.toContain('TextureUrl');
+    expect(keys).not.toContain('OrbitCaptureKey');
+    expect(keys).not.toContain('CharacterKind');
+    expect(keys).toContain('TexturePath');
+    expect(keys).toContain('IsDefault');
+    expect(keys).toContain('Characters');
+  });
+
+  it('hides the preview when the Unity file cannot be loaded', () => {
+    component.onTextureError();
+    fixture.detectChanges();
+    expect(component.showInlineTexture()).toBeFalse();
+    expect(
+      (fixture.nativeElement as HTMLElement).querySelector('.inline-texture'),
+    ).toBeNull();
+  });
+
+  it('keeps a texture-only preview on the left with no model slot', () => {
+    component.asset = {
+      ...textureAsset,
+      Data: {
+        ...textureAsset.Data,
+        OrbitCaptureKey: '',
+        AssetKey: '',
+        Guid: '',
+      },
+    };
+    fixture.detectChanges();
+
+    const host = fixture.nativeElement as HTMLElement;
+    const media = host.querySelector('.asset-summary-media') as HTMLElement | null;
+    expect(component.showInlineModel()).toBeFalse();
+    expect(component.showInlineTexture()).toBeTrue();
+    expect(media?.querySelector('app-orbit-inline-viewer')).toBeNull();
+    expect(media?.querySelector('.inline-texture')).toBeTruthy();
+    expect(media?.children.length).toBe(1);
+  });
+});
+
+describe('AssetDetailComponent character model', () => {
+  let fixture: ComponentFixture<AssetDetailComponent>;
+  let component: AssetDetailComponent;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AssetDetailComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AssetDetailComponent);
+    component = fixture.componentInstance;
+    component.asset = {
+      AssetId: '7bcb02cf-a39e-5ab8-9771-8282fede3d95',
+      AssetName: 'Adult01 Base',
+      AssetType: 'Character',
+      Data: {
+        CharacterKind: 'character',
+        AssetKey: 'character_core_adult01_base',
+      },
+      Tags: ['Core', 'Adult'],
+      _Category: 'Characters',
+      _File: 'unity',
+    };
+    fixture.detectChanges();
+  });
+
+  it('shows the inline GLB viewer for core characters', () => {
+    expect(component.isToolLike()).toBeFalse();
+    expect(component.isCharacterModelAsset()).toBeTrue();
+    expect(component.orbitAddressable()).toBe('character_core_adult01_base');
+    expect(component.showInlineModel()).toBeTrue();
+    expect(component.showCompatibleEquipment()).toBeFalse();
+  });
+});
+
 describe('AssetDetailComponent tags', () => {
   let fixture: ComponentFixture<AssetDetailComponent>;
   let component: AssetDetailComponent;

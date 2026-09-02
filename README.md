@@ -24,21 +24,28 @@ The JSON tree is **not** stored in this repo. Locally it comes from `unity-asset
 | Role | Setting |
 |------|---------|
 | Filesystem (API, import scripts, `npm run db:link`) | `UNITY_ASSET_DB_DIR` — default `../../unity-asset-documentation/db` |
+| Unity client textures (`BodyTexture` / `OverlayTexture` preview) | `UNITY_CLIENT_ROOT` — default `../../unity-client-alt` |
+| 3D orbit captures (`/models`) | `ORBIT_CAPTURES_DIR` — default sibling `../../unity-env-authoring/OrbitCaptures/EXPORT` when it exists, else `public/models` |
 | Browser URL (`UNITY_DB_ROOT` in the app) | `db` today (copied from `db-link`); replace with an S3/HTTPS URL later |
 
 ```bash
 # optional override (PowerShell)
 $env:UNITY_ASSET_DB_DIR="C:\SimX\unity-asset-documentation\db"
+$env:UNITY_CLIENT_ROOT="C:\SimX\unity-client-alt"
 npm start
 ```
 
 `npm start` / `npm run build` run `db:link` then regenerate `index.json` in that folder.
+
+**Body textures / overlay textures** sit in the **Characters** sidebar accordion (not a new top-level category). Albedo previews resolve `texturePath` against `UNITY_CLIENT_ROOT` via the API (`GET /unity-client/Assets/…`); run `npm run api:start` alongside the viewer. Missing files (and PSD/TGA) are tolerated — the detail page just omits the image. When a character GLB export exists, those pages also show one compatible character in the orbit viewer (`body_texture_<guid>` / `overlay_texture_<guid>` folders next to `character_core_*`).
 
 Layout:
 
 ```
 db/
   characters/<assetKey>.<8hex>.json
+  body-textures/<assetKey>.<8hex>.json  # character albedo bases (TextureStateController)
+  overlay-textures/<assetKey>.<8hex>.json  # overlay / wound patterns; preview from Unity client
   equipment/<assetKey>.<8hex>.json
   tools/<assetKey>.<8hex>.json
   interactions/<location>.<8hex>.json
@@ -146,7 +153,7 @@ Override the folder with `UNITY_ASSET_DB_DIR`. Listens on **http://localhost:430
 
 | Method | Path | Notes |
 |--------|------|--------|
-| POST | `/assets` | Library-compatible query; **tool**, **equipment**, **interaction**, **medication**, **waveform**, **scenario**, **environment**, **authored-environment**, **audio**, and **video** |
+| POST | `/assets` | Library-compatible query; **tool**, **equipment**, **character**, **interaction**, **medication**, **waveform**, **scenario**, **environment**, **authored-environment**, **audio**, and **video** |
 | GET | `/tags` | Curated taxonomy tags (`{ dataId, label, categories }`); falls back to asset label strings if empty |
 | POST / PATCH / DELETE | `/tags`, `/tags/:dataId` | Create / update / delete curated tags |
 | GET | `/tag-categories` | Curated categories (`{ dataId, label, tags }`) |
@@ -162,25 +169,36 @@ Override the folder with `UNITY_ASSET_DB_DIR`. Listens on **http://localhost:430
 | DELETE | `/asset-meta/:assetId/media/:mediaId` | Remove image + drop from note blocks |
 | GET | `/asset-image/:id` | 501 — no image store |
 | GET | `/models/<key>/model.glb` | Orbit Capture GLB (see below) |
-| GET | `/models-index` | `{ count, keys }` of published captures |
+| GET | `/models-index` | `{ count, keys, dir }` of published captures |
+| GET / PUT | `/models-root` | Current orbit folder + suggested sibling paths; remount with `{ dir }` |
+| GET | `/unity-client/<Assets/...>` | Character albedo PNG/JPG from `UNITY_CLIENT_ROOT` (BodyTexture / OverlayTexture preview) |
 | GET | `/system/health` | `{ status: "ok" }` |
 
-Unsupported Asset Library types (`character`, `environment`, `settings`) return **501** with a clear message. Point scenario-creator `NG_APP_ASSET_LIBRARY_NEXT_API_URL` at `http://localhost:4301`.
+Unsupported Asset Library types (`settings`) return **501** with a clear message. Point scenario-creator `NG_APP_ASSET_LIBRARY_NEXT_API_URL` at `http://localhost:4301`.
 
 ### Serving Orbit Captures over HTTP
 
-The Orbit viewer normally reads GLBs from a local folder you pick with the File System Access API. That API is **blocked in cross-origin iframes**, so embedded previews (the scenario-creator tool picker) could never load a model. The API therefore also serves the capture export directly:
+The Orbit viewer normally reads GLBs from a local folder you pick with the File System Access API. That API is **blocked in cross-origin iframes**, so embedded previews (the scenario-creator tool picker) could never load a model. The API therefore also serves the capture export directly.
+
+On localhost, **Orbit** in the header shows the folder the API is serving and can switch it (no env-var restart needed). Capture GLBs are not in git (`public/models` is gitignored). Prefer the live tree at `unity-env-authoring/OrbitCaptures/EXPORT`.
 
 ```bash
-# PowerShell
+# PowerShell — optional override; default prefers the env-authoring EXPORT
 $env:ORBIT_CAPTURES_DIR="C:\SimX\unity-env-authoring\OrbitCaptures\EXPORT"; npm run api:start
+# $env:ORBIT_CAPTURES_DIR="C:\SimX\unity-client\OrbitCaptures"; npm run api:start
 ```
 
-`ORBIT_CAPTURES_DIR` defaults to `public/models`. The folder is a flat set of capture directories named by addressable key, each with `manifest.json` and `model.glb` — exactly what the Unity export produces:
+`ORBIT_CAPTURES_DIR` defaults to the sibling `unity-env-authoring/OrbitCaptures/EXPORT` when that folder exists, otherwise `public/models`. The folder is a flat set of capture directories named by addressable key, each with `manifest.json` and `model.glb` — exactly what the Unity export produces:
 
 ```
 EXPORT/
   tool_gauze_kerlix/
+    manifest.json
+    model.glb
+  character_core_adult01_base/
+    manifest.json
+    model.glb
+  body_texture_f282e47c4d66acd4aace982d29714b1d/
     manifest.json
     model.glb
 ```

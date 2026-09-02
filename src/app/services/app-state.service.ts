@@ -15,6 +15,7 @@ import { assetMatchesTags, mergeTagLists, TagMatchMode } from '../utils/tag-filt
 import { AssetMetaService } from './asset-meta.service';
 import { OrbitViewerService } from '../orbit-capture/services/orbit-viewer.service';
 import { resolveLocalDataPack } from '../utils/local-data-pack.util';
+import { localFolderDataEnabled } from '../utils/runtime-host.util';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
@@ -59,7 +60,8 @@ export class AppStateService {
   readonly tabHistory = signal<Record<string, string[]>>({});
   readonly messageMode = signal<MessageMode>('package');
   readonly currentWebGLAssetId = signal<string | null>(null);
-  // Expanded state for categories that have subcategories (Tooling, Vessels, Audio, Videos).
+  // Expanded state for categories that have subcategories
+  // (Tooling, Vessels, Audio, Videos, Characters).
   readonly expandedCategories = signal<Record<string, boolean>>({});
 
   /** Current category (and subcategory) before search / tag filters. */
@@ -124,7 +126,9 @@ export class AppStateService {
       const count = Object.keys(result.assetMap).length;
       this.statusMessage.set(
         count === 0
-          ? 'No local data loaded. Settings → View Local Data.'
+          ? localFolderDataEnabled()
+            ? 'No local data loaded. Settings → View Local Data.'
+            : 'No assets found in the Unity asset DB.'
           : `Loaded Unity asset DB (${count} assets).`,
       );
       this.statusError.set(false);
@@ -133,7 +137,9 @@ export class AppStateService {
       this.handleInitialNavigation();
     } catch {
       this.statusMessage.set(
-        'No catalog on this host. Settings → View Local Data.',
+        localFolderDataEnabled()
+          ? 'No catalog on this host. Settings → View Local Data.'
+          : 'Could not load the Unity asset DB from the local API.',
       );
       this.statusError.set(false);
       this.loaded.set(true);
@@ -183,7 +189,13 @@ export class AppStateService {
     const map = this.assetMap();
     if (hash && map[hash]) {
       const asset = map[hash];
-      if (asset._Category && asset._File) this.selectCategory(asset._Category, asset._File);
+      if (asset._Category && asset._File) {
+        this.selectCategory(
+          asset._Category,
+          asset._File,
+          this.subcategoryForAsset(asset),
+        );
+      }
       this.openAssetTab(hash, true);
       return;
     }
@@ -207,6 +219,16 @@ export class AppStateService {
     if (subCategory) {
       this.expandedCategories.set({ ...this.expandedCategories(), [cat]: true });
     }
+  }
+
+  /** Sidebar accordion key for a row, or null when the category is flat. */
+  subcategoryForAsset(asset: DboAsset): string | null {
+    const cat = asset._Category;
+    if (!cat) return null;
+    const def = UNITY_SUBCATEGORY_DEFS[cat];
+    if (!def) return null;
+    const value = (asset.Data?.[def.field] as string | undefined) ?? def.fallback;
+    return value || null;
   }
 
   toggleTagFilter(label: string): void {
@@ -483,6 +505,7 @@ export class AppStateService {
   }
 
   async loadUnityDbFolder(files: FileList): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.requestLoadingCover();
     try {
       const result = await this.unityData.buildFromFolderFiles(Array.from(files));
@@ -507,6 +530,7 @@ export class AppStateService {
    * The directory handle is resolved lazily so 3D files are not read up front.
    */
   async loadLocalDataPack(root: FileSystemDirectoryHandle): Promise<void> {
+    if (!localFolderDataEnabled()) return;
     this.requestLoadingCover();
     try {
       const pack = await resolveLocalDataPack(root);

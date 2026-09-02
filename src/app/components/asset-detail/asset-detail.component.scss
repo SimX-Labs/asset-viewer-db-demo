@@ -93,25 +93,38 @@
 
   &:has(.model-infobox),
   &:has(.inline-video),
-  &:has(.inline-audio) {
+  &:has(.inline-audio),
+  &:has(.inline-texture) {
     gap: var(--space-4);
   }
 
   app-orbit-inline-viewer,
   .inline-video,
-  .inline-audio {
+  .inline-audio,
+  .inline-texture {
     display: block;
     min-width: 0;
   }
 
   .inline-video video,
-  .inline-video img {
+  .inline-video img,
+  .inline-texture img {
     display: block;
     width: 100%;
     max-height: 360px;
     background: #111;
     border-radius: var(--radius-default);
     border: 1px solid var(--border);
+    object-fit: contain;
+  }
+
+  .inline-texture-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
   }
 
   .inline-audio audio {
@@ -125,10 +138,55 @@
 }
 
 .asset-summary-media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-3);
   width: min(360px, 100%);
   min-width: 0;
 
-  &:not(:has(.model-infobox, .inline-video, .inline-audio)) {
+  &:has(app-orbit-inline-viewer) {
+    width: min(450px, 100%);
+  }
+
+  // Widen as soon as both hosts are in the DOM so a loading viewer does not
+  // wrap under the texture. A missing capture sets display:none on the orbit
+  // host, so the texture stays on the left with no empty column.
+  &:has(app-orbit-inline-viewer):has(.inline-texture) {
+    width: min(100%, calc(450px * 2 + var(--space-3)));
+  }
+
+  &:has(app-orbit-inline-viewer.has-infobox):has(.inline-texture) {
+    .inline-texture {
+      display: flex;
+      height: 360px;
+    }
+
+    .inline-texture-btn {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .inline-texture img {
+      height: 100%;
+      max-height: none;
+    }
+  }
+
+  app-orbit-inline-viewer,
+  .inline-video,
+  .inline-audio,
+  .inline-texture {
+    flex: 1 1 280px;
+    max-width: 450px;
+  }
+
+  app-orbit-inline-viewer {
+    height: 360px;
+  }
+
+  &:not(:has(.model-infobox, .inline-video, .inline-audio, .inline-texture, app-orbit-inline-viewer)) {
     display: none;
   }
 }
