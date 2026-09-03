@@ -68,6 +68,7 @@ export class AssetMetaPanelComponent implements OnChanges {
   readonly lightboxUrls = signal<string[]>([]);
   readonly lightboxCaptions = signal<string[]>([]);
   readonly lightboxIndex = signal(0);
+  readonly lightboxBlockId = signal<string | null>(null);
   private readonly assetId = signal('');
 
   /** Re-read when records or the open asset change. */
@@ -119,6 +120,7 @@ export class AssetMetaPanelComponent implements OnChanges {
       this.pickingNoteType.set(false);
       this.commentDraft.set('');
       this.carouselIndex.set({});
+      this.closeLightbox();
     }
   }
 
@@ -416,15 +418,29 @@ export class AssetMetaPanelComponent implements OnChanges {
     this.carouselIndex.set({ ...this.carouselIndex(), [blockId]: wrapped });
   }
 
+  selectCarouselSlide(
+    blockId: string,
+    index: number,
+    len: number,
+    event?: Event,
+  ): void {
+    this.setCarouselIndex(blockId, index, len);
+    const target = event?.currentTarget;
+    if (target instanceof HTMLElement) {
+      target.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    }
+  }
+
   carouselCaption(block: AssetMetaCarouselBlock): string {
     return carouselSlideCaption(block, this.currentCarouselIndex(block.id));
   }
 
-  openLightbox(urls: string[], index = 0, captions: string[] = []): void {
+  openLightbox(urls: string[], index = 0, captions: string[] = [], blockId: string | null = null): void {
     if (!urls.length) return;
     this.lightboxUrls.set(urls);
     this.lightboxCaptions.set(captions);
     this.lightboxIndex.set(index);
+    this.lightboxBlockId.set(blockId);
     this.lightboxOpen.set(true);
   }
 
@@ -438,11 +454,20 @@ export class AssetMetaPanelComponent implements OnChanges {
     const captions = (block.mediaIds ?? []).map((_, i) =>
       carouselSlideCaption(block, i),
     );
-    this.openLightbox(urls, index, captions);
+    this.openLightbox(urls, index, captions, block.id);
+  }
+
+  onLightboxIndex(index: number): void {
+    this.lightboxIndex.set(index);
+    const blockId = this.lightboxBlockId();
+    if (blockId) {
+      this.setCarouselIndex(blockId, index, this.lightboxUrls().length);
+    }
   }
 
   closeLightbox(): void {
     this.lightboxOpen.set(false);
+    this.lightboxBlockId.set(null);
   }
 
   async submitComment(): Promise<void> {

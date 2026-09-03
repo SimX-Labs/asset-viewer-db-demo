@@ -221,3 +221,60 @@ describe('AssetMetaPanelComponent notes status', () => {
     expect(host.querySelector('.md-preview--empty')).toBeNull();
   });
 });
+
+describe('AssetMetaPanelComponent carousel', () => {
+  let fixture: ComponentFixture<AssetMetaPanelComponent>;
+
+  const asset: DboAsset = {
+    AssetId: 'asset-carousel',
+    AssetName: 'Board',
+    AssetType: 'Equipment',
+    Data: {},
+  };
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AssetMetaPanelComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+
+    const meta = TestBed.inject(AssetMetaService);
+    const record = emptyAssetMetaRecord('asset-carousel');
+    record.notes = [
+      {
+        id: 'car-1',
+        type: 'carousel',
+        mediaIds: ['m1', 'm2', 'm3'],
+        slideCaptions: { m1: 'First', m2: 'Second', m3: 'Third' },
+      },
+    ];
+    record.media = [
+      { id: 'm1', filename: 'one.jpg', contentType: 'image/jpeg' },
+      { id: 'm2', filename: 'two.jpg', contentType: 'image/jpeg' },
+      { id: 'm3', filename: 'three.jpg', contentType: 'image/jpeg' },
+    ];
+    meta.records.set({ 'asset-carousel': record });
+
+    fixture = TestBed.createComponent(AssetMetaPanelComponent);
+    fixture.componentRef.setInput('showComments', false);
+    fixture.componentRef.setInput('asset', asset);
+    fixture.detectChanges();
+  });
+
+  it('shows the selected image above a horizontal strip of slides', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    const thumbs = host.querySelectorAll('.carousel-strip-item');
+    expect(thumbs.length).toBe(3);
+    expect(thumbs[0].classList.contains('active')).toBeTrue();
+    expect(host.querySelector('.carousel-hero img')?.getAttribute('src')).toContain('one.jpg');
+    expect(host.textContent).toContain('1 / 3');
+    expect(host.textContent).toContain('First');
+
+    (thumbs[1] as HTMLButtonElement).click();
+    fixture.detectChanges();
+    expect(thumbs[1].classList.contains('active')).toBeTrue();
+    expect(host.querySelector('.carousel-hero img')?.getAttribute('src')).toContain('two.jpg');
+    expect(host.textContent).toContain('2 / 3');
+    expect(host.textContent).toContain('Second');
+  });
+});

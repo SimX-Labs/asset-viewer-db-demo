@@ -1,0 +1,77 @@
+<div
+  class="lightbox-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image preview"
+  (click)="onBackdrop($event)"
+>
+  <button
+    type="button"
+    class="lightbox-close"
+    title="Close (Esc)"
+    (click)="close.emit()"
+  >
+    <i class="pi pi-times" aria-hidden="true"></i>
+  </button>
+
+  <div class="lightbox-stage" (click)="$event.stopPropagation()">
+    @if (urls.length > 1) {
+      <button
+        type="button"
+        class="lightbox-peek lightbox-peek--prev"
+        title="Previous (Left arrow)"
+        (click)="prev()"
+      >
+        <img [src]="urls[prevIndex()]" alt="" />
+      </button>
+    }
+
+    <img
+      class="lightbox-image"
+      [src]="urls[index] || urls[0]"
+      [alt]="currentCaption() || alt || ''"
+    />
+
+    @if (urls.length > 1) {
+      <button
+        type="button"
+        class="lightbox-peek lightbox-peek--next"
+        title="Next (Right arrow)"
+        (click)="next()"
+      >
+        <img [src]="urls[nextIndex()]" alt="" />
+      </button>
+    }
+  </div>
+
+  @if (urls.length > 1) {
+    <button
+      type="button"
+      class="lightbox-nav lightbox-nav--prev"
+      title="Previous (Left arrow)"
+      (click)="$event.stopPropagation(); prev()"
+    >
+      <i class="pi pi-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button
+      type="button"
+      class="lightbox-nav lightbox-nav--next"
+      title="Next (Right arrow)"
+      (click)="$event.stopPropagation(); next()"
+    >
+      <i class="pi pi-chevron-right" aria-hidden="true"></i>
+    </button>
+  }
+
+  @if (currentCaption(); as caption) {
+    <div class="lightbox-caption" (click)="$event.stopPropagation()">
+      {{ caption }}
+    </div>
+  }
+
+  @if (urls.length > 1) {
+    <div class="lightbox-counter" (click)="$event.stopPropagation()">
+      {{ index + 1 }} / {{ urls.length }}
+    </div>
+  }
+</div>

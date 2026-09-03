@@ -17,6 +17,32 @@
   padding: var(--space-3);
 }
 
+:host-context(.browser-pane:has(app-category-sidebar.collapsed)) .toolbar-row {
+  flex-wrap: wrap;
+}
+
+.toolbar-tools {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: var(--space-2);
+}
+
+:host-context(.browser-pane:has(app-category-sidebar.collapsed)) {
+  .search-wrapper,
+  .toolbar-tools {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .filter-actions,
+  .export-btn {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+}
+
 .search-wrapper {
   flex: 1;
   display: flex;

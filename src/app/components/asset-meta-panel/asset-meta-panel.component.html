@@ -223,32 +223,33 @@
           <div class="carousel">
             <button
               type="button"
-              class="carousel-nav"
-              (click)="setCarouselIndex(block.id, currentCarouselIndex(block.id) - 1, urls.length)"
-              [disabled]="urls.length < 2"
-              title="Previous"
-            >
-              <i class="pi pi-chevron-left" aria-hidden="true"></i>
-            </button>
-            <button
-              type="button"
-              class="carousel-frame"
+              class="carousel-hero"
               (click)="openCarouselLightbox(block, currentCarouselIndex(block.id))"
+              title="View larger"
             >
               <img
                 [src]="urls[currentCarouselIndex(block.id)]"
                 [alt]="carouselCaption(block)"
               />
             </button>
-            <button
-              type="button"
-              class="carousel-nav"
-              (click)="setCarouselIndex(block.id, currentCarouselIndex(block.id) + 1, urls.length)"
-              [disabled]="urls.length < 2"
-              title="Next"
-            >
-              <i class="pi pi-chevron-right" aria-hidden="true"></i>
-            </button>
+            @if (urls.length > 1) {
+              <div class="carousel-strip" role="list">
+                @for (url of urls; track $index; let i = $index) {
+                  <button
+                    type="button"
+                    class="carousel-strip-item"
+                    [class.active]="i === currentCarouselIndex(block.id)"
+                    [attr.data-carousel-thumb]="block.id + '-' + i"
+                    [attr.aria-current]="i === currentCarouselIndex(block.id) ? 'true' : null"
+                    [attr.aria-label]="'Image ' + (i + 1) + ' of ' + urls.length"
+                    role="listitem"
+                    (click)="selectCarouselSlide(block.id, i, urls.length, $event)"
+                  >
+                    <img [src]="url" alt="" />
+                  </button>
+                }
+              </div>
+            }
           </div>
           <div class="carousel-meta">
             <span class="carousel-count">
@@ -436,6 +437,6 @@
     [captions]="lightboxCaptions()"
     [index]="lightboxIndex()"
     (close)="closeLightbox()"
-    (indexChange)="lightboxIndex.set($event)"
+    (indexChange)="onLightboxIndex($event)"
   />
 }

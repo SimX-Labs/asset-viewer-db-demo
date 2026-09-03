@@ -57,12 +57,16 @@ function mapMetadata(m) {
     valueType: m.valueType || 'string',
     exposed: true,
     defaultValue: m.defaultValue ?? undefined,
+    possibleValues: Array.isArray(m.possibleValues) ? m.possibleValues : null,
+    controllerType: m.controllerType ?? null,
+    description: m.description ?? null,
+    valueShape: m.valueShape ?? null,
   };
 }
 
 /**
  * Resolve Unity interaction refs to display rows for pickers.
- * @param {Array<{ interactionId?: string, location?: string }> | undefined} refs
+ * @param {Array<{ interactionId?: string, location?: string, availableIn?: string[] | null }> | undefined} refs
  * @param {{ interactionById?: Map<string, object>, interactionByLocation?: Map<string, object> }} opts
  */
 function resolveInteractionRefs(refs, opts = {}) {
@@ -81,6 +85,7 @@ function resolveInteractionRefs(refs, opts = {}) {
       id: ref.interactionId ?? row?.id ?? null,
       name,
       location,
+      availableIn: Array.isArray(ref.availableIn) ? ref.availableIn : null,
     };
   });
 }
@@ -215,6 +220,9 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
   };
 
   if (includeData) {
+    const mappedPrimary = row.primaryMetadata
+      ? mapMetadata(row.primaryMetadata)
+      : null;
     const metadataSource = [
       ...(row.primaryMetadata ? [row.primaryMetadata] : []),
       ...(row.metadata ?? []),
@@ -238,6 +246,9 @@ function mapUnityRowToLibraryAsset(row, assetType, opts = {}) {
         ? row.usedInGroupIds.length
         : 0,
     };
+    if (mappedPrimary) {
+      data.primaryMetadata = mappedPrimary;
+    }
     if (assetType === 'equipment') {
       data.compatibleCharacters = resolveAssetRefs(
         row.characterIds,

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppStateService } from '../../services/app-state.service';
 import { DboAsset } from '../../models/dbo.models';
@@ -9,6 +9,19 @@ import {
   dataSourceLabel,
   sourceForCategory,
 } from '../../models/data-source';
+
+const SIDEBAR_OPEN_KEY = 'asset-viewer.categories-open';
+
+function readSidebarOpen(): boolean {
+  try {
+    const stored = localStorage.getItem(SIDEBAR_OPEN_KEY);
+    if (stored === '0') return false;
+    if (stored === '1') return true;
+  } catch {
+    /* ignore */
+  }
+  return true;
+}
 
 interface Subcategory {
   /** Value stored as currentSubCategory (e.g. vesselType). */
@@ -24,77 +37,109 @@ interface Subcategory {
   imports: [CommonModule],
   template: `
     <aside class="sidebar">
-      <div class="panel-header">Categories</div>
-      @for (cat of getUnityCategories(); track cat.name) {
-        @if (getSubcategories(cat.name, cat.fileName); as subs) {
-          <div class="accordion">
-            <button
-              class="accordion-header"
-              [class.expanded]="state.expandedCategories()[cat.name]"
-              (click)="state.toggleCategoryAccordion(cat.name)"
-            >
-              <span>{{ cat.name }} ({{ cat.count }})</span>
-              <i
-                class="pi accordion-arrow"
-                [class.pi-chevron-down]="state.expandedCategories()[cat.name]"
-                [class.pi-chevron-right]="!state.expandedCategories()[cat.name]"
-                aria-hidden="true"
-              ></i>
-            </button>
-            @if (state.expandedCategories()[cat.name]) {
-              <div class="accordion-content">
-                @for (sub of subs; track sub.key) {
-                  <button
-                    class="category-item"
-                    [class.active]="
-                      state.currentCategory() === cat.name &&
-                      state.currentSubCategory() === sub.key &&
-                      state.currentFile() === cat.fileName
-                    "
-                    (click)="state.selectCategory(cat.name, cat.fileName, sub.key)"
-                  >
-                    <div class="cat-head">
-                      <div class="cat-name">{{ sub.name }}</div>
-                      <span
-                        class="cat-source"
-                        [attr.data-source]="sub.source"
-                        [title]="sourceHint(sub.source)"
-                      >{{ sourceLabel(sub.source) }}</span>
-                    </div>
-                    <div class="cat-count">{{ sub.count }} items</div>
-                  </button>
-                }
-              </div>
-            }
-          </div>
-        } @else {
-          <button
-            class="category-item"
-            [class.active]="
-              state.currentCategory() === cat.name &&
-              !state.currentSubCategory() &&
-              state.currentFile() === cat.fileName
-            "
-            (click)="state.selectCategory(cat.name, cat.fileName)"
-          >
-            <div class="cat-head">
-              <div class="cat-name">{{ cat.name }}</div>
-              <span
-                class="cat-source"
-                [attr.data-source]="cat.source"
-                [title]="sourceHint(cat.source)"
-              >{{ sourceLabel(cat.source) }}</span>
+      <button
+        type="button"
+        class="sidebar-toggle"
+        (click)="toggle()"
+        [title]="open() ? 'Hide categories' : 'Show categories'"
+        [attr.aria-expanded]="open()"
+        [attr.aria-label]="open() ? 'Hide categories' : 'Show categories'"
+        aria-controls="category-sidebar-body"
+      >
+        <i
+          class="pi"
+          [class.pi-chevron-left]="open()"
+          [class.pi-chevron-right]="!open()"
+          aria-hidden="true"
+        ></i>
+      </button>
+      <div class="sidebar-body" id="category-sidebar-body">
+        <div class="panel-header">Categories</div>
+        @for (cat of getUnityCategories(); track cat.name) {
+          @if (getSubcategories(cat.name, cat.fileName); as subs) {
+            <div class="accordion">
+              <button
+                class="accordion-header"
+                [class.expanded]="state.expandedCategories()[cat.name]"
+                (click)="state.toggleCategoryAccordion(cat.name)"
+              >
+                <span>{{ cat.name }} ({{ cat.count }})</span>
+                <i
+                  class="pi accordion-arrow"
+                  [class.pi-chevron-down]="state.expandedCategories()[cat.name]"
+                  [class.pi-chevron-right]="!state.expandedCategories()[cat.name]"
+                  aria-hidden="true"
+                ></i>
+              </button>
+              @if (state.expandedCategories()[cat.name]) {
+                <div class="accordion-content">
+                  @for (sub of subs; track sub.key) {
+                    <button
+                      class="category-item"
+                      [class.active]="
+                        state.currentCategory() === cat.name &&
+                        state.currentSubCategory() === sub.key &&
+                        state.currentFile() === cat.fileName
+                      "
+                      (click)="state.selectCategory(cat.name, cat.fileName, sub.key)"
+                    >
+                      <div class="cat-head">
+                        <div class="cat-name">{{ sub.name }}</div>
+                        <span
+                          class="cat-source"
+                          [attr.data-source]="sub.source"
+                          [title]="sourceHint(sub.source)"
+                        >{{ sourceLabel(sub.source) }}</span>
+                      </div>
+                      <div class="cat-count">{{ sub.count }} items</div>
+                    </button>
+                  }
+                </div>
+              }
             </div>
-            <div class="cat-count">{{ cat.count }} items</div>
-          </button>
+          } @else {
+            <button
+              class="category-item"
+              [class.active]="
+                state.currentCategory() === cat.name &&
+                !state.currentSubCategory() &&
+                state.currentFile() === cat.fileName
+              "
+              (click)="state.selectCategory(cat.name, cat.fileName)"
+            >
+              <div class="cat-head">
+                <div class="cat-name">{{ cat.name }}</div>
+                <span
+                  class="cat-source"
+                  [attr.data-source]="cat.source"
+                  [title]="sourceHint(cat.source)"
+                >{{ sourceLabel(cat.source) }}</span>
+              </div>
+              <div class="cat-count">{{ cat.count }} items</div>
+            </button>
+          }
         }
-      }
+      </div>
     </aside>
   `,
   styleUrl: './category-sidebar.component.scss',
+  host: {
+    '[class.collapsed]': '!open()',
+  },
 })
 export class CategorySidebarComponent {
   readonly state = inject(AppStateService);
+  readonly open = signal(readSidebarOpen());
+
+  toggle(): void {
+    const next = !this.open();
+    this.open.set(next);
+    try {
+      localStorage.setItem(SIDEBAR_OPEN_KEY, next ? '1' : '0');
+    } catch {
+      /* ignore */
+    }
+  }
 
   sourceLabel(source: DataSource): string {
     return dataSourceLabel(source);

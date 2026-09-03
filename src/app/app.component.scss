@@ -87,6 +87,10 @@
   width: calc(var(--sidebar-width) + var(--list-width));
   min-height: 0;
   background: var(--bg-main);
+
+  &:has(app-category-sidebar.collapsed) {
+    width: calc(16px + var(--list-width));
+  }
 }
 
 .browser-columns {

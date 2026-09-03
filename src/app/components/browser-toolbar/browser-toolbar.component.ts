@@ -74,54 +74,56 @@ type SearchSuggestion =
             </ul>
           }
         </div>
-        <div class="filter-actions">
-          <button
-            type="button"
-            class="tag-picker-btn"
-            data-filter="status"
-            [class.open]="statusPickerOpen()"
-            [attr.aria-expanded]="statusPickerOpen()"
-            aria-haspopup="dialog"
-            title="Choose statuses to include or exclude"
-            (click)="openStatusPicker()"
-          >
-            <i class="pi pi-flag" aria-hidden="true"></i>
-            Status
-            @if (state.selectedStatuses().length) {
-              <span class="tag-count">{{ state.selectedStatuses().length }}</span>
-            }
-            <span class="tag-mode">{{
-              state.statusMatchMode() === 'exclude' ? 'Exclude' : 'Include'
-            }}</span>
-          </button>
-          @if (tagFilters().length || state.selectedTagLabels().length) {
+        <div class="toolbar-tools">
+          <div class="filter-actions">
             <button
               type="button"
               class="tag-picker-btn"
-              data-filter="tags"
-              [class.open]="pickerOpen()"
-              [attr.aria-expanded]="pickerOpen()"
+              data-filter="status"
+              [class.open]="statusPickerOpen()"
+              [attr.aria-expanded]="statusPickerOpen()"
               aria-haspopup="dialog"
-              title="Choose tags to filter"
-              (click)="openPicker()"
+              title="Choose statuses to include or exclude"
+              (click)="openStatusPicker()"
             >
-              <i class="pi pi-tags" aria-hidden="true"></i>
-              Tags
-              @if (state.selectedTagLabels().length) {
-                <span class="tag-count">{{ state.selectedTagLabels().length }}</span>
+              <i class="pi pi-flag" aria-hidden="true"></i>
+              Status
+              @if (state.selectedStatuses().length) {
+                <span class="tag-count">{{ state.selectedStatuses().length }}</span>
               }
-              <span class="tag-mode">{{ state.tagMatchMode() === 'or' ? 'OR' : 'AND' }}</span>
+              <span class="tag-mode">{{
+                state.statusMatchMode() === 'exclude' ? 'Exclude' : 'Include'
+              }}</span>
             </button>
-          }
+            @if (tagFilters().length || state.selectedTagLabels().length) {
+              <button
+                type="button"
+                class="tag-picker-btn"
+                data-filter="tags"
+                [class.open]="pickerOpen()"
+                [attr.aria-expanded]="pickerOpen()"
+                aria-haspopup="dialog"
+                title="Choose tags to filter"
+                (click)="openPicker()"
+              >
+                <i class="pi pi-tags" aria-hidden="true"></i>
+                Tags
+                @if (state.selectedTagLabels().length) {
+                  <span class="tag-count">{{ state.selectedTagLabels().length }}</span>
+                }
+                <span class="tag-mode">{{ state.tagMatchMode() === 'or' ? 'OR' : 'AND' }}</span>
+              </button>
+            }
+          </div>
+          <button
+            class="export-btn simx-btn simx-btn--small"
+            title="Export filtered list to CSV"
+            (click)="state.exportCsv()"
+          >
+            <i class="pi pi-download" aria-hidden="true"></i>
+            Export
+          </button>
         </div>
-        <button
-          class="export-btn simx-btn simx-btn--small"
-          title="Export filtered list to CSV"
-          (click)="state.exportCsv()"
-        >
-          <i class="pi pi-download" aria-hidden="true"></i>
-          Export
-        </button>
       </div>
       @if (hasActiveFilters()) {
         <div class="active-filters">
